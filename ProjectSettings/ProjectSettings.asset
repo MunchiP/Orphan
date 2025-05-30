@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: f445ea8ff31abd54ebfdaa3e01235ae7
+  productGUID: e177875d5669bf643bce42b375bcd40b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Orphan_
+  productName: EspadazoMagico
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -687,14 +687,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Orphan_
+  metroPackageName: EspadazoMagico
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Orphan_
+  metroApplicationDescription: EspadazoMagico
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -765,11 +765,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 4453a34f-77c0-48bb-a40b-b69ac8265890
+  cloudProjectId: 1128834c-451d-43e2-9086-ab4fa2235f6d
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Orphan_
-  organizationId: moship
+  projectName: EspadazoMagico
+  organizationId: unity_a0196e5a1f15fcae6c17
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
