@@ -1,77 +1,72 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.InputSystem; // Necesario para usar el nuevo sistema de Input de Unity.
+using UnityEngine.InputSystem; 
 
 public class PlayerController : MonoBehaviour
 {
-    // --- Variables de Input ---
-    private InputSystem_Actions inputActions; // Referencia al Asset de Input Actions.
-    private Vector2 moveInput;               // Almacena la entrada de movimiento (horizontal y vertical).
-    private bool jumpPressedThisFrame;       // Indica si el botón de salto fue presionado en el frame actual.
-    private bool attackPressedThisFrame;     // Indica si el botón de ataque fue presionado en el frame actual.
-
-    [Header("Componentes")]
-    private Animator anim;                   // Componente Animator para controlar animaciones.
-    private Rigidbody2D rb;                  // Componente Rigidbody2D para la física del jugador.
-    private GrappleLiana grappleLiana;       // Script para el manejo de la liana.
-    private WallJumpController wallJumpController; // Script para el manejo del salto de pared.
-
+    // --- Variables públicas que puedes ajustar en el Inspector ---
     [Header("Movimiento")]
-    public float moveSpeed = 5f;             // Velocidad de movimiento horizontal.
-    public float jumpForce = 12f;            // Fuerza aplicada al saltar.
-    public Transform groundCheck;            // Objeto para verificar la posición del suelo.
-    public LayerMask groundLayer;            // Capa que define el "suelo".
-    public float groundCheckRadius = 0.1f;   // Radio de detección del suelo.
+    public float moveSpeed = 5f;          
+    public float jumpForce = 10f;         
+    public Transform groundCheck;         
+    public float groundCheckRadius = 0.2f; 
+    public LayerMask groundLayer;         
+    public float lowJumpMultiplier = 2f;  
+    public float fallMultiplier = 2.5f;   
 
     [Header("Ataque")]
-    public float attackCooldown = 1f;        // Tiempo de espera entre ataques.
-    private bool canAttack = true;           // Controla si el jugador puede atacar.
+    public float attackCooldown = 0.5f;   
+    
+    // --- Componentes ---
+    private Animator anim;                   
+    private Rigidbody2D rb;                  
+    private GrappleLiana grappleLiana;       
+    private WallJumpController wallJumpController; 
 
     // --- Variables de Estado Internas ---
-    private bool isGrounded;                 // Indica si el jugador está en el suelo.
+    private bool isGrounded;                 
+    private bool canAttack = true;           
 
-    /// <summary>
-    /// Se llama cuando el script se carga. Ideal para inicializar el Input System.
-    /// </summary>
+    // --- Variables de Input ---
+    private InputSystem_Actions inputActions; 
+    private Vector2 moveInput;                
+    private bool jumpPressedThisFrame;        
+    private bool jumpHeld;                    
+    private bool attackPressedThisFrame;      
+
     void Awake()
     {
-        inputActions = new InputSystem_Actions(); // Instancia el Asset de Input Actions.
+        inputActions = new InputSystem_Actions(); 
 
-        // Suscribe los eventos de las acciones de Input.
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
 
         inputActions.Player.Jump.performed += ctx => jumpPressedThisFrame = true;
+        inputActions.Player.Jump.started += ctx => jumpHeld = true;   
+        inputActions.Player.Jump.canceled += ctx => jumpHeld = false; 
+        
         inputActions.Player.Attack.performed += ctx => attackPressedThisFrame = true;
     }
 
-    /// <summary>
-    /// Habilita el Action Map del jugador cuando el GameObject está activo.
-    /// </summary>
     void OnEnable()
     {
-        inputActions.Player.Enable();
+        inputActions.Player.Enable(); 
     }
 
-    /// <summary>
-    /// Deshabilita el Action Map del jugador cuando el GameObject se desactiva.
-    /// </summary>
     void OnDisable()
     {
-        inputActions.Player.Disable();
+        inputActions.Player.Disable(); 
     }
 
-    /// <summary>
-    /// Se llama una vez al inicio del juego. Obtiene referencias a componentes.
-    /// </summary>
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        grappleLiana = GetComponent<GrappleLiana>();
-        wallJumpController = GetComponent<WallJumpController>();
+        grappleLiana = GetComponent<GrappleLiana>(); 
+        wallJumpController = GetComponent<WallJumpController>(); 
 
-        // Advertencias si faltan componentes cruciales.
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+
         if (wallJumpController == null)
         {
             Debug.LogWarning("PlayerController: No se encontró el componente WallJumpController. Las restricciones de movimiento del Wall Jump podrían no funcionar.");
@@ -82,53 +77,45 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Se llama una vez por frame. Lógica no física.
-    /// </summary>
     void Update()
     {
         CheckGrounded();
         UpdateAnimations();
 
-        // Manejo del ataque (con cooldown).
         if (attackPressedThisFrame && canAttack)
         {
             StartCoroutine(Attack());
         }
-        attackPressedThisFrame = false; // Reinicia la bandera de ataque.
+        attackPressedThisFrame = false; 
     }
 
-    /// <summary>
-    /// Se llama a intervalos fijos. Ideal para lógica de física y movimiento.
-    /// </summary>
     void FixedUpdate()
     {
         bool isHandlingWallJump = (wallJumpController != null && (wallJumpController.IsWallSliding || wallJumpController.IsWallJumping));
         bool attachedToLiana = (grappleLiana != null && grappleLiana.isAttached);
 
-        // Lógica de prioridad de movimiento: Wall Jump > Liana > Movimiento normal.
         if (isHandlingWallJump)
         {
-            // El WallJumpController toma el control total de la física.
+            // WallJumpController toma el control
         }
         else if (attachedToLiana)
         {
-            // Si está enganchado a la liana, solo se ejecuta la lógica de salto (para desenganchar).
+            // Liana controla el movimiento
             HandleJump();
         }
         else
         {
-            // Movimiento y salto normal.
+            // Movimiento normal
             HandleMovement();
             HandleJump();
+            ApplyVariableJumpForce(); 
         }
 
-        // Reinicia la bandera de salto después de procesar la física.
-        jumpPressedThisFrame = false;
+        jumpPressedThisFrame = false; 
     }
 
     /// <summary>
-    /// Verifica si el jugador está en el suelo o enganchado a la liana.
+    /// Comprueba si el jugador está en el suelo.
     /// </summary>
     private void CheckGrounded()
     {
@@ -147,15 +134,13 @@ public class PlayerController : MonoBehaviour
 
         bool isWallActionActive = (wallJumpController != null && (wallJumpController.IsWallSliding || wallJumpController.IsWallJumping));
 
-        // Animación de "caminar" solo si no está en acción de pared ni en liana.
         float walkValue = 0;
         if (!isWallActionActive && !attachedToLiana)
         {
             walkValue = Mathf.Abs(rb.linearVelocity.x);
         }
-        anim.SetFloat("walk", walkValue, 0.2f, 0.2f);
+        anim.SetFloat("walk", walkValue, 0.2f, 0.2f); 
 
-        // Animación de "salto" solo si no está en acción de pared ni en liana.
         float jumpValue = 0;
         if (!isWallActionActive && !attachedToLiana)
         {
@@ -163,7 +148,6 @@ public class PlayerController : MonoBehaviour
         }
         anim.SetFloat("jump", jumpValue);
 
-        // Volteo del sprite según la dirección del movimiento, si no está en acción de pared.
         if (!isWallActionActive)
         {
             if (moveInput.x > 0)
@@ -174,48 +158,82 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Maneja el movimiento horizontal del jugador.
+    /// Maneja el movimiento horizontal del jugador, adaptándose si es hijo de un ascensor.
     /// </summary>
     private void HandleMovement()
     {
-        float targetYVelocity = rb.linearVelocity.y;
+        float targetSpeedX = moveInput.x * moveSpeed; 
+        float currentYVelocity = rb.linearVelocity.y; 
 
-        // Si está en el suelo (no por liana) y su velocidad vertical es mínima, la fija en 0.
-        if (isGrounded && !(grappleLiana != null && grappleLiana.isAttached) && rb.linearVelocity.y <= 0.1f)
+        // Detecta si el jugador es hijo del ascensor (asumiendo que el ascensor tiene el Tag "Elevator").
+        bool isParentedToElevator = (transform.parent != null && transform.parent.CompareTag("Elevator")); 
+
+        if (isParentedToElevator)
         {
-            targetYVelocity = 0;
-        }
+            // --- LÓGICA PARA EL MOVIMIENTO HORIZONTAL DEL JUGADOR EN PLATAFORMAS (Paternidad) ---
 
-        // Aplica el movimiento horizontal usando el input del sistema de Input Actions.
-        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, targetYVelocity);
+            // Cuando el jugador es hijo del ascensor, controlamos su movimiento horizontal
+            // directamente usando su posición local (respecto al padre).
+            // Esto evita que el Rigidbody2D "luche" contra la manipulación del transform del padre en X.
+            
+            Vector3 newLocalPosition = transform.localPosition;
+            // Movemos la posición local en X. Usamos Time.fixedDeltaTime porque estamos en FixedUpdate.
+            newLocalPosition.x += targetSpeedX * Time.fixedDeltaTime; 
+            transform.localPosition = newLocalPosition;
+
+            // Importantísimo: Reiniciar la velocidad X del Rigidbody.
+            // Si el Rigidbody intentara moverse en X, lucharía contra transform.localPosition.
+            rb.linearVelocity = new Vector2(0f, currentYVelocity); 
+        }
+        else
+        {
+            // Si el jugador NO es hijo de un ascensor, su movimiento horizontal es normal,
+            // completamente controlado por el Rigidbody2D y su linearVelocity.
+            rb.linearVelocity = new Vector2(targetSpeedX, currentYVelocity); 
+        }
     }
 
     /// <summary>
-    /// Maneja la acción de salto del jugador, incluyendo el desenganche de la liana.
+    /// Maneja la acción de salto del jugador.
     /// </summary>
     private void HandleJump()
     {
-        // Solo permite el salto si la bandera 'jumpPressedThisFrame' está activa.
         if (jumpPressedThisFrame)
         {
-            // Primero, comprueba si estamos enganchados a la liana.
             if (grappleLiana != null && grappleLiana.isAttached)
             {
-                grappleLiana.RemoveSwingJoint(); // ¡Llama al método para desenganchar la liana!
-                // Aplica un pequeño impulso al Rigidbody al soltar la liana.
-                // Puedes ajustar el multiplicador (ej. 0.7f) para la fuerza del salto al desenganchar.
+                grappleLiana.RemoveSwingJoint(); 
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * 0.7f); 
             }
-            // Si no estamos enganchados Y estamos en el suelo, realiza un salto normal.
             else if (isGrounded)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                // Si el jugador es hijo de algún objeto (como el ascensor), se desparenta al saltar.
+                if (transform.parent != null)
+                {
+                    transform.SetParent(null); 
+                }
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); 
             }
         }
     }
 
     /// <summary>
-    /// Coroutine para el ciclo de ataque (animación y cooldown).
+    /// Aplica gravedad variable para un salto más controlable.
+    /// </summary>
+    private void ApplyVariableJumpForce()
+    {
+        if (rb.linearVelocity.y > 0.1f && !jumpHeld) 
+        {
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+        }
+        else if (rb.linearVelocity.y < 0) 
+        {
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+        }
+    }
+
+    /// <summary>
+    /// Coroutine para la lógica de ataque.
     /// </summary>
     private IEnumerator Attack()
     {
@@ -225,7 +243,7 @@ public class PlayerController : MonoBehaviour
         canAttack = true;
     }
 
-    // --- Propiedades Públicas para Acceso Externo ---
-    public bool IsGroundedPublic => isGrounded;          // Devuelve si el jugador está en el suelo.
-    public float GetHorizontalInputPublic => moveInput.x; // Devuelve el input horizontal actual.
+    // --- Propiedades Públicas para acceso desde otros scripts ---
+    public bool IsGroundedPublic => isGrounded;         
+    public float GetHorizontalInputPublic => moveInput.x; 
 }
