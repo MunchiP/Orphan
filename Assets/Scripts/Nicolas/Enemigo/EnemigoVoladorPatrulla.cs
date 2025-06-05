@@ -8,6 +8,8 @@ public class EnemigoVoladorIA : MonoBehaviour
     [Header("Movimiento")]
     public float velocidadMovimiento = 4f;
     public float tiempoEntreActualizacionesPath = 0.5f;
+    public float radioPatrulla = 2f;
+    public float tiempoEntrePuntosPatrulla = 2f;
 
     [Header("Distancias")]
     public float rangoDeteccionJugador = 8f;
@@ -23,55 +25,76 @@ public class EnemigoVoladorIA : MonoBehaviour
     public bool persiguiendoJugador = false;
     public bool enCooldownPostAtaque = false;
 
+    private Vector2 posicionInicial;
+    private Vector2 puntoPatrullaActual;
+
     void Awake()
     {
-        jugador = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject jugadorGO = GameObject.FindGameObjectWithTag("Player");
+        if (jugadorGO != null)
+        {
+            jugador = jugadorGO.transform;
+        }
+        else
+        {
+            Debug.LogWarning("Jugador no encontrado al iniciar. Se volverá a intentar más tarde.");
+        }
+
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
-
-        if (jugador == null)
-            Debug.LogError("No se encontró el jugador con tag 'Player'");
 
         if (seeker == null)
             Debug.LogError("No se encontró Seeker en el enemigo");
 
         if (rb == null)
             Debug.LogError("No se encontró Rigidbody2D en el enemigo");
+
+        posicionInicial = transform.position;
     }
 
     void Start()
     {
         InvokeRepeating(nameof(ActualizarPath), 0f, tiempoEntreActualizacionesPath);
+        StartCoroutine(PatrullarSiNoDetectaJugador());
     }
 
     void ActualizarPath()
-{
-    if (jugador == null) return;
-
-    if (!persiguiendoJugador)
     {
-        float distanciaAlJugador = Vector2.Distance(transform.position, jugador.position);
-
-        // Activar persecución sólo si está en rango de detección
-        if (distanciaAlJugador <= rangoDeteccionJugador)
+        if (jugador == null)
         {
-            persiguiendoJugador = true;
-            Debug.Log("Jugador detectado, persiguiendo globalmente.");
+            GameObject jugadorGO = GameObject.FindGameObjectWithTag("Player");
+            if (jugadorGO != null)
+            {
+                jugador = jugadorGO.transform;
+                Debug.Log("Jugador asignado dinámicamente.");
+            }
+            else
+            {
+                return;
+            }
         }
-        else
+
+        if (!persiguiendoJugador)
         {
-            // No hacer nada si no está en rango y no persigue
-            return;
+            float distanciaAlJugador = Vector2.Distance(transform.position, jugador.position);
+
+            if (distanciaAlJugador <= rangoDeteccionJugador)
+            {
+                persiguiendoJugador = true;
+                StopCoroutine(PatrullarSiNoDetectaJugador()); // Detener patrulla si detecta jugador
+                Debug.Log("Jugador detectado, persiguiendo.");
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(rb.position, jugador.position, OnPathComplete);
         }
     }
-
-    // Ya persiguiendo, siempre actualizar el path hacia el jugador sin importar la distancia
-    if (seeker.IsDone())
-    {
-        seeker.StartPath(rb.position, jugador.position, OnPathComplete);
-    }
-}
-
 
     void OnPathComplete(Path p)
     {
@@ -97,12 +120,10 @@ public class EnemigoVoladorIA : MonoBehaviour
             currentWaypoint++;
         }
 
-        // Mueve usando MovePosition para no romper colisiones ni volar
         Vector2 nuevaPosicion = rb.position + direccion * velocidadMovimiento * Time.fixedDeltaTime;
         rb.MovePosition(nuevaPosicion);
     }
 
-    // Llamar desde PlayerKnockbackTrigger cuando el enemigo golpea al jugador
     public void PausarTrasGolpear()
     {
         if (!enCooldownPostAtaque)
@@ -118,6 +139,20 @@ public class EnemigoVoladorIA : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         enCooldownPostAtaque = false;
-        // La actualización de path se reanudará automáticamente en ActualizarPath()
+    }
+
+    IEnumerator PatrullarSiNoDetectaJugador()
+    {
+        while (!persiguiendoJugador)
+        {
+            Vector2 destinoAleatorio = posicionInicial + Random.insideUnitCircle * radioPatrulla;
+
+            if (seeker != null && seeker.IsDone())
+            {
+                seeker.StartPath(rb.position, destinoAleatorio, OnPathComplete);
+            }
+
+            yield return new WaitForSeconds(tiempoEntrePuntosPatrulla);
+        }
     }
 }
