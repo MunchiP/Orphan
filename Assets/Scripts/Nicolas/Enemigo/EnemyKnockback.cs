@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyKnockback : MonoBehaviour
 {
     public EnemyState enemyState;
-    private float knockbackForce = 5f;
+    public float knockbackForce = 5f;
     private Rigidbody2D rb;
     private Animator anim;
 
@@ -18,7 +18,7 @@ public class EnemyKnockback : MonoBehaviour
     {
         if (other.CompareTag("Arma"))
         {
-            anim.SetTrigger("Hurt");
+            anim.SetTrigger("hurt");
             Vector3 knockDirection = (transform.position - other.transform.position).normalized;
             rb.AddForce(knockDirection * knockbackForce, ForceMode2D.Impulse);
             enemyState.TomarDano(25);
