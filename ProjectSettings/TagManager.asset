@@ -7,6 +7,7 @@ TagManager:
   - Plataforma
   - ElevatorMeta
   - Elevator
+  - Enemigo
   layers:
   - Default
   - TransparentFX
