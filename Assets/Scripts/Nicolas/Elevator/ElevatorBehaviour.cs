@@ -22,7 +22,7 @@ public class ElevatorBehaviour : MonoBehaviour
         initialPosition = transform.position; // Guarda la posición de inicio del ascensor
 
         // Aseguramos que el Rigidbody2D del elevador es Kinematic.
-        rb.isKinematic = true; 
+        rb.bodyType = RigidbodyType2D.Kinematic;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
