@@ -5,65 +5,95 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance; // Patrón Singletosn que me permite que otros scripts acceden facilmente a mi DialogoManager
+    public static DialogueManager Instance;
 
-    [SerializeField] private TextMeshProUGUI dialogueText; // Referencia al objeto de UI donde se muestra el texto del diálogo
-    [SerializeField] private GameObject dialogueBox; // Caja de diálogo completa 
-    private Queue<string> dialogueLines; // Cola de líneas de texto que se irán mostrando en orden
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private GameObject dialogueBox;
 
+    private Queue<string> dialogueLines;
+    private Coroutine typingCoroutine;
 
     private void Awake()
     {
-        if (Instance == null)  // Verifico que sólo haya un singletón  y si hay otro se destruye para usar thissss
+        if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // No se destruye al cambio de scena
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); // Si existe el otro destruye el duplicado
+            Destroy(gameObject);
         }
-        dialogueLines = new Queue<string>();  // Inicia la lista de dialogos vacía
+        dialogueLines = new Queue<string>();
     }
 
     public void StartDialogue(string[] lines)
     {
-        dialogueBox.SetActive(true);  // Mostrar mi caja de dialogo en la pantalla
-        dialogueLines.Clear();  //Elimina cualquier dialogo anterior
-        foreach (string line in lines) // Recorre cada una de las lineas guardadas y ....
+        if (!dialogueBox.activeInHierarchy)
         {
-            dialogueLines.Enqueue(line); // Añade cada línea a la cola
+            dialogueBox.SetActive(true);
+            dialogueLines.Clear();
+
+            foreach (string line in lines)
+            {
+                dialogueLines.Enqueue(line);
+            }
+
+            DisplayNextLine();
         }
-        DisplayNextLine(); // Comienza mostrando la primera linea
+        else
+        {
+            // Detener el tipeo si está activo
+            if (typingCoroutine != null)
+            {
+                StopCoroutine(typingCoroutine);
+                typingCoroutine = null;
+            }
+
+            dialogueLines.Clear();
+            dialogueBox.SetActive(false);
+        }
     }
 
     void DisplayNextLine()
     {
         if (dialogueLines.Count == 0)
         {
-            EndDialogue(); // Si ya no queda lineas, termina el diálogo.
+            EndDialogue();
             return;
         }
 
-        string line = dialogueLines.Dequeue();  // Toma la siguiente linea para agregarla a la cola
-        //StopAllCoroutines(); // Detiene cualquier corrutina en proceso 
-        StartCoroutine(TypeLine(line)); // Inicia el efecto de tipeo con la línea actual
+        string line = dialogueLines.Dequeue();
+
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+
+        typingCoroutine = StartCoroutine(TypeLine(line));
     }
 
     private IEnumerator TypeLine(string line)
     {
-        dialogueText.text = ""; // Limpia el texto actual
+        dialogueText.text = "";
         foreach (char item in line.ToCharArray())
         {
-            dialogueText.text += item; // Agrega letra por letra al texto
-            yield return new WaitForSeconds(0.04f); // Espera un poco entre las letrras para hacer el efecto de tipeo
+            dialogueText.text += item;
+            yield return new WaitForSeconds(0.04f);
         }
+
+        typingCoroutine = null;
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
-        dialogueBox.SetActive(false); // Se oculta la caja cuando terminan los textos.
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+
+        dialogueLines.Clear(); // Asegura que siempre se limpie
+        dialogueBox.SetActive(false);
     }
-
 }
-

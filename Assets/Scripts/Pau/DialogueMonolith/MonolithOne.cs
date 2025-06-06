@@ -1,35 +1,57 @@
 using UnityEngine;
 
-public class MonolithOne : MonoBehaviour
+public class MonolithOne : MonoBehaviour, IInteractable
 {
 
     [SerializeField] private GameObject exclamation;
 
     [TextArea] public string[] lines; // Almaceno las lineas de código que mostraré
-    private bool playerInRange = false; //Asegura que el dialogo se ejecute una sola vez cuando el jugador está cerca
-    private InputSystem_Actions inputActions;
+                                      // private bool playerInRange = false; //Asegura que el dialogo se ejecute una sola vez cuando el jugador está cerca
+                                      // private InputSystem_Actions inputActions;
 
-    private void Awake()
+    // private void Awake()
+    // {
+    //     inputActions = new InputSystem_Actions();
+    // }
+
+    // private void Update()
+    // {
+    //     // if (playerInRange && Input.GetKeyDown("Swing"))
+    //     //     if (playerInRange && Input.GetKeyDown(KeyCode.C))
+    //     //     {
+
+    //     //         playerInRange = false;
+    //     //         //   Debug.Log("Update del límite collider");
+    //     //     }
+    // }
+
+    // void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Player"))
+    //     {
+    //         playerInRange = true;
+    //         exclamation.SetActive(true);
+    //         // Debug.Log("REconoce el límite collider");
+    //     }
+    // }
+    // void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Player"))
+    //         playerInRange = false;
+    //     exclamation.SetActive(false);
+    //     // Debug.Log("Sale del límite collider");
+    // }
+
+
+    public void Interact()
     {
-        inputActions = new InputSystem_Actions();
+        DialogueManager.Instance.StartDialogue(lines);
     }
-
-    private void Update()
-    {
-        // if (playerInRange && Input.GetKeyDown("Swing"))
-            if (playerInRange && Input.GetKeyDown(KeyCode.C))
-            {
-                DialogueManager.Instance.StartDialogue(lines);
-                playerInRange = false;
-                //   Debug.Log("Update del límite collider");
-            }
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
+    
+      void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerInRange = true;
             exclamation.SetActive(true);
             // Debug.Log("REconoce el límite collider");
         }
@@ -37,10 +59,13 @@ public class MonolithOne : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-            playerInRange = false;
+        {
             exclamation.SetActive(false);
-            // Debug.Log("Sale del límite collider");
+            DialogueManager.Instance.EndDialogue();
+        }
+
     }
+
 }
 
 
