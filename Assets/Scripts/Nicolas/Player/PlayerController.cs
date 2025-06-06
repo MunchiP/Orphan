@@ -73,6 +73,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SaveLoadManager saveLoadManager = FindAnyObjectByType<SaveLoadManager>();
+            saveLoadManager.CargarDesdeSlot(1);
+            saveLoadManager.EliminarSlot(1);
+            saveLoadManager.EliminarSlot(2);
+            saveLoadManager.EliminarSlot(3);
+        }
         CheckGrounded();
         UpdateAnimations();
 
