@@ -76,4 +76,18 @@ public class EnemigoPatrulla : MonoBehaviour
             Gizmos.DrawLine(detectorPared.position, detectorPared.position + dir * distanciaDeteccionPared);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerKnockback knockback = collision.gameObject.GetComponent<PlayerKnockback>();
+            if (knockback != null)
+            {
+                Vector2 contactPoint = collision.contacts[0].point;
+                knockback.ApplyKnockback(contactPoint);
+            }
+        }
+    }
+
 }

@@ -7,6 +7,8 @@ TagManager:
   - Plataforma
   - ElevatorMeta
   - Elevator
+  - Enemigo
+  - Arma
   layers:
   - Default
   - TransparentFX
