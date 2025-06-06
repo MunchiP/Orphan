@@ -688,7 +688,7 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: EspadazoMagico
-  metroPackageVersion: 
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -696,7 +696,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: EspadazoMagico
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: EspadazoMagico
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -765,11 +765,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 1128834c-451d-43e2-9086-ab4fa2235f6d
+  cloudProjectId: 4453a34f-77c0-48bb-a40b-b69ac8265890
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: EspadazoMagico
-  organizationId: unity_a0196e5a1f15fcae6c17
+  projectName: Orphan_
+  organizationId: moship
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
