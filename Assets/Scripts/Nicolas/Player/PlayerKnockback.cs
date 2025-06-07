@@ -13,6 +13,7 @@ public class PlayerKnockback : MonoBehaviour
     private PlayerState playerState;
     private bool isKnockedBack = false;
     private bool canKnockback = true;
+    private Animator anim;
 
     void Awake()
     {
@@ -26,6 +27,10 @@ public class PlayerKnockback : MonoBehaviour
             Debug.LogError("No se encontró PlayerController en el jugador.", this);
         if (playerState == null)
             Debug.LogError("No se encontró PlayerState en el jugador.", this);
+    }
+    void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -56,7 +61,7 @@ public class PlayerKnockback : MonoBehaviour
     public void ApplyKnockback(Vector2 contactPoint)
     {
         if (isKnockedBack || !canKnockback) return;
-
+        anim.SetTrigger("knockout");
         isKnockedBack = true;
         canKnockback = false;
 

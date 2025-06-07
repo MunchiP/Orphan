@@ -72,6 +72,10 @@ public class WallJumpController : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (!isTouchingWall || playerController.IsGroundedPublic || rb.linearVelocity.y > 0)
+        {
+            isWallSliding = false;
+        }
         // Verifica que los componentes necesarios estén asignados.
         if (playerController == null || animator == null) return;
 

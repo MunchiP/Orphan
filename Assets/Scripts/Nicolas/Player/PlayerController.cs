@@ -73,14 +73,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            SaveLoadManager saveLoadManager = FindAnyObjectByType<SaveLoadManager>();
-            saveLoadManager.CargarDesdeSlot(1);
-            saveLoadManager.EliminarSlot(1);
-            saveLoadManager.EliminarSlot(2);
-            saveLoadManager.EliminarSlot(3);
-        }
         CheckGrounded();
         UpdateAnimations();
 
@@ -205,6 +197,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Attack()
     {
         canAttack = false;
+        anim.SetBool("isAttacking", true);
         anim.SetTrigger("attack");
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
