@@ -110,7 +110,7 @@ public class DialogueManager : MonoBehaviour
 
     public void UpdateDialogue(CharacterData characterData)
     {
-        dialogueBoxImg.color = characterData.NameColor;
+        // dialogueBoxImg.color = characterData.NameColor;
         characterName.text = characterData.CharacterName;
         // characterName.text = characterData.TextFont;
         characterImage.sprite = characterData.Portrait;   
