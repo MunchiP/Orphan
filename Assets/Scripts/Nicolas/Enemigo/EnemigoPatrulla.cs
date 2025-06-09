@@ -22,16 +22,16 @@ public class EnemigoPatrulla : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        // animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()
     {
         if (!girando)
         {
-            float movimiento = (moviendoDerecha ? 1 : -1) * velocidad;
+            float movimiento = (moviendoDerecha ? -1 : 1) * velocidad;
             rb.linearVelocity = new Vector2(movimiento, rb.linearVelocity.y);
-            // animator.SetFloat("Velocidad", Mathf.Abs(rb.linearVelocity.x));
+            animator.SetBool("velocity", true);
 
             bool sinSuelo = !Physics2D.Raycast(detectorSuelo.position, Vector2.down, distanciaDeteccionSuelo, capaSuelo);
             bool hayPared = Physics2D.Raycast(detectorPared.position, moviendoDerecha ? Vector2.right : Vector2.left, distanciaDeteccionPared, capaPared);
@@ -44,7 +44,7 @@ public class EnemigoPatrulla : MonoBehaviour
         else
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-            // animator.SetFloat("Velocidad", 0);
+            animator.SetBool("velocity", false);
         }
     }
 

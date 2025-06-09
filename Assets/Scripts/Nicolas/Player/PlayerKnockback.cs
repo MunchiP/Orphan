@@ -33,30 +33,55 @@ public class PlayerKnockback : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (!canKnockback || isKnockedBack) return;
+
+    //     if (other.CompareTag("Enemigo"))
+    //     {
+    //         Vector2 contacto = other.ClosestPoint(transform.position);
+
+    //         // Verifica si es un enemigo volador
+    //         EnemigoVoladorIA enemigoIA = other.GetComponent<EnemigoVoladorIA>();
+    //         if (enemigoIA != null)
+    //         {
+    //             if (!enemigoIA.enCooldownPostAtaque)
+    //             {
+    //                 ApplyKnockback(contacto);
+    //                 enemigoIA.PausarTrasGolpear();
+    //             }
+    //         }
+    //         else
+    //         {
+    //             ApplyKnockback(contacto);
+    //         }
+    //     }
+    // }
+
+    private void OnTriggerStay2D(Collider2D other)
+{
+    if (!canKnockback || isKnockedBack) return;
+
+    if (other.CompareTag("Enemigo"))
     {
-        if (!canKnockback || isKnockedBack) return;
+        Vector2 contacto = other.ClosestPoint(transform.position);
 
-        if (other.CompareTag("Enemigo"))
+        EnemigoVoladorIA enemigoIA = other.GetComponent<EnemigoVoladorIA>();
+        if (enemigoIA != null)
         {
-            Vector2 contacto = other.ClosestPoint(transform.position);
-
-            // Verifica si es un enemigo volador
-            EnemigoVoladorIA enemigoIA = other.GetComponent<EnemigoVoladorIA>();
-            if (enemigoIA != null)
-            {
-                if (!enemigoIA.enCooldownPostAtaque)
-                {
-                    ApplyKnockback(contacto);
-                    enemigoIA.PausarTrasGolpear();
-                }
-            }
-            else
+            if (!enemigoIA.enCooldownPostAtaque)
             {
                 ApplyKnockback(contacto);
+                enemigoIA.PausarTrasGolpear();
             }
         }
+        else
+        {
+            ApplyKnockback(contacto);
+        }
     }
+}
+
 
     public void ApplyKnockback(Vector2 contactPoint)
     {
