@@ -1,0 +1,849 @@
+fileFormatVersion: 2
+guid: 0a78b5f9d0844644b9d1cfd9c4df797d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7117250546739346707
+    second: CaveAquamarine_0
+  - first:
+      213: 5599583203081771559
+    second: CaveAquamarine_1
+  - first:
+      213: 6756752330584798759
+    second: CaveAquamarine_2
+  - first:
+      213: 6335654980125871771
+    second: CaveAquamarine_3
+  - first:
+      213: -401587986833848045
+    second: CaveAquamarine_4
+  - first:
+      213: -3058917284284910596
+    second: CaveAquamarine_5
+  - first:
+      213: 2304767511125978639
+    second: CaveAquamarine_6
+  - first:
+      213: 4620128268536843725
+    second: CaveAquamarine_7
+  - first:
+      213: -6181780350286273607
+    second: CaveAquamarine_8
+  - first:
+      213: 285190862820220917
+    second: CaveAquamarine_9
+  - first:
+      213: 8044243730721034133
+    second: CaveAquamarine_10
+  - first:
+      213: -167947530609532261
+    second: CaveAquamarine_11
+  - first:
+      213: -8602610887838689462
+    second: CaveAquamarine_12
+  - first:
+      213: 271031918485651566
+    second: CaveAquamarine_13
+  - first:
+      213: -3510412186276222836
+    second: CaveAquamarine_14
+  - first:
+      213: -7508500550798636672
+    second: CaveAquamarine_15
+  - first:
+      213: -6400928730938327152
+    second: CaveAquamarine_16
+  - first:
+      213: 2547995029035413809
+    second: CaveAquamarine_17
+  - first:
+      213: 8591191188405276894
+    second: CaveAquamarine_18
+  - first:
+      213: 3118675830251694278
+    second: CaveAquamarine_19
+  - first:
+      213: 2375002151698840709
+    second: CaveAquamarine_20
+  - first:
+      213: -1375806660362470531
+    second: CaveAquamarine_21
+  - first:
+      213: -565254837302282435
+    second: CaveAquamarine_22
+  - first:
+      213: 1162574633167469589
+    second: CaveAquamarine_23
+  - first:
+      213: -5814111754362564526
+    second: CaveAquamarine_24
+  - first:
+      213: -4003335415248547515
+    second: CaveAquamarine_25
+  - first:
+      213: -4800415982007140816
+    second: CaveAquamarine_26
+  - first:
+      213: -8699817812761033940
+    second: CaveAquamarine_27
+  - first:
+      213: 8084655367887548394
+    second: CaveAquamarine_28
+  - first:
+      213: 4297184392995425712
+    second: CaveAquamarine_29
+  - first:
+      213: 8453655588905088530
+    second: CaveAquamarine_30
+  - first:
+      213: -1644725176721432430
+    second: CaveAquamarine_31
+  - first:
+      213: 3031084886434025503
+    second: CaveAquamarine_32
+  - first:
+      213: -1991910392332567643
+    second: CaveAquamarine_33
+  - first:
+      213: -7383608122636892924
+    second: CaveAquamarine_34
+  - first:
+      213: 3188502291898771890
+    second: CaveAquamarine_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stalagmite1x3
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 2435
+        width: 222
+        height: 513
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d7ad7d9ad85c260800000000000000
+      internalID: 7117250546739346707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StalagmiteDuo1x2
+      rect:
+        serializedVersion: 2
+        x: 2692
+        y: 2551
+        width: 267
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72adeed5147b5bd40800000000000000
+      internalID: 5599583203081771559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3Rocks
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 1947
+        width: 597
+        height: 290
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf335e0dfea8c85d0800000000000000
+      internalID: -3058917284284910596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwingPoint
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1971
+        width: 153
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0e668617dd2cff10800000000000000
+      internalID: 2304767511125978639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwingPointDetect
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 1944
+        width: 206
+        height: 207
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcd01e68e2efd1040800000000000000
+      internalID: 4620128268536843725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalagmite1x2
+      rect:
+        serializedVersion: 2
+        x: 2722
+        y: 2091
+        width: 186
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b362bd1687e53aa0800000000000000
+      internalID: -6181780350286273607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor1x1
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 1850
+        width: 183
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff1697249335f300800000000000000
+      internalID: 285190862820220917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor5x1
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 1850
+        width: 784
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f4a488d05e2af60800000000000000
+      internalID: 8044243730721034133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground5X3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1369
+        width: 806
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b926d195c945badf0800000000000000
+      internalID: -167947530609532261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground2x2
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 1531
+        width: 312
+        height: 286
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a479771e9f26d9880800000000000000
+      internalID: -8602610887838689462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground3x2
+      rect:
+        serializedVersion: 2
+        x: 1476
+        y: 1517
+        width: 487
+        height: 288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c88adcd27b2884fc0800000000000000
+      internalID: -3510412186276222836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigRock
+      rect:
+        serializedVersion: 2
+        x: 2131
+        y: 1194
+        width: 831
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08982d1e7827cc790800000000000000
+      internalID: -7508500550798636672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroupRocks
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 1278
+        width: 798
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131fd13aafb4c5320800000000000000
+      internalID: 2547995029035413809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine_19
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 835
+        width: 1074
+        height: 310
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c8afb7e423c74b20800000000000000
+      internalID: 3118675830251694278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock2x1
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 881
+        width: 442
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c3cc8afd3b5f020800000000000000
+      internalID: 2375002151698840709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3Floors
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 928
+        width: 1188
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d37b60768bfc728f0800000000000000
+      internalID: -565254837302282435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigGroundAbstaract
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 506
+        width: 2202
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 250dbc4f920205fa0800000000000000
+      internalID: -5814111754362564526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2Rocks
+      rect:
+        serializedVersion: 2
+        x: 2332
+        y: 519
+        width: 559
+        height: 318
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5419e5186ab4178c0800000000000000
+      internalID: -4003335415248547515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LongRock
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 43
+        width: 151
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2343cbfac9044780800000000000000
+      internalID: -8699817812761033940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LongRock2
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 54
+        width: 148
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef64660937723070800000000000000
+      internalID: 8084655367887548394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LongRock3
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 28
+        width: 270
+        height: 427
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bd48de107aa2ab30800000000000000
+      internalID: 4297184392995425712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock4x2
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 36
+        width: 582
+        height: 290
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 216fe2ef7fa615570800000000000000
+      internalID: 8453655588905088530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock2
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 42
+        width: 254
+        height: 233
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 290a0687a23cc29e0800000000000000
+      internalID: -1644725176721432430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock3
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 54
+        width: 182
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5abbb904d005b54e0800000000000000
+      internalID: -1991910392332567643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock4
+      rect:
+        serializedVersion: 2
+        x: 2376
+        y: 29
+        width: 207
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4050a815887288990800000000000000
+      internalID: -7383608122636892924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroupRock2
+      rect:
+        serializedVersion: 2
+        x: 2659
+        y: 28
+        width: 304
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b9252ae0f5df3c20800000000000000
+      internalID: 3188502291898771890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0067ac8c24f44664698cf0f04859b24a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      2Rocks: -4003335415248547515
+      3Floors: -565254837302282435
+      3Rocks: -3058917284284910596
+      BigGroundAbstaract: -5814111754362564526
+      BigRock: -7508500550798636672
+      CaveAquamarine_3: -1284060848
+      Floor1x1: 285190862820220917
+      Floor5x1: 8044243730721034133
+      Ground2x2: -8602610887838689462
+      Ground3x2: -3510412186276222836
+      Ground5X3: -167947530609532261
+      GroupRock2: 3188502291898771890
+      GroupRocks: 2547995029035413809
+      LongRock: -8699817812761033940
+      LongRock2: 8084655367887548394
+      LongRock3: 4297184392995425712
+      Rock2: -1644725176721432430
+      Rock2x1: 2375002151698840709
+      Rock3: -1991910392332567643
+      Rock4: -7383608122636892924
+      Rock4x2: 8453655588905088530
+      Stalagmite1x2: -6181780350286273607
+      Stalagmite1x3: 7117250546739346707
+      StalagmiteDuo1x2: 5599583203081771559
+      SwingPoint: 2304767511125978639
+      SwingPointDetect: 4620128268536843725
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

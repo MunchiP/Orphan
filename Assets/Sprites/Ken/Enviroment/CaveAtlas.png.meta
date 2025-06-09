@@ -1,0 +1,2012 @@
+fileFormatVersion: 2
+guid: af87cecc747eb2e4183d6b4b68c29c34
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8897572671366843955
+    second: CaveAtlas_0
+  - first:
+      213: 3419727636594278943
+    second: CaveAtlas_1
+  - first:
+      213: 1761143566817030532
+    second: CaveAtlas_2
+  - first:
+      213: 8174530151229481751
+    second: CaveAtlas_3
+  - first:
+      213: 491062001425167541
+    second: CaveAtlas_4
+  - first:
+      213: 6500585502379704248
+    second: CaveAtlas_5
+  - first:
+      213: 7896216851836704504
+    second: CaveAtlas_6
+  - first:
+      213: -7719849516988620632
+    second: CaveAtlas_7
+  - first:
+      213: 2529239151769052545
+    second: CaveAtlas_8
+  - first:
+      213: -5944082771782476832
+    second: CaveAtlas_9
+  - first:
+      213: 3515312354036511466
+    second: CaveAtlas_10
+  - first:
+      213: -2858618570948559214
+    second: CaveAtlas_11
+  - first:
+      213: -896466427025532603
+    second: CaveAtlas_12
+  - first:
+      213: -8945901867511189000
+    second: CaveAtlas_13
+  - first:
+      213: -8959593309287289629
+    second: CaveAtlas_14
+  - first:
+      213: -1933810443096577762
+    second: CaveAtlas_15
+  - first:
+      213: -9038968960065579495
+    second: CaveAtlas_16
+  - first:
+      213: 4715240193756485469
+    second: CaveAtlas_17
+  - first:
+      213: -4671936573428575707
+    second: CaveAtlas_18
+  - first:
+      213: -444718248626759357
+    second: CaveAtlas_19
+  - first:
+      213: -6951267077859219212
+    second: CaveAtlas_20
+  - first:
+      213: -2521008154007575516
+    second: CaveAtlas_21
+  - first:
+      213: -2589233775371649701
+    second: CaveAtlas_22
+  - first:
+      213: -8977246773939570148
+    second: CaveAtlas_23
+  - first:
+      213: 7938807481922702833
+    second: CaveAtlas_24
+  - first:
+      213: -7741426551199041438
+    second: CaveAtlas_25
+  - first:
+      213: 969853941093402024
+    second: CaveAtlas_26
+  - first:
+      213: 6507351939052679843
+    second: CaveAtlas_27
+  - first:
+      213: 555242296353867048
+    second: CaveAtlas_28
+  - first:
+      213: -6110750329322581144
+    second: CaveAtlas_29
+  - first:
+      213: -3433999279329956932
+    second: CaveAtlas_30
+  - first:
+      213: 8235969312754600802
+    second: CaveAtlas_31
+  - first:
+      213: 2906574203647305349
+    second: CaveAtlas_32
+  - first:
+      213: -322565306424021033
+    second: CaveAtlas_33
+  - first:
+      213: 1225323538186080360
+    second: CaveAtlas_34
+  - first:
+      213: 8071703622657856039
+    second: CaveAtlas_35
+  - first:
+      213: 1611236838846141888
+    second: CaveAtlas_36
+  - first:
+      213: 8044099159278175094
+    second: CaveAtlas_37
+  - first:
+      213: -2728976021595322374
+    second: CaveAtlas_38
+  - first:
+      213: 2495224743293708949
+    second: CaveAtlas_39
+  - first:
+      213: 5291599003078664102
+    second: CaveAtlas_40
+  - first:
+      213: -7889478753354802075
+    second: CaveAtlas_41
+  - first:
+      213: 3856215382879089701
+    second: CaveAtlas_42
+  - first:
+      213: -8228605144382656296
+    second: CaveAtlas_43
+  - first:
+      213: -7906617914843660473
+    second: CaveAtlas_44
+  - first:
+      213: 3637938187046531807
+    second: CaveAtlas_45
+  - first:
+      213: -8318273060255248110
+    second: CaveAtlas_46
+  - first:
+      213: 7690647670377499860
+    second: CaveAtlas_47
+  - first:
+      213: 5257045386455611920
+    second: CaveAtlas_48
+  - first:
+      213: -4386810158001891457
+    second: CaveAtlas_49
+  - first:
+      213: -3141228614802578801
+    second: CaveAtlas_50
+  - first:
+      213: 8162433664451531534
+    second: CaveAtlas_51
+  - first:
+      213: -1500759307909277913
+    second: CaveAtlas_52
+  - first:
+      213: -690862921538421509
+    second: CaveAtlas_53
+  - first:
+      213: -9098356482169105266
+    second: CaveAtlas_54
+  - first:
+      213: 8901789259353289694
+    second: CaveAtlas_55
+  - first:
+      213: 249516243742603730
+    second: CaveAtlas_56
+  - first:
+      213: 4524590916966453206
+    second: CaveAtlas_57
+  - first:
+      213: -6701823258681217714
+    second: CaveAtlas_58
+  - first:
+      213: 7138996257662116078
+    second: CaveAtlas_59
+  - first:
+      213: -2862868599186825189
+    second: CaveAtlas_60
+  - first:
+      213: -7118489770718340665
+    second: CaveAtlas_61
+  - first:
+      213: 4014880470074744195
+    second: CaveAtlas_62
+  - first:
+      213: -9094020126387709010
+    second: CaveAtlas_63
+  - first:
+      213: 3671697994687823277
+    second: CaveAtlas_64
+  - first:
+      213: -6587516308338400320
+    second: CaveAtlas_65
+  - first:
+      213: -6434186508910627225
+    second: CaveAtlas_66
+  - first:
+      213: 5416721236258236689
+    second: CaveAtlas_67
+  - first:
+      213: 783385786892215705
+    second: CaveAtlas_68
+  - first:
+      213: 1999111134114792864
+    second: CaveAtlas_69
+  - first:
+      213: -7520793321688141547
+    second: CaveAtlas_70
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CaveAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 2693
+        width: 170
+        height: 217
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e4b0804378a7b70800000000000000
+      internalID: 8897572671366843955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 2729
+        width: 162
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12c9cfba20557f20800000000000000
+      internalID: 3419727636594278943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 2690
+        width: 196
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 481f79a3eb6d07810800000000000000
+      internalID: 1761143566817030532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 2711
+        width: 129
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 713e0cdacd3c17170800000000000000
+      internalID: 8174530151229481751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 2727
+        width: 98
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b4b3add94a90d600800000000000000
+      internalID: 491062001425167541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 2781
+        width: 143
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bf7565a218b63a50800000000000000
+      internalID: 6500585502379704248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 2688
+        width: 98
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f61e2b046ff49d60800000000000000
+      internalID: 7896216851836704504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 2742
+        width: 185
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a02c6c04c59dd490800000000000000
+      internalID: -7719849516988620632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 2748
+        width: 114
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1856439ab99a91320800000000000000
+      internalID: 2529239151769052545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 2708
+        width: 82
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ebd2605630628da0800000000000000
+      internalID: -5944082771782476832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 2758
+        width: 98
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae273e806f5e8c030800000000000000
+      internalID: 3515312354036511466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 1853
+        y: 2513
+        width: 355
+        height: 403
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29eb64a2e852458d0800000000000000
+      internalID: -2858618570948559214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2653
+        width: 185
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5495418c88c1f83f0800000000000000
+      internalID: -896466427025532603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 2458
+        y: 2516
+        width: 170
+        height: 401
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f1fd7f16a5c9d380800000000000000
+      internalID: -8945901867511189000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 2645
+        y: 2542
+        width: 255
+        height: 376
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ece6fbea5129a380800000000000000
+      internalID: -8959593309287289629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 2464
+        width: 230
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e19a944d5a9b925e0800000000000000
+      internalID: -1933810443096577762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 2426
+        width: 412
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 916528f0f912f8280800000000000000
+      internalID: -9038968960065579495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 2457
+        width: 129
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57df7b49f5ef6140800000000000000
+      internalID: 4715240193756485469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 2426
+        width: 279
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52252af7072f92fb0800000000000000
+      internalID: -4671936573428575707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_19
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 2476
+        width: 327
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 349d77deb1b04d9f0800000000000000
+      internalID: -444718248626759357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_20
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 2276
+        width: 250
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8655d0c63288f90800000000000000
+      internalID: -6951267077859219212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_21
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 2315
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424e388d074930dd0800000000000000
+      internalID: -2521008154007575516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_22
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 2301
+        width: 163
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d77828991311cd0800000000000000
+      internalID: -2589233775371649701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_23
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 2291
+        width: 141
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a7f426f996a6380800000000000000
+      internalID: -8977246773939570148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_24
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 2284
+        width: 171
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fd473cd75f4c2e60800000000000000
+      internalID: 7938807481922702833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_25
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 2284
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 268f009419de09490800000000000000
+      internalID: -7741426551199041438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_26
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 2276
+        width: 211
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a582ea550d957d00800000000000000
+      internalID: 969853941093402024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_27
+      rect:
+        serializedVersion: 2
+        x: 2032
+        y: 2269
+        width: 185
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a23fa37c12ce4a50800000000000000
+      internalID: 6507351939052679843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_28
+      rect:
+        serializedVersion: 2
+        x: 2356
+        y: 2281
+        width: 185
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 825c17e3ded94b700800000000000000
+      internalID: 555242296353867048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_29
+      rect:
+        serializedVersion: 2
+        x: 2672
+        y: 2262
+        width: 200
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86350ad93f0423ba0800000000000000
+      internalID: -6110750329322581144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_30
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1931
+        width: 285
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbb279c79dbf750d0800000000000000
+      internalID: -3433999279329956932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_31
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1928
+        width: 295
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b81c3347a0c4270800000000000000
+      internalID: 8235969312754600802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_32
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 1946
+        width: 153
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58626b9a6d9365820800000000000000
+      internalID: 2906574203647305349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_33
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 1946
+        width: 153
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7df2bb51094068bf0800000000000000
+      internalID: -322565306424021033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_34
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 1946
+        width: 380
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86091841449310110800000000000000
+      internalID: 1225323538186080360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_35
+      rect:
+        serializedVersion: 2
+        x: 1905
+        y: 1912
+        width: 293
+        height: 310
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72251c8dda3740070800000000000000
+      internalID: 8071703622657856039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_36
+      rect:
+        serializedVersion: 2
+        x: 2301
+        y: 1912
+        width: 414
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c592744e534c5610800000000000000
+      internalID: 1611236838846141888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_37
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1355
+        width: 799
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6734bced09162af60800000000000000
+      internalID: 8044099159278175094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_38
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 1513
+        width: 334
+        height: 279
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af7804064cab02ad0800000000000000
+      internalID: -2728976021595322374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_39
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 1493
+        width: 487
+        height: 287
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a69ca0fa1d0a220800000000000000
+      internalID: 2495224743293708949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_40
+      rect:
+        serializedVersion: 2
+        x: 2063
+        y: 1179
+        width: 817
+        height: 490
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6af9058d1498f6940800000000000000
+      internalID: 5291599003078664102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_41
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 1389
+        width: 146
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c9b43cfd0f28290800000000000000
+      internalID: -7889478753354802075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_42
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 1383
+        width: 240
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 524b7e9a577048530800000000000000
+      internalID: 3856215382879089701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_43
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1250
+        width: 824
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d0be1cd73f1ecd80800000000000000
+      internalID: -8228605144382656296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_44
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 1240
+        width: 311
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74ff003c5ec064290800000000000000
+      internalID: -7906617914843660473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_45
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 1234
+        width: 492
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2bcb9a18d8c7230800000000000000
+      internalID: 3637938187046531807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_46
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1143
+        width: 791
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 211d8ca49be8f8c80800000000000000
+      internalID: -8318273060255248110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_47
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1118
+        width: 302
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc49853f4baaba60800000000000000
+      internalID: 7690647670377499860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_48
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 1113
+        width: 467
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01afacb0de6c4f840800000000000000
+      internalID: 5257045386455611920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_49
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 820
+        width: 1052
+        height: 293
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77d833576bee13c0800000000000000
+      internalID: -4386810158001891457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_50
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 857
+        width: 441
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f826660c73d1864d0800000000000000
+      internalID: -3141228614802578801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_51
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 909
+        width: 507
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e03d250eb2ac64170800000000000000
+      internalID: 8162433664451531534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_52
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 909
+        width: 546
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 727d4be5c5b3c2be0800000000000000
+      internalID: -1500759307909277913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_53
+      rect:
+        serializedVersion: 2
+        x: 1874
+        y: 763
+        width: 179
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfcb63d45df8966f0800000000000000
+      internalID: -690862921538421509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_54
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 773
+        width: 776
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8410701cf42cb180800000000000000
+      internalID: -9098356482169105266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_55
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 454
+        width: 2200
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed3f32dea22898b70800000000000000
+      internalID: 8901789259353289694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_56
+      rect:
+        serializedVersion: 2
+        x: 2241
+        y: 680
+        width: 300
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d9b7f1a3b5767300800000000000000
+      internalID: 249516243742603730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_57
+      rect:
+        serializedVersion: 2
+        x: 2605
+        y: 683
+        width: 161
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df8eb777739ace30800000000000000
+      internalID: 4524590916966453206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_58
+      rect:
+        serializedVersion: 2
+        x: 2769
+        y: 680
+        width: 136
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4dead601475ef2a0800000000000000
+      internalID: -6701823258681217714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_59
+      rect:
+        serializedVersion: 2
+        x: 2302
+        y: 522
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee02bc6b54fc21360800000000000000
+      internalID: 7138996257662116078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_60
+      rect:
+        serializedVersion: 2
+        x: 2384
+        y: 516
+        width: 49
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1069da5d2c0548d0800000000000000
+      internalID: -2862868599186825189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_61
+      rect:
+        serializedVersion: 2
+        x: 2471
+        y: 506
+        width: 119
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c9d417d44b063d90800000000000000
+      internalID: -7118489770718340665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_62
+      rect:
+        serializedVersion: 2
+        x: 2628
+        y: 501
+        width: 70
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d557a0488b7b730800000000000000
+      internalID: 4014880470074744195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_63
+      rect:
+        serializedVersion: 2
+        x: 2728
+        y: 488
+        width: 119
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eab586290ec8bc180800000000000000
+      internalID: -9094020126387709010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_64
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 28
+        width: 146
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dadb1e76fdd74f230800000000000000
+      internalID: 3671697994687823277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_65
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 29
+        width: 145
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3a569d1d07494a0800000000000000
+      internalID: -6587516308338400320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_66
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 5
+        width: 264
+        height: 415
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76675cdb57d25b6a0800000000000000
+      internalID: -6434186508910627225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_67
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 13
+        width: 577
+        height: 285
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 119ac7ee34f0c2b40800000000000000
+      internalID: 5416721236258236689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_68
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 19
+        width: 251
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 995eccdf8352fda00800000000000000
+      internalID: 783385786892215705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_69
+      rect:
+        serializedVersion: 2
+        x: 2031
+        y: 37
+        width: 171
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a5c0771cf44ebb10800000000000000
+      internalID: 1999111134114792864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_70
+      rect:
+        serializedVersion: 2
+        x: 2302
+        y: 5
+        width: 207
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511f5af1256c0a790800000000000000
+      internalID: -7520793321688141547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAtlas_71
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 710
+        width: 1794
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0228b5c6f73746547bcb14f831f46289
+      internalID: -1141535993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ae15381dcab6132419e49c5c33d736a5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CaveAtlas_0: 8897572671366843955
+      CaveAtlas_1: 3419727636594278943
+      CaveAtlas_10: 3515312354036511466
+      CaveAtlas_11: -2858618570948559214
+      CaveAtlas_12: -896466427025532603
+      CaveAtlas_13: -8945901867511189000
+      CaveAtlas_14: -8959593309287289629
+      CaveAtlas_15: -1933810443096577762
+      CaveAtlas_16: -9038968960065579495
+      CaveAtlas_17: 4715240193756485469
+      CaveAtlas_18: -4671936573428575707
+      CaveAtlas_19: -444718248626759357
+      CaveAtlas_2: 1761143566817030532
+      CaveAtlas_20: -6951267077859219212
+      CaveAtlas_21: -2521008154007575516
+      CaveAtlas_22: -2589233775371649701
+      CaveAtlas_23: -8977246773939570148
+      CaveAtlas_24: 7938807481922702833
+      CaveAtlas_25: -7741426551199041438
+      CaveAtlas_26: 969853941093402024
+      CaveAtlas_27: 6507351939052679843
+      CaveAtlas_28: 555242296353867048
+      CaveAtlas_29: -6110750329322581144
+      CaveAtlas_3: 8174530151229481751
+      CaveAtlas_30: -3433999279329956932
+      CaveAtlas_31: 8235969312754600802
+      CaveAtlas_32: 2906574203647305349
+      CaveAtlas_33: -322565306424021033
+      CaveAtlas_34: 1225323538186080360
+      CaveAtlas_35: 8071703622657856039
+      CaveAtlas_36: 1611236838846141888
+      CaveAtlas_37: 8044099159278175094
+      CaveAtlas_38: -2728976021595322374
+      CaveAtlas_39: 2495224743293708949
+      CaveAtlas_4: 491062001425167541
+      CaveAtlas_40: 5291599003078664102
+      CaveAtlas_41: -7889478753354802075
+      CaveAtlas_42: 3856215382879089701
+      CaveAtlas_43: -8228605144382656296
+      CaveAtlas_44: -7906617914843660473
+      CaveAtlas_45: 3637938187046531807
+      CaveAtlas_46: -8318273060255248110
+      CaveAtlas_47: 7690647670377499860
+      CaveAtlas_48: 5257045386455611920
+      CaveAtlas_49: -4386810158001891457
+      CaveAtlas_5: 6500585502379704248
+      CaveAtlas_50: -3141228614802578801
+      CaveAtlas_51: 8162433664451531534
+      CaveAtlas_52: -1500759307909277913
+      CaveAtlas_53: -690862921538421509
+      CaveAtlas_54: -9098356482169105266
+      CaveAtlas_55: 8901789259353289694
+      CaveAtlas_56: 249516243742603730
+      CaveAtlas_57: 4524590916966453206
+      CaveAtlas_58: -6701823258681217714
+      CaveAtlas_59: 7138996257662116078
+      CaveAtlas_6: 7896216851836704504
+      CaveAtlas_60: -2862868599186825189
+      CaveAtlas_61: -7118489770718340665
+      CaveAtlas_62: 4014880470074744195
+      CaveAtlas_63: -9094020126387709010
+      CaveAtlas_64: 3671697994687823277
+      CaveAtlas_65: -6587516308338400320
+      CaveAtlas_66: -6434186508910627225
+      CaveAtlas_67: 5416721236258236689
+      CaveAtlas_68: 783385786892215705
+      CaveAtlas_69: 1999111134114792864
+      CaveAtlas_7: -7719849516988620632
+      CaveAtlas_70: -7520793321688141547
+      CaveAtlas_71: -1141535993
+      CaveAtlas_8: 2529239151769052545
+      CaveAtlas_9: -5944082771782476832
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1457 @@
+fileFormatVersion: 2
+guid: 38559a76bffe4514aae56d3d970f715b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1472879379416682299
+    second: CaveAquamarine2_0
+  - first:
+      213: 6541106434216251026
+    second: CaveAquamarine2_1
+  - first:
+      213: 778987970113890059
+    second: CaveAquamarine2_2
+  - first:
+      213: 535574211194918054
+    second: CaveAquamarine2_3
+  - first:
+      213: -1370313626144180300
+    second: CaveAquamarine2_4
+  - first:
+      213: 6404251778260430892
+    second: CaveAquamarine2_5
+  - first:
+      213: 8452463006735540987
+    second: CaveAquamarine2_6
+  - first:
+      213: -8868910440175554471
+    second: CaveAquamarine2_7
+  - first:
+      213: 4923995281287117863
+    second: CaveAquamarine2_8
+  - first:
+      213: -5137330552389324835
+    second: CaveAquamarine2_9
+  - first:
+      213: 6675256115897356184
+    second: CaveAquamarine2_10
+  - first:
+      213: -4405552758648697258
+    second: CaveAquamarine2_11
+  - first:
+      213: -5975294964914891330
+    second: CaveAquamarine2_12
+  - first:
+      213: 488867367724975600
+    second: CaveAquamarine2_13
+  - first:
+      213: 4793053658991163867
+    second: CaveAquamarine2_14
+  - first:
+      213: -7436891447754213303
+    second: CaveAquamarine2_15
+  - first:
+      213: 8271764591714841783
+    second: CaveAquamarine2_16
+  - first:
+      213: -454223898430835875
+    second: CaveAquamarine2_17
+  - first:
+      213: -3210359446139492904
+    second: CaveAquamarine2_18
+  - first:
+      213: -3679100127914806033
+    second: CaveAquamarine2_19
+  - first:
+      213: 5712143110186622670
+    second: CaveAquamarine2_20
+  - first:
+      213: -3775061004822085925
+    second: CaveAquamarine2_21
+  - first:
+      213: 5073354665534526733
+    second: CaveAquamarine2_22
+  - first:
+      213: 6800049308726650532
+    second: CaveAquamarine2_23
+  - first:
+      213: -5124090431623533608
+    second: CaveAquamarine2_24
+  - first:
+      213: -6694683629229715641
+    second: CaveAquamarine2_25
+  - first:
+      213: 4360145139727357051
+    second: CaveAquamarine2_26
+  - first:
+      213: -313316536472677392
+    second: CaveAquamarine2_27
+  - first:
+      213: 1399943074406791950
+    second: CaveAquamarine2_28
+  - first:
+      213: 7194604652606448720
+    second: CaveAquamarine2_29
+  - first:
+      213: 3874525569383081562
+    second: CaveAquamarine2_30
+  - first:
+      213: 4703924525518438468
+    second: CaveAquamarine2_31
+  - first:
+      213: 1335087790179546266
+    second: CaveAquamarine2_32
+  - first:
+      213: -6451515547705926871
+    second: CaveAquamarine2_33
+  - first:
+      213: 1515619836844250509
+    second: CaveAquamarine2_34
+  - first:
+      213: 9132416902509729060
+    second: CaveAquamarine2_35
+  - first:
+      213: -3079129425821620125
+    second: CaveAquamarine2_36
+  - first:
+      213: 4044828439256627726
+    second: CaveAquamarine2_37
+  - first:
+      213: 1453647546148820855
+    second: CaveAquamarine2_38
+  - first:
+      213: -2928526679495008459
+    second: CaveAquamarine2_39
+  - first:
+      213: -2213053015542408906
+    second: CaveAquamarine2_40
+  - first:
+      213: -8326480739625359225
+    second: CaveAquamarine2_41
+  - first:
+      213: 5185697464996618711
+    second: CaveAquamarine2_42
+  - first:
+      213: 1785393855781760353
+    second: CaveAquamarine2_43
+  - first:
+      213: 7063833999674846871
+    second: CaveAquamarine2_44
+  - first:
+      213: -5471709889836774406
+    second: CaveAquamarine2_45
+  - first:
+      213: -7763691116011947103
+    second: CaveAquamarine2_46
+  - first:
+      213: 5601142020774963036
+    second: CaveAquamarine2_47
+  - first:
+      213: -2483745010018696062
+    second: CaveAquamarine2_48
+  - first:
+      213: 3492902968565917656
+    second: CaveAquamarine2_49
+  - first:
+      213: 6231786196429529578
+    second: CaveAquamarine2_50
+  - first:
+      213: -8390455316965093019
+    second: CaveAquamarine2_51
+  - first:
+      213: 2780756947990575365
+    second: CaveAquamarine2_52
+  - first:
+      213: 2649599941480061871
+    second: CaveAquamarine2_53
+  - first:
+      213: -1308133062567174198
+    second: CaveAquamarine2_54
+  - first:
+      213: 3410991938174519345
+    second: CaveAquamarine2_55
+  - first:
+      213: -5749751677376046650
+    second: CaveAquamarine2_56
+  - first:
+      213: -7555110121932069386
+    second: CaveAquamarine2_57
+  - first:
+      213: 4798329261278427218
+    second: CaveAquamarine2_58
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CaveAquamarine2_0
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 2688
+        width: 98
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c0fed012084f8be0800000000000000
+      internalID: -1472879379416682299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_1
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 2742
+        width: 143
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29e4b7945ada6ca50800000000000000
+      internalID: 6541106434216251026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_2
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 2645
+        width: 98
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b07e0fa7e658fca00800000000000000
+      internalID: 778987970113890059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_3
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 2701
+        width: 185
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a4122158edbe6700800000000000000
+      internalID: 535574211194918054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_4
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 2709
+        width: 114
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b77cca640babfce0800000000000000
+      internalID: -1370313626144180300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_5
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 2672
+        width: 82
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c207067af0970e850800000000000000
+      internalID: 6404251778260430892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_6
+      rect:
+        serializedVersion: 2
+        x: 2029
+        y: 2726
+        width: 98
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf22a91525e2d4570800000000000000
+      internalID: 8452463006735540987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_7
+      rect:
+        serializedVersion: 2
+        x: 2247
+        y: 2678
+        width: 185
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9503594b1fc4be480800000000000000
+      internalID: -8868910440175554471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_9
+      rect:
+        serializedVersion: 2
+        x: 2468
+        y: 2546
+        width: 170
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddfa213d41984b8b0800000000000000
+      internalID: -5137330552389324835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_10
+      rect:
+        serializedVersion: 2
+        x: 2692
+        y: 2567
+        width: 255
+        height: 376
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89fc0d4021643ac50800000000000000
+      internalID: 6675256115897356184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_14
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 2301
+        width: 250
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd9fd8d78e8548240800000000000000
+      internalID: 4793053658991163867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_15
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 2340
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948387f61aadac890800000000000000
+      internalID: -7436891447754213303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_16
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 2316
+        width: 141
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b431da02163bc270800000000000000
+      internalID: 8271764591714841783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_17
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 2309
+        width: 171
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d53798d55c542b9f0800000000000000
+      internalID: -454223898430835875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_18
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 2301
+        width: 211
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d5298bc7138273d0800000000000000
+      internalID: -3210359446139492904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_19
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 2294
+        width: 185
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe43b862de531fcc0800000000000000
+      internalID: -3679100127914806033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_20
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 2306
+        width: 185
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece5edcf4eb954f40800000000000000
+      internalID: 5712143110186622670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_21
+      rect:
+        serializedVersion: 2
+        x: 2746
+        y: 2287
+        width: 200
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde762a640a4c9bc0800000000000000
+      internalID: -3775061004822085925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_22
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 2326
+        width: 163
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0591c2403d286640800000000000000
+      internalID: 5073354665534526733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_23
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 2309
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a6eacd61d0ae5e50800000000000000
+      internalID: 6800049308726650532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_25
+      rect:
+        serializedVersion: 2
+        x: 1977
+        y: 1938
+        width: 289
+        height: 310
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74fc32c85b4b713a0800000000000000
+      internalID: -6694683629229715641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_26
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1929
+        width: 306
+        height: 252
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74589e47e8528c30800000000000000
+      internalID: 4360145139727357051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_27
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 1953
+        width: 295
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f35a452540e6abf0800000000000000
+      internalID: -313316536472677392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_28
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1971
+        width: 153
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0bf8c71fc89d6310800000000000000
+      internalID: 1399943074406791950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_29
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 1944
+        width: 206
+        height: 207
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 054eaf910de58d360800000000000000
+      internalID: 7194604652606448720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_30
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 1971
+        width: 379
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a562f3c2a7415c530800000000000000
+      internalID: 3874525569383081562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_32
+      rect:
+        serializedVersion: 2
+        x: 2375
+        y: 1937
+        width: 414
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a94fc95854f278210800000000000000
+      internalID: 1335087790179546266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_35
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1374
+        width: 799
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4259dd689ccdcbe70800000000000000
+      internalID: 9132416902509729060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_36
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 1528
+        width: 313
+        height: 289
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3682374e91cb445d0800000000000000
+      internalID: -3079129425821620125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_38
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 1518
+        width: 487
+        height: 287
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77791d0ddb46c2410800000000000000
+      internalID: 1453647546148820855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_39
+      rect:
+        serializedVersion: 2
+        x: 2137
+        y: 1204
+        width: 817
+        height: 490
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f12714088cb57d0800000000000000
+      internalID: -2928526679495008459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_40
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 845
+        width: 1052
+        height: 293
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639dc73f108a941e0800000000000000
+      internalID: -2213053015542408906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_41
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 882
+        width: 441
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 788af7502e5627c80800000000000000
+      internalID: -8326480739625359225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_42
+      rect:
+        serializedVersion: 2
+        x: 2843
+        y: 705
+        width: 136
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d164c19e5c47f740800000000000000
+      internalID: 5185697464996618711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_43
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 934
+        width: 545
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16d690e904ef6c810800000000000000
+      internalID: 1785393855781760353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_44
+      rect:
+        serializedVersion: 2
+        x: 2433
+        y: 934
+        width: 546
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79e22fec897c70260800000000000000
+      internalID: 7063833999674846871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_46
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 788
+        width: 179
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ab70445014d14490800000000000000
+      internalID: -7763691116011947103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_47
+      rect:
+        serializedVersion: 2
+        x: 2198
+        y: 798
+        width: 776
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c572ec4edf04bbd40800000000000000
+      internalID: 5601142020774963036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 522
+        width: 2192
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 284cf25a217f78dd0800000000000000
+      internalID: -2483745010018696062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_49
+      rect:
+        serializedVersion: 2
+        x: 2315
+        y: 705
+        width: 300
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d767446eb8497030800000000000000
+      internalID: 3492902968565917656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_50
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 705
+        width: 159
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae16d5a3780cb7650800000000000000
+      internalID: 6231786196429529578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_51
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 53
+        width: 146
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5611280085d1f8b80800000000000000
+      internalID: -8390455316965093019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_52
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 54
+        width: 145
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5097dab06bb379620800000000000000
+      internalID: 2780756947990575365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_53
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 30
+        width: 264
+        height: 415
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fab90dccb1545c420800000000000000
+      internalID: 2649599941480061871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_54
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 38
+        width: 577
+        height: 285
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf5dbe09e398dde0800000000000000
+      internalID: -1308133062567174198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_55
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 44
+        width: 251
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1380d967817465f20800000000000000
+      internalID: 3410991938174519345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_56
+      rect:
+        serializedVersion: 2
+        x: 2105
+        y: 62
+        width: 171
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c95b4b1057c430b0800000000000000
+      internalID: -5749751677376046650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_57
+      rect:
+        serializedVersion: 2
+        x: 2376
+        y: 30
+        width: 207
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f5e74f6f5bd62790800000000000000
+      internalID: -7555110121932069386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveAquamarine2_58
+      rect:
+        serializedVersion: 2
+        x: 2659
+        y: 29
+        width: 303
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258fcdd5a07179240800000000000000
+      internalID: 4798329261278427218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a18d77730fc06844194a79d8da6d4780
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CaveAquamarine2_0: -1472879379416682299
+      CaveAquamarine2_1: 6541106434216251026
+      CaveAquamarine2_10: 6675256115897356184
+      CaveAquamarine2_11: -4405552758648697258
+      CaveAquamarine2_12: -5975294964914891330
+      CaveAquamarine2_13: 488867367724975600
+      CaveAquamarine2_14: 4793053658991163867
+      CaveAquamarine2_15: -7436891447754213303
+      CaveAquamarine2_16: 8271764591714841783
+      CaveAquamarine2_17: -454223898430835875
+      CaveAquamarine2_18: -3210359446139492904
+      CaveAquamarine2_19: -3679100127914806033
+      CaveAquamarine2_2: 778987970113890059
+      CaveAquamarine2_20: 5712143110186622670
+      CaveAquamarine2_21: -3775061004822085925
+      CaveAquamarine2_22: 5073354665534526733
+      CaveAquamarine2_23: 6800049308726650532
+      CaveAquamarine2_24: -5124090431623533608
+      CaveAquamarine2_25: -6694683629229715641
+      CaveAquamarine2_26: 4360145139727357051
+      CaveAquamarine2_27: -313316536472677392
+      CaveAquamarine2_28: 1399943074406791950
+      CaveAquamarine2_29: 7194604652606448720
+      CaveAquamarine2_3: 535574211194918054
+      CaveAquamarine2_30: 3874525569383081562
+      CaveAquamarine2_31: 4703924525518438468
+      CaveAquamarine2_32: 1335087790179546266
+      CaveAquamarine2_33: -6451515547705926871
+      CaveAquamarine2_34: 1515619836844250509
+      CaveAquamarine2_35: 9132416902509729060
+      CaveAquamarine2_36: -3079129425821620125
+      CaveAquamarine2_37: 4044828439256627726
+      CaveAquamarine2_38: 1453647546148820855
+      CaveAquamarine2_39: -2928526679495008459
+      CaveAquamarine2_4: -1370313626144180300
+      CaveAquamarine2_40: -2213053015542408906
+      CaveAquamarine2_41: -8326480739625359225
+      CaveAquamarine2_42: 5185697464996618711
+      CaveAquamarine2_43: 1785393855781760353
+      CaveAquamarine2_44: 7063833999674846871
+      CaveAquamarine2_45: -5471709889836774406
+      CaveAquamarine2_46: -7763691116011947103
+      CaveAquamarine2_47: 5601142020774963036
+      CaveAquamarine2_48: -2483745010018696062
+      CaveAquamarine2_49: 3492902968565917656
+      CaveAquamarine2_5: 6404251778260430892
+      CaveAquamarine2_50: 6231786196429529578
+      CaveAquamarine2_51: -8390455316965093019
+      CaveAquamarine2_52: 2780756947990575365
+      CaveAquamarine2_53: 2649599941480061871
+      CaveAquamarine2_54: -1308133062567174198
+      CaveAquamarine2_55: 3410991938174519345
+      CaveAquamarine2_56: -5749751677376046650
+      CaveAquamarine2_57: -7555110121932069386
+      CaveAquamarine2_58: 4798329261278427218
+      CaveAquamarine2_6: 8452463006735540987
+      CaveAquamarine2_7: -8868910440175554471
+      CaveAquamarine2_8: 4923995281287117863
+      CaveAquamarine2_9: -5137330552389324835
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
