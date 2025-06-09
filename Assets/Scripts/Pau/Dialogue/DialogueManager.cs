@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
 
-    [SerializeField] private TextMeshProUGUI dialogueText;
+
+    // Relaciono los mismos elementos que deben estar en el CharacterData que son los del ScriptableObject
     [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private Image dialogueBoxImg;
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI characterName;
+    [SerializeField] private Image characterImage;
 
     private Queue<string> dialogueLines;
     private Coroutine typingCoroutine;
@@ -95,5 +101,18 @@ public class DialogueManager : MonoBehaviour
 
         dialogueLines.Clear(); // Asegura que siempre se limpie
         dialogueBox.SetActive(false);
+    }
+
+
+
+
+    // Código utilizado porque ahora utilizo ScriptableObject en los diálogos
+
+    public void UpdateDialogue(CharacterData characterData)
+    {
+        dialogueBoxImg.color = characterData.NameColor;
+        characterName.text = characterData.CharacterName;
+        // characterName.text = characterData.TextFont;
+        characterImage.sprite = characterData.Portrait;   
     }
 }

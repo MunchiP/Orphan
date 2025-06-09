@@ -9,7 +9,41 @@ public class MonolithOne : MonoBehaviour, IInteractable
                                       // private bool playerInRange = false; //Asegura que el dialogo se ejecute una sola vez cuando el jugador está cerca
                                       // private InputSystem_Actions inputActions;
 
-    // private void Awake()
+    public void Interact()
+    {
+        DialogueManager.Instance.StartDialogue(lines);
+    }
+    
+      void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            exclamation.SetActive(true);
+            // Debug.Log("REconoce el límite collider");
+        }
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            exclamation.SetActive(false);
+            DialogueManager.Instance.EndDialogue();
+        }
+    }
+}
+
+
+
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //             if (!playerInRange && other.CompareTag("Player")) // Si el dialogo no se ha activado !  - y si el objeto que se acerca es un Player
+    //     {
+    //         playerInRange = true; // el dialogo se activa
+    //         DialogueManager.Instance.StartDialogue(lines); // Llama el método en el SialogueManager renglón por renglón, línea por línea
+    //     }
+    // }
+
+       // private void Awake()
     // {
     //     inputActions = new InputSystem_Actions();
     // }
@@ -40,41 +74,4 @@ public class MonolithOne : MonoBehaviour, IInteractable
     //         playerInRange = false;
     //     exclamation.SetActive(false);
     //     // Debug.Log("Sale del límite collider");
-    // }
-
-
-    public void Interact()
-    {
-        DialogueManager.Instance.StartDialogue(lines);
-    }
-    
-      void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            exclamation.SetActive(true);
-            // Debug.Log("REconoce el límite collider");
-        }
-    }
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            exclamation.SetActive(false);
-            DialogueManager.Instance.EndDialogue();
-        }
-
-    }
-
-}
-
-
-
-    // void OnTriggerEnter2D(Collider2D other)
-    // {
-    //             if (!playerInRange && other.CompareTag("Player")) // Si el dialogo no se ha activado !  - y si el objeto que se acerca es un Player
-    //     {
-    //         playerInRange = true; // el dialogo se activa
-    //         DialogueManager.Instance.StartDialogue(lines); // Llama el método en el SialogueManager renglón por renglón, línea por línea
-    //     }
     // }
