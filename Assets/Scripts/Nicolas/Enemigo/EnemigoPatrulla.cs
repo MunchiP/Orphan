@@ -10,6 +10,8 @@ public class EnemigoPatrulla : MonoBehaviour
     public Transform detectorPared;
     public LayerMask capaSuelo;
     public LayerMask capaPared;
+    public LayerMask capaPeligro; // ← NUEVO: para detectar suelo tipo Poison
+
     public float distanciaDeteccionSuelo = 0.5f;
     public float distanciaDeteccionPared = 0.2f;
 
@@ -30,13 +32,18 @@ public class EnemigoPatrulla : MonoBehaviour
         if (!girando)
         {
             float movimiento = (moviendoDerecha ? -1 : 1) * velocidad;
-            rb.linearVelocity = new Vector2(movimiento, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(movimiento, rb.linearVelocity.y); // ← corregido aquí
             animator.SetBool("velocity", true);
 
-            bool sinSuelo = !Physics2D.Raycast(detectorSuelo.position, Vector2.down, distanciaDeteccionSuelo, capaSuelo);
+            // Raycast hacia abajo para suelo y peligro
+            RaycastHit2D hitSuelo = Physics2D.Raycast(detectorSuelo.position, Vector2.down, distanciaDeteccionSuelo, capaSuelo | capaPeligro);
+            bool sinSuelo = hitSuelo.collider == null;
+            bool sueloPeligroso = hitSuelo.collider != null && ((1 << hitSuelo.collider.gameObject.layer) & capaPeligro) != 0;
+
+            // Raycast hacia adelante para detectar pared
             bool hayPared = Physics2D.Raycast(detectorPared.position, moviendoDerecha ? Vector2.right : Vector2.left, distanciaDeteccionPared, capaPared);
 
-            if (sinSuelo || hayPared)
+            if (sinSuelo || hayPared || sueloPeligroso)
             {
                 StartCoroutine(EsperarYGirar());
             }
@@ -52,6 +59,7 @@ public class EnemigoPatrulla : MonoBehaviour
     {
         girando = true;
         yield return new WaitForSeconds(tiempoEsperaGiro);
+
         moviendoDerecha = !moviendoDerecha;
 
         Vector3 escala = transform.localScale;

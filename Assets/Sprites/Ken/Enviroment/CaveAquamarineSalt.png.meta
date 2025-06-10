@@ -1010,7 +1010,42 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CaveAquamarineSalt_0: -5893685217384148227
+      CaveAquamarineSalt_1: -455705273890323253
+      CaveAquamarineSalt_10: -4865927659813379833
+      CaveAquamarineSalt_11: -3528192327963781585
+      CaveAquamarineSalt_12: -6559021733124053691
+      CaveAquamarineSalt_13: 8497747778210122470
+      CaveAquamarineSalt_14: -822267227941300887
+      CaveAquamarineSalt_15: 7854423053522155014
+      CaveAquamarineSalt_16: 4741671749864342776
+      CaveAquamarineSalt_17: 4128593907142972281
+      CaveAquamarineSalt_18: -944408118452513023
+      CaveAquamarineSalt_19: -1440204117265149734
+      CaveAquamarineSalt_2: -5759426984702226944
+      CaveAquamarineSalt_20: 467480974626788251
+      CaveAquamarineSalt_21: 5816664254520951984
+      CaveAquamarineSalt_22: -6100132204874340332
+      CaveAquamarineSalt_23: 8606261073755071392
+      CaveAquamarineSalt_24: 8380180290365016853
+      CaveAquamarineSalt_25: 8480619925841620941
+      CaveAquamarineSalt_26: -4224165158969000084
+      CaveAquamarineSalt_27: -6357993969637092448
+      CaveAquamarineSalt_28: -7878828170852399433
+      CaveAquamarineSalt_29: 3605766097498173971
+      CaveAquamarineSalt_3: -2079721455119073093
+      CaveAquamarineSalt_30: -4485166770086698016
+      CaveAquamarineSalt_31: 5436097773321376129
+      CaveAquamarineSalt_32: -2201864040808438405
+      CaveAquamarineSalt_33: -7691721599823547858
+      CaveAquamarineSalt_34: 7654965619876165190
+      CaveAquamarineSalt_4: 2850126545831565620
+      CaveAquamarineSalt_5: -2220168254518160244
+      CaveAquamarineSalt_6: -690794141088046930
+      CaveAquamarineSalt_7: -2772617233583348149
+      CaveAquamarineSalt_8: 2981240288707352169
+      CaveAquamarineSalt_9: -8398401074284669891
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
