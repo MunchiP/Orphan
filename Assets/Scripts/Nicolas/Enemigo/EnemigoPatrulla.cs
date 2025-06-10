@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemigoPatrulla : MonoBehaviour
 {
     public float velocidad = 2f;
-    public float tiempoEsperaGiro = 1f; // ⬅️ Ahora puedes cambiar esto en el Inspector
+    public float tiempoEsperaGiro = 1f;
 
     public Transform detectorSuelo;
     public Transform detectorPared;
@@ -51,12 +51,28 @@ public class EnemigoPatrulla : MonoBehaviour
     IEnumerator EsperarYGirar()
     {
         girando = true;
-        yield return new WaitForSeconds(tiempoEsperaGiro); // ⬅️ Tiempo configurable
+        yield return new WaitForSeconds(tiempoEsperaGiro);
         moviendoDerecha = !moviendoDerecha;
 
         Vector3 escala = transform.localScale;
         escala.x *= -1;
         transform.localScale = escala;
+
+        girando = false;
+    }
+
+    public void PausarTrasGolpear(float duracion = 0.3f)
+    {
+        StartCoroutine(PausaMovimiento(duracion));
+    }
+
+    private IEnumerator PausaMovimiento(float duracion)
+    {
+        girando = true;
+        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        animator.SetBool("velocity", false);
+
+        yield return new WaitForSeconds(duracion);
 
         girando = false;
     }
@@ -89,5 +105,4 @@ public class EnemigoPatrulla : MonoBehaviour
             }
         }
     }
-
 }

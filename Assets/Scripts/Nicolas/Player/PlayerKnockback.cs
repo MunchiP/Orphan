@@ -30,6 +30,17 @@ public class PlayerKnockback : MonoBehaviour
     }
     void Start()
     {
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+
+        // Ignorar colisión entre todos los colliders del jugador (incluyendo la flecha)
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            for (int j = i + 1; j < colliders.Length; j++)
+            {
+                Physics2D.IgnoreCollision(colliders[i], colliders[j]);
+            }
+        }
+
         anim = GetComponentInChildren<Animator>();
     }
 
@@ -61,6 +72,9 @@ public class PlayerKnockback : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
 {
     if (!canKnockback || isKnockedBack) return;
+
+    // 🔴 Ignorar si el collider es el arma del jugador
+    if (other.CompareTag("Arma")) return;
 
     if (other.CompareTag("Enemigo"))
     {
