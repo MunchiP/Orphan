@@ -411,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 3019323431269362833, guid: 25179e88087360f48a2a23909777343d, type: 3}
     - target: {fileID: 8202346345169403714, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_Name
-      value: Monolith_4
+      value: Monolith_3
       objectReference: {fileID: 0}
     - target: {fileID: 8507055224891565366, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1735,7 +1735,7 @@ PrefabInstance:
       objectReference: {fileID: 5602890187394784374, guid: 25179e88087360f48a2a23909777343d, type: 3}
     - target: {fileID: 8202346345169403714, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_Name
-      value: Monolith_3
+      value: Monolith_4
       objectReference: {fileID: 0}
     - target: {fileID: 8507055224891565366, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4603,7 +4603,7 @@ PrefabInstance:
       objectReference: {fileID: 9025205492492396617, guid: 25179e88087360f48a2a23909777343d, type: 3}
     - target: {fileID: 8202346345169403714, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_Name
-      value: Monolith_5
+      value: Monolith_6
       objectReference: {fileID: 0}
     - target: {fileID: 8507055224891565366, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4839,7 +4839,7 @@ PrefabInstance:
     - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: exclamation
       value: 
-      objectReference: {fileID: 1777313225}
+      objectReference: {fileID: 823571541958290653, guid: 99642161ffe96f640bd32f5e80ad40c4, type: 3}
     - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: lines.Array.size
       value: 1
@@ -4850,7 +4850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8202346345169403714, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_Name
-      value: Monolith_1
+      value: Monolith_0
       objectReference: {fileID: 0}
     - target: {fileID: 8507055224891565366, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_LocalPosition.x
