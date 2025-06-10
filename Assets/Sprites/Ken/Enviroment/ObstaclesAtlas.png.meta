@@ -354,10 +354,10 @@ TextureImporter:
       name: ObstaclesAtlas_9
       rect:
         serializedVersion: 2
-        x: 1864
-        y: 0
-        width: 1026
-        height: 995
+        x: 549
+        y: 1522
+        width: 122
+        height: 127
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -482,6 +482,380 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1511
+        width: 64
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6452eae85633eb940b825fa51fa815e8
+      internalID: -901381854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1518
+        width: 61
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ae20b9a772e9b54981f1e77f6e35a63
+      internalID: -2027207740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1519
+        width: 47
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28a46c21b8f6b5c4c9274cf9e35a6c2a
+      internalID: -488115597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1514
+        width: 153
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3fa44ac26edbdc4aa83fc7eddbd9733
+      internalID: -572708330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 1515
+        width: 87
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d28e4f606af8fe248af71ca673549aba
+      internalID: 1430288824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1372
+        width: 64
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6646e45e668d7c04fb94cb1e7ffa6476
+      internalID: -1411943332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 1374
+        width: 62
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b90045afab3294abee3e07ecd7e0b2
+      internalID: -1117998537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1376
+        width: 47
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2626badc81577ef40a8a5dd19701d508
+      internalID: 1789588587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1373
+        width: 150
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb9d0cdd50785b40b5deb01d9f80b4b
+      internalID: 168241277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1376
+        width: 121
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b6b07f4cda1f854ab9967508954eef2
+      internalID: -1548964247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1372
+        width: 86
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a89d3a8e66825f44a39dffefbc67a64
+      internalID: 2115501117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1228
+        width: 61
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af475c7b63f147e4b9a3b25c09b9d664
+      internalID: -1536813709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1230
+        width: 61
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f95ab4eb9ee33642aa5752ed3ee6226
+      internalID: -601769865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1231
+        width: 47
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe98ceedbccab04bb865775c0f26d7a
+      internalID: 1880552119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_20
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1228
+        width: 149
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99641e3a87f0e2247af4ca6c4c87f814
+      internalID: 1698165218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_21
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 1235
+        width: 118
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ae5da4a78782724387ec89368f852cb
+      internalID: 491703896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_22
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 1227
+        width: 87
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e8f8f10051121469fbc4113622c0d9
+      internalID: 1469092486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -507,9 +881,26 @@ TextureImporter:
       MoundOfBones: -673753059
       ObstaclesAtlas_0: -7354474807396207683
       ObstaclesAtlas_1: 8244782436707602332
+      ObstaclesAtlas_10: 1430288824
+      ObstaclesAtlas_11: -1411943332
+      ObstaclesAtlas_12: -1117998537
+      ObstaclesAtlas_13: 1789588587
+      ObstaclesAtlas_14: 168241277
+      ObstaclesAtlas_15: -1548964247
+      ObstaclesAtlas_16: 2115501117
+      ObstaclesAtlas_17: -1536813709
+      ObstaclesAtlas_18: -601769865
+      ObstaclesAtlas_19: 1880552119
       ObstaclesAtlas_2: -1128551595253837367
+      ObstaclesAtlas_20: 1698165218
+      ObstaclesAtlas_21: 491703896
+      ObstaclesAtlas_22: 1469092486
       ObstaclesAtlas_3: -736568560215877300
       ObstaclesAtlas_4: 2861547202967493347
+      ObstaclesAtlas_5: -901381854
+      ObstaclesAtlas_6: -2027207740
+      ObstaclesAtlas_7: -488115597
+      ObstaclesAtlas_8: -572708330
       ObstaclesAtlas_9: 7352270320707695639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
