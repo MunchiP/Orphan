@@ -13,6 +13,7 @@ public class PlayerKnockback : MonoBehaviour
     private PlayerState playerState;
     private bool isKnockedBack = false;
     private bool canKnockback = true;
+    private Animator anim;
 
     void Awake()
     {
@@ -27,36 +28,79 @@ public class PlayerKnockback : MonoBehaviour
         if (playerState == null)
             Debug.LogError("No se encontró PlayerState en el jugador.", this);
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    void Start()
     {
-        if (!canKnockback || isKnockedBack) return;
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
 
-        if (other.CompareTag("Enemigo"))
+        // Ignorar colisión entre todos los colliders del jugador (incluyendo la flecha)
+        for (int i = 0; i < colliders.Length; i++)
         {
-            Vector2 contacto = other.ClosestPoint(transform.position);
-
-            // Verifica si es un enemigo volador
-            EnemigoVoladorIA enemigoIA = other.GetComponent<EnemigoVoladorIA>();
-            if (enemigoIA != null)
+            for (int j = i + 1; j < colliders.Length; j++)
             {
-                if (!enemigoIA.enCooldownPostAtaque)
-                {
-                    ApplyKnockback(contacto);
-                    enemigoIA.PausarTrasGolpear();
-                }
-            }
-            else
-            {
-                ApplyKnockback(contacto);
+                Physics2D.IgnoreCollision(colliders[i], colliders[j]);
             }
         }
+
+        anim = GetComponentInChildren<Animator>();
     }
+
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (!canKnockback || isKnockedBack) return;
+
+    //     if (other.CompareTag("Enemigo"))
+    //     {
+    //         Vector2 contacto = other.ClosestPoint(transform.position);
+
+    //         // Verifica si es un enemigo volador
+    //         EnemigoVoladorIA enemigoIA = other.GetComponent<EnemigoVoladorIA>();
+    //         if (enemigoIA != null)
+    //         {
+    //             if (!enemigoIA.enCooldownPostAtaque)
+    //             {
+    //                 ApplyKnockback(contacto);
+    //                 enemigoIA.PausarTrasGolpear();
+    //             }
+    //         }
+    //         else
+    //         {
+    //             ApplyKnockback(contacto);
+    //         }
+    //     }
+    // }
+
+    private void OnTriggerStay2D(Collider2D other)
+{
+    if (!canKnockback || isKnockedBack) return;
+
+    // 🔴 Ignorar si el collider es el arma del jugador
+    if (other.CompareTag("Arma")) return;
+
+    if (other.CompareTag("Enemigo"))
+    {
+        Vector2 contacto = other.ClosestPoint(transform.position);
+
+        EnemigoVoladorIA enemigoIA = other.GetComponent<EnemigoVoladorIA>();
+        if (enemigoIA != null)
+        {
+            if (!enemigoIA.enCooldownPostAtaque)
+            {
+                ApplyKnockback(contacto);
+                enemigoIA.PausarTrasGolpear();
+            }
+        }
+        else
+        {
+            ApplyKnockback(contacto);
+        }
+    }
+}
+
 
     public void ApplyKnockback(Vector2 contactPoint)
     {
         if (isKnockedBack || !canKnockback) return;
-
+        anim.SetTrigger("knockout");
         isKnockedBack = true;
         canKnockback = false;
 

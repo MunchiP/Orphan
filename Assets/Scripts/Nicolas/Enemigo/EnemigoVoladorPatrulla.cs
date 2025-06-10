@@ -18,6 +18,7 @@ public class EnemigoVoladorIA : MonoBehaviour
     private Transform jugador;
     private Rigidbody2D rb;
     private Seeker seeker;
+    private Animator anim;
 
     private Path path;
     private int currentWaypoint = 0;
@@ -26,7 +27,6 @@ public class EnemigoVoladorIA : MonoBehaviour
     public bool enCooldownPostAtaque = false;
 
     private Vector2 posicionInicial;
-    private Vector2 puntoPatrullaActual;
 
     void Awake()
     {
@@ -54,6 +54,7 @@ public class EnemigoVoladorIA : MonoBehaviour
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         InvokeRepeating(nameof(ActualizarPath), 0f, tiempoEntreActualizacionesPath);
         StartCoroutine(PatrullarSiNoDetectaJugador());
     }
@@ -81,7 +82,7 @@ public class EnemigoVoladorIA : MonoBehaviour
             if (distanciaAlJugador <= rangoDeteccionJugador)
             {
                 persiguiendoJugador = true;
-                StopCoroutine(PatrullarSiNoDetectaJugador()); // Detener patrulla si detecta jugador
+                StopCoroutine(PatrullarSiNoDetectaJugador());
                 Debug.Log("Jugador detectado, persiguiendo.");
             }
             else
@@ -108,7 +109,10 @@ public class EnemigoVoladorIA : MonoBehaviour
     void FixedUpdate()
     {
         if (path == null || currentWaypoint >= path.vectorPath.Count || enCooldownPostAtaque)
+        {
+            anim.SetBool("velocity", false);
             return;
+        }
 
         Vector2 siguientePunto = (Vector2)path.vectorPath[currentWaypoint];
         Vector2 direccion = (siguientePunto - rb.position).normalized;
@@ -122,10 +126,13 @@ public class EnemigoVoladorIA : MonoBehaviour
 
         Vector2 nuevaPosicion = rb.position + direccion * velocidadMovimiento * Time.fixedDeltaTime;
         rb.MovePosition(nuevaPosicion);
+
+        anim.SetBool("velocity", true); // Activamos animación de movimiento
     }
 
     public void PausarTrasGolpear()
     {
+        anim.SetBool("velocity", false); // Detenemos animación de movimiento
         if (!enCooldownPostAtaque)
             StartCoroutine(CooldownPostAtaque());
     }

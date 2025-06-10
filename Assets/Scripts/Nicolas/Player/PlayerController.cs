@@ -197,6 +197,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Attack()
     {
         canAttack = false;
+        anim.SetBool("isAttacking", true);
         anim.SetTrigger("attack");
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;

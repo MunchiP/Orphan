@@ -43,4 +43,23 @@ public class PlayerState : MonoBehaviour
         purezaActual += cantidad; // ✅ Ya no hay límite superior
         Debug.Log("Pureza actual: " + purezaActual);
     }
+
+    public void CargarDatos(SaveData data)
+    {
+        purezaActual = data.pureza;
+        vidaActual = data.vida;
+        transform.position = new Vector3(data.posX, data.posY, transform.position.z);
+        Debug.Log("Datos cargados y aplicados al jugador");
+    }
+
+    public SaveData ObtenerDatosParaGuardar()
+    {
+        return new SaveData
+        {
+            pureza = purezaActual,
+            vida = vidaActual,
+            posX = transform.position.x,
+            posY = transform.position.y
+        };
+    }
 }

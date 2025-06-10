@@ -1,114 +1,87 @@
 using UnityEngine;
-using System.Collections; // Necesario para usar Coroutines
+using System.Collections;
 
 public class ElevatorBehaviour : MonoBehaviour
 {
-    // --- Variables públicas que puedes ajustar en el Inspector ---
     [Header("Configuración del Ascensor")]
-    public float speed = 2f; // Velocidad de movimiento en unidades/segundo
-    public Transform topPoint; // Objeto vacío que define la posición superior del ascensor
-    public float waitAtTopTime = 3f; // Tiempo de espera en la cima (en segundos)
-    public float crushingDetectionThreshold = 0.5f; // Distancia desde la posición inicial para detectar aplastamiento (al bajar)
-    
-    // --- Variables Internas ---
-    private Rigidbody2D rb; // Referencia al Rigidbody2D del ascensor
-    private Vector3 initialPosition; // Almacena la posición inicial del ascensor
-    private bool elevatorActivated = false; // Bandera para controlar si el ascensor está en movimiento
-    private Coroutine elevatorRoutine; // Referencia a la Coroutine de movimiento del ascensor
+    public float speed = 2f;
+    public Transform topPoint;
+    public float waitAtTopTime = 3f;
+
+    private Rigidbody2D rb;
+    private Vector3 initialPosition;
+    private bool elevatorActivated = false;
+    private Coroutine elevatorRoutine;
+
+    public UnderElevator underElevator; // Asegúrate de que este script detecta correctamente si el jugador está debajo
+    private bool isUnder = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        initialPosition = transform.position; // Guarda la posición de inicio del ascensor
-
-        // Aseguramos que el Rigidbody2D del elevador es Kinematic.
+        // Aseguramos que el Rigidbody2D sea Kinematic para control directo de la posición
         rb.bodyType = RigidbodyType2D.Kinematic;
-        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        initialPosition = transform.position;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        // Al ser Kinematic y mover el ascensor directamente por transform.position,
-        // su Rigidbody2D no se moverá por sí mismo.
-        rb.linearVelocity = Vector2.zero; 
+        // Obtenemos el estado actual del script UnderElevator
+        isUnder = underElevator.isUnder;
     }
 
-    // --- Lógica de Colisión (usando el COLLIDER PRINCIPAL del ascensor, que NO es Trigger) ---
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Comprueba si el objeto que colisionó es el "Player" y si el ascensor está en su posición inicial y no está activado.
-        if (collision.gameObject.CompareTag("Player") && 
-            Vector3.Distance(transform.position, initialPosition) < 0.1f && 
-            !elevatorActivated) 
+        // Activamos el ascensor cuando el jugador lo toca en su posición inicial
+        if (collision.gameObject.CompareTag("Player") &&
+            Vector3.Distance(transform.position, initialPosition) < 0.1f &&
+            !elevatorActivated)
         {
-            elevatorActivated = true; 
+            elevatorActivated = true;
+            // Detenemos cualquier rutina existente para evitar múltiples coroutines
             if (elevatorRoutine != null)
-            {
-                StopCoroutine(elevatorRoutine); 
-            }
-            elevatorRoutine = StartCoroutine(MoveElevatorRoutine(true)); 
+                StopCoroutine(elevatorRoutine);
+
+            elevatorRoutine = StartCoroutine(MoveElevatorRoutine(true));
         }
     }
 
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            // LÓGICA DE ANTIPLASTAMIENTO:
-            if (elevatorActivated &&
-                transform.position.y <= initialPosition.y + crushingDetectionThreshold && 
-                collision.transform.position.y < transform.position.y - (GetComponent<Collider2D>().bounds.extents.y * 0.75f) && 
-                (elevatorRoutine != null))
-            {
-                Debug.Log("¡Jugador detectado debajo del ascensor! Volviendo a subir.");
-                StopCoroutine(elevatorRoutine); 
-                elevatorRoutine = StartCoroutine(MoveElevatorRoutine(true)); 
-            }
-        }
-    }
-
-    // --- MÉTODOS PARA EL TRIGGER DE DETECCIÓN DE JUGADOR ENCIMA ("PlayerDetectionZone") ---
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.transform.SetParent(transform); 
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (other.transform.parent == transform)
-            {
-                other.transform.SetParent(null); 
-            }
-        }
-    }
-
-    // --- Coroutine para el movimiento del ascensor ---
     IEnumerator MoveElevatorRoutine(bool startGoingUp)
     {
+        // --- Subir ---
         if (startGoingUp)
         {
+            // Mover el ascensor al punto superior
             while (Vector3.Distance(transform.position, topPoint.position) > 0.01f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, topPoint.position, speed * Time.deltaTime);
-                yield return null; 
+                rb.MovePosition(Vector2.MoveTowards(rb.position, topPoint.position, speed * Time.fixedDeltaTime));
+                yield return new WaitForFixedUpdate(); // Esperar la siguiente actualización de física
             }
-            transform.position = topPoint.position; 
-
-            yield return new WaitForSeconds(waitAtTopTime); 
+            rb.MovePosition(topPoint.position); // Ajustar a la posición superior exacta
+            yield return new WaitForSeconds(waitAtTopTime); // Esperar en la parte superior
         }
 
+        // --- Bajar ---
         while (Vector3.Distance(transform.position, initialPosition) > 0.01f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, initialPosition, speed * Time.deltaTime);
-            yield return null; 
-        }
-        transform.position = initialPosition; 
+            // Si se detecta al jugador debajo del ascensor durante el descenso
+            if (isUnder)
+            {
+                Debug.Log("Jugador debajo detectado durante bajada. Volviendo a subir.");
+                yield return new WaitForSeconds(0.1f); // Pequeño retraso antes de reiniciar el ascenso
+                // Detener el descenso actual y reiniciar la rutina, forzando un ascenso
+                if (elevatorRoutine != null)
+                    StopCoroutine(elevatorRoutine);
+                elevatorRoutine = StartCoroutine(MoveElevatorRoutine(true));
+                yield break; // Salir de esta rutina actual
+            }
 
-        elevatorActivated = false; 
+            // Continuar bajando
+            rb.MovePosition(Vector2.MoveTowards(rb.position, initialPosition, speed * Time.fixedDeltaTime));
+            yield return new WaitForFixedUpdate();
+        }
+
+        rb.MovePosition(initialPosition); // Ajustar a la posición inicial exacta
+        elevatorActivated = false; // Reiniciar el estado de activación
     }
 }
