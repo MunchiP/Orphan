@@ -19,6 +19,9 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> dialogueLines;
     private Coroutine typingCoroutine;
 
+    // diccionario de imagenes de los monolithssss
+    public HelperMonolithData helperMonolithData;
+
     private void Awake()
     {
         if (Instance == null)
@@ -108,11 +111,26 @@ public class DialogueManager : MonoBehaviour
 
     // Código utilizado porque ahora utilizo ScriptableObject en los diálogos
 
-    public void UpdateDialogue(CharacterData characterData)
+    public void UpdateDialogue(CharacterData characterData, string monolithKey = "")
     {
-        // dialogueBoxImg.color = characterData.NameColor;
         characterName.text = characterData.CharacterName;
-        // characterName.text = characterData.TextFont;
-        characterImage.sprite = characterData.Portrait;   
+        // characterImage.sprite = characterData.Portrait;
+
+
+        // espacio del diccionario
+        if (characterData.IsMonolith && !string.IsNullOrEmpty(monolithKey))
+        {
+            Sprite monolithSpecificImage = helperMonolithData.GetImageForMonolith(monolithKey);
+            characterImage.sprite = monolithSpecificImage != null ? monolithSpecificImage : characterData.Portrait;
+
+            // if (monolithSpecificImage != null)
+            // {
+            //     characterImage.sprite = monolithSpecificImage;
+            // }
+        }
+        else
+        {
+            characterImage.sprite = characterData.Portrait;
+        }
     }
 }

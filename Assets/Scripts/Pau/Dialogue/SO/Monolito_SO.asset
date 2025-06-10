@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da51ceadb674ddf4dac2382a4371d05f, type: 3}
   m_Name: Monolito_SO
   m_EditorClassIdentifier: 
-  characterName: Monolito
-  portrait: {fileID: -8249873513071992027, guid: 8a27bf9c25b09a94a98ad71a5d769198, type: 3}
+  isMonolith: 1
+  characterName: ~ Monolith ~
+  portrait: {fileID: -4766046184718008398, guid: 7a8d23f9a32a64a4fa52b2939e45a43c, type: 3}
   nameColor: {r: 0.0392157, g: 0.58431375, b: 0.39355066, a: 0}
   textFont: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

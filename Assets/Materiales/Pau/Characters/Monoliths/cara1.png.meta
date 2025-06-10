@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 4ad959902999aff4097be8275a062b43
+guid: 7a8d23f9a32a64a4fa52b2939e45a43c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4385779503170729266
-    second: Square - Black_0
+      213: -4766046184718008398
+    second: cara1_0
+  - first:
+      213: 8435269973485564677
+    second: cara1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +142,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Square - Black_0
+      name: cara1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 40
+        y: 58
+        width: 221
+        height: 190
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +157,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ecac15a57c49223c0800000000000000
-      internalID: -4385779503170729266
+      spriteID: 2bff6c02f3a9bddb0800000000000000
+      internalID: -4766046184718008398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara1_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 59
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50330225959101570800000000000000
+      internalID: 8435269973485564677
       vertices: []
       indices: 
       edges: []
@@ -173,8 +198,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Square - Black_0: -4385779503170729266
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

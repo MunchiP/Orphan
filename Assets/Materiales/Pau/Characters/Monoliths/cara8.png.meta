@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 4ad959902999aff4097be8275a062b43
+guid: 8aa5655ae976f53409b271fff0c39bbe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4385779503170729266
-    second: Square - Black_0
+      213: 6813434896290510953
+    second: cara8_0
+  - first:
+      213: 6226112710598217675
+    second: cara8_1
+  - first:
+      213: -4906747628592983459
+    second: cara8_2
+  - first:
+      213: -787896294664832457
+    second: cara8_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +148,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Square - Black_0
+      name: cara8_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 31
+        y: 66
+        width: 43
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +163,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ecac15a57c49223c0800000000000000
-      internalID: -4385779503170729266
+      spriteID: 96875a560fe2e8e50800000000000000
+      internalID: 6813434896290510953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara8_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 49
+        width: 176
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf40ced588976650800000000000000
+      internalID: 6226112710598217675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara8_2
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 61
+        width: 44
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d529933670bb7ebb0800000000000000
+      internalID: -4906747628592983459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara8_3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 34
+        width: 92
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73af7a49e74d015f0800000000000000
+      internalID: -787896294664832457
       vertices: []
       indices: 
       edges: []
@@ -173,8 +248,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Square - Black_0: -4385779503170729266
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -29,7 +29,14 @@ public class DialogueSO : MonoBehaviour , IInteractable
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-             DialogueManager.Instance.UpdateDialogue(characterData);
+            //  DialogueManager.Instance.UpdateDialogue(characterData); // cambiado para el dicccccc
+            // DialogueManager.Instance.UpdateDialogue(characterData, gameObject.name);
+            SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
+            if (sr != null && sr.sprite != null)
+            {
+                string spriteName = sr.sprite.name;
+                DialogueManager.Instance.UpdateDialogue(characterData, spriteName); // no es exactamente el Monolith sino el hijo el que tiene le nombre
+            }
             exclamation.SetActive(true);
             // Debug.Log("REconoce el límite collider");
         }

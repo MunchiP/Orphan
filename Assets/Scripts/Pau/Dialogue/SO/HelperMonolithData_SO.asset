@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ecbccf4ed140845a21e507a71af2f2, type: 3}
+  m_Name: HelperMonolithData_SO
+  m_EditorClassIdentifier: 
+  monolithVisual:
+  - monolithName: cara1_0
+    monolithImage: {fileID: 2823628889308713512, guid: 25179e88087360f48a2a23909777343d, type: 3}
+  - monolithName: cara2_0
+    monolithImage: {fileID: 5503385219131144710, guid: 25179e88087360f48a2a23909777343d, type: 3}
+  - monolithName: cara3_0
+    monolithImage: {fileID: 3019323431269362833, guid: 25179e88087360f48a2a23909777343d, type: 3}
+  - monolithName: cara_4
+    monolithImage: {fileID: 5602890187394784374, guid: 25179e88087360f48a2a23909777343d, type: 3}
+  - monolithName: cara6_0
+    monolithImage: {fileID: 9025205492492396617, guid: 25179e88087360f48a2a23909777343d, type: 3}

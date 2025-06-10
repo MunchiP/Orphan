@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9781f5ef83940b04c821bba8f1d51185
+guid: e4a7799dfd3baec49a9847de6fab7e0b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 304928168049319056
-    second: carita_0
+      213: 6376338923685662677
+    second: cara2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: carita_0
+      name: cara2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 247
-        height: 230
+        x: 61
+        y: 36
+        width: 179
+        height: 227
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09c1792ad825b3400800000000000000
-      internalID: 304928168049319056
+      spriteID: 5dfc7c1c77e4d7850800000000000000
+      internalID: 6376338923685662677
       vertices: []
       indices: 
       edges: []

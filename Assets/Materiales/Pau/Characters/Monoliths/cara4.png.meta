@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 8a27bf9c25b09a94a98ad71a5d769198
+guid: 49ca398f02d0ffa4495509a6340d7ed7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8249873513071992027
-    second: WhatsApp Image 2025-06-06 at 2.38.43 PM (1)_0
+      213: -914798648011183877
+    second: cara4_0
+  - first:
+      213: -635027783754476188
+    second: cara4_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +142,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WhatsApp Image 2025-06-06 at 2.38.43 PM (1)_0
+      name: cara4_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 187
+        x: 32
+        y: 63
+        width: 236
+        height: 179
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +157,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 523a073efbf828d80800000000000000
-      internalID: -8249873513071992027
+      spriteID: bf82948f97bfd43f0800000000000000
+      internalID: -914798648011183877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara4_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 191
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4659fce589def27f0800000000000000
+      internalID: -635027783754476188
       vertices: []
       indices: 
       edges: []
@@ -173,8 +198,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      WhatsApp Image 2025-06-06 at 2.38.43 PM (1)_0: -8249873513071992027
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

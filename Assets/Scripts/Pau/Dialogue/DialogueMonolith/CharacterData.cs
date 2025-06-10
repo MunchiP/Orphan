@@ -9,6 +9,13 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 
 {
+
+    //Relacion con el diccionario si es monolith o no
+    [SerializeField] private bool isMonolith;
+
+    public bool IsMonolith => isMonolith;
+
+
     [SerializeField] private string characterName;
     [SerializeField] private Sprite portrait;
     [SerializeField] private Color nameColor;

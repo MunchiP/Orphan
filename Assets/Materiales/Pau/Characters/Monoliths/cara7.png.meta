@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 11571a003b77a564da08536d071519f6
+guid: 6f5bacb728ea2b44bab56bfe7daf71a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7700558481800825025
-    second: cara pango_0
+      213: 2383154439637696310
+    second: cara7_0
+  - first:
+      213: -1594855342383936173
+    second: cara7_1
+  - first:
+      213: 5769651249598846516
+    second: cara7_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +145,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cara pango_0
+      name: cara7_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 187
+        x: 38
+        y: 59
+        width: 224
+        height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +160,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f37f3203cde122590800000000000000
-      internalID: -7700558481800825025
+      spriteID: 63fff7b165aa21120800000000000000
+      internalID: 2383154439637696310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara7_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 193
+        width: 54
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d4219148fedd9e0800000000000000
+      internalID: -1594855342383936173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara7_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 13
+        width: 221
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4365a3a1e3be11050800000000000000
+      internalID: 5769651249598846516
       vertices: []
       indices: 
       edges: []
