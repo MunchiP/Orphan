@@ -15,6 +15,7 @@ TagManager:
   - GoBackButtonUI
   - ExitButtonUI
   - CreditsButtonUI
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - ElevatorDetection
   - Player
   - Weapon
-  - 
+  - Poison
   - 
   - 
   - 
