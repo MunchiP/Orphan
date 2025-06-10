@@ -1,0 +1,338 @@
+fileFormatVersion: 2
+guid: fd2d0ee933371ec4983fbaa0cce542fb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1253809938085438925
+    second: pangolin-idle_0
+  - first:
+      213: -8632609613854053773
+    second: pangolin-idle_1
+  - first:
+      213: 8960609955555459110
+    second: pangolin-idle_2
+  - first:
+      213: -2919291102123775045
+    second: pangolin-idle_3
+  - first:
+      213: 2432085259673671774
+    second: pangolin-idle_4
+  - first:
+      213: -7336660300406721164
+    second: pangolin-idle_5
+  - first:
+      213: -8944853395657220114
+    second: pangolin-idle_6
+  - first:
+      213: 4151785674441334967
+    second: pangolin-idle_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pangolin-idle_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 205
+        width: 390
+        height: 390
+      alignment: 9
+      pivot: {x: 0.66762763, y: 0.45922568}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc5ef67ee7d666110800000000000000
+      internalID: 1253809938085438925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangolin-idle_1
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 399
+        width: 355
+        height: 189
+      alignment: 9
+      pivot: {x: 0.20933469, y: 0.4420387}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37a6b913b4fc23880800000000000000
+      internalID: -8632609613854053773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangolin-idle_2
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 356
+        width: 136
+        height: 177
+      alignment: 9
+      pivot: {x: 0.63771373, y: 0.76553243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62046bb774b7a5c70800000000000000
+      internalID: 8960609955555459110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangolin-idle_3
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 237
+        width: 159
+        height: 137
+      alignment: 9
+      pivot: {x: 0.2444126, y: 0.7888925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb24fda5389c77d0800000000000000
+      internalID: -2919291102123775045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangolin-idle_4
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 253
+        width: 178
+        height: 105
+      alignment: 9
+      pivot: {x: 0.14066683, y: 0.70193017}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e58105e68a080c120800000000000000
+      internalID: 2432085259673671774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangolin-idle_5
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 17
+        width: 390
+        height: 159
+      alignment: 9
+      pivot: {x: 0.8252883, y: 0.77336794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 475fb8cf352fe2a90800000000000000
+      internalID: -7336660300406721164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangolin-idle_6
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 6
+        width: 145
+        height: 182
+      alignment: 9
+      pivot: {x: 0.47319168, y: 0.8106621}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eef97ef7a3f7dd380800000000000000
+      internalID: -8944853395657220114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pangolin-idle_7
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 6
+        width: 145
+        height: 182
+      alignment: 9
+      pivot: {x: 0.49268842, y: 0.85726106}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0a1a4e21b1e9930800000000000000
+      internalID: 4151785674441334967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3dc7cde2cdf4044448f126ca8354f66b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pangolin-idle_0: 1253809938085438925
+      pangolin-idle_1: -8632609613854053773
+      pangolin-idle_2: 8960609955555459110
+      pangolin-idle_3: -2919291102123775045
+      pangolin-idle_4: 2432085259673671774
+      pangolin-idle_5: -7336660300406721164
+      pangolin-idle_6: -8944853395657220114
+      pangolin-idle_7: 4151785674441334967
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

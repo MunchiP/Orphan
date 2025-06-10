@@ -9,6 +9,13 @@ TagManager:
   - Elevator
   - Enemigo
   - Arma
+  - FxTemporaire
+  - StartButtonUI
+  - FadeUI
+  - GoBackButtonUI
+  - ExitButtonUI
+  - CreditsButtonUI
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -20,8 +27,8 @@ TagManager:
   - Wall
   - ElevatorDetection
   - Player
-  - 
-  - 
+  - Weapon
+  - Poison
   - 
   - 
   - 
