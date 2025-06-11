@@ -976,50 +976,6 @@
                 },
                 {
                     "name": "",
-                    "id": "557d5e9f-86a5-4d81-97ba-f7617a3ea64b",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Inventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3362aaf9-d2ee-43f3-a370-9ec66fe5bca1",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Inventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cb7d1f49-fd48-409e-af95-74cde37a8ae4",
-                    "path": "*/{Back}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad;Keyboard&Mouse",
-                    "action": "Inventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7ba502f6-1a85-4937-b765-4233e5039c46",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Inventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b1291af1-23b5-41be-a57e-fb1ec5332a74",
                     "path": "<Keyboard>/i",
                     "interactions": "",

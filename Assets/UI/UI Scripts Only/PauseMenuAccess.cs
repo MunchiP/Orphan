@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
 {
     public GameObject escapeScreen;
+    public GameObject escapeKey;
 
     private bool isGameOnPauseMenu;
     private InputSystem_Actions controls;
     private InventoryAccess inventoryAccessScript;
     private MenuButtonListManager menuButtonListManager;
     private PauseMenuNavigation pauseMenuNavigationScript;
+    private EscMenuBehaviour escapeKeyScript;
 
     void Awake()
     {
@@ -20,6 +22,7 @@ public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
         inventoryAccessScript = gameObject.GetComponent<InventoryAccess>();
         menuButtonListManager = gameObject.GetComponent<MenuButtonListManager>();
         pauseMenuNavigationScript = gameObject.GetComponent<PauseMenuNavigation>();
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
         
     }
 
@@ -37,6 +40,7 @@ public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
 
     void Start()
     {
+        // Initialize button layout once at startup, then hide pause UI
         escapeScreen.SetActive(false);
         isGameOnPauseMenu = false;
 
@@ -80,9 +84,10 @@ public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
                 else if (escapeScreen == null)
                 {
                     Debug.Log("Either one or both Pause Main Layers are missing on the scene");
+                    return;
                 }
             }
-            else if (isGameOnPauseMenu)
+            else if (isGameOnPauseMenu && escapeKeyScript.onPauseMainMenu)
             {
                 isGameOnPauseMenu = false;
                 if (escapeScreen != null)
@@ -96,6 +101,7 @@ public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
                 else if (escapeScreen == null)
                 {
                     Debug.Log("Either one or both Pause Main Layers are missing on the scene");
+                    return;
                 }
             }
 

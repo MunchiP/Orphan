@@ -14,7 +14,7 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
     public List<GameObject> buttonList = new List<GameObject>();
     public int buttonToMoveOnto;
     private GameObject currentButton;
-    private ButtonIndexController buttonIndexController;
+    private PauseMenuNavigation buttonIndexController;
     public int lastButtonIndex = -1;
     private int mouseHoveringButtonIndex = -1;
     private bool isMouseHoveringButton;
@@ -52,10 +52,39 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
     public void RestartSelection(int startIndex = 0)
     {
+        SetMouseHoverButtonIndex(-1);
+        SetMouseHoverState(false);
+
         if (buttonList.Count == 0) return;
         buttonToMoveOnto = Mathf.Clamp(startIndex, 0, buttonList.Count - 1);
         buttonList[buttonToMoveOnto].GetComponent<Button>().Select();
         lastButtonIndex = buttonToMoveOnto;
+
+        TryRestoreMouseHover();
+    }
+
+    private void TryRestoreMouseHover()
+    {
+        PointerEventData pointerData = new PointerEventData(EventSystem.current)
+        {
+            position = Mouse.current.position.ReadValue()
+        };
+
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+        foreach (RaycastResult result in raycastResults)
+        {
+            GameObject hit = result.gameObject;
+            if (buttonList.Contains(hit))
+            {
+                int index = buttonList.IndexOf(hit);
+                SetMouseHoverButtonIndex(index);
+                SetMouseHoverState(true);
+                EventSystem.current.SetSelectedGameObject(hit);
+                break;
+            }
+        }
     }
 
     public void SetMouseHoverState(bool isMouseOnButton)
@@ -79,6 +108,8 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
     void Update()
     {
+
+        HandleStaleMouseHover();
         if (buttonList == null)
             return;
         if (buttonToMoveOnto < 0 || buttonToMoveOnto > buttonList.Count)
@@ -128,6 +159,22 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
         //Debug.Log(buttonToMoveOnto);
     }
 
+    private void HandleStaleMouseHover()
+    {
+        if (isMouseHoveringButton)
+        {
+            GameObject hovered = EventSystem.current.currentSelectedGameObject;
+
+            
+            if (hovered == null || !hovered.activeInHierarchy)
+            {
+                Debug.LogWarning("[PauseMenuNavigation] Hovered button disappeared or became inactive.");
+                isMouseHoveringButton = false;
+                mouseHoveringButtonIndex = -1;
+            }
+        }
+    }
+
     public void OnCancel(InputAction.CallbackContext context)
     {
     }
@@ -144,6 +191,8 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
     {
         if (buttonList == null || buttonList.Count == 0)
             return;
+
+        Debug.Log($"[OnNavigate] MouseControlling: {isMouseControlling}, Hovering: {isMouseHoveringButton}");
         if (isMouseControlling) return;
         if (!isMouseHoveringButton && context.performed)
         {

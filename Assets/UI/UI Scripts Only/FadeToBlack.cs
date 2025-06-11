@@ -42,13 +42,13 @@ public class FadeToBlack : MonoBehaviour
         
             
     }
-    public void FadeToScene(string sceneName)
+    public void FadeToScene(int sceneIndex)
     {
         
-        StartCoroutine(FadeThenLoadScene(sceneName));
+        StartCoroutine(FadeThenLoadScene(sceneIndex));
     }
 
-    private IEnumerator FadeThenLoadScene(string sceneName)
+    private IEnumerator FadeThenLoadScene(int sceneIndex)
     {
         fadeImage.enabled = true;
         float time = 0;
@@ -62,6 +62,6 @@ public class FadeToBlack : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2.5f);
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneIndex);
     }
 }

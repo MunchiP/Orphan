@@ -19,6 +19,10 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
     private int mouseHoveringButtonIndex = -1;
     private bool isMouseHoveringButton;
     private bool isMouseControlling = false;
+    public GameObject escapeKey;
+    private EscMenuBehaviour escapeKeyScript;
+    public GameObject GameManagerTitleFunction;
+    private TitleSceneAndButtonFunction titleSceneAndButtonFunction;
 
     void Awake()
     {
@@ -46,6 +50,17 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
         
         lastButtonIndex = -1;
         buttonToMoveOnto = -1;
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
+        titleSceneAndButtonFunction = GameManagerTitleFunction.GetComponent<TitleSceneAndButtonFunction>();
+    }
+
+    public void ResetNavigation()
+    {
+        if (buttonList != null && buttonList.Count > 0)
+        {
+            buttonToMoveOnto = 0;
+            lastButtonIndex = -1;
+        }
     }
 
     public void SetMouseHoverState(bool isMouseOnButton)
@@ -115,11 +130,23 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
             }
         }
 
-        //Debug.Log(buttonToMoveOnto);
+        
     }
 
     public void OnCancel(InputAction.CallbackContext context)
     {
+        if (context.performed)
+        {
+            if (escapeKeyScript.onTitleMainMenu)
+            {
+                return;
+            }
+            else if(!escapeKeyScript.onTitleMainMenu)
+            {
+                titleSceneAndButtonFunction.GoBackToTitle();
+            }
+        
+        }
     }
 
     public void OnClick(InputAction.CallbackContext context)

@@ -12,7 +12,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
     private GameObject startButton;
     private GameObject quitButton;
     private GameObject creditsButton;
-    public GameObject goBackButton;
+    
     public GameObject settingsButton;
     public GameObject leftPaw;
     public GameObject rightPaw;
@@ -30,12 +30,14 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
     public int dataPersistanceTestNumber;
     private string currentMenu;
     private bool isGoBackTransitioning = false;
-    private HorizontalOnlyNavigation horizontalNavigationScript;
+    
     private VerticalOnlyNavigation titleMenuVerticalNavigationScript;
     private VerticalOnlyNavigation settingsMenuVerticalNavigationScript;
     private VerticalOnlyNavigation soundPanelVerticalNavigationScript;
-    private VerticalOnlyNavigation oneButtonVerticalNavigationScript;
+    
     private TitleSceneAndButtonFunction titleAndButtonScript;
+    public GameObject escapeKey;
+    private EscMenuBehaviour escapeKeyScript;
 
     
 
@@ -45,10 +47,9 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         if (SceneManager.GetActiveScene().buildIndex != 0) return;
         titleMenuVerticalNavigationScript = UINavigationManager.GetComponent<VerticalOnlyNavigation>();
-        horizontalNavigationScript = UINavigationManager.GetComponent<HorizontalOnlyNavigation>();
         settingsMenuVerticalNavigationScript = settingsUINavigationManager.GetComponent<VerticalOnlyNavigation>();
         soundPanelVerticalNavigationScript =  soundPanelUINavigationManager.GetComponent <VerticalOnlyNavigation>();
-        oneButtonVerticalNavigationScript = oneButtonNavigation.GetComponent<VerticalOnlyNavigation>();
+        
     }
 
     public void OnDisable()
@@ -67,10 +68,8 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
             quitButton = GameObject.FindGameObjectWithTag("ExitButtonUI");
             creditsButton = GameObject.FindGameObjectWithTag("CreditsButtonUI");
             titleMenuVerticalNavigationScript = UINavigationManager.GetComponent<VerticalOnlyNavigation>();
-            horizontalNavigationScript = UINavigationManager.GetComponent<HorizontalOnlyNavigation>();
             settingsMenuVerticalNavigationScript = settingsUINavigationManager.GetComponent<VerticalOnlyNavigation>();
             soundPanelVerticalNavigationScript = soundPanelUINavigationManager.GetComponent<VerticalOnlyNavigation>();
-            oneButtonVerticalNavigationScript = oneButtonNavigation.GetComponent<VerticalOnlyNavigation>();
             titleMenu.SetActive(true);
             var buttonScripts = titleMenu.GetComponentsInChildren<ButtonIndexController>(true);
             foreach (var script in buttonScripts)
@@ -79,7 +78,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
             }
             creditRoller.SetActive(false);
             settingsMenu.SetActive(false);
-            goBackButton.SetActive(false);
+            
             controlLayout.SetActive(false);
             soundMenu.SetActive(false);
             soundPanelVerticalNavigationScript.enabled = false;
@@ -92,10 +91,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
                 start.onClick.AddListener(() => ChangeSceneToNewGame());
             }
                 
-            if (startButton == null)
-            {
-                Debug.Log("startButton not found in current scene");
-            }
+          
 
             if (quitButton != null)
             {
@@ -111,12 +107,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
                 credits.onClick.AddListener(() => GoToCredits());
             }
                 
-            if (goBackButton != null)
-            {
-                Button goBack = goBackButton.GetComponent<Button>();
-                goBack.onClick.RemoveAllListeners();
-                goBack.onClick.AddListener(() => GoBackToTitle());
-            }
+            
                 
             if (settingsButton != null)
             { 
@@ -150,13 +141,12 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
         AudioManager.instance.PlayMusic("MainTheme");
         dataPersistanceTestNumber = 0;
         fadeController = GetComponent<FadeToBlack>();
-        goBackButton.SetActive(false);
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
+        
         controlLayout.SetActive(false);
         titleMenuVerticalNavigationScript = UINavigationManager.GetComponent<VerticalOnlyNavigation>();
-        horizontalNavigationScript = UINavigationManager.GetComponent<HorizontalOnlyNavigation>();
         settingsMenuVerticalNavigationScript = settingsUINavigationManager.GetComponent<VerticalOnlyNavigation>();
         soundPanelVerticalNavigationScript = soundPanelUINavigationManager.GetComponent<VerticalOnlyNavigation>();
-        oneButtonVerticalNavigationScript = oneButtonNavigation.GetComponent<VerticalOnlyNavigation>();
         soundPanelVerticalNavigationScript.enabled = false;
         soundMenu.SetActive(false);
     }
@@ -164,28 +154,20 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
     public void GoToSettings()
     {
         currentMenu = "SettingsMenu";
+        escapeKeyScript.onTitleMainMenu = false;
 
         var buttonScripts = settingsMenu.GetComponentsInChildren<ButtonIndexController>(true);
         foreach (var script in buttonScripts)
         {
             script.SetKeyboardController(settingsMenuVerticalNavigationScript);
         }
-        ButtonIndexController buttonIndexController = goBackButton.GetComponent<ButtonIndexController>();
-        buttonIndexController.SetKeyboardController(settingsMenuVerticalNavigationScript);
-
-        if (!settingsMenuVerticalNavigationScript.buttonList.Contains(goBackButton))
-        {
-            settingsMenuVerticalNavigationScript.buttonList.Add(goBackButton);
-            soundPanelVerticalNavigationScript.buttonList.Remove(goBackButton);
-            oneButtonVerticalNavigationScript.buttonList.Remove(goBackButton);
-        }
+      
 
         titleMenu.SetActive(false);
         settingsMenu.SetActive(true);
-        goBackButton.SetActive(true);
+        
         titleMenuVerticalNavigationScript.enabled = false;
         settingsMenuVerticalNavigationScript.enabled = true;
-        oneButtonVerticalNavigationScript.enabled = false;
         soundPanelVerticalNavigationScript.enabled=false;
         
         
@@ -197,16 +179,14 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
     {
         currentMenu = "SettingsControlSubMenu";
 
-        ButtonIndexController buttonIndexController = goBackButton.GetComponent<ButtonIndexController>();
-        buttonIndexController.SetKeyboardController(oneButtonVerticalNavigationScript);
-        if (!oneButtonVerticalNavigationScript.buttonList.Contains(goBackButton))
+        var buttonScripts = settingsMenu.GetComponentsInChildren<ButtonIndexController>(true);
+        foreach (var script in buttonScripts)
         {
-            oneButtonVerticalNavigationScript.buttonList.Add(goBackButton);
-            settingsMenuVerticalNavigationScript.buttonList.Remove(goBackButton);
+            script.SetKeyboardController(settingsMenuVerticalNavigationScript);
         }
 
-        settingsMenuVerticalNavigationScript.enabled = false;
-        oneButtonVerticalNavigationScript.enabled = true;
+
+        
         settingsMenu.SetActive(false);
         controlLayout.SetActive(true);
     }
@@ -221,13 +201,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
             script.SetKeyboardController(soundPanelVerticalNavigationScript);
         }
 
-        ButtonIndexController buttonIndexController = goBackButton.GetComponent<ButtonIndexController>();
-        buttonIndexController.SetKeyboardController(soundPanelVerticalNavigationScript);
-        if (!soundPanelVerticalNavigationScript.buttonList.Contains(goBackButton))
-        {
-            soundPanelVerticalNavigationScript.buttonList.Add(goBackButton);
-            settingsMenuVerticalNavigationScript.buttonList.Remove(goBackButton);
-        }
+  
                
         settingsMenu.SetActive(false);
         settingsMenuVerticalNavigationScript.enabled = false;
@@ -238,18 +212,13 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
     {
         currentMenu = "CreditsMenu";
 
-        ButtonIndexController buttonIndexController = goBackButton.GetComponent<ButtonIndexController>();
-        buttonIndexController.SetKeyboardController(oneButtonVerticalNavigationScript);
-        if (!oneButtonVerticalNavigationScript.buttonList.Contains(goBackButton))
-        {
-            oneButtonVerticalNavigationScript.buttonList.Add(goBackButton);
-        }
+        escapeKeyScript.onTitleMainMenu = false;
 
         titleMenu.SetActive(false);
         creditRoller.SetActive(true);
-        goBackButton.SetActive(true);
-        titleMenuVerticalNavigationScript.enabled = false;
-        oneButtonVerticalNavigationScript.enabled = true;
+        
+        
+        
 
         
     }
@@ -265,12 +234,12 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
         isGoBackTransitioning = true;
         Debug.Log("GoBackToTitle - currentMenu: " + currentMenu);
         titleMenuVerticalNavigationScript = UINavigationManager.GetComponent<VerticalOnlyNavigation>();
-        horizontalNavigationScript = UINavigationManager.GetComponent<HorizontalOnlyNavigation>();
         switch (currentMenu)
         {
             case "SettingsMenu":
                 {
                     titleMenu.SetActive(true);
+                    escapeKeyScript.onTitleMainMenu = true;
 
                     var buttonScripts = titleMenu.GetComponentsInChildren<ButtonIndexController>(true);
                     foreach (var script in buttonScripts)
@@ -278,12 +247,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
                         script.SetKeyboardController(titleMenuVerticalNavigationScript);
                     }
 
-                    if (!settingsMenuVerticalNavigationScript.buttonList.Contains(goBackButton))
-                    {
-                        settingsMenuVerticalNavigationScript.buttonList.Remove(goBackButton);
-                    }
-
-                    goBackButton.SetActive(false);
+                   
                     creditRoller.SetActive(false);
                     settingsMenu.SetActive(false);
                     titleMenuVerticalNavigationScript.enabled = true;
@@ -298,18 +262,15 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
             case "CreditsMenu":
                 {
                     titleMenu.SetActive(true);
-
+                    escapeKeyScript.onTitleMainMenu = true;
+                    
                     var buttonScripts = titleMenu.GetComponentsInChildren<ButtonIndexController>(true);
                     foreach (var script in buttonScripts)
                     {
                         script.SetKeyboardController(titleMenuVerticalNavigationScript);
                     }
 
-                    if (!oneButtonVerticalNavigationScript.buttonList.Contains(goBackButton))
-                    {
-                        oneButtonVerticalNavigationScript.buttonList.Remove(goBackButton);
-                    }
-                    goBackButton.SetActive(false);
+                   
                     creditRoller.SetActive(false);
                     settingsMenu.SetActive(false);
                     titleMenuVerticalNavigationScript.enabled = true;
@@ -360,7 +321,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
         fadeController = GetComponent<FadeToBlack>();
         if (fadeController != null)
         {
-            fadeController.FadeToScene("MainGame");
+            fadeController.FadeToScene(1);
             
             titleAndButtonScript.enabled = false;
         }

@@ -20,11 +20,18 @@ public class MenuButtonListManager : MonoBehaviour
     public GameObject soundPanelPause;
     public GameObject musicButton;
     public GameObject sfxButton;
+    public GameObject escapeKey;
+    private EscMenuBehaviour escapeKeyScript;
     private int currentPauseMenu;
+
+    public void Start()
+    {
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
+    }
 
     public void ShowPauseMenu()
     {
-
+        escapeKeyScript.onPauseMainMenu = true;
         navigation.buttonList.Clear();
 
 
@@ -44,6 +51,7 @@ public class MenuButtonListManager : MonoBehaviour
 
     public void GoToSettingsMenu()
     {
+        escapeKeyScript.onPauseMainMenu = false;
         navigation.buttonList.Clear();
 
         navigation.buttonList.Add(controlsButton);

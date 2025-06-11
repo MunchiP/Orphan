@@ -2,29 +2,26 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class ButtonIndexController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+
+public class PauseButtonIndexController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-   
-    
-    private VerticalOnlyNavigation keyboardController;
-    
+    private PauseMenuNavigation keyboardController;
+
     public int thisButtonIndex;
 
-    public void SetKeyboardController(VerticalOnlyNavigation controller)
+    public void Start()
     {
-        keyboardController = controller;
-
+        if (keyboardController == null)
+            keyboardController = FindFirstObjectByType<PauseMenuNavigation>();
     }
 
-
-
+   
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (keyboardController == null)
-            keyboardController = FindFirstObjectByType<VerticalOnlyNavigation>();
-        
-
-        //Debug.Log($"[ButtonIndexController] OnPointerEnter: '{gameObject.name}', index {thisButtonIndex}");
+            keyboardController = FindFirstObjectByType<PauseMenuNavigation>();
+        //Debug.Log($"[PointerEnter] Hovering index {thisButtonIndex}, controller null? {keyboardController == null}");
+        Debug.Log($"[ButtonIndexController] OnPointerEnter: '{gameObject.name}', index {thisButtonIndex}");
 
         if (CompareTag("GoBackButtonUI"))
         {
@@ -41,8 +38,9 @@ public class ButtonIndexController : MonoBehaviour, IPointerEnterHandler, IPoint
         }
 
         keyboardController?.SetMouseHoverButtonIndex(thisButtonIndex);
-        EventSystem.current.SetSelectedGameObject(gameObject);
         
+        EventSystem.current.SetSelectedGameObject(gameObject);
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -67,8 +65,4 @@ public class ButtonIndexController : MonoBehaviour, IPointerEnterHandler, IPoint
     }
 
 
-
-
-
 }
-

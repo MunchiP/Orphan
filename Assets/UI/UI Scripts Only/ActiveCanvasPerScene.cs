@@ -34,6 +34,6 @@ public class ActiveCanvasPerScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("currentScene is " + SceneManager.GetActiveScene().buildIndex);
+        //Debug.Log("currentScene is " + SceneManager.GetActiveScene().buildIndex);
     }
 }
