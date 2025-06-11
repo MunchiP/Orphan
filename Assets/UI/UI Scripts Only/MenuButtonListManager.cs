@@ -1,11 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
-using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems; // Asegúrate de tener esto arriba
-
 
 public class MenuButtonListManager : MonoBehaviour
 {
@@ -27,7 +23,7 @@ public class MenuButtonListManager : MonoBehaviour
     private int currentPauseMenu;
     public static MenuButtonListManager instance;
 
-    public void Awake()
+    void Awake()
     {
         if (instance != null)
         {
@@ -38,30 +34,29 @@ public class MenuButtonListManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
     public void ShowPauseMenu()
     {
-
+        navigation.SetMouseHoverState(false);
         navigation.buttonList.Clear();
-
-
         navigation.buttonList.Add(continueButton);
         navigation.buttonList.Add(settingsButton);
         navigation.buttonList.Add(returnTitleButton);
         navigation.buttonList.Add(exitGameButton);
 
-
         mainPauseMenu.SetActive(true);
         settingsPauseMenu.SetActive(false);
         goBackButton.SetActive(false);
-
+        controlLayoutPause.SetActive(false);
+        soundPanelPause.SetActive(false);
 
         navigation.RestartSelection(0);
     }
 
     public void GoToSettingsMenu()
     {
+        navigation.SetMouseHoverState(false);
         navigation.buttonList.Clear();
-
         navigation.buttonList.Add(controlsButton);
         navigation.buttonList.Add(soundButton);
         navigation.buttonList.Add(goBackButton);
@@ -69,22 +64,18 @@ public class MenuButtonListManager : MonoBehaviour
         mainPauseMenu.SetActive(false);
         settingsPauseMenu.SetActive(true);
         soundPanelPause.SetActive(false);
-        soundButton.SetActive(true);
-        sfxButton.SetActive(false);
         controlLayoutPause.SetActive(false);
-
-
+        soundButton.SetActive(true);
         goBackButton.SetActive(true);
+
         currentPauseMenu = 1;
-
         navigation.RestartSelection(0);
-
     }
 
     public void GoToSoundBoard()
     {
+        navigation.SetMouseHoverState(false);
         navigation.buttonList.Clear();
-
         navigation.buttonList.Add(musicButton);
         navigation.buttonList.Add(sfxButton);
         navigation.buttonList.Add(goBackButton);
@@ -93,29 +84,26 @@ public class MenuButtonListManager : MonoBehaviour
         soundPanelPause.SetActive(true);
         soundButton.SetActive(true);
         sfxButton.SetActive(true);
-        currentPauseMenu = 2;
 
+        currentPauseMenu = 2;
         navigation.RestartSelection(0);
     }
 
     public void GoToControls()
     {
+        navigation.SetMouseHoverState(false);
         navigation.buttonList.Clear();
-
         navigation.buttonList.Add(goBackButton);
 
         mainPauseMenu.SetActive(false);
         settingsPauseMenu?.SetActive(false);
         soundPanelPause?.SetActive(false);
-
         controlLayoutPause.SetActive(true);
         goBackButton.SetActive(true);
 
         currentPauseMenu = 3;
-
         navigation.RestartSelection(0);
     }
-
 
     public void GoContinue()
     {
@@ -134,28 +122,17 @@ public class MenuButtonListManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-
-
-
     public void GoBack()
     {
         switch (currentPauseMenu)
         {
             case 3:
-                {
-                    GoToSettingsMenu();
-                    break;
-                }
             case 2:
-                {
-                    GoToSettingsMenu();
-                    break;
-                }
+                GoToSettingsMenu();
+                break;
             case 1:
-                {
-                    ShowPauseMenu();
-                    break;
-                }
+                ShowPauseMenu();
+                break;
         }
     }
 }

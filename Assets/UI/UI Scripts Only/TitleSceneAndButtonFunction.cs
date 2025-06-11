@@ -355,16 +355,18 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
 
     public void ChangeSceneToNewGame()
     {
-        titleAndButtonScript = gameObject.GetComponent<TitleSceneAndButtonFunction>();
+        titleAndButtonScript = GetComponent<TitleSceneAndButtonFunction>();
         dataPersistanceTestNumber++;
         fadeController = GetComponent<FadeToBlack>();
 
-        // Desactiva todos los VerticalOnlyNavigation menos el de titleMenu
-        titleMenuVerticalNavigationScript.enabled = true;
-        settingsMenuVerticalNavigationScript.enabled = false;
-        soundPanelVerticalNavigationScript.enabled = false;
-        oneButtonVerticalNavigationScript.enabled = false;
+        // 🔻 Desactiva TODOS los sistemas de navegación primero
+        if (titleMenuVerticalNavigationScript != null) titleMenuVerticalNavigationScript.enabled = false;
+        if (settingsMenuVerticalNavigationScript != null) settingsMenuVerticalNavigationScript.enabled = false;
+        if (soundPanelVerticalNavigationScript != null) soundPanelVerticalNavigationScript.enabled = false;
+        if (oneButtonVerticalNavigationScript != null) oneButtonVerticalNavigationScript.enabled = false;
+        if (horizontalNavigationScript != null) horizontalNavigationScript.enabled = false;
 
+        // 🎬 Inicia la transición de escena
         if (fadeController != null)
         {
             fadeController.FadeToSceneByIndex(1);
@@ -375,6 +377,30 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
             Debug.LogWarning("FadeToBlack missing on reload.");
         }
     }
+
+public void ChangeSceneToTitle()
+{
+    titleAndButtonScript = GetComponent<TitleSceneAndButtonFunction>();
+    fadeController = GetComponent<FadeToBlack>();
+
+    // 🔻 Desactiva TODOS los sistemas de navegación primero
+    if (titleMenuVerticalNavigationScript != null) titleMenuVerticalNavigationScript.enabled = true;
+    if (settingsMenuVerticalNavigationScript != null) settingsMenuVerticalNavigationScript.enabled = false;
+    if (soundPanelVerticalNavigationScript != null) soundPanelVerticalNavigationScript.enabled = false;
+    if (oneButtonVerticalNavigationScript != null) oneButtonVerticalNavigationScript.enabled = false;
+    if (horizontalNavigationScript != null) horizontalNavigationScript.enabled = false;
+
+    // 🎬 Inicia la transición de escena al título
+    if (fadeController != null)
+    {
+        fadeController.FadeToSceneByIndex(0); // índice 0 = escena del título
+        titleAndButtonScript.enabled = false;
+    }
+    else
+    {
+        Debug.LogWarning("FadeToBlack missing on reload.");
+    }
+}
 
     public void Update()
     {

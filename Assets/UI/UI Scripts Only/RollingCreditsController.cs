@@ -1,48 +1,35 @@
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RollingCreditsController : MonoBehaviour
 {
     public List<GameObject> creditTextList = new List<GameObject>();
     private bool isPlaying;
-   
+
     public void OnEnable()
     {
         isPlaying = true;
-        for (int i = 0; i < creditTextList.Count; i++)
-        {
-            creditTextList[i].SetActive(false);
-        }
         StartCoroutine(RollTheCredits());
     }
 
-    void Start()
+    public void OnDisable()
     {
-        
-    }
-
-
-    void Update()
-    {
-        
+        isPlaying = false;
+        StopAllCoroutines();
     }
 
     public IEnumerator RollTheCredits()
     {
-        if (isPlaying)
+        while (isPlaying)
         {
-            foreach (GameObject creditText in creditTextList)
+            for (int i = 0; i < creditTextList.Count; i++)
             {
-                
-                creditText.SetActive(true);
+                creditTextList[i].SetActive(true);
                 yield return new WaitForSeconds(6.2f);
-                creditText.SetActive(false);
-                yield return new WaitForSeconds(2f);
+                creditTextList[i].SetActive(false);
+                yield return new WaitForSeconds(1f);
             }
-            isPlaying = false;
         }
     }
 }
-
