@@ -25865,6 +25865,10 @@ PrefabInstance:
       propertyPath: musicSounds.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: f68f8a58e52f9c749b2fbdee378c1727, type: 3}
+    - target: {fileID: 4747430687085316498, guid: d9034a62ca0826e4e823da910c42439d, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6441980083426678311, guid: d9034a62ca0826e4e823da910c42439d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
