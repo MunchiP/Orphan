@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Collections;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems; // Asegúrate de tener esto arriba
+
 
 public class MenuButtonListManager : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class MenuButtonListManager : MonoBehaviour
     public GameObject settingsButton;
     public GameObject returnTitleButton;
     public GameObject exitGameButton;
+    public GameObject pauseMenu;
     public GameObject controlsButton;
     public GameObject soundButton;
     public GameObject goBackButton;
@@ -21,7 +25,19 @@ public class MenuButtonListManager : MonoBehaviour
     public GameObject musicButton;
     public GameObject sfxButton;
     private int currentPauseMenu;
+    public static MenuButtonListManager instance;
 
+    public void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     public void ShowPauseMenu()
     {
 
@@ -86,22 +102,44 @@ public class MenuButtonListManager : MonoBehaviour
     {
         navigation.buttonList.Clear();
 
-        
         navigation.buttonList.Add(goBackButton);
 
+        mainPauseMenu.SetActive(false);
         settingsPauseMenu?.SetActive(false);
+        soundPanelPause?.SetActive(false);
+
         controlLayoutPause.SetActive(true);
+        goBackButton.SetActive(true);
+
         currentPauseMenu = 3;
 
         navigation.RestartSelection(0);
     }
 
 
+    public void GoContinue()
+    {
+        if (mainPauseMenu.activeInHierarchy)
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
+        }
+    }
+
+    public void GoToTittle()
+    {
+        TitleSceneAndButtonFunction title = FindAnyObjectByType<TitleSceneAndButtonFunction>();
+        title.dataPersistanceTestNumber = 0;
+        pauseMenu.SetActive(false);
+        SceneManager.LoadScene(0);
+    }
+
+
 
 
     public void GoBack()
-    { 
-        switch(currentPauseMenu)
+    {
+        switch (currentPauseMenu)
         {
             case 3:
                 {
@@ -116,8 +154,8 @@ public class MenuButtonListManager : MonoBehaviour
             case 1:
                 {
                     ShowPauseMenu();
-                    break ;
+                    break;
                 }
-        }    
+        }
     }
 }

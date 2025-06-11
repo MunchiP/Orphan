@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
 {
     public GameObject escapeScreen;
+    public GameObject settingScreen;
+    public GameObject controlLayout;
+    public GameObject soundUi;
 
     private bool isGameOnPauseMenu;
     private InputSystem_Actions controls;
@@ -44,8 +47,6 @@ public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
 
         menuButtonListManager.ShowPauseMenu();
         pauseMenuNavigationScript.RestartSelection(0);
-
-        
 
         escapeScreen.SetActive(false);
         Time.timeScale = 1f;
@@ -90,7 +91,9 @@ public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
                     inventoryAccessScript.enabled = true;
                     pauseMenuNavigationScript.RestartSelection();
                     escapeScreen.SetActive(false);
-
+                    settingScreen.SetActive(false);
+                    controlLayout.SetActive(false);
+                    soundUi.SetActive(false);
                     Time.timeScale = 1f;
                 }
                 else if (escapeScreen == null)

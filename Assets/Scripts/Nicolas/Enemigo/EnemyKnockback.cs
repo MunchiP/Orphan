@@ -6,7 +6,7 @@ public class EnemyKnockback : MonoBehaviour
     public EnemyState enemyState;
     public float knockbackForce = 3f;
     public float knockbackDuration = 0.15f;
-    public float damageCooldown = 0.3f; // Tiempo entre golpes permitidos
+    public float damageCooldown = 0.5f;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -32,9 +32,17 @@ public class EnemyKnockback : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Arma") && !isKnockedBack && canBeHit)
+        if (!canBeHit || isKnockedBack) return;
+
+        if (other.CompareTag("Arma"))
         {
-            anim.SetTrigger("hurt");
+            canBeHit = false;
+
+            // Solo activa la animación si no está ya en "hurt"
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("hurt"))
+            {
+                anim.SetTrigger("hurt");
+            }
 
             Vector2 knockDirection = new Vector2(transform.position.x - other.bounds.center.x, 0).normalized;
             StartCoroutine(ApplyKnockback(knockDirection));
@@ -61,7 +69,6 @@ public class EnemyKnockback : MonoBehaviour
 
         float timer = 0f;
         float speed = knockbackForce;
-        Vector2 start = rb.position;
 
         while (timer < knockbackDuration)
         {
@@ -75,7 +82,6 @@ public class EnemyKnockback : MonoBehaviour
 
     private IEnumerator DamageCooldown()
     {
-        canBeHit = false;
         yield return new WaitForSeconds(damageCooldown);
         canBeHit = true;
     }

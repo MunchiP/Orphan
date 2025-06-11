@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 {
-
     private InputSystem_Actions controlsUI;
     public List<GameObject> buttonList = new List<GameObject>();
     public int buttonToMoveOnto;
@@ -32,7 +31,6 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
         lastButtonIndex = -1;
         buttonToMoveOnto = -1;
         EventSystem.current.SetSelectedGameObject(null);
-
     }
 
     void OnDisable()
@@ -42,10 +40,8 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
         buttonToMoveOnto = -1;
     }
 
-
     void Start()
     {
-
         lastButtonIndex = -1;
         buttonToMoveOnto = -1;
     }
@@ -53,8 +49,15 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
     public void RestartSelection(int startIndex = 0)
     {
         if (buttonList.Count == 0) return;
+
         buttonToMoveOnto = Mathf.Clamp(startIndex, 0, buttonList.Count - 1);
-        buttonList[buttonToMoveOnto].GetComponent<Button>().Select();
+        currentButton = buttonList[buttonToMoveOnto];
+
+        if (currentButton != null)
+        {
+            currentButton.GetComponent<Button>().Select();
+        }
+
         lastButtonIndex = buttonToMoveOnto;
     }
 
@@ -67,8 +70,6 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
         {
             mouseHoveringButtonIndex = -1;
         }
-
-
     }
 
     public void SetMouseHoverButtonIndex(int index)
@@ -81,7 +82,8 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
     {
         if (buttonList == null)
             return;
-        if (buttonToMoveOnto < 0 || buttonToMoveOnto > buttonList.Count)
+
+        if (buttonToMoveOnto < 0 || buttonToMoveOnto >= buttonList.Count)
             return;
 
         if (isMouseHoveringButton)
@@ -89,66 +91,59 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
         if (!isMouseHoveringButton && buttonToMoveOnto != lastButtonIndex)
         {
-
             if (lastButtonIndex >= 0)
             {
                 var previousButton = buttonList[lastButtonIndex];
-
+                // Puedes agregar efectos aquí si quieres quitar selección
             }
 
-
             currentButton = buttonList[buttonToMoveOnto];
-            currentButton.GetComponent<UnityEngine.UI.Button>().Select();
-
-            Debug.Log("lastindex should be same as buttontomoveonto");
+            currentButton.GetComponent<Button>().Select();
 
             lastButtonIndex = buttonToMoveOnto;
         }
-
         else if (isMouseHoveringButton)
         {
-
             if (mouseHoveringButtonIndex != lastButtonIndex && mouseHoveringButtonIndex >= 0)
             {
                 if (lastButtonIndex >= 0)
                 {
                     var previousButton = buttonList[lastButtonIndex];
-
                 }
 
                 currentButton = buttonList[mouseHoveringButtonIndex];
-                currentButton.GetComponent<UnityEngine.UI.Button>().Select();
-
+                currentButton.GetComponent<Button>().Select();
 
                 buttonToMoveOnto = mouseHoveringButtonIndex;
                 lastButtonIndex = mouseHoveringButtonIndex;
             }
         }
-
-        //Debug.Log(buttonToMoveOnto);
     }
 
-    public void OnCancel(InputAction.CallbackContext context)
-    {
-    }
+    public void OnCancel(InputAction.CallbackContext context) { }
 
-    public void OnClick(InputAction.CallbackContext context)
-    {
-    }
+    public void OnClick(InputAction.CallbackContext context) { }
 
-    public void OnMiddleClick(InputAction.CallbackContext context)
-    {
-    }
+    public void OnMiddleClick(InputAction.CallbackContext context) { }
 
     public void OnNavigate(InputAction.CallbackContext context)
     {
         if (buttonList == null || buttonList.Count == 0)
             return;
+
+        if (buttonList.Count == 1)
+        {
+            // Solo hay un botón, no navegar
+            buttonToMoveOnto = 0;
+            lastButtonIndex = 0;
+            buttonList[0].GetComponent<Button>().Select();
+            return;
+        }
+
         if (isMouseControlling) return;
         if (!isMouseHoveringButton && context.performed)
         {
             Vector2 direction = context.ReadValue<Vector2>();
-
 
             if (direction.y > 0.5f)
             {
@@ -158,8 +153,6 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
                     return;
                 }
                 buttonToMoveOnto = (buttonToMoveOnto - 1 + buttonList.Count) % buttonList.Count;
-
-
             }
             else if (direction.y < -0.5f)
             {
@@ -173,17 +166,12 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
         }
     }
 
-    public void OnPoint(InputAction.CallbackContext context)
-    {
-    }
 
-    public void OnRightClick(InputAction.CallbackContext context)
-    {
-    }
+    public void OnPoint(InputAction.CallbackContext context) { }
 
-    public void OnScrollWheel(InputAction.CallbackContext context)
-    {
-    }
+    public void OnRightClick(InputAction.CallbackContext context) { }
+
+    public void OnScrollWheel(InputAction.CallbackContext context) { }
 
     public void OnSubmit(InputAction.CallbackContext context)
     {
@@ -210,17 +198,9 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
         }
     }
 
-    public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
-    {
-    }
+    public void OnTrackedDeviceOrientation(InputAction.CallbackContext context) { }
 
-    public void OnTrackedDevicePosition(InputAction.CallbackContext context)
-    {
-    }
+    public void OnTrackedDevicePosition(InputAction.CallbackContext context) { }
 
-    public void OnInventory(InputAction.CallbackContext context)
-    {
-
-    }
+    public void OnInventory(InputAction.CallbackContext context) { }
 }
-
