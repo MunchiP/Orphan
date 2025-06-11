@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: HelperMonolithData_SO
   m_EditorClassIdentifier: 
   monolithVisual:
-  - monolithName: cara1_0
-    monolithImage: {fileID: 2823628889308713512, guid: 25179e88087360f48a2a23909777343d, type: 3}
-  - monolithName: cara2_0
-    monolithImage: {fileID: 5503385219131144710, guid: 25179e88087360f48a2a23909777343d, type: 3}
-  - monolithName: cara3_0
-    monolithImage: {fileID: 3019323431269362833, guid: 25179e88087360f48a2a23909777343d, type: 3}
-  - monolithName: cara_4
-    monolithImage: {fileID: 5602890187394784374, guid: 25179e88087360f48a2a23909777343d, type: 3}
-  - monolithName: cara6_0
-    monolithImage: {fileID: 9025205492492396617, guid: 25179e88087360f48a2a23909777343d, type: 3}
+  - monolithName: monolites_0
+    monolithImage: {fileID: -4766046184718008398, guid: 7a8d23f9a32a64a4fa52b2939e45a43c, type: 3}
+  - monolithName: monolites_2
+    monolithImage: {fileID: 6226112710598217675, guid: 8aa5655ae976f53409b271fff0c39bbe, type: 3}
+  - monolithName: monolites_3
+    monolithImage: {fileID: 2383154439637696310, guid: 6f5bacb728ea2b44bab56bfe7daf71a6, type: 3}
+  - monolithName: monolites_4
+    monolithImage: {fileID: 7806278687168904374, guid: 28779d03c62794548ab9d7c0f01e8836, type: 3}
+  - monolithName: monolites_6
+    monolithImage: {fileID: -796176953242043175, guid: 75500e051a8163e4f8bf0d2685578668, type: 3}

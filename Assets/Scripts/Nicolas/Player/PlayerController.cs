@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private GrappleLiana grappleLiana;
     private WallJumpController wallJumpController;
 
-    private bool isGrounded;
+    public bool isGrounded;
     private bool canAttack = true;
 
     private InputSystem_Actions inputActions;

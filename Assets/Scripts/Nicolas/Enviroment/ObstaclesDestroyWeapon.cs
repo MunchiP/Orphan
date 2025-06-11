@@ -1,24 +1,32 @@
 using UnityEngine;
 using Pathfinding;
+
 public class ObstaclesDestroyWeapon : MonoBehaviour
 {
     public AstarPath astar;
-   void OnTriggerEnter2D(Collider2D other)
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Colisión detectada con: " + other.name);
 
         if (other.CompareTag("Obstacle"))
         {
-            Bounds bounds = other.bounds;
+            // Drop si el obstáculo lo tiene asignado
+            ObstacleDrop drop = other.GetComponent<ObstacleDrop>();
+            if (drop != null && drop.prefabPurityObstacle != null)
+            {
+                Instantiate(drop.prefabPurityObstacle, other.transform.position, Quaternion.identity);
+            }
 
-            // Actualiza el grafo ANTES de destruir el objeto
-            GraphUpdateObject guo = new GraphUpdateObject(bounds);
-            guo.updatePhysics = true;
-            AstarPath.active.UpdateGraphs(guo); // <- ESTO FALTABA
+            // Actualizar grafo de navegación
+            Bounds bounds = other.bounds;
+            GraphUpdateObject guo = new GraphUpdateObject(bounds)
+            {
+                updatePhysics = true
+            };
+            AstarPath.active.UpdateGraphs(guo);
 
             Destroy(other.gameObject);
         }
     }
 }
-
-    

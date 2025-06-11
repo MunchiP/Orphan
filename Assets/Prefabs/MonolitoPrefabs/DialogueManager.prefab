@@ -49,3 +49,4 @@ MonoBehaviour:
   dialogueText: {fileID: 0}
   characterName: {fileID: 0}
   characterImage: {fileID: 0}
+  helperMonolithData: {fileID: 11400000, guid: 62dd01e3c26c490418dd539501e98f14, type: 2}

@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    
+
 
     public void PlayMusic(string name)
     {
@@ -85,6 +85,11 @@ public class AudioManager : MonoBehaviour
     }
     void Update()
     {
-        
+
+    }
+
+    public static float GetSfxVolume()
+    {
+        return instance != null ? instance.sfxSource.volume : 1f;
     }
 }

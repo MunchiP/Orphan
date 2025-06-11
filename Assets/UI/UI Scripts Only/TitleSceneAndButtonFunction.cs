@@ -37,7 +37,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
     private VerticalOnlyNavigation oneButtonVerticalNavigationScript;
     private TitleSceneAndButtonFunction titleAndButtonScript;
 
-    
+
 
 
     public void OnEnable()
@@ -47,19 +47,19 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
         titleMenuVerticalNavigationScript = UINavigationManager.GetComponent<VerticalOnlyNavigation>();
         horizontalNavigationScript = UINavigationManager.GetComponent<HorizontalOnlyNavigation>();
         settingsMenuVerticalNavigationScript = settingsUINavigationManager.GetComponent<VerticalOnlyNavigation>();
-        soundPanelVerticalNavigationScript =  soundPanelUINavigationManager.GetComponent <VerticalOnlyNavigation>();
+        soundPanelVerticalNavigationScript = soundPanelUINavigationManager.GetComponent<VerticalOnlyNavigation>();
         oneButtonVerticalNavigationScript = oneButtonNavigation.GetComponent<VerticalOnlyNavigation>();
     }
 
     public void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-      
+
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.buildIndex != 0) return;
-        
+
         else if (scene.buildIndex == 0)
         {
             fadeController = GetComponent<FadeToBlack>();
@@ -91,7 +91,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
                 start.onClick.RemoveAllListeners();
                 start.onClick.AddListener(() => ChangeSceneToNewGame());
             }
-                
+
             if (startButton == null)
             {
                 Debug.Log("startButton not found in current scene");
@@ -103,23 +103,23 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
                 quit.onClick.RemoveAllListeners();
                 quit.onClick.AddListener(() => QuitApplication());
             }
-                
+
             if (creditsButton != null)
             {
                 Button credits = creditsButton.GetComponent<Button>();
                 credits.onClick.RemoveAllListeners();
                 credits.onClick.AddListener(() => GoToCredits());
             }
-                
+
             if (goBackButton != null)
             {
                 Button goBack = goBackButton.GetComponent<Button>();
                 goBack.onClick.RemoveAllListeners();
                 goBack.onClick.AddListener(() => GoBackToTitle());
             }
-                
+
             if (settingsButton != null)
-            { 
+            {
                 Button settings = settingsButton.GetComponent<Button>();
                 settings.onClick.RemoveAllListeners();
                 settings.onClick.AddListener(() => GoToSettings());
@@ -131,15 +131,15 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
                 controls.onClick.RemoveAllListeners();
                 controls.onClick.AddListener(() => GoToControlLayout());
             }
-                
+
             if (soundButton != null)
             {
                 Button sound = soundButton.GetComponent<Button>();
                 sound.onClick.RemoveAllListeners();
                 sound.onClick.AddListener(() => GoToSoundPanel());
-            }    
+            }
         }
-        
+
 
 
     }
@@ -186,9 +186,9 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
         titleMenuVerticalNavigationScript.enabled = false;
         settingsMenuVerticalNavigationScript.enabled = true;
         oneButtonVerticalNavigationScript.enabled = false;
-        soundPanelVerticalNavigationScript.enabled=false;
-        
-        
+        soundPanelVerticalNavigationScript.enabled = false;
+
+
 
 
     }
@@ -228,12 +228,12 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
             soundPanelVerticalNavigationScript.buttonList.Add(goBackButton);
             settingsMenuVerticalNavigationScript.buttonList.Remove(goBackButton);
         }
-               
+
         settingsMenu.SetActive(false);
         settingsMenuVerticalNavigationScript.enabled = false;
         soundPanelVerticalNavigationScript.enabled = true;
         soundMenu.SetActive(true);
-    }    
+    }
     public void GoToCredits()
     {
         currentMenu = "CreditsMenu";
@@ -251,7 +251,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
         titleMenuVerticalNavigationScript.enabled = false;
         oneButtonVerticalNavigationScript.enabled = true;
 
-        
+
     }
 
     public void GoBackToTitle()
@@ -287,13 +287,13 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
                     creditRoller.SetActive(false);
                     settingsMenu.SetActive(false);
                     titleMenuVerticalNavigationScript.enabled = true;
-                    
+
                     settingsMenuVerticalNavigationScript.enabled = false;
                     currentMenu = "TitleMainMenu";
                     StartCoroutine(ResetTransition());
                     return;
                 }
-                
+
 
             case "CreditsMenu":
                 {
@@ -313,7 +313,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
                     creditRoller.SetActive(false);
                     settingsMenu.SetActive(false);
                     titleMenuVerticalNavigationScript.enabled = true;
-                    
+
                     currentMenu = "TitleMainMenu";
                     StartCoroutine(ResetTransition());
                     return;
@@ -340,9 +340,9 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
 
         }
 
-        
-        
-        
+
+
+
     }
 
     private IEnumerator ResetTransition()
@@ -358,17 +358,22 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
         titleAndButtonScript = gameObject.GetComponent<TitleSceneAndButtonFunction>();
         dataPersistanceTestNumber++;
         fadeController = GetComponent<FadeToBlack>();
+
+        // Desactiva todos los VerticalOnlyNavigation menos el de titleMenu
+        titleMenuVerticalNavigationScript.enabled = true;
+        settingsMenuVerticalNavigationScript.enabled = false;
+        soundPanelVerticalNavigationScript.enabled = false;
+        oneButtonVerticalNavigationScript.enabled = false;
+
         if (fadeController != null)
         {
-            fadeController.FadeToScene("MainGame");
-            
+            fadeController.FadeToSceneByIndex(1);
             titleAndButtonScript.enabled = false;
         }
         else
         {
             Debug.LogWarning("FadeToBlack missing on reload.");
         }
-
     }
 
     public void Update()
@@ -378,13 +383,13 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
 
     public void QuitApplication()
     {
-        
+
 #if UNITY_EDITOR
-            EditorApplication.ExitPlaymode();
+        EditorApplication.ExitPlaymode();
 #else
         Application.Quit(); // original code to quit Unity player
 #endif
-        
+
 
     }
 }

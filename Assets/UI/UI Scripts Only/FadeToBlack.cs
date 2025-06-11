@@ -1,67 +1,93 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class FadeToBlack : MonoBehaviour
 {
-    [SerializeField] Image fadeImage;
-    public float fadeDuration = 4.0f;
+    public Image fadeImage;
+    public float fadeDuration = 1.5f;
 
-    public void Awake()
-    {
-        
-    }
+    private bool isTransitioning = false;
 
-    public void OnEnable()
+    private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void OnDisable()
+    private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        fadeImage = GameObject.FindGameObjectWithTag("FadeUI")?.GetComponent<Image>();
-        if (fadeImage != null)
+        // Reasignar el fadeImage cada vez que se carga una nueva escena
+        GameObject fadeObj = GameObject.FindGameObjectWithTag("FadeUI");
+        if (fadeObj != null)
         {
-            fadeImage.enabled = false;
+            fadeImage = fadeObj.GetComponent<Image>();
+            fadeImage.color = new Color(0f, 0f, 0f, 1f); // Asegura que empiece en negro
+            StartCoroutine(FadeIn());
         }
+        else
+        {
+            Debug.LogWarning("No se encontró FadeUI en la nueva escena.");
+        }
+    }
+
+    public void FadeToSceneByIndex(int sceneIndex)
+    {
+        if (!isTransitioning)
+        {
+            StartCoroutine(FadeOutAndLoad(sceneIndex));
+        }
+    }
+
+    private IEnumerator FadeOutAndLoad(int sceneIndex)
+    {
+        isTransitioning = true;
+
         if (fadeImage == null)
         {
-            Debug.Log("fadeImage not in current scene");
+            Debug.LogWarning("fadeImage no asignado.");
+            SceneManager.LoadScene(sceneIndex);
+            yield break;
         }
-            
-    }
 
-    public void Start()
-    {
-        
-            
-    }
-    public void FadeToScene(string sceneName)
-    {
-        
-        StartCoroutine(FadeThenLoadScene(sceneName));
-    }
-
-    private IEnumerator FadeThenLoadScene(string sceneName)
-    {
+        fadeImage.gameObject.SetActive(true);
         fadeImage.enabled = true;
-        float time = 0;
-        Color color = fadeImage.color;
-        while (time < fadeDuration)
+
+        float t = 0f;
+        while (t < fadeDuration)
         {
-            time += Time.deltaTime;
-            float imageAlpha = Mathf.Clamp01(time / fadeDuration);
-            fadeImage.color = new Color(color.r, color.g, color.b, imageAlpha);
+            t += Time.unscaledDeltaTime;
+            float alpha = Mathf.Clamp01(t / fadeDuration);
+            fadeImage.color = new Color(0f, 0f, 0f, alpha);
             yield return null;
         }
 
-        yield return new WaitForSeconds(2.5f);
-        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    private IEnumerator FadeIn()
+    {
+        if (fadeImage == null) yield break;
+
+        fadeImage.enabled = true;
+
+        float t = 0f;
+        while (t < fadeDuration)
+        {
+            t += Time.unscaledDeltaTime;
+            float alpha = 1f - Mathf.Clamp01(t / fadeDuration);
+            fadeImage.color = new Color(0f, 0f, 0f, alpha);
+            yield return null;
+        }
+
+        fadeImage.enabled = false;
+        isTransitioning = false;
     }
 }

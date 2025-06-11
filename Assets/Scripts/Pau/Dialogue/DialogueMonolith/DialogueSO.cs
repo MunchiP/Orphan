@@ -35,6 +35,7 @@ public class DialogueSO : MonoBehaviour , IInteractable
             if (sr != null && sr.sprite != null)
             {
                 string spriteName = sr.sprite.name;
+                Debug.Log(spriteName);
                 DialogueManager.Instance.UpdateDialogue(characterData, spriteName); // no es exactamente el Monolith sino el hijo el que tiene le nombre
             }
             exclamation.SetActive(true);
