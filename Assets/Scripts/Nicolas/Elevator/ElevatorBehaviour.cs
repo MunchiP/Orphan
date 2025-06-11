@@ -15,9 +15,11 @@ public class ElevatorBehaviour : MonoBehaviour
 
     public UnderElevator underElevator; // Asegúrate de que este script detecta correctamente si el jugador está debajo
     private bool isUnder = false;
+    private PlayerState playerState;
 
     void Start()
     {
+        playerState = FindAnyObjectByType<PlayerState>();
         rb = GetComponent<Rigidbody2D>();
         // Aseguramos que el Rigidbody2D sea Kinematic para control directo de la posición
         rb.bodyType = RigidbodyType2D.Kinematic;
@@ -33,7 +35,7 @@ public class ElevatorBehaviour : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Activamos el ascensor cuando el jugador lo toca en su posición inicial
-        if (collision.gameObject.CompareTag("Player") &&
+        if (playerState.purezaActual >=90 && collision.gameObject.CompareTag("Player") &&
             Vector3.Distance(transform.position, initialPosition) < 0.1f &&
             !elevatorActivated)
         {

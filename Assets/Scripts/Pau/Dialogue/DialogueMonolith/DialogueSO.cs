@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DialogueSO : MonoBehaviour, IInteractable
+public class DialogueSO : MonoBehaviour , IInteractable
 {
 
     // Este es un buen lugar para recolectar pureza.
@@ -20,24 +20,25 @@ public class DialogueSO : MonoBehaviour, IInteractable
     // }
 
 
-    public void Interact()
+        public void Interact()
     {
         DialogueManager.Instance.StartDialogue(lines);
     }
-
-    void OnTriggerEnter2D(Collider2D collision)
+    
+      void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             //  DialogueManager.Instance.UpdateDialogue(characterData); // cambiado para el dicccccc
             // DialogueManager.Instance.UpdateDialogue(characterData, gameObject.name);
-            exclamation.SetActive(true);
             SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
             if (sr != null && sr.sprite != null)
             {
                 string spriteName = sr.sprite.name;
+                Debug.Log(spriteName);
                 DialogueManager.Instance.UpdateDialogue(characterData, spriteName); // no es exactamente el Monolith sino el hijo el que tiene le nombre
             }
+            exclamation.SetActive(true);
             // Debug.Log("REconoce el límite collider");
         }
     }

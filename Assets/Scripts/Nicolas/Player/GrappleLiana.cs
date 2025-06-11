@@ -26,6 +26,7 @@ public class GrappleLiana : MonoBehaviour
     public GameObject boquita; // Objeto que representa la "boca" del jugador.
     public GameObject cabeza;  // Objeto que representa la "cabeza" del jugador.
     public Quaternion rotationSave;
+    private Animator anim;
 
     /// <summary>
     /// Se llama cuando el script se carga. Inicializa el Input System.
@@ -71,11 +72,16 @@ public class GrappleLiana : MonoBehaviour
         inputActions.Player.Disable();
     }
 
+    void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
     /// <summary>
     /// Se llama una vez por frame. Maneja la lógica de enganche y soltar.
     /// </summary>
     void Update()
     {
+        anim.SetBool("swing", isAttached);
         // --- Lógica de enganche y desenganche de liana con la acción 'Swing' ---
         // Si la acción 'Swing' fue presionada en este frame...
         if (swingPressedThisFrame)

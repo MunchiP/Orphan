@@ -1,0 +1,764 @@
+fileFormatVersion: 2
+guid: 542607df8e264e54ca07f080b6896e33
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3884891301466494607
+    second: PlataformsAtlas_0
+  - first:
+      213: -5800882492969451095
+    second: PlataformsAtlas_1
+  - first:
+      213: 5408104161510077704
+    second: PlataformsAtlas_2
+  - first:
+      213: -2504375726242452871
+    second: PlataformsAtlas_3
+  - first:
+      213: 7030955795636553881
+    second: PlataformsAtlas_4
+  - first:
+      213: -5196102838870335093
+    second: PlataformsAtlas_5
+  - first:
+      213: 5795764044712521338
+    second: PlataformsAtlas_6
+  - first:
+      213: 7915157963874467867
+    second: PlataformsAtlas_7
+  - first:
+      213: 420730871847893013
+    second: PlataformsAtlas_8
+  - first:
+      213: 6187262436428050961
+    second: PlataformsAtlas_9
+  - first:
+      213: 1284526273393505599
+    second: PlataformsAtlas_10
+  - first:
+      213: 9222103083386135321
+    second: PlataformsAtlas_11
+  - first:
+      213: -9076736610816870265
+    second: PlataformsAtlas_12
+  - first:
+      213: 4428096979827074443
+    second: PlataformsAtlas_13
+  - first:
+      213: 6001801978950839304
+    second: PlataformsAtlas_14
+  - first:
+      213: -8149293015928395170
+    second: PlataformsAtlas_15
+  - first:
+      213: -4118013052626814594
+    second: PlataformsAtlas_16
+  - first:
+      213: -6272837675601581262
+    second: PlataformsAtlas_17
+  - first:
+      213: -3315174296480638733
+    second: PlataformsAtlas_18
+  - first:
+      213: -7792600685475773482
+    second: PlataformsAtlas_19
+  - first:
+      213: -3779119990889420906
+    second: PlataformsAtlas_20
+  - first:
+      213: 5904020598774679067
+    second: PlataformsAtlas_21
+  - first:
+      213: -2905671703772298040
+    second: PlataformsAtlas_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlataformsAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 1664
+        width: 352
+        height: 316
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179a511c1f7161ac0800000000000000
+      internalID: -3884891301466494607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1681
+        width: 476
+        height: 327
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a106c66b102f7fa0800000000000000
+      internalID: -5800882492969451095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 1781
+        width: 265
+        height: 244
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 805be1fd4127d0b40800000000000000
+      internalID: 5408104161510077704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 1884
+        width: 267
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a2535bb8bae3dd0800000000000000
+      internalID: -2504375726242452871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1139
+        width: 364
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99804666b09f29160800000000000000
+      internalID: 7030955795636553881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 1455
+        width: 468
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b812cb88ffbb3e7b0800000000000000
+      internalID: -5196102838870335093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1148
+        width: 445
+        height: 264
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e221ff0b0be6050800000000000000
+      internalID: 5795764044712521338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 937
+        width: 2043
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1087d95b3a48dd60800000000000000
+      internalID: 7915157963874467867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 771
+        width: 204
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 518b882bf7cb6d500800000000000000
+      internalID: 420730871847893013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 770
+        width: 349
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112796787629dd550800000000000000
+      internalID: 6187262436428050961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 768
+        width: 405
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35b64607dd83d110800000000000000
+      internalID: 1284526273393505599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 770
+        width: 675
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 913e34fb4ed7bff70800000000000000
+      internalID: 9222103083386135321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 672
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7883a70a424f80280800000000000000
+      internalID: -9076736610816870265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 672
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85a299fdb2c37d30800000000000000
+      internalID: 4428096979827074443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 675
+        width: 63
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ce997d91faa4350800000000000000
+      internalID: 6001801978950839304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 671
+        width: 59
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a2407cd25e7ee80800000000000000
+      internalID: -8149293015928395170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 467
+        width: 454
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e79b1c162f0e9d6c0800000000000000
+      internalID: -4118013052626814594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 523
+        width: 271
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23ba4147e5762f8a0800000000000000
+      internalID: -6272837675601581262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 39
+        width: 366
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f814c9ba822ef1d0800000000000000
+      internalID: -3315174296480638733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_19
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 350
+        width: 257
+        height: 244
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d340c9a6fe1bd390800000000000000
+      internalID: -7792600685475773482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_20
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 73
+        width: 464
+        height: 344
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6976573146edd8bc0800000000000000
+      internalID: -3779119990889420906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_21
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 87
+        width: 462
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b16cd88247b4fe150800000000000000
+      internalID: 5904020598774679067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_22
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 39
+        width: 345
+        height: 310
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c48fb6fafafca7d0800000000000000
+      internalID: -2905671703772298040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlataformsAtlas_23
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 1477
+        width: 340
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a65f6ccd014d034282d20f27d57024b
+      internalID: 225705826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c65f6af9575d5c64ba963fb99b8bf121
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PlataformsAtlas_0: -3884891301466494607
+      PlataformsAtlas_1: -5800882492969451095
+      PlataformsAtlas_10: 1284526273393505599
+      PlataformsAtlas_11: 9222103083386135321
+      PlataformsAtlas_12: -9076736610816870265
+      PlataformsAtlas_13: 4428096979827074443
+      PlataformsAtlas_14: 6001801978950839304
+      PlataformsAtlas_15: -8149293015928395170
+      PlataformsAtlas_16: -4118013052626814594
+      PlataformsAtlas_17: -6272837675601581262
+      PlataformsAtlas_18: -3315174296480638733
+      PlataformsAtlas_19: -7792600685475773482
+      PlataformsAtlas_2: 5408104161510077704
+      PlataformsAtlas_20: -3779119990889420906
+      PlataformsAtlas_21: 5904020598774679067
+      PlataformsAtlas_22: -2905671703772298040
+      PlataformsAtlas_23: 225705826
+      PlataformsAtlas_3: -2504375726242452871
+      PlataformsAtlas_4: 7030955795636553881
+      PlataformsAtlas_5: -5196102838870335093
+      PlataformsAtlas_6: 5795764044712521338
+      PlataformsAtlas_7: 7915157963874467867
+      PlataformsAtlas_8: 420730871847893013
+      PlataformsAtlas_9: 6187262436428050961
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

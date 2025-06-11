@@ -5059,6 +5059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fda5b29dfe3124791ca4921af7d06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioPureza: {fileID: 8300000, guid: c0ee7fbfefbd0254dbc2427fcbdc72b2, type: 3}
 --- !u!50 &2542798475096699130
 Rigidbody2D:
   serializedVersion: 5
