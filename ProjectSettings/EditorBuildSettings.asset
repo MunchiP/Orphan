@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/UI/MainMenu.unity
     guid: fc0d3ec2f8254514781449d68532b90e
   - enabled: 1
-    path: Assets/Scenes/Nico/MainGame.unity
-    guid: 43eecb37704f141419eb59061aca366a
+    path: Assets/Scenes/Ken/MainGameKen.unity
+    guid: e06a049de4a2d354fa0edcaeba822c49
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
