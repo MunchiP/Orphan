@@ -227,12 +227,12 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
     {
         if (isGoBackTransitioning)
         {
-            Debug.Log("GoBackToTitle blocked by isTransitioning.");
+            //Debug.Log("GoBackToTitle blocked by isTransitioning.");
             return;
         }
-        Debug.Log("GoBackToTitle starting.");
+        //Debug.Log("GoBackToTitle starting.");
         isGoBackTransitioning = true;
-        Debug.Log("GoBackToTitle - currentMenu: " + currentMenu);
+        //Debug.Log("GoBackToTitle - currentMenu: " + currentMenu);
         titleMenuVerticalNavigationScript = UINavigationManager.GetComponent<VerticalOnlyNavigation>();
         switch (currentMenu)
         {
@@ -308,10 +308,10 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
 
     private IEnumerator ResetTransition()
     {
-        Debug.Log("ResetTransitionFlag started.");
+        //Debug.Log("ResetTransitionFlag started.");
         yield return null;
         isGoBackTransitioning = false;
-        Debug.Log("ResetTransitionFlag ended. isTransitioning reset.");
+        //Debug.Log("ResetTransitionFlag ended. isTransitioning reset.");
     }
 
     public void ChangeSceneToNewGame()
@@ -327,7 +327,7 @@ public class TitleSceneAndButtonFunction : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("FadeToBlack missing on reload.");
+            //Debug.LogWarning("FadeToBlack missing on reload.");
         }
 
     }

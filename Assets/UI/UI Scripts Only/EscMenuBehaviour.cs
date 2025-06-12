@@ -38,12 +38,14 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
     {
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
+            onTitleMainMenu = false;
             onPauseMainMenu = true;
         }
         else if (SceneManager.GetActiveScene().buildIndex != 1)
         {
             Debug.Log("im on title scene");
             onTitleMainMenu = true;
+            onPauseMainMenu = false;
         }
     }
 

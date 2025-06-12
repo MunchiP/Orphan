@@ -75,7 +75,17 @@ public class SymbolsTitleScreenSpawner : MonoBehaviour
         }
     }
 
-    private IEnumerator DespawnAfterTime(GameObject obj, float time)
+    public void DeactivateSymbols()
+    {
+        Debug.Log("Kenneth es severa loca");
+        StopAllCoroutines();
+        for (int i = 0; i < clonedSymbolList.Count; i++)
+        {
+            clonedSymbolList[i].SetActive(false);
+        }    
+    }
+
+    public IEnumerator DespawnAfterTime(GameObject obj, float time)
     {
         yield return new WaitForSeconds(time);
         obj.SetActive(false);
