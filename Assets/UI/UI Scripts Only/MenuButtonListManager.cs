@@ -4,8 +4,7 @@ using System.Collections;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems; // Asegúrate de tener esto arriba
-
+using UnityEditor;
 
 public class MenuButtonListManager : MonoBehaviour
 {
@@ -14,33 +13,54 @@ public class MenuButtonListManager : MonoBehaviour
     public GameObject settingsButton;
     public GameObject returnTitleButton;
     public GameObject exitGameButton;
-    public GameObject pauseMenu;
     public GameObject controlsButton;
     public GameObject soundButton;
-    public GameObject goBackButton;
+    
     public GameObject mainPauseMenu;
     public GameObject settingsPauseMenu;
     public GameObject controlLayoutPause;
     public GameObject soundPanelPause;
     public GameObject musicButton;
     public GameObject sfxButton;
+    public GameObject escapeKey;
+    private EscMenuBehaviour escapeKeyScript;
     private int currentPauseMenu;
-    public static MenuButtonListManager instance;
+    public bool isFirstTimeOpeningPause = true;
+    public GameObject fadeToBlackObject;
+    public GameObject GameManager;
+    private FadeToBlack fadetoBlackScript;
+    private TitleSceneAndButtonFunction titleSceneAndButtonFunction;
 
-    public void Awake()
+
+    public void Start()
     {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        titleSceneAndButtonFunction = GameManager.GetComponent<TitleSceneAndButtonFunction>();    
+        fadetoBlackScript = fadeToBlackObject.GetComponent<FadeToBlack>();
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
     }
+
+    public void QuitApplication()
+    {
+
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit(); // original code to quit Unity player
+#endif
+
+
+    }
+
     public void ShowPauseMenu()
     {
+        if (escapeKeyScript == null)
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
 
+        if (isFirstTimeOpeningPause)
+        {
+            escapeKeyScript.onPauseMainMenu = true;
+            isFirstTimeOpeningPause = false;
+        }
         navigation.buttonList.Clear();
 
 
@@ -52,7 +72,7 @@ public class MenuButtonListManager : MonoBehaviour
 
         mainPauseMenu.SetActive(true);
         settingsPauseMenu.SetActive(false);
-        goBackButton.SetActive(false);
+        
 
 
         navigation.RestartSelection(0);
@@ -60,11 +80,13 @@ public class MenuButtonListManager : MonoBehaviour
 
     public void GoToSettingsMenu()
     {
-        navigation.buttonList.Clear();
+        escapeKeyScript.onPauseMainMenu = false;
 
+        navigation.BlockSubmit();
+
+        navigation.buttonList.Clear();
         navigation.buttonList.Add(controlsButton);
         navigation.buttonList.Add(soundButton);
-        navigation.buttonList.Add(goBackButton);
 
         mainPauseMenu.SetActive(false);
         settingsPauseMenu.SetActive(true);
@@ -73,21 +95,28 @@ public class MenuButtonListManager : MonoBehaviour
         sfxButton.SetActive(false);
         controlLayoutPause.SetActive(false);
 
-
-        goBackButton.SetActive(true);
         currentPauseMenu = 1;
 
         navigation.RestartSelection(0);
 
+        StartCoroutine(UnblockSubmitNextFrame());
+
+    }
+
+    private IEnumerator UnblockSubmitNextFrame()
+    {
+        yield return null; 
+        navigation.UnblockSubmit();
     }
 
     public void GoToSoundBoard()
     {
+        navigation.BlockSubmit();
         navigation.buttonList.Clear();
 
         navigation.buttonList.Add(musicButton);
         navigation.buttonList.Add(sfxButton);
-        navigation.buttonList.Add(goBackButton);
+        
 
         settingsPauseMenu?.SetActive(false);
         soundPanelPause.SetActive(true);
@@ -96,50 +125,29 @@ public class MenuButtonListManager : MonoBehaviour
         currentPauseMenu = 2;
 
         navigation.RestartSelection(0);
+        StartCoroutine(UnblockSubmitNextFrame());
     }
 
     public void GoToControls()
     {
         navigation.buttonList.Clear();
 
-        navigation.buttonList.Add(goBackButton);
+        
+        
 
-        mainPauseMenu.SetActive(false);
         settingsPauseMenu?.SetActive(false);
-        soundPanelPause?.SetActive(false);
-
         controlLayoutPause.SetActive(true);
-        goBackButton.SetActive(true);
-
         currentPauseMenu = 3;
 
         navigation.RestartSelection(0);
     }
 
 
-    public void GoContinue()
-    {
-        if (mainPauseMenu.activeInHierarchy)
-        {
-            pauseMenu.SetActive(false);
-            Time.timeScale = 1f;
-        }
-    }
-
-    public void GoToTittle()
-    {
-        TitleSceneAndButtonFunction title = FindAnyObjectByType<TitleSceneAndButtonFunction>();
-        title.dataPersistanceTestNumber = 0;
-        pauseMenu.SetActive(false);
-        SceneManager.LoadScene(0);
-    }
-
-
 
 
     public void GoBack()
-    {
-        switch (currentPauseMenu)
+    { 
+        switch(currentPauseMenu)
         {
             case 3:
                 {
@@ -153,9 +161,36 @@ public class MenuButtonListManager : MonoBehaviour
                 }
             case 1:
                 {
+                    
                     ShowPauseMenu();
-                    break;
+                    StartCoroutine(SetPauseMainMenuTrueNextFrame());
+                    break ;
                 }
+        }    
+    }
+    private IEnumerator SetPauseMainMenuTrueNextFrame()
+    {
+        yield return null; // Wait 1 frame
+        escapeKeyScript.onPauseMainMenu = true;
+        Debug.Log("[MenuButtonListManager] onPauseMainMenu set to TRUE after returning to pause menu.");
+    }
+
+    public void ChangeSceneToTitle()
+    {
+
+        Debug.Log("[MenuButtonListManager] Attempting to change scene to title...");
+        fadetoBlackScript = fadeToBlackObject.GetComponent<FadeToBlack>();
+        if (fadetoBlackScript != null)
+        {
+            Debug.Log("[MenuButtonListManager] Fading to scene 0.");
+            fadetoBlackScript.FadeToScene(0);
+
+            titleSceneAndButtonFunction.enabled = true;
         }
+        else
+        {
+            //Debug.LogWarning("FadeToBlack missing on reload.");
+        }
+
     }
 }
