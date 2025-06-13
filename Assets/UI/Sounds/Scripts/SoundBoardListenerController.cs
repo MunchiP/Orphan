@@ -29,7 +29,6 @@ public class SoundBoardListenerController : MonoBehaviour
         musicToggle = music.GetComponent<Button>();
         sfxToggle = sfx.GetComponent<Button>();
 
-
         musicToggle.onClick.RemoveAllListeners();
         musicToggle.onClick.AddListener(() => soundManagerScript.ToggleMusic());
 

@@ -1,93 +1,87 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FadeToBlack : MonoBehaviour
 {
-    public Image fadeImage;
-    public float fadeDuration = 1.5f;
+    public GameObject fadeImageObject;
+    private Image imageFadeUse;
+    public float fadeDuration = 2f;
 
-    private bool isTransitioning = false;
-
-    private void Awake()
+    public void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        
+    }
+
+    public void OnEnable()
+    {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnDestroy()
+    public void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Reasignar el fadeImage cada vez que se carga una nueva escena
-        GameObject fadeObj = GameObject.FindGameObjectWithTag("FadeUI");
-        if (fadeObj != null)
+        imageFadeUse = fadeImageObject.GetComponent<Image>();
+        if (imageFadeUse != null)
         {
-            fadeImage = fadeObj.GetComponent<Image>();
-            fadeImage.color = new Color(0f, 0f, 0f, 1f); // Asegura que empiece en negro
-            StartCoroutine(FadeIn());
+            imageFadeUse.enabled = false;
+        }
+        if (imageFadeUse == null)
+        {
+            Debug.Log("fadeImage not in current scene");
+        }
+            
+    }
+
+    public void Start()
+    {
+        
+            
+    }
+    public void FadeToScene(int sceneIndex)
+    {
+
+        if (imageFadeUse == null && fadeImageObject != null)
+        {
+            imageFadeUse = fadeImageObject.GetComponent<Image>();
+        }
+
+        if (imageFadeUse != null)
+        {
+            StartCoroutine(FadeThenLoadScene(sceneIndex));
         }
         else
         {
-            Debug.LogWarning("No se encontró FadeUI en la nueva escena.");
+            Debug.LogWarning("[FadeToBlack] imageFadeUse is null! Make sure fadeImageObject is assigned and has an Image component.");
         }
     }
 
-    public void FadeToSceneByIndex(int sceneIndex)
+    private IEnumerator FadeThenLoadScene(int sceneIndex)
     {
-        if (!isTransitioning)
+        imageFadeUse.enabled = true;
+
+        float time = 0f;
+        Color startColor = imageFadeUse.color;
+        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
+
+        Debug.Log("[FadeToBlack] Starting fade...");
+
+        while (time < fadeDuration)
         {
-            StartCoroutine(FadeOutAndLoad(sceneIndex));
-        }
-    }
-
-    private IEnumerator FadeOutAndLoad(int sceneIndex)
-    {
-        isTransitioning = true;
-
-        if (fadeImage == null)
-        {
-            Debug.LogWarning("fadeImage no asignado.");
-            SceneManager.LoadScene(sceneIndex);
-            yield break;
-        }
-
-        fadeImage.gameObject.SetActive(true);
-        fadeImage.enabled = true;
-
-        float t = 0f;
-        while (t < fadeDuration)
-        {
-            t += Time.unscaledDeltaTime;
-            float alpha = Mathf.Clamp01(t / fadeDuration);
-            fadeImage.color = new Color(0f, 0f, 0f, alpha);
+            time += Time.unscaledDeltaTime; // use unscaledDeltaTime in case timeScale = 0
+            float t = Mathf.Clamp01(time / fadeDuration);
+            imageFadeUse.color = Color.Lerp(startColor, targetColor, t);
             yield return null;
         }
 
-        Time.timeScale = 1f;
+        imageFadeUse.color = targetColor;
+        Debug.Log("[FadeToBlack] Fade complete. Loading scene now!");
+
         SceneManager.LoadScene(sceneIndex);
-    }
-
-    private IEnumerator FadeIn()
-    {
-        if (fadeImage == null) yield break;
-
-        fadeImage.enabled = true;
-
-        float t = 0f;
-        while (t < fadeDuration)
-        {
-            t += Time.unscaledDeltaTime;
-            float alpha = 1f - Mathf.Clamp01(t / fadeDuration);
-            fadeImage.color = new Color(0f, 0f, 0f, alpha);
-            yield return null;
-        }
-
-        fadeImage.enabled = false;
-        isTransitioning = false;
     }
 }

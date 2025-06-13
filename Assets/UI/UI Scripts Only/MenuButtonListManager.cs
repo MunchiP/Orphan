@@ -1,7 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
+using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class MenuButtonListManager : MonoBehaviour
 {
@@ -10,129 +13,184 @@ public class MenuButtonListManager : MonoBehaviour
     public GameObject settingsButton;
     public GameObject returnTitleButton;
     public GameObject exitGameButton;
-    public GameObject pauseMenu;
     public GameObject controlsButton;
     public GameObject soundButton;
-    public GameObject goBackButton;
+    
     public GameObject mainPauseMenu;
     public GameObject settingsPauseMenu;
     public GameObject controlLayoutPause;
     public GameObject soundPanelPause;
     public GameObject musicButton;
     public GameObject sfxButton;
+    public GameObject escapeKey;
+    private EscMenuBehaviour escapeKeyScript;
     private int currentPauseMenu;
-    public static MenuButtonListManager instance;
+    public bool isFirstTimeOpeningPause = true;
+    public GameObject fadeToBlackObject;
+    public GameObject GameManager;
+    private FadeToBlack fadetoBlackScript;
+    private TitleSceneAndButtonFunction titleSceneAndButtonFunction;
 
-    void Awake()
+
+    public void Start()
     {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        titleSceneAndButtonFunction = GameManager.GetComponent<TitleSceneAndButtonFunction>();    
+        fadetoBlackScript = fadeToBlackObject.GetComponent<FadeToBlack>();
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
+    }
 
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+    public void QuitApplication()
+    {
+
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit(); // original code to quit Unity player
+#endif
+
+
     }
 
     public void ShowPauseMenu()
     {
-        navigation.SetMouseHoverState(false);
+        if (escapeKeyScript == null)
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
+
+        if (isFirstTimeOpeningPause)
+        {
+            escapeKeyScript.onPauseMainMenu = true;
+            isFirstTimeOpeningPause = false;
+        }
         navigation.buttonList.Clear();
+
+
         navigation.buttonList.Add(continueButton);
         navigation.buttonList.Add(settingsButton);
         navigation.buttonList.Add(returnTitleButton);
         navigation.buttonList.Add(exitGameButton);
 
+
         mainPauseMenu.SetActive(true);
         settingsPauseMenu.SetActive(false);
-        goBackButton.SetActive(false);
-        controlLayoutPause.SetActive(false);
-        soundPanelPause.SetActive(false);
+        
+
 
         navigation.RestartSelection(0);
     }
 
     public void GoToSettingsMenu()
     {
-        navigation.SetMouseHoverState(false);
+        escapeKeyScript.onPauseMainMenu = false;
+
+        navigation.BlockSubmit();
+
         navigation.buttonList.Clear();
         navigation.buttonList.Add(controlsButton);
         navigation.buttonList.Add(soundButton);
-        navigation.buttonList.Add(goBackButton);
 
         mainPauseMenu.SetActive(false);
         settingsPauseMenu.SetActive(true);
         soundPanelPause.SetActive(false);
-        controlLayoutPause.SetActive(false);
         soundButton.SetActive(true);
-        goBackButton.SetActive(true);
+        sfxButton.SetActive(false);
+        controlLayoutPause.SetActive(false);
 
         currentPauseMenu = 1;
+
         navigation.RestartSelection(0);
+
+        StartCoroutine(UnblockSubmitNextFrame());
+
+    }
+
+    private IEnumerator UnblockSubmitNextFrame()
+    {
+        yield return null; 
+        navigation.UnblockSubmit();
     }
 
     public void GoToSoundBoard()
     {
-        navigation.SetMouseHoverState(false);
+        navigation.BlockSubmit();
         navigation.buttonList.Clear();
+
         navigation.buttonList.Add(musicButton);
         navigation.buttonList.Add(sfxButton);
-        navigation.buttonList.Add(goBackButton);
+        
 
         settingsPauseMenu?.SetActive(false);
         soundPanelPause.SetActive(true);
         soundButton.SetActive(true);
         sfxButton.SetActive(true);
-
         currentPauseMenu = 2;
+
         navigation.RestartSelection(0);
+        StartCoroutine(UnblockSubmitNextFrame());
     }
 
     public void GoToControls()
     {
-        navigation.SetMouseHoverState(false);
         navigation.buttonList.Clear();
-        navigation.buttonList.Add(goBackButton);
 
-        mainPauseMenu.SetActive(false);
+        
+        
+
         settingsPauseMenu?.SetActive(false);
-        soundPanelPause?.SetActive(false);
         controlLayoutPause.SetActive(true);
-        goBackButton.SetActive(true);
-
         currentPauseMenu = 3;
+
         navigation.RestartSelection(0);
     }
 
-    public void GoContinue()
-    {
-        if (mainPauseMenu.activeInHierarchy)
-        {
-            pauseMenu.SetActive(false);
-            Time.timeScale = 1f;
-        }
-    }
 
-    public void GoToTittle()
-    {
-        TitleSceneAndButtonFunction title = FindAnyObjectByType<TitleSceneAndButtonFunction>();
-        title.dataPersistanceTestNumber = 0;
-        pauseMenu.SetActive(false);
-        SceneManager.LoadScene(0);
-    }
+
 
     public void GoBack()
-    {
-        switch (currentPauseMenu)
+    { 
+        switch(currentPauseMenu)
         {
             case 3:
+                {
+                    GoToSettingsMenu();
+                    break;
+                }
             case 2:
-                GoToSettingsMenu();
-                break;
+                {
+                    GoToSettingsMenu();
+                    break;
+                }
             case 1:
-                ShowPauseMenu();
-                break;
+                {
+                    
+                    ShowPauseMenu();
+                    StartCoroutine(SetPauseMainMenuTrueNextFrame());
+                    break ;
+                }
+        }    
+    }
+    private IEnumerator SetPauseMainMenuTrueNextFrame()
+    {
+        yield return null; // Wait 1 frame
+        escapeKeyScript.onPauseMainMenu = true;
+        Debug.Log("[MenuButtonListManager] onPauseMainMenu set to TRUE after returning to pause menu.");
+    }
+
+    public void ChangeSceneToTitle()
+    {
+
+        Debug.Log("[MenuButtonListManager] Attempting to change scene to title...");
+        fadetoBlackScript = fadeToBlackObject.GetComponent<FadeToBlack>();
+        if (fadetoBlackScript != null)
+        {
+            Debug.Log("[MenuButtonListManager] Fading to scene 0.");
+            fadetoBlackScript.FadeToScene(0);
+
+            titleSceneAndButtonFunction.enabled = true;
         }
+        else
+        {
+            //Debug.LogWarning("FadeToBlack missing on reload.");
+        }
+
     }
 }

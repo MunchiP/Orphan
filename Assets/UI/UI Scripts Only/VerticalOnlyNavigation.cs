@@ -1,19 +1,28 @@
-using System.Collections.Generic;
+using System;
+using NUnit.Framework;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 {
+
     private InputSystem_Actions controlsUI;
     public List<GameObject> buttonList = new List<GameObject>();
     public int buttonToMoveOnto;
     private GameObject currentButton;
+    private ButtonIndexController buttonIndexController;
     public int lastButtonIndex = -1;
     private int mouseHoveringButtonIndex = -1;
     private bool isMouseHoveringButton;
     private bool isMouseControlling = false;
+    public GameObject escapeKey;
+    private EscMenuBehaviour escapeKeyScript;
+    public GameObject GameManagerTitleFunction;
+    private TitleSceneAndButtonFunction titleSceneAndButtonFunction;
 
     void Awake()
     {
@@ -27,6 +36,7 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
         lastButtonIndex = -1;
         buttonToMoveOnto = -1;
         EventSystem.current.SetSelectedGameObject(null);
+
     }
 
     void OnDisable()
@@ -34,6 +44,23 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
         controlsUI.Disable();
         lastButtonIndex = -1;
         buttonToMoveOnto = -1;
+    }
+    void Start()
+    {
+        
+        lastButtonIndex = -1;
+        buttonToMoveOnto = -1;
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
+        titleSceneAndButtonFunction = GameManagerTitleFunction.GetComponent<TitleSceneAndButtonFunction>();
+    }
+
+    public void ResetNavigation()
+    {
+        if (buttonList != null && buttonList.Count > 0)
+        {
+            buttonToMoveOnto = 0;
+            lastButtonIndex = -1;
+        }
     }
 
     public void SetMouseHoverState(bool isMouseOnButton)
@@ -45,6 +72,8 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
         {
             mouseHoveringButtonIndex = -1;
         }
+
+
     }
 
     public void SetMouseHoverButtonIndex(int index)
@@ -55,70 +84,122 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
 
     void Update()
     {
-        if (buttonList == null || buttonList.Count == 0)
+        if (buttonList == null)
+            return;
+        if (buttonToMoveOnto < 0 || buttonToMoveOnto > buttonList.Count)
             return;
 
-        if (!isMouseHoveringButton && buttonToMoveOnto != lastButtonIndex && IsIndexValid(buttonToMoveOnto))
+        if (isMouseHoveringButton)
+            return;
+
+        if (!isMouseHoveringButton && buttonToMoveOnto != lastButtonIndex)
         {
-            SelectButton(buttonToMoveOnto);
+            
+            if (lastButtonIndex >= 0)
+            {
+                var previousButton = buttonList[lastButtonIndex];
+                
+            }
+
+            
+            currentButton = buttonList[buttonToMoveOnto];
+            currentButton.GetComponent<UnityEngine.UI.Button>().Select();
+
+            Debug.Log("lastindex should be same as buttontomoveonto");
+
+            lastButtonIndex = buttonToMoveOnto;
         }
-        else if (isMouseHoveringButton && mouseHoveringButtonIndex != lastButtonIndex && IsIndexValid(mouseHoveringButtonIndex))
+
+        else if (isMouseHoveringButton)
         {
-            SelectButton(mouseHoveringButtonIndex);
+            
+            if (mouseHoveringButtonIndex != lastButtonIndex && mouseHoveringButtonIndex >= 0)
+            {
+                if (lastButtonIndex >= 0)
+                {
+                    var previousButton = buttonList[lastButtonIndex];
+                    
+                }
+
+                currentButton = buttonList[mouseHoveringButtonIndex];
+                currentButton.GetComponent<UnityEngine.UI.Button>().Select();
+                
+
+                buttonToMoveOnto = mouseHoveringButtonIndex;
+                lastButtonIndex = mouseHoveringButtonIndex;
+            }
+        }
+
+        
+    }
+
+    public void OnCancel(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (escapeKeyScript.onTitleMainMenu)
+            {
+                return;
+            }
+            else if(!escapeKeyScript.onTitleMainMenu)
+            {
+                titleSceneAndButtonFunction.GoBackToTitle();
+            }
+        
         }
     }
 
-    private bool IsIndexValid(int index)
+    public void OnClick(InputAction.CallbackContext context)
     {
-        return index >= 0 && index < buttonList.Count;
     }
 
-    private void SelectButton(int index)
+    public void OnMiddleClick(InputAction.CallbackContext context)
     {
-        if (!IsIndexValid(index))
-            return;
-
-        GameObject button = buttonList[index];
-
-        // 🔥 Desactivar el botón anterior visualmente
-        if (lastButtonIndex != -1 && IsIndexValid(lastButtonIndex))
-        {
-            GameObject lastButton = buttonList[lastButtonIndex];
-            var btnComponent = lastButton.GetComponent<Selectable>();
-            if (btnComponent != null)
-                btnComponent.OnDeselect(null);
-        }
-
-        // 🔥 Limpiar selección previa en el sistema de eventos
-        EventSystem.current.SetSelectedGameObject(null);
-
-        // 🔥 Forzar seleccionar nuevo botón
-        EventSystem.current.SetSelectedGameObject(button);
-        button.GetComponent<Button>()?.Select();
-
-        currentButton = button;
-        lastButtonIndex = index;
-        buttonToMoveOnto = index;
     }
 
     public void OnNavigate(InputAction.CallbackContext context)
     {
-        if (buttonList == null || buttonList.Count == 0 || isMouseControlling)
+        if (buttonList == null || buttonList.Count == 0)
             return;
-
-        if (context.performed)
+        if (isMouseControlling) return;
+        if (!isMouseHoveringButton && context.performed)
         {
             Vector2 direction = context.ReadValue<Vector2>();
 
+            
             if (direction.y > 0.5f)
             {
-                buttonToMoveOnto = buttonToMoveOnto < 0 ? 0 : (buttonToMoveOnto - 1 + buttonList.Count) % buttonList.Count;
+                if (buttonToMoveOnto < 0)
+                {
+                    buttonToMoveOnto = 0;
+                    return;
+                }
+                buttonToMoveOnto = (buttonToMoveOnto - 1 + buttonList.Count) % buttonList.Count;
+                
+                    
             }
-            else if (direction.y < -0.5f)
+            else if (direction.y < - 0.5f)
             {
-                buttonToMoveOnto = buttonToMoveOnto < 0 ? 0 : (buttonToMoveOnto + 1) % buttonList.Count;
+                if (buttonToMoveOnto < 0)
+                {
+                    buttonToMoveOnto = 0;
+                    return;
+                }
+                buttonToMoveOnto = (buttonToMoveOnto + 1) % buttonList.Count;
             }
         }
+    }
+
+    public void OnPoint(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnRightClick(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnScrollWheel(InputAction.CallbackContext context)
+    {
     }
 
     public void OnSubmit(InputAction.CallbackContext context)
@@ -126,6 +207,7 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
         if (context.performed)
         {
             GameObject selected = EventSystem.current.currentSelectedGameObject;
+
             if (selected != null)
             {
                 Button button = selected.GetComponent<Button>();
@@ -133,18 +215,28 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
                 {
                     button.onClick.Invoke();
                 }
+                else
+                {
+                    Debug.LogWarning("Selected GameObject is not a Button or is not interactable.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("No UI element is currently selected.");
             }
         }
     }
 
-    // Métodos vacíos necesarios por la interfaz
-    public void OnCancel(InputAction.CallbackContext context) { }
-    public void OnClick(InputAction.CallbackContext context) { }
-    public void OnMiddleClick(InputAction.CallbackContext context) { }
-    public void OnPoint(InputAction.CallbackContext context) { }
-    public void OnRightClick(InputAction.CallbackContext context) { }
-    public void OnScrollWheel(InputAction.CallbackContext context) { }
-    public void OnTrackedDeviceOrientation(InputAction.CallbackContext context) { }
-    public void OnTrackedDevicePosition(InputAction.CallbackContext context) { }
-    public void OnInventory(InputAction.CallbackContext context) { }
+    public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnTrackedDevicePosition(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        
+    }
 }
