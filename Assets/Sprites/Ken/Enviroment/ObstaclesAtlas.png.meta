@@ -821,7 +821,7 @@ TextureImporter:
         width: 118
         height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -843,7 +843,7 @@ TextureImporter:
         width: 87
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -852,6 +852,116 @@ TextureImporter:
       bones: []
       spriteID: 71e8f8f10051121469fbc4113622c0d9
       internalID: 1469092486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_23
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1321
+        width: 334
+        height: 592
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a2541585668ec349bbf570df3291655
+      internalID: -778545919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_24
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 1328
+        width: 349
+        height: 670
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797d5a32c422ede4cbdc0a13fef1bf30
+      internalID: 1035950644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_25
+      rect:
+        serializedVersion: 2
+        x: 2139
+        y: 1326
+        width: 281
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ade841848a540a4997471a061778dbd
+      internalID: -787541918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_26
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 1330
+        width: 209
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84fb0613c34c713449421e7fe9fe2feb
+      internalID: 1929284686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_27
+      rect:
+        serializedVersion: 2
+        x: 2676
+        y: 1342
+        width: 249
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3251806d5a8764b835c6080e7215bb
+      internalID: -993522409
       vertices: []
       indices: 
       edges: []
@@ -895,6 +1005,11 @@ TextureImporter:
       ObstaclesAtlas_20: 1698165218
       ObstaclesAtlas_21: 491703896
       ObstaclesAtlas_22: 1469092486
+      ObstaclesAtlas_23: -778545919
+      ObstaclesAtlas_24: 1035950644
+      ObstaclesAtlas_25: -787541918
+      ObstaclesAtlas_26: 1929284686
+      ObstaclesAtlas_27: -993522409
       ObstaclesAtlas_3: -736568560215877300
       ObstaclesAtlas_4: 2861547202967493347
       ObstaclesAtlas_5: -901381854

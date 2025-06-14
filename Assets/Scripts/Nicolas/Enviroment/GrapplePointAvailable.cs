@@ -17,7 +17,7 @@ public class GrapplePointAvailable : MonoBehaviour
         // Obtener el SpriteRenderer del objeto
         spriteRenderer = GetComponent<SpriteRenderer>();
         luz = GetComponent<Light2D>();
-        luz.intensity = 0f;
+        //luz.intensity = 0f;
     }
 
     void Update()
@@ -36,12 +36,13 @@ public class GrapplePointAvailable : MonoBehaviour
         if (distance < 5f)
         {
             spriteRenderer.sprite = avaliable;
-            luz.intensity = 1f;
+            //luz.intensity = 1f;
         }
         else
         {
             spriteRenderer.sprite = offAvaliable;
-            luz.intensity = 0f;
+            //luz.intensity = 1f;
         }
+
     }
 }
