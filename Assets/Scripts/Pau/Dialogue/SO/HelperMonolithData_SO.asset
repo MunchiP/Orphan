@@ -18,7 +18,7 @@ MonoBehaviour:
   - monolithName: monolites_1
     monolithImage: {fileID: -4766046184718008398, guid: b6903ae185a723b45852dbb545286991, type: 3}
   - monolithName: monolites_2
-    monolithImage: {fileID: 6376338923685662677, guid: 8aa5655ae976f53409b271fff0c39bbe, type: 3}
+    monolithImage: {fileID: 21300000, guid: 8aa5655ae976f53409b271fff0c39bbe, type: 3}
   - monolithName: monolites_3
     monolithImage: {fileID: -41771300586833000, guid: 6f5bacb728ea2b44bab56bfe7daf71a6, type: 3}
   - monolithName: monolites_4
