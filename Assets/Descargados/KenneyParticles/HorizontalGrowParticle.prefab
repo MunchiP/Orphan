@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1988391092}
+  - component: {fileID: 1988391093}
+  m_Layer: 0
+  m_Name: HorizontalGrowParticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1988391092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_GameObject: {fileID: 100100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1988391093
+ParticleSystem:
+  serializedVersion: 6
+  lengthInSec: 1
+  startDelay: 0
+  startLifetime: 1
+  startSpeed: 0
+  startSize: 1
+  startSize3D: 1
+  startSizeX: 0.5
+  startSizeY: 0.1
+  startSizeZ: 0.1
+  startRotation: 0
+  startColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  gravityModifier: 0
+  simulationSpace: 1
+  playOnAwake: 1
+  maxParticles: 1000
+  emissionRate: 10
+  shape:
+    shapeType: 0
+    angle: 0
+    radius: 0
+  velocityOverLifetime:
+    enabled: 1
+    x: 2
+    y: 0
+    z: 0
+    space: 1
+  sizeOverLifetime:
+    enabled: 1
+    size:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_CurveMultiplier: 1
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+      separateAxes: 1
+      x:
+        curveMultiplier: 1
+        curve:
+          m_Curve:
+          - time: 0
+            value: 1
+          - time: 1
+            value: 1
+      y:
+        curveMultiplier: 1
+        curve:
+          m_Curve:
+          - time: 0
+            value: 0.1
+          - time: 1
+            value: 1
+      z:
+        curveMultiplier: 1
+        curve:
+          m_Curve:
+          - time: 0
+            value: 1
+          - time: 1
+            value: 1

@@ -30,16 +30,29 @@ public class PlayerAudioEvents : MonoBehaviour
     }
     public void Play(AudioClip clip, float pitch = 1f)
     {
-        if (clip == null || AudioManager.instance == null) return;
+        if (clip == null) return;
+
         if (audioSource.isPlaying && audioSource.clip == fallClip)
         {
             StopFX();
         }
-        float finalVolume = baseVolume * AudioManager.instance.sfxSource.volume;
+
+        float finalVolume = baseVolume;
+
+        if (AudioManager.instance != null)
+        {
+            finalVolume *= AudioManager.instance.sfxSource.volume;
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager.instance es null, usando solo baseVolume");
+        }
+
         audioSource.pitch = pitch;
         audioSource.PlayOneShot(clip, finalVolume);
         audioSource.pitch = 1f; // Restaurar pitch
     }
+
 
 
     // Métodos para eventos del Animator
