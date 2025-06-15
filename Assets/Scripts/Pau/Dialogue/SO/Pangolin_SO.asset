@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da51ceadb674ddf4dac2382a4371d05f, type: 3}
   m_Name: Pangolin_SO
   m_EditorClassIdentifier: 
-  characterName: Pango
-  portrait: {fileID: -7700558481800825025, guid: 11571a003b77a564da08536d071519f6, type: 3}
-  nameColor: {r: 0.7529412, g: 0.039215673, b: 0.1419071, a: 0}
+  isMonolith: 0
+  characterName: Guardian
+  portrait: {fileID: 7489344265815713622, guid: e440a72f23ba7ef448ac7b67712918d0, type: 3}
+  nameColor: {r: 0.41960785, g: 0.039215673, b: 0.03529412, a: 1}
   textFont: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
