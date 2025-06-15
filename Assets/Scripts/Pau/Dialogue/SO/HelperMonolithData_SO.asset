@@ -14,12 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monolithVisual:
   - monolithName: monolites_0
-    monolithImage: {fileID: -4766046184718008398, guid: 7a8d23f9a32a64a4fa52b2939e45a43c, type: 3}
+    monolithImage: {fileID: -1405850552550083385, guid: 7a8d23f9a32a64a4fa52b2939e45a43c, type: 3}
+  - monolithName: monolites_1
+    monolithImage: {fileID: -4766046184718008398, guid: b6903ae185a723b45852dbb545286991, type: 3}
   - monolithName: monolites_2
-    monolithImage: {fileID: 6226112710598217675, guid: 8aa5655ae976f53409b271fff0c39bbe, type: 3}
+    monolithImage: {fileID: 6376338923685662677, guid: 8aa5655ae976f53409b271fff0c39bbe, type: 3}
   - monolithName: monolites_3
-    monolithImage: {fileID: 2383154439637696310, guid: 6f5bacb728ea2b44bab56bfe7daf71a6, type: 3}
+    monolithImage: {fileID: -41771300586833000, guid: 6f5bacb728ea2b44bab56bfe7daf71a6, type: 3}
   - monolithName: monolites_4
-    monolithImage: {fileID: 7806278687168904374, guid: 28779d03c62794548ab9d7c0f01e8836, type: 3}
+    monolithImage: {fileID: -914798648011183877, guid: e4a7799dfd3baec49a9847de6fab7e0b, type: 3}
+  - monolithName: monolites_5
+    monolithImage: {fileID: -796176953242043175, guid: 28779d03c62794548ab9d7c0f01e8836, type: 3}
   - monolithName: monolites_6
-    monolithImage: {fileID: -796176953242043175, guid: 75500e051a8163e4f8bf0d2685578668, type: 3}
+    monolithImage: {fileID: 7806278687168904374, guid: 75500e051a8163e4f8bf0d2685578668, type: 3}
+  - monolithName: monolites_7
+    monolithImage: {fileID: 2383154439637696310, guid: 49ca398f02d0ffa4495509a6340d7ed7, type: 3}

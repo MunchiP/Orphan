@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: e4a7799dfd3baec49a9847de6fab7e0b
+guid: 8aa5655ae976f53409b271fff0c39bbe
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 6376338923685662677
     second: cara2_0
+  - first:
+      213: 4874496403916070549
+    second: cara2_1
+  - first:
+      213: -2205152544208613354
+    second: cara2_2
+  - first:
+      213: -8594925963881182376
+    second: cara2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -142,10 +151,10 @@ TextureImporter:
       name: cara2_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 36
-        width: 179
-        height: 227
+        x: 31
+        y: 66
+        width: 43
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,6 +165,72 @@ TextureImporter:
       bones: []
       spriteID: 5dfc7c1c77e4d7850800000000000000
       internalID: 6376338923685662677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara2_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 49
+        width: 176
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e165637a0b5a340800000000000000
+      internalID: 4874496403916070549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara2_2
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 61
+        width: 44
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61095e6c179b561e0800000000000000
+      internalID: -2205152544208613354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara2_3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 34
+        width: 92
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b841caf50b8b880800000000000000
+      internalID: -8594925963881182376
       vertices: []
       indices: 
       edges: []
@@ -175,6 +250,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       cara2_0: 6376338923685662677
+      cara2_1: 4874496403916070549
+      cara2_2: -2205152544208613354
+      cara2_3: -8594925963881182376
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

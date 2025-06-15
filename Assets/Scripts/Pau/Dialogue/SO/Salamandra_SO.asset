@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da51ceadb674ddf4dac2382a4371d05f, type: 3}
   m_Name: Salamandra_SO
   m_EditorClassIdentifier: 
-  characterName: Salamandra
-  portrait: {fileID: 304928168049319056, guid: 9781f5ef83940b04c821bba8f1d51185, type: 3}
-  nameColor: {r: 0.14509808, g: 0.30461702, b: 0.39607844, a: 0}
+  isMonolith: 0
+  characterName: Lilith
+  portrait: {fileID: 6193505291170685754, guid: 86ab0c4d1446f344da98fec0a4db34c0, type: 3}
+  nameColor: {r: 0.2901961, g: 0.23921569, b: 0.31764707, a: 1}
   textFont: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}

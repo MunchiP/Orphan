@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: b6903ae185a723b45852dbb545286991
+guid: 6f5bacb728ea2b44bab56bfe7daf71a6
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -41771300586833000
     second: cara3_0
+  - first:
+      213: -1115658807032842007
+    second: cara3_1
+  - first:
+      213: -2043485570892570119
+    second: cara3_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -142,10 +148,10 @@ TextureImporter:
       name: cara3_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 41
-        width: 216
-        height: 218
+        x: 38
+        y: 59
+        width: 224
+        height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,6 +162,50 @@ TextureImporter:
       bones: []
       spriteID: 89b37b239399b6ff0800000000000000
       internalID: -41771300586833000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara3_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 193
+        width: 54
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8754cd9326480f0800000000000000
+      internalID: -1115658807032842007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara3_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 13
+        width: 221
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f1ef4b33b414a3e0800000000000000
+      internalID: -2043485570892570119
       vertices: []
       indices: 
       edges: []
@@ -175,6 +225,8 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       cara3_0: -41771300586833000
+      cara3_1: -1115658807032842007
+      cara3_2: -2043485570892570119
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
