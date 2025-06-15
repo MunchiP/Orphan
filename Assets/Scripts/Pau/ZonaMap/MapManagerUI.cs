@@ -4,11 +4,15 @@ using UnityEngine;
 public class MapManagerUI : MonoBehaviour
 {
     public static MapManagerUI Instance;
+
+
     public GameObject mapaCanvas; // Mapa completo / aun por referenciar
+    public Camera mapCamera; // Camara para persistencia
+    public Transform zonaContainer; // zonas del mapa
+
+
     private Dictionary<string, MapZoneUI> zonas = new();
     private HashSet<string> zonasReveladas = new(); // La uso para guardar las zonas que ya fueron reveladas
-
-    public Transform zonaContainer; // Para que encuentre las zonas
 
 
     private void Awake()
@@ -17,6 +21,8 @@ public class MapManagerUI : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(mapaCanvas);
+            DontDestroyOnLoad(mapCamera); 
         }
         else
         {
