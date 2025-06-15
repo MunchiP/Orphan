@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1173445861932285760}
   - component: {fileID: 706622870699007274}
   - component: {fileID: 1749158012010832105}
-  - component: {fileID: 6432602671824903900}
   - component: {fileID: 1121653973234750358}
   m_Layer: 0
   m_Name: MoundOfBones
@@ -141,19 +140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabPurityObstacle: {fileID: 4314280505834656609, guid: 9cf53e0ff8c60174a899f95e3a302d4a, type: 3}
---- !u!114 &6432602671824903900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5616977520684997742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 809de0f391352464f8d83bd682793c6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hinText: {fileID: 8914178074996300014}
 --- !u!61 &1121653973234750358
 BoxCollider2D:
   m_ObjectHideFlags: 0
