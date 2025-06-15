@@ -9,11 +9,12 @@ public class ActiveCanvasPerScene : MonoBehaviour
 {
     public GameObject titleCanvas;
     public GameObject pauseCanvas;
-    public GameObject particlesAndBackground;
-    public GameObject GameManager;
-    private TitleSceneAndButtonFunction titleSceneAndButtonFunctionScript;
-    public GameObject inGameCanvas;
-    private MenuButtonListManager menuButtonListManagerScript;
+    
+    
+    
+    
+    
+    public GameObject titleBackground;
     public void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -26,13 +27,11 @@ public class ActiveCanvasPerScene : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        titleSceneAndButtonFunctionScript = GameManager.GetComponent<TitleSceneAndButtonFunction>();
-        menuButtonListManagerScript = inGameCanvas.GetComponent<MenuButtonListManager>();
+        
         titleCanvas.SetActive(scene.buildIndex == 0);
-        titleSceneAndButtonFunctionScript.enabled = (scene.buildIndex == 0);
-        particlesAndBackground.SetActive(scene.buildIndex == 0);
+        titleBackground.SetActive(scene.buildIndex == 0);
         pauseCanvas.SetActive(scene.buildIndex == 1);
-        menuButtonListManagerScript.enabled = (scene.buildIndex == 1);
+        
     }
     void Start()
     {

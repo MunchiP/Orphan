@@ -7,10 +7,11 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 {
 
-    private InputSystem_Actions controlsUI;
+    private InputSystem_Actions controlsUITitle;
     public List<GameObject> buttonList = new List<GameObject>();
     public int buttonToMoveOnto;
     private GameObject currentButton;
@@ -26,13 +27,14 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
 
     void Awake()
     {
-        controlsUI = new InputSystem_Actions();
-        controlsUI.UI.SetCallbacks(this);
+        controlsUITitle = new InputSystem_Actions();
+        controlsUITitle.UI.Submit.performed += OnSubmit;
+        controlsUITitle.UI.Navigate.performed += OnNavigate;
     }
 
     void OnEnable()
     {
-        controlsUI.Enable();
+        controlsUITitle.Enable();
         lastButtonIndex = -1;
         buttonToMoveOnto = -1;
         EventSystem.current.SetSelectedGameObject(null);
@@ -41,7 +43,7 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
 
     void OnDisable()
     {
-        controlsUI.Disable();
+        controlsUITitle.Disable();
         lastButtonIndex = -1;
         buttonToMoveOnto = -1;
     }

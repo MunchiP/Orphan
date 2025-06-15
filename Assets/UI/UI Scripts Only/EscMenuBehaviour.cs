@@ -7,52 +7,69 @@ using UnityEngine.UI;
 public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
 {
     public GameObject GameManager;
-    public GameObject inGamePauseCanvas;
+    
     private InputSystem_Actions controlsUI;
-    private TitleSceneAndButtonFunction titlenavigationscript;
-    private MenuButtonListManager menuButtonListManager;
+    private PauseMenuNavigation universalNavigationScript;
+    private ButtonListManager universalButtonListManager;
+    public PauseMenuAccess pauseScript;
     public bool onTitleMainMenu = false;
     public bool onPauseMainMenu = false;
     private TextMeshProUGUI escapeTMP;
 
     void Awake()
     {
+        Debug.Log("[EscMenuBehaviour] Awake - Subscribing to sceneLoaded");
         controlsUI = new InputSystem_Actions();
         controlsUI.UI.SetCallbacks(this);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void OnEnable()
     {
         controlsUI.Enable();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        
 
     }
     public void OnDisable()
     {
         controlsUI.Disable();
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        
 
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        Debug.Log($"[EscMenuBehaviour] OnSceneLoaded called for: {scene.name}");
+        int index = scene.buildIndex;
+
+        // Title Scene
+        if (index == 0)
         {
-            onTitleMainMenu = false;
-            onPauseMainMenu = true;
-        }
-        else if (SceneManager.GetActiveScene().buildIndex != 1)
-        {
-            Debug.Log("im on title scene");
+            Debug.Log("making ontitlemainmenu true and onpausemainmenu false");
             onTitleMainMenu = true;
             onPauseMainMenu = false;
+
+            // Ensure pause-related systems are disabled in title
+            //GameManager.GetComponent<PauseMenuAccess>().enabled = false;
+            Time.timeScale = 1f; // Just in case we came from paused state
+        }
+        // In-Game Scene
+        else if (index == 1)
+        {
+            Debug.Log("making ontitlemainmenu false and onpausemainmenu true");
+            onTitleMainMenu = false;
+            onPauseMainMenu = true;
+
+            // Enable pause logic for gameplay
+            GameManager.GetComponent<PauseMenuAccess>().enabled = true;
         }
     }
 
     void Start()
     {
-        titlenavigationscript = GameManager.GetComponent<TitleSceneAndButtonFunction>();
-        menuButtonListManager = inGamePauseCanvas.GetComponent<MenuButtonListManager>();
+        universalNavigationScript = GameManager.GetComponent<PauseMenuNavigation>();
+        universalButtonListManager = GameManager.GetComponent<ButtonListManager>();
         escapeTMP = gameObject.GetComponent<TextMeshProUGUI>();
     }
 
@@ -82,13 +99,28 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
 
     public void OnCancel(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if(context.performed && !pauseScript.enabled)
         {
-            if(!onPauseMainMenu)
+            // We're on the title — only use GoBack()
+            universalButtonListManager.GoBack();
+        }
+        else if(context.performed && pauseScript.enabled)
+        {
+            if (!pauseScript.isGameOnPauseMenu)
             {
-                menuButtonListManager.GoBack();
+                pauseScript.PauseGame();
+            }
+            else if(pauseScript.isGameOnPauseMenu && onPauseMainMenu)
+            {
+                pauseScript.UnpauseGame();
+            }
+            else if (pauseScript.isGameOnPauseMenu && !onPauseMainMenu)
+            {
+                universalButtonListManager.GoBack();
+                
             }
         }
+        
     }
 
     public void OnClick(InputAction.CallbackContext context)
