@@ -60,10 +60,10 @@ public class AudioManager : MonoBehaviour
 
     public void ToggleMusic()
     {
+        Debug.Log("[AudioManager] ToggleMusic CALLED");
         musicSource.mute = !musicSource.mute;
         musicXmark.enabled = musicSource.mute;
         musicCheckmark.enabled = !musicSource.mute;
-
     }
 
     public void ToggleSfx()
