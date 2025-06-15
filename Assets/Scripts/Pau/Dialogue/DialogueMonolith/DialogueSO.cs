@@ -6,7 +6,10 @@ public class DialogueSO : MonoBehaviour, IInteractable
     // Este es un buen lugar para recolectar pureza.
     [SerializeField] CharacterData characterData;
     [SerializeField] private GameObject exclamation;
-    [TextArea] public string[] lines; // Almaceno las lineas de código que mostraré
+    // [TextArea] public string[] lines; // Almaceno las lineas de código que mostraré
+    // comentado para usar ahora el multilenguaje
+
+    public string[] lineasKeys; // Para usar con multilenguaje
 
     [SerializeField] private bool stopPlayerMovement = false;
 
@@ -26,7 +29,7 @@ public class DialogueSO : MonoBehaviour, IInteractable
             DialogueManager.Instance.UpdateDialogue(characterData);
         }
 
-        DialogueManager.Instance.StartDialogue(lines, stopPlayerMovement);
+        DialogueManager.Instance.StartDialogue(lineasKeys, stopPlayerMovement);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

@@ -401,6 +401,14 @@ PrefabInstance:
       propertyPath: 'lines.Array.data[0]'
       value: "Hay zonas venenosas por ac\xE1, ten cuidado."
       objectReference: {fileID: 0}
+    - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: lineasKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: 'lineasKeys.Array.data[0]'
+      value: Monolith4
+      objectReference: {fileID: 0}
     - target: {fileID: 2295312491702559508, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.51
@@ -909,7 +917,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 183463524}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -920,7 +928,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 183463524}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -935,12 +943,28 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6741625569388521986, guid: 65740d30ac41ab84191a3a0588f8d4dc, type: 3}
   m_PrefabInstance: {fileID: 183463524}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183463528}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &183463530
+CanvasRenderer:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_CullTransparentMesh: 1
+--- !u!222 &183463531
+CanvasRenderer:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_CullTransparentMesh: 1
 --- !u!1001 &206652971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1255,6 +1279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   astar: {fileID: 0}
+  obstacleParticlesList: []
 --- !u!1 &310440994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,6 +1753,14 @@ PrefabInstance:
     - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: 'lines.Array.data[0]'
       value: "\xBFQu\xE9 suceder\xE1 cuando se acabe la pureza?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: lineasKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: 'lineasKeys.Array.data[0]'
+      value: Monolith3
       objectReference: {fileID: 0}
     - target: {fileID: 7492171088046810224, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_Sprite
@@ -2465,6 +2498,14 @@ PrefabInstance:
       propertyPath: 'lines.Array.data[0]'
       value: Usa tu habilidad de balanceo.
       objectReference: {fileID: 0}
+    - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: lineasKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: 'lineasKeys.Array.data[0]'
+      value: Monolith2
+      objectReference: {fileID: 0}
     - target: {fileID: 2295312491702559508, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.45
@@ -2671,7 +2712,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -8541999650216608790, guid: 46d28df700c73474e9399dcffd6d2266, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2335667069464283155, guid: 46d28df700c73474e9399dcffd6d2266, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 46d28df700c73474e9399dcffd6d2266, type: 3}
 --- !u!1 &1128704556
 GameObject:
@@ -4593,6 +4640,14 @@ PrefabInstance:
       propertyPath: 'lines.Array.data[0]'
       value: "El ascensor es la \xFAnica forma de salir de esta cueva."
       objectReference: {fileID: 0}
+    - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: lineasKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: 'lineasKeys.Array.data[0]'
+      value: Monolith5
+      objectReference: {fileID: 0}
     - target: {fileID: 2295312491702559508, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.22
@@ -4848,6 +4903,14 @@ PrefabInstance:
       propertyPath: 'lines.Array.data[0]'
       value: Este es un buen lugar para obtener pureza.
       objectReference: {fileID: 0}
+    - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: lineasKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 668709994798316276, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: 'lineasKeys.Array.data[0]'
+      value: Monolith1
+      objectReference: {fileID: 0}
     - target: {fileID: 8202346345169403714, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_Name
       value: Monolith_0
@@ -5053,6 +5116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMaxima: 100
   vidaActual: 0
+  primeraPureza: 1
   purezaActual: 0
 --- !u!114 &2075971151
 MonoBehaviour:
@@ -5076,6 +5140,7 @@ MonoBehaviour:
   lowJumpMultiplier: 2
   fallMultiplier: 2.5
   attackCooldown: 0
+  isGrounded: 0
 --- !u!120 &2075971152
 LineRenderer:
   serializedVersion: 2
@@ -5311,7 +5376,7 @@ Transform:
   m_GameObject: {fileID: 2075971144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -96.1, y: 47.5, z: 0}
+  m_LocalPosition: {x: 5.7, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
