@@ -16,6 +16,10 @@ TagManager:
   - ExitButtonUI
   - CreditsButtonUI
   - Obstacle
+  - ParticulaEnemigo
+  - DetectorParticulas
+  - Estalagmita
+  - ObstacleWood
   layers:
   - Default
   - TransparentFX
@@ -29,6 +33,8 @@ TagManager:
   - Player
   - Weapon
   - Poison
+  - ParticleDetection
+  - Particle
   - 
   - 
   - 
@@ -43,8 +49,6 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - Map
   - 
   - 
   - 

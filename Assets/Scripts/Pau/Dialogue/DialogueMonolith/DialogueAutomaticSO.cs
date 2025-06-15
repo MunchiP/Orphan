@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DialogueAutomaticSO : MonoBehaviour
@@ -5,7 +6,7 @@ public class DialogueAutomaticSO : MonoBehaviour
 
     [SerializeField] CharacterData characterData;
     [TextArea] public string[] lines;
-    
+
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,4 +33,5 @@ public class DialogueAutomaticSO : MonoBehaviour
             DialogueManager.Instance.EndDialogue();
         }
     }
+
 }

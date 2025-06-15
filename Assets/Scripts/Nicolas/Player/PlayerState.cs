@@ -5,12 +5,15 @@ public class PlayerState : MonoBehaviour
     [Header("Vida")]
     public int vidaMaxima = 100;
     public int vidaActual;
+    public bool primeraPureza = true;
 
     [Header("Pureza")]
     public int purezaActual;
+    private ManagerTutorial managerTutorial;
 
     void Start()
     {
+        managerTutorial = FindAnyObjectByType<ManagerTutorial>();
         vidaActual = vidaMaxima;
         purezaActual = 0;
     }
@@ -40,6 +43,15 @@ public class PlayerState : MonoBehaviour
 
     public void AgregarPureza(int cantidad)
     {
+        if (primeraPureza && managerTutorial != null)
+        {
+            managerTutorial.PrimeraPureza();
+            primeraPureza = false;
+        }
+        else
+        {
+            Debug.Log("no encontro manager tutorial script");
+        }
         purezaActual += cantidad; // ✅ Ya no hay límite superior
         Debug.Log("Pureza actual: " + purezaActual);
     }

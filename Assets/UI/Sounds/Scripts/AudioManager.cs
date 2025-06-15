@@ -1,95 +1,48 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    public static AudioManager Instance;
 
-    public SoundNameAndClip[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
-    public Image musicXmark, sfxXmark;
-    public Image musicCheckmark, sfxCheckmark;
+    [Range(0f, 1f)] public float musicVolume = 1f;
+    [Range(0f, 1f)] public float sfxVolume = 1f;
 
-    private void Awake()
+    void Awake()
     {
-        if (instance != null)
+        if (Instance == null)
         {
-            Destroy(gameObject);
-            return;
-        }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
 
-
-    public void PlayMusic(string name)
-    {
-        SoundNameAndClip sound = Array.Find(musicSounds, x => x.soundName == name);
-
-        if (sound == null)
-        {
-            Debug.Log("Sound Not Found");
+            // Cargar desde PlayerPrefs si existe
+            // GetFloat devolverá el segundo argumento (valor por defecto) si la clave no existe.
+            musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+            sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
         }
         else
         {
-            musicSource.clip = sound.clip;
-            musicSource.Play();
+            // Si ya existe una instancia, destruye esta nueva para mantener el Singleton.
+            Debug.LogWarning("Se intentó crear una segunda instancia de AudioManager. Destruyendo este GameObject para mantener el patrón Singleton.", this);
+            Destroy(gameObject);
         }
-
     }
 
-    public void PlaySFX(string name)
+    // Nota: Los métodos Set/Get ya son bastante seguros por su diseño,
+    // pero podrías añadir Debug.Log para ver cuándo se guardan los valores si lo necesitas.
+    public void SetMusicVolume(float value)
     {
-        SoundNameAndClip sound = Array.Find(sfxSounds, x => x.soundName == name);
-
-        if (sound == null)
-        {
-            Debug.Log("Sound Not Found");
-            return;
-        }
-
-        if (sound.clip == null)
-        {
-            Debug.LogWarning("Sound clip is NULL for sound: " + name);
-            return;
-        }
-
-        sfxSource.PlayOneShot(sound.clip);
+        musicVolume = value;
+        PlayerPrefs.SetFloat("MusicVolume", value);
+        // Debug.Log("Volumen de música ajustado a: " + value); // Opcional: para depuración
     }
 
-    public void ToggleMusic()
+    public void SetSFXVolume(float value)
     {
-        Debug.Log("[AudioManager] ToggleMusic CALLED");
-        musicSource.mute = !musicSource.mute;
-        musicXmark.enabled = musicSource.mute;
-        musicCheckmark.enabled = !musicSource.mute;
+        sfxVolume = value;
+        PlayerPrefs.SetFloat("SFXVolume", value);
+        // Debug.Log("Volumen de SFX ajustado a: " + value); // Opcional: para depuración
     }
 
-    public void ToggleSfx()
-    {
-        sfxSource.mute = !sfxSource.mute;
-        sfxXmark.enabled = sfxSource.mute;
-        sfxCheckmark.enabled = !sfxSource.mute;
-    }
-
-    public void MusicVolume(float volume)
-    {
-        musicSource.volume = volume;
-    }
-
-    public void SfxVolume(float volume)
-    {
-        sfxSource.volume = volume;
-        PlaySFX("SoundSfxTest");
-    }
-    void Update()
-    {
-
-    }
-
-    public static float GetSfxVolume()
-    {
-        return instance != null ? instance.sfxSource.volume : 1f;
-    }
+    public float GetMusicVolume() => musicVolume;
+    public float GetSFXVolume() => sfxVolume;
 }
