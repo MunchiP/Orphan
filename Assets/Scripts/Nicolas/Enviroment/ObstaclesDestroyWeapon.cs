@@ -17,15 +17,16 @@ public class ObstaclesDestroyWeapon : MonoBehaviour
             {
                 Instantiate(drop.prefabPurityObstacle, other.transform.position, Quaternion.identity);
             }
-
-            // Actualizar grafo de navegación
-            Bounds bounds = other.bounds;
-            GraphUpdateObject guo = new GraphUpdateObject(bounds)
+            if (astar != null)
             {
-                updatePhysics = true
-            };
-            AstarPath.active.UpdateGraphs(guo);
-
+                // Actualizar grafo de navegación
+                Bounds bounds = other.bounds;
+                GraphUpdateObject guo = new GraphUpdateObject(bounds)
+                {
+                    updatePhysics = true
+                };
+                AstarPath.active.UpdateGraphs(guo);
+            }
             Destroy(other.gameObject);
         }
     }

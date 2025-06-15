@@ -16,6 +16,8 @@ TagManager:
   - ExitButtonUI
   - CreditsButtonUI
   - Obstacle
+  - ParticulaEnemigo
+  - DetectorParticulas
   - Estalagmita
   layers:
   - Default
@@ -30,6 +32,8 @@ TagManager:
   - Player
   - Weapon
   - Poison
+  - ParticleDetection
+  - Particle
   - 
   - 
   - 
@@ -44,8 +48,6 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - Map
   - 
   - 
   - 
