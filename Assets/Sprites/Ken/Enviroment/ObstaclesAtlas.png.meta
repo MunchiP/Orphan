@@ -865,7 +865,7 @@ TextureImporter:
         width: 334
         height: 592
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -887,7 +887,7 @@ TextureImporter:
         width: 349
         height: 670
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -909,7 +909,7 @@ TextureImporter:
         width: 281
         height: 681
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -931,7 +931,7 @@ TextureImporter:
         width: 209
         height: 395
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -953,7 +953,7 @@ TextureImporter:
         width: 249
         height: 487
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -962,6 +962,28 @@ TextureImporter:
       bones: []
       spriteID: 6e3251806d5a8764b835c6080e7215bb
       internalID: -993522409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ObstaclesAtlas_28
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1329
+        width: 96
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 757e879dc0a74bf4e8bb16f9111f513f
+      internalID: 1922609056
       vertices: []
       indices: 
       edges: []
@@ -1010,6 +1032,7 @@ TextureImporter:
       ObstaclesAtlas_25: -787541918
       ObstaclesAtlas_26: 1929284686
       ObstaclesAtlas_27: -993522409
+      ObstaclesAtlas_28: 1922609056
       ObstaclesAtlas_3: -736568560215877300
       ObstaclesAtlas_4: 2861547202967493347
       ObstaclesAtlas_5: -901381854
