@@ -188,18 +188,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Area02
       objectReference: {fileID: 0}
-    - target: {fileID: 6962251055280093572, guid: c5f7d457bc8ff434b8cad673f284c22a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8424638684572240101, guid: c5f7d457bc8ff434b8cad673f284c22a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 8424638684572240101, guid: c5f7d457bc8ff434b8cad673f284c22a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.443
-      objectReference: {fileID: 0}
     - target: {fileID: 9024685030859026123, guid: c5f7d457bc8ff434b8cad673f284c22a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 112.5
