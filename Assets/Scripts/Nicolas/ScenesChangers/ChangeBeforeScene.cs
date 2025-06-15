@@ -1,14 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class ChangeSceneNext : MonoBehaviour
+public class ChangeBeforeScene : MonoBehaviour
 {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             FadeManager fadeManager = FindAnyObjectByType<FadeManager>();
-            fadeManager.LoadNextScene();
+            fadeManager.LoadBeforeScene();
         }        
     }
 }

@@ -38,54 +38,55 @@ public class BossOneAudioEvents : MonoBehaviour
     }
 
     public void Play(AudioClip clip, float pitch = 1f)
-{
-    if (clip == null)
     {
-        Debug.LogWarning("Clip null en Play");
-        return;
-    }
+        if (clip == null)
+        {
+            Debug.LogWarning("Clip null en Play");
+            return;
+        }
 
-    float finalVolume = baseVolume;
-    if (AudioManager.instance != null)
-    {
-        finalVolume *= AudioManager.instance.sfxSource.volume;
-    }
-    else
-    {
-        Debug.LogWarning("AudioManager.instance es null, usando solo baseVolume");
-    }
+        float finalVolume = baseVolume;
 
-    if (pitch == 1f)
-    {
-        // Pitch normal, usar PlayOneShot
-        audioSource.PlayOneShot(clip, finalVolume);
-    }
-    else
-    {
-        // Crear AudioSource temporal para aplicar pitch personalizado
-        GameObject tempGO = new GameObject("TempAudio_" + clip.name);
-        tempGO.transform.position = transform.position;
+        if (AudioManager.Instance != null) // 🔧 Corrección: Instance con mayúscula
+        {
+            finalVolume *= AudioManager.Instance.sfxVolume; // 🔧 sfxVolume en lugar de sfxSource.volume
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager.Instance es null, usando solo baseVolume");
+        }
 
-        AudioSource tempAS = tempGO.AddComponent<AudioSource>();
-        tempAS.clip = clip;
-        tempAS.pitch = pitch;
-        tempAS.volume = finalVolume;
-        tempAS.spatialBlend = 0f;
-        tempAS.outputAudioMixerGroup = audioSource.outputAudioMixerGroup; // Mantener mezcla
+        if (pitch == 1f)
+        {
+            // Pitch normal
+            audioSource.PlayOneShot(clip, finalVolume);
+        }
+        else
+        {
+            // Crear AudioSource temporal para pitch personalizado
+            GameObject tempGO = new GameObject("TempAudio_" + clip.name);
+            tempGO.transform.position = transform.position;
 
-        tempAS.Play();
-        Destroy(tempGO, clip.length / Mathf.Abs(pitch)); // Tiempo ajustado por pitch
+            AudioSource tempAS = tempGO.AddComponent<AudioSource>();
+            tempAS.clip = clip;
+            tempAS.pitch = pitch;
+            tempAS.volume = finalVolume;
+            tempAS.spatialBlend = 0f;
+            tempAS.outputAudioMixerGroup = audioSource.outputAudioMixerGroup;
+
+            tempAS.Play();
+            Destroy(tempGO, clip.length / Mathf.Abs(pitch));
+        }
     }
-}
 
     // Métodos para eventos del Animator
     public void PlaySpecialAttack1() => Play(specialAttack1Clip);
     public void PlaySpecialAttack12() => Play(specialAttack12Clip);
     public void PlaySpecialAttack2() => Play(specialAttack2Clip, 0.6f);
     public void PlaySpecialAttack22() => Play(specialAttack22Clip);
-    public void PlayAttack1() => Play(attack1Clip,1f);
-    public void PlayAttack2() => Play(attack2Clip,0.2f);
-    public void PlayAttack22() => Play(attack22Clip,0.2f);
+    public void PlayAttack1() => Play(attack1Clip, 1f);
+    public void PlayAttack2() => Play(attack2Clip, 0.2f);
+    public void PlayAttack22() => Play(attack22Clip, 0.2f);
     public void PlayJumpAttack() => Play(jumpAttackClip, 0.6f);
     public void PlayJumpAttack2() => Play(jumpAttackClip2, 0.7f);
     public void PlayWalk() => Play(walkClip, 1f);

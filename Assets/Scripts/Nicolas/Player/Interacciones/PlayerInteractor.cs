@@ -41,6 +41,14 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnSwingPerformed(InputAction.CallbackContext context)
     {
+        // Si hay diálogo activo, se avanza el diálogo y NO se interactúa
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
+        {
+            DialogueManager.Instance.AdvanceDialogue();
+            return;
+        }
+
+        // Si no hay diálogo, se interactúa normalmente
         currentInteractable?.Interact();
     }
 }

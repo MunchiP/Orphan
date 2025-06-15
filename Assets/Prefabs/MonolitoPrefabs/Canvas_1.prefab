@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3786417183009480816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 80}
+  m_AnchoredPosition: {x: 0, y: 722}
   m_SizeDelta: {x: -400, y: 300}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7794688297679493364
@@ -296,7 +296,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d1b4ff10916a2049b108e03fe6c669f, type: 2}
-  m_sharedMaterial: {fileID: -5604340155822362226, guid: d9fcb7285f9e6fb49be03afdd485f6ef, type: 2}
+  m_sharedMaterial: {fileID: -8178330260305164680, guid: 4d1b4ff10916a2049b108e03fe6c669f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

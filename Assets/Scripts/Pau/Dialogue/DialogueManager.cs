@@ -8,7 +8,6 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
 
-
     // Relaciono los mismos elementos que deben estar en el CharacterData que son los del ScriptableObject
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private GameObject dialogueBox2;
@@ -21,16 +20,15 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> dialogueLines;
     private Coroutine typingCoroutine;
 
+    private string currentLine; // <-- Guarda la línea actual que se está tipeando
+
     // diccionario de imagenes de los monolithssss
     public HelperMonolithData helperMonolithData;
 
     // Para no tocar el script del jugador lo referencio aca para bloquearlo mientras habla con el pangolin
     public MonoBehaviour playerControllerScript;
 
-
     private bool shouldStopPlayer; // detener al jugador
-
-
 
     private void Awake()
     {
@@ -53,11 +51,10 @@ public class DialogueManager : MonoBehaviour
     }
 
     // public void StartDialogue(string[] lines) // modifico el parametro para agregar la validacion de quien detiene al jugador y quien no
-    public void StartDialogue(string[] lines , bool stopPlayer = false) // parametro que se complementa en DialogueSO
+    public void StartDialogue(string[] lines, bool stopPlayer = false) // parametro que se complementa en DialogueSO
     {
         if (!dialogueBox.activeInHierarchy)
         {
-
             if (shouldStopPlayer)
             {
                 PlayerController player = FindAnyObjectByType<PlayerController>();
@@ -102,14 +99,14 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        string line = dialogueLines.Dequeue();
+        currentLine = dialogueLines.Dequeue(); // GUARDO la línea actual aquí
 
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
         }
 
-        typingCoroutine = StartCoroutine(TypeLine(line));
+        typingCoroutine = StartCoroutine(TypeLine(currentLine));
     }
 
     private IEnumerator TypeLine(string line)
@@ -145,17 +142,12 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
-
-
     // Código utilizado porque ahora utilizo ScriptableObject en los diálogos
-
     public void UpdateDialogue(CharacterData characterData, string monolithKey = "")
     {
         characterName.text = characterData.CharacterName;
         characterName.color = characterData.NameColor;
         Debug.Log($"Color del nombre: {characterData.NameColor} (alpha: {characterData.NameColor.a})");
-
 
         if (characterData.IsMonolith && !string.IsNullOrEmpty(monolithKey))
         {
@@ -165,9 +157,24 @@ public class DialogueManager : MonoBehaviour
         else
         {
             characterImage.sprite = characterData.Portrait;
-
         }
         Debug.Log($"Nombre: {characterData.CharacterName}, ¿Monolith?: {characterData.IsMonolith}, Imagen: {(characterData.Portrait != null ? characterData.Portrait.name : "NULL")}");
+    }
 
+    public bool IsDialogueActive => dialogueBox.activeInHierarchy;
+
+    public void AdvanceDialogue()
+    {
+        if (!IsDialogueActive) return;
+
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+            dialogueText.text = currentLine;  // <-- Mostrar línea completa al cancelar tipeo
+            return;
+        }
+
+        DisplayNextLine();
     }
 }

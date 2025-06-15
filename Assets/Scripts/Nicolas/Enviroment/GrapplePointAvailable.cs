@@ -12,7 +12,7 @@ public class GrapplePointAvailable : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("PlayerF2").transform;
+        player = GameObject.Find("PlayerF3").transform;
         // Obtener el SpriteRenderer del objeto
         luz = GetComponent<Light2D>();
         luz.intensity = 0f;

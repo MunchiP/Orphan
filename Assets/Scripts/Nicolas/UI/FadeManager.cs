@@ -85,10 +85,12 @@ public class FadeManager : MonoBehaviour
 
         // Ahora sí carga la escena
         SceneManager.LoadScene(sceneToLoad);
+
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Time.timeScale = 1f;
         StartCoroutine(FadeIn());
     }
 
@@ -113,7 +115,22 @@ public class FadeManager : MonoBehaviour
     {
         int index = SceneManager.GetActiveScene().buildIndex + 1;
         if (index >= SceneManager.sceneCountInBuildSettings)
-            index = 0;
+        {
+            Debug.Log("Estás en la última escena, no se puede cargar la siguiente.");
+            return;
+        }
         LoadSceneByIndex(index);
     }
+
+    public void LoadBeforeScene()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex - 1;
+        if (index < 1)  // para que no baje a la 0 ni menos
+        {
+            Debug.Log("Estás en la escena 1 o anterior, no se puede cargar la anterior.");
+            return;
+        }
+        LoadSceneByIndex(index);
+    }
+
 }
