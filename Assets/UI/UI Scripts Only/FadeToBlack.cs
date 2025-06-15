@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class FadeToBlack : MonoBehaviour
 {
-    public GameObject fadeImageObject;
-    private Image imageFadeUse;
+    
+    public Image fadeImageTitle;
+    public Image fadeImageInGame;
     public float fadeDuration = 2f;
 
     public void Awake()
@@ -26,61 +27,66 @@ public class FadeToBlack : MonoBehaviour
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        imageFadeUse = fadeImageObject.GetComponent<Image>();
-        if (imageFadeUse != null)
+        if (fadeImageTitle != null)
         {
-            imageFadeUse.enabled = false;
+            fadeImageTitle.color = new Color(0, 0, 0, 0);
+            fadeImageTitle.enabled = false;
         }
-        if (imageFadeUse == null)
+
+        if (fadeImageInGame != null)
         {
-            Debug.Log("fadeImage not in current scene");
+            fadeImageInGame.color = new Color(0, 0, 0, 0);
+            fadeImageInGame.enabled = false;
         }
-            
+
+        Debug.Log("[FadeToBlack] Reset both fade images after scene load.");
     }
+
+
 
     public void Start()
     {
         
             
     }
-    public void FadeToScene(int sceneIndex)
+    public void FadeToScene(int sceneIndex, System.Action beforeSceneLoad = null)
     {
+        Image imageToUse = null;
 
-        if (imageFadeUse == null && fadeImageObject != null)
-        {
-            imageFadeUse = fadeImageObject.GetComponent<Image>();
-        }
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            imageToUse = fadeImageTitle;
+        else if (SceneManager.GetActiveScene().buildIndex == 1)
+            imageToUse = fadeImageInGame;
 
-        if (imageFadeUse != null)
+        if (imageToUse != null)
         {
-            StartCoroutine(FadeThenLoadScene(sceneIndex));
+            StartCoroutine(FadeThenLoadScene(sceneIndex, imageToUse, beforeSceneLoad));
         }
         else
         {
-            Debug.LogWarning("[FadeToBlack] imageFadeUse is null! Make sure fadeImageObject is assigned and has an Image component.");
+            Debug.LogWarning("[FadeToBlack] No fade image assigned for current scene.");
         }
     }
 
-    private IEnumerator FadeThenLoadScene(int sceneIndex)
+    private IEnumerator FadeThenLoadScene(int sceneIndex, Image image, System.Action beforeSceneLoad)
     {
-        imageFadeUse.enabled = true;
-
+        image.enabled = true;
         float time = 0f;
-        Color startColor = imageFadeUse.color;
+        Color startColor = image.color;
         Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
-
-        Debug.Log("[FadeToBlack] Starting fade...");
 
         while (time < fadeDuration)
         {
-            time += Time.unscaledDeltaTime; // use unscaledDeltaTime in case timeScale = 0
+            time += Time.unscaledDeltaTime;
             float t = Mathf.Clamp01(time / fadeDuration);
-            imageFadeUse.color = Color.Lerp(startColor, targetColor, t);
+            image.color = Color.Lerp(startColor, targetColor, t);
             yield return null;
         }
 
-        imageFadeUse.color = targetColor;
-        Debug.Log("[FadeToBlack] Fade complete. Loading scene now!");
+        image.color = targetColor;
+
+        //  Run any custom logic BEFORE the scene loads
+        beforeSceneLoad?.Invoke();
 
         SceneManager.LoadScene(sceneIndex);
     }

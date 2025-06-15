@@ -11,15 +11,20 @@ public class SoundBoardListenerController : MonoBehaviour
     public GameObject AudioManager;
     private AudioManager soundManagerScript;
 
+    public void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     void OnEnable()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        
     }
 
     void OnDisable()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

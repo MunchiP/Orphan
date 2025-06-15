@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 {
@@ -14,10 +15,10 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
     public List<GameObject> buttonList = new List<GameObject>();
     public int buttonToMoveOnto;
     private GameObject currentButton;
-    private PauseMenuNavigation buttonIndexController;
+    
     public int lastButtonIndex = -1;
     private bool submitBlocked = false;
-    private float submitBlockTime = 0.1f; // 100ms, tweak as needed
+    private float submitBlockTime = 0.3f; // 100ms, tweak as needed
     private float lastSubmitTime = -1f;
 
     void Awake()
@@ -100,6 +101,19 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
         submitBlocked = false;
     }
 
+    public void UnblockSubmitAfterDelay(float delay)
+    {
+        Debug.Log($"[PauseMenuNavigation] Starting unblock coroutine with delay: {delay}");
+        StartCoroutine(UnblockAfterDelayCoroutine(delay));
+    }
+
+    private IEnumerator UnblockAfterDelayCoroutine(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        submitBlocked = false;
+        Debug.Log("[PauseMenuNavigation] Submit unblocked after delay.");
+    }
+
 
 
     public void OnCancel(InputAction.CallbackContext context)
@@ -151,27 +165,38 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
     public void OnSubmit(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (!context.performed || submitBlocked) return;
+
+        GameObject selected = EventSystem.current.currentSelectedGameObject;
+
+        if (selected == null)
         {
-            if (submitBlocked && Time.unscaledTime - lastSubmitTime < submitBlockTime)
-            {
-                Debug.Log("[PauseMenuNavigation] Submit blocked due to cooldown.");
-                return;
-            }
-
-            GameObject selected = EventSystem.current.currentSelectedGameObject;
-
-            if (selected != null)
-            {
-                Button button = selected.GetComponent<Button>();
-                if (button != null && button.interactable)
-                {
-                    button.onClick.Invoke();
-                    lastSubmitTime = Time.unscaledTime;
-                    submitBlocked = true;
-                }
-            }
+            Debug.LogWarning("[PauseNavigation] Submit pressed, but no GameObject is selected.");
+            return;
         }
+
+        Debug.Log($"[PauseNavigation] Submit pressed on: {selected.name}");
+
+        Button button = selected.GetComponent<Button>();
+
+        if (button == null)
+        {
+            Debug.LogWarning($"[PauseNavigation] Selected object '{selected.name}' has no Button component.");
+            return;
+        }
+
+        if (!button.interactable)
+        {
+            Debug.LogWarning($"[PauseNavigation] Button '{button.name}' is not interactable.");
+            return;
+        }
+
+        Debug.Log($"[PauseNavigation] Invoking button '{button.name}'");
+        button.onClick.Invoke();
+        Debug.Log("[PauseNavigation] User is pressing Enter");
+
+        BlockSubmit();
+        UnblockSubmitAfterDelay(0.3f);
     }
 
     public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
