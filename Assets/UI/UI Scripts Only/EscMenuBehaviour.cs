@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
-public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
+public class EscMenuBehaviour : MonoBehaviour
 {
     public GameObject GameManager;
 
@@ -22,23 +22,52 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
     {
         Debug.Log("[EscMenuBehaviour] Awake - Subscribing to sceneLoaded");
         controlsUI = new InputSystem_Actions();
-        controlsUI.UI.SetCallbacks(this);
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void OnEnable()
+    void OnEnable()
     {
         controlsUI.Enable();
+        controlsUI.Player.Pause.performed += OnPausePerformed;
     }
-    public void OnDisable()
+
+    void OnDisable()
     {
+        controlsUI.Player.Pause.performed -= OnPausePerformed;
         controlsUI.Disable();
     }
 
-    public void OnPause(InputAction.CallbackContext context)
+    private void OnPausePerformed(InputAction.CallbackContext context)
     {
-        // Puedes dejarlo vacío si no necesitas que haga nada
+        if (!context.performed || isCreditsActive || isGameOverActive)
+        {
+            Debug.Log("[EscMenuBehaviour] Input bloqueado (créditos/gameover activos o no performed)");
+            return;
+        }
+
+        if (pauseScript == null || universalButtonListManager == null)
+        {
+            Debug.LogWarning("[EscMenuBehaviour] pauseScript o universalButtonListManager son null");
+            return;
+        }
+
+        if (!pauseScript.enabled)
+        {
+            universalButtonListManager.GoBack();
+        }
+        else if (!pauseScript.isGameOnPauseMenu)
+        {
+            pauseScript.PauseGame();
+        }
+        else if (pauseScript.isGameOnPauseMenu && onPauseMainMenu)
+        {
+            pauseScript.UnpauseGame();
+        }
+        else if (pauseScript.isGameOnPauseMenu && !onPauseMainMenu)
+        {
+            universalButtonListManager.GoBack();
+        }
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -46,10 +75,9 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
         Debug.Log($"[EscMenuBehaviour] OnSceneLoaded called for: {scene.name}");
         int index = scene.buildIndex;
 
-        // Intentar asignar GameManager si está null
         if (GameManager == null)
         {
-            GameManager = GameObject.FindWithTag("GameManager"); // O busca por nombre con Find("GameManager") o como prefieras
+            GameManager = GameObject.FindWithTag("GameManager");
             if (GameManager == null)
             {
                 Debug.LogWarning("[EscMenuBehaviour] No GameManager found on scene load");
@@ -61,18 +89,17 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
             }
         }
 
-        if (index == 0) // Escena título
+        if (index == 0)
         {
             onTitleMainMenu = true;
             onPauseMainMenu = false;
 
-            // Asegurar que la pausa esté desactivada en título
             if (pauseScript != null)
                 pauseScript.enabled = false;
 
-            Time.timeScale = 1f; // Por si venimos de pausa
+            Time.timeScale = 1f;
         }
-        else // Escena de juego
+        else
         {
             onTitleMainMenu = false;
             onPauseMainMenu = true;
@@ -88,10 +115,6 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
                 {
                     Debug.LogWarning("[EscMenuBehaviour] PauseMenuAccess component not found on GameManager");
                 }
-            }
-            else
-            {
-                Debug.LogWarning("[EscMenuBehaviour] GameManager is null on scene load");
             }
         }
     }
@@ -133,51 +156,4 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
         color.a = alpha;
         escapeTMP.color = color;
     }
-
-    public void OnCancel(InputAction.CallbackContext context)
-    {
-        if (!context.performed || isCreditsActive || isGameOverActive)
-        {
-            Debug.Log("Blocking Esc key due to context or active credits/gameover.");
-            return;
-        }
-
-        if (pauseScript == null || universalButtonListManager == null)
-        {
-            Debug.LogWarning("[EscMenuBehaviour] pauseScript or universalButtonListManager is null on OnCancel");
-            return;
-        }
-
-        if (context.performed && !pauseScript.enabled)
-        {
-            // Solo en título
-            universalButtonListManager.GoBack();
-        }
-        else if (context.performed && pauseScript.enabled)
-        {
-            if (!pauseScript.isGameOnPauseMenu)
-            {
-                pauseScript.PauseGame();
-            }
-            else if (pauseScript.isGameOnPauseMenu && onPauseMainMenu)
-            {
-                pauseScript.UnpauseGame();
-            }
-            else if (pauseScript.isGameOnPauseMenu && !onPauseMainMenu)
-            {
-                universalButtonListManager.GoBack();
-            }
-        }
-    }
-
-    public void OnClick(InputAction.CallbackContext context) { }
-    public void OnInventory(InputAction.CallbackContext context) { }
-    public void OnMiddleClick(InputAction.CallbackContext context) { }
-    public void OnNavigate(InputAction.CallbackContext context) { }
-    public void OnPoint(InputAction.CallbackContext context) { }
-    public void OnRightClick(InputAction.CallbackContext context) { }
-    public void OnScrollWheel(InputAction.CallbackContext context) { }
-    public void OnSubmit(InputAction.CallbackContext context) { }
-    public void OnTrackedDeviceOrientation(InputAction.CallbackContext context) { }
-    public void OnTrackedDevicePosition(InputAction.CallbackContext context) { }
 }
