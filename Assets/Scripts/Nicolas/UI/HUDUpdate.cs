@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class HUDUpdate : MonoBehaviour
 {
     public Image[] vidas;          // Iconos de vida en el HUD
@@ -25,21 +25,24 @@ public class HUDUpdate : MonoBehaviour
 
     void Update()
     {
-        int vida = playerState.vidaActual;
-        textoPureza.text = playerState.purezaActual.ToString();
-
-        // Cada 20 puntos es una vida visual (ej. 100 = 5, 60 = 3, etc.)
-        int vidasActivas = Mathf.Clamp(vida / 20, 0, vidas.Length);
-
-        for (int i = 0; i < vidas.Length; i++)
+        if (SceneManager.GetActiveScene().buildIndex > 0)
         {
-            if (i < vidasActivas)
+            int vida = playerState.vidaActual;
+            textoPureza.text = playerState.purezaActual.ToString();
+
+            // Cada 20 puntos es una vida visual (ej. 100 = 5, 60 = 3, etc.)
+            int vidasActivas = Mathf.Clamp(vida / 20, 0, vidas.Length);
+
+            for (int i = 0; i < vidas.Length; i++)
             {
-                vidas[i].sprite = spriteOn;
-            }
-            else
-            {
-                vidas[i].sprite = spriteOff;
+                if (i < vidasActivas)
+                {
+                    vidas[i].sprite = spriteOn;
+                }
+                else
+                {
+                    vidas[i].sprite = spriteOff;
+                }
             }
         }
     }

@@ -1,0 +1,332 @@
+fileFormatVersion: 2
+guid: 98eee716f9acda0468fb775c508265f1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7354474807396207683
+    second: ObstaclesAtlas_0
+  - first:
+      213: 8244782436707602332
+    second: ObstaclesAtlas_1
+  - first:
+      213: -1128551595253837367
+    second: ObstaclesAtlas_2
+  - first:
+      213: -736568560215877300
+    second: ObstaclesAtlas_3
+  - first:
+      213: 2861547202967493347
+    second: ObstaclesAtlas_4
+  - first:
+      213: -1132211601160594045
+    second: ObstaclesAtlas_5
+  - first:
+      213: -6962048168101987582
+    second: ObstaclesAtlas_6
+  - first:
+      213: -8546835696126492096
+    second: ObstaclesAtlas_7
+  - first:
+      213: -2485479198741075535
+    second: ObstaclesAtlas_8
+  - first:
+      213: 7352270320707695639
+    second: ObstaclesAtlas_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 2438, y: 1326, z: 270, w: 1229}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: branchs_14
+      rect:
+        serializedVersion: 2
+        x: 1533
+        y: 1346
+        width: 224
+        height: 511
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4937c5319d995ed499d67a7e69e1c5a0
+      internalID: 2132900534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branchs_15
+      rect:
+        serializedVersion: 2
+        x: 1806
+        y: 1346
+        width: 257
+        height: 617
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a85af678a1194d499e41d4a759b0550
+      internalID: -170295418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branchs_16
+      rect:
+        serializedVersion: 2
+        x: 2149
+        y: 1349
+        width: 254
+        height: 618
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dfef15a42d23304f999e881c9666433
+      internalID: 1335077872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branchs_25
+      rect:
+        serializedVersion: 2
+        x: 2459
+        y: 1339
+        width: 167
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0088fecb24953a4ca15279e014c961b
+      internalID: 101032769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branchs_26
+      rect:
+        serializedVersion: 2
+        x: 2684
+        y: 1375
+        width: 207
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca2c5aefad3f2c479d2863f669f9ac8
+      internalID: 1796759438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 144647f546ad86e40b4c410c8fa2619d
+    internalID: -2106418919
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      branchs_0: 2104208097
+      branchs_1: -817248440
+      branchs_10: -144495209
+      branchs_11: -1463434398
+      branchs_12: -1406859687
+      branchs_13: -738518383
+      branchs_14: 2132900534
+      branchs_15: -170295418
+      branchs_16: 1335077872
+      branchs_17: -1741769218
+      branchs_18: -525785430
+      branchs_19: -1233163998
+      branchs_2: -14453375
+      branchs_20: -1258436544
+      branchs_21: 1866873041
+      branchs_22: -1999965829
+      branchs_23: 650331219
+      branchs_24: -616946861
+      branchs_25: 101032769
+      branchs_26: 1796759438
+      branchs_27: -2091612777
+      branchs_28: -352464577
+      branchs_29: 773954789
+      branchs_3: 1828568111
+      branchs_30: 1760329683
+      branchs_31: -1339806609
+      branchs_32: 96654151
+      branchs_33: -1716441008
+      branchs_34: 625419946
+      branchs_35: 1719881812
+      branchs_36: -1737772498
+      branchs_37: -1428604295
+      branchs_38: 509035267
+      branchs_39: 988214541
+      branchs_4: -806638518
+      branchs_40: 385155950
+      branchs_41: -785735707
+      branchs_42: 358167717
+      branchs_43: -1163043206
+      branchs_44: 65352595
+      branchs_45: 2139806151
+      branchs_46: -110743861
+      branchs_47: -1779804993
+      branchs_48: 522011709
+      branchs_5: 307899723
+      branchs_6: -1867246173
+      branchs_7: 84634931
+      branchs_8: 1589723911
+      branchs_9: 758942348
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

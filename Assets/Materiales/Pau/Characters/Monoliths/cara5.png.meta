@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 75500e051a8163e4f8bf0d2685578668
+guid: 28779d03c62794548ab9d7c0f01e8836
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -796176953242043175
     second: cara5_0
+  - first:
+      213: 9058649712262077562
+    second: cara5_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -142,10 +145,10 @@ TextureImporter:
       name: cara5_0
       rect:
         serializedVersion: 2
-        x: 55
-        y: 79
-        width: 187
-        height: 136
+        x: 58
+        y: 29
+        width: 172
+        height: 236
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,6 +159,28 @@ TextureImporter:
       bones: []
       spriteID: 9dcb7a3874963f4f0800000000000000
       internalID: -796176953242043175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cara5_1
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 13
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7c53142be9c6bd70800000000000000
+      internalID: 9058649712262077562
       vertices: []
       indices: 
       edges: []
@@ -175,6 +200,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       cara5_0: -796176953242043175
+      cara5_1: 9058649712262077562
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
