@@ -3248,6 +3248,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6789126627842099796, guid: 6a17f078337a1334d84966be8a3ec4cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8172841830123442422, guid: 6a17f078337a1334d84966be8a3ec4cb, type: 3}
       propertyPath: m_Name
       value: PlayerF3
@@ -3537,7 +3541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be89756d772f2e64ca5c6c341f96d313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 1000
+  vida: 500
   enemyDead: {fileID: 0}
 --- !u!114 &8845340499714151005
 MonoBehaviour:
