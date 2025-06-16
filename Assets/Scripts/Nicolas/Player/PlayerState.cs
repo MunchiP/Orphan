@@ -90,16 +90,16 @@ public class PlayerState : MonoBehaviour
     }
 
     public SaveData ObtenerDatosParaGuardar()
-{
-    SaveData data = new SaveData
     {
-        vida = this.vidaActual,
-        pureza = this.purezaActual,
-        posX = transform.position.x,
-        posY = transform.position.y,
-        sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
-    };
-    return data;
-}
+        SaveData data = new SaveData
+        {
+            vida = this.vidaActual,
+            pureza = this.purezaActual,
+            posX = transform.position.x,
+            posY = transform.position.y,
+            sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+        };
+        return data;
+    }
 
 }
