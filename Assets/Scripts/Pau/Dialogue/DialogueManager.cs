@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+
     public static DialogueManager Instance;
 
     // Relaciono los mismos elementos que deben estar en el CharacterData que son los del ScriptableObject
@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     // [SerializeField] private TextMeshProUGUI characterNameColor;
     [SerializeField] private Image characterImage;
 
-    private Queue<string> dialogueKeys;
+    private Queue<string> dialogueLines;
     private Coroutine typingCoroutine;
 
     private string currentLine; // <-- Guarda la línea actual que se está tipeando
@@ -42,7 +42,7 @@ public class DialogueManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        dialogueKeys = new Queue<string>();
+        dialogueLines = new Queue<string>();
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -52,7 +52,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     // public void StartDialogue(string[] lines) // modifico el parametro para agregar la validacion de quien detiene al jugador y quien no
-    public void StartDialogue(string[] keys, bool stopPlayer = false) // parametro que se complementa en DialogueSO
+    public void StartDialogue(string[] lines, bool stopPlayer = false) // parametro que se complementa en DialogueSO
     {
         if (!dialogueBox.activeInHierarchy)
         {
@@ -66,11 +66,11 @@ public class DialogueManager : MonoBehaviour
                 }
             }
             dialogueBox.SetActive(true);
-            dialogueKeys.Clear();
+            dialogueLines.Clear();
 
-            foreach (string key in keys)
+            foreach (string line in lines)
             {
-                dialogueKeys.Enqueue(key);
+                dialogueLines.Enqueue(line);
             }
             DisplayNextLine();
         }
@@ -82,7 +82,7 @@ public class DialogueManager : MonoBehaviour
                 typingCoroutine = null;
             }
 
-            dialogueKeys.Clear();
+            dialogueLines.Clear();
             dialogueBox.SetActive(false);
 
             if (playerControllerScript != null) // refuerzo de reactivar el movimiento jugador
@@ -94,20 +94,20 @@ public class DialogueManager : MonoBehaviour
 
     void DisplayNextLine()
     {
-        if (dialogueKeys.Count == 0)
+        if (dialogueLines.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        string nextKey = dialogueKeys.Dequeue(); // GUARDO la línea actual aquí
+        currentLine = dialogueLines.Dequeue(); // GUARDO la línea actual aquí
 
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
         }
 
-        typingCoroutine = StartCoroutine(TypeLine(nextKey));
+        typingCoroutine = StartCoroutine(TypeLine(currentLine));
     }
 
     private IEnumerator TypeLine(string line)
@@ -130,7 +130,7 @@ public class DialogueManager : MonoBehaviour
             typingCoroutine = null;
         }
 
-        dialogueKeys.Clear(); // Asegura que siempre se limpie
+        dialogueLines.Clear(); // Asegura que siempre se limpie
         dialogueBox.SetActive(false);
 
         if (shouldStopPlayer)
@@ -179,28 +179,6 @@ public class DialogueManager : MonoBehaviour
         DisplayNextLine();
     }
 
-
-
-    // metodo del multilenguaje
-
-    private IEnumerator TranslateAndTypeLine(string key)
-        {
-            var tableName = "Dialogues"; // Usa el nombre exacto de tu tabla de localización
-            var op = LocalizationSettings.StringDatabase.GetLocalizedStringAsync(tableName, key);
-
-            yield return op;
-
-            currentLine = op.Result;
-            dialogueText.text = "";
-
-            foreach (char c in currentLine)
-            {
-                dialogueText.text += c;
-                yield return new WaitForSeconds(0.04f);
-            }
-
-            typingCoroutine = null;
-        }
 }
 
 
