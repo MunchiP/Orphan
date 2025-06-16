@@ -402,6 +402,7 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 44c1417c428fb8a4d90a76612c29a370, type: 2}
   lineasDialogo:
   - "Necesito recolectar m\xE1s de esta pureza para ayudar a mi hogar, el orfanato..."
+  lineasDialogo2: []
 --- !u!4 &900574868
 Transform:
   m_ObjectHideFlags: 0
@@ -795,6 +796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f130fbfab214341b3dd5235513e1af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNumber: 0
+  targetSpawnPointName: 
 --- !u!1001 &1619579344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1327,7 +1330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4933039401611071494, guid: 6a17f078337a1334d84966be8a3ec4cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.6
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 4933039401611071494, guid: 6a17f078337a1334d84966be8a3ec4cb, type: 3}
       propertyPath: m_LocalPosition.y
