@@ -21,12 +21,10 @@ public class ScenePauseMenuWatcher : MonoBehaviour
         {
             pauseMenuAccess.enabled = false;
             Time.timeScale = 1f;
-            Debug.Log("[SceneWatcher] Reset Time.timeScale on Title scene.");
         }
         else // Any other scene
         {
             pauseMenuAccess.enabled = true;
-            Debug.Log("[SceneWatcher] Enabled PauseMenuAccess in scene " + scene.buildIndex);
         }
     }
 }

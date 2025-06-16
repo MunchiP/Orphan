@@ -44,7 +44,6 @@ public class PauseMenuAccess : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene loaded: " + scene.buildIndex);
 
         if (scene.buildIndex != 0) // In-Game scene
         {
@@ -61,12 +60,8 @@ public class PauseMenuAccess : MonoBehaviour
         }
         else
         {
-            Debug.Log("Disabling PauseMenuAccess for Title scene");
-
             // Reset pause UI visuals in case scene transition occurred mid-pause
-            ResetPauseMenuVisuals();
-
-            
+            ResetPauseMenuVisuals();            
         }
     }
 
@@ -87,8 +82,6 @@ public class PauseMenuAccess : MonoBehaviour
 
         isGameOnPauseMenu = false;
         Time.timeScale = 1f;
-
-        Debug.Log("[PauseMenuAccess] Reset pause menu visuals.");
     }
     private void InitializePauseMenu()
     {

@@ -78,19 +78,16 @@ public class ButtonListManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("[OnSceneLoaded] Scene name: " + scene.name + ", buildIndex: " + scene.buildIndex);
 
         isTitleScene = scene.buildIndex == 0;
 
         if (isTitleScene)
         {
-            Debug.Log("llenalalista en titulo");
             StartCoroutine(DelayedGoToTitleMenu());
             ResetPauseUI(); // just in case we came from the game scene
         }
         else
         {
-            Debug.Log("estoy en Ingame o Titulo?");
             ResetPauseUI(); // ensures pause UI is hidden when re-entering gameplay
         }
     }
@@ -142,8 +139,6 @@ public class ButtonListManager : MonoBehaviour
 
         if (escapeKeyScript == null)
             escapeKeyScript = universalEscapeKey.GetComponent<EscMenuBehaviour>();
-
-        Debug.Log("[ButtonListManager] Reset pause UI state after scene load.");
     }
 
     IEnumerator DelayedGoToTitleMenu()
@@ -154,7 +149,6 @@ public class ButtonListManager : MonoBehaviour
 
     public void GoToTitleMenu()
     {
-        Debug.Log(" Populating navigation list with main title buttons...");
         if (!isTitleScene)
         {
             Debug.LogWarning("GoToTitleMenu called while in Game Scene. Ignoring.");
@@ -290,18 +284,14 @@ public class ButtonListManager : MonoBehaviour
     {
         yield return null; // Wait 1 frame
         escapeKeyScript.onTitleMainMenu = true;
-        Debug.Log("[MenuButtonListManager] onTitleMainMenu set to TRUE after returning to pause menu.");
     }
 
     public void ChangeSceneToInGame()
     {
         PlayerPrefs.DeleteAll();
-        Debug.Log("[MenuButtonListManager] Attempting to change scene to In Game...");
         fadeToSceneScript = fadeImageObjectMainCanvas.GetComponent<FadeToBlack>();
-        Debug.Log($"[MenuButtonListManager] fadeToSceneScript is {(fadeToSceneScript == null ? "NULL" : "VALID")}");
         if (fadeToSceneScript != null)
         {
-            Debug.Log("[MenuButtonListManager] Fading to scene 1.");
             fadeToSceneScript.FadeToScene(1);
         }
         else
@@ -413,12 +403,10 @@ public class ButtonListManager : MonoBehaviour
     {
         yield return null; // Wait 1 frame
         escapeKeyScript.onPauseMainMenu = true;
-        Debug.Log("[MenuButtonListManager] onPauseMainMenu set to TRUE after returning to pause menu.");
     }
 
     public void ChangeSceneToTitle()
     {
-        Debug.Log("[MenuButtonListManager] Attempting to change scene to title...");
 
         fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
         if (fadeToSceneScript != null)
@@ -429,7 +417,6 @@ public class ButtonListManager : MonoBehaviour
                 pauseSettingsMenu.SetActive(false);
                 universalSoundPanelPause.SetActive(false);
                 universalControlLayoutTitle.SetActive(false);
-                Debug.Log("[MenuButtonListManager] Deactivated pause menu after fade.");
             });
         }
         else
@@ -474,7 +461,22 @@ public class ButtonListManager : MonoBehaviour
         fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
         if (fadeToSceneScript != null)
         {
-            Debug.Log("[MenuButtonListManager] Fading to scene " + (scene));
+            fadeToSceneScript.FadeToScene(scene);
+        }
+        else
+        {
+            Debug.LogWarning("FadeImageObjectMainCanvas missing on reload.");
+        }
+    }
+
+    public void ChangeSceneById(string scene)
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int totalScenes = SceneManager.sceneCountInBuildSettings;
+
+        fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
+        if (fadeToSceneScript != null)
+        {
             fadeToSceneScript.FadeToScene(scene);
         }
         else
@@ -494,7 +496,6 @@ public class ButtonListManager : MonoBehaviour
             return;
         }
 
-        Debug.Log($"[ButtonListManager] Seleccionando el primer botón: {navigation.buttonList[0].name}");
         EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
     }
 }

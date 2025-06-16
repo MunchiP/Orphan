@@ -32,8 +32,6 @@ public class FadeToBlack : MonoBehaviour
             fadeImage.enabled = true;
             StartCoroutine(FadeFromBlack());
         }
-
-        Debug.Log("[FadeToBlack] Scene loaded: " + scene.name);
     }
 
     public void FadeToScene(int sceneIndex, System.Action beforeSceneLoad = null)

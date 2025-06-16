@@ -20,7 +20,6 @@ public class EscMenuBehaviour : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("[EscMenuBehaviour] Awake - Subscribing to sceneLoaded");
         controlsUI = new InputSystem_Actions();
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -72,7 +71,6 @@ public class EscMenuBehaviour : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[EscMenuBehaviour] OnSceneLoaded called for: {scene.name}");
         int index = scene.buildIndex;
 
         if (GameManager == null)

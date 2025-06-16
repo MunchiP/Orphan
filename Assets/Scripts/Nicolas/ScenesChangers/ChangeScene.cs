@@ -18,7 +18,18 @@ public class ChangeScene : MonoBehaviour
                 ObstacleDestructionTracker.Instance.SaveDestroyedObstacles();
             }
 
-            // Cambiar de escena
+            // Guardar estado TEMPORAL del jugador
+            PlayerState playerState = collision.GetComponent<PlayerState>();
+            if (playerState != null)
+            {
+                PlayerPrefs.SetInt("vida_temp", playerState.vidaActual);
+                PlayerPrefs.SetInt("pureza_temp", playerState.purezaActual);
+                PlayerPrefs.SetFloat("posX_temp", playerState.transform.position.x);
+                PlayerPrefs.SetFloat("posY_temp", playerState.transform.position.y);
+                PlayerPrefs.Save();
+            }
+
+            // Cambiar escena
             ButtonListManager fadeManager = FindAnyObjectByType<ButtonListManager>();
             fadeManager.ChangeSceneByIndex(sceneNumber);
         }

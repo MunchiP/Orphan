@@ -68,15 +68,8 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
     }
 
 
-
-
-
-
-
-
     void Update()
     {
-
 
 
         if (buttonList == null || buttonList.Count == 0)
@@ -91,7 +84,6 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
             currentButton.GetComponent<Button>().Select();
             lastButtonIndex = buttonToMoveOnto;
         }
-        //Debug.Log(buttonToMoveOnto);
     }
 
     public void BlockSubmit()
@@ -107,7 +99,6 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
     public void UnblockSubmitAfterDelay(float delay)
     {
-        Debug.Log($"[PauseMenuNavigation] Starting unblock coroutine with delay: {delay}");
         StartCoroutine(UnblockAfterDelayCoroutine(delay));
     }
 
@@ -115,7 +106,6 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
     {
         yield return new WaitForSecondsRealtime(delay);
         submitBlocked = false;
-        Debug.Log("[PauseMenuNavigation] Submit unblocked after delay.");
     }
 
 
@@ -180,8 +170,6 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
             return;
         }
 
-        Debug.Log($"[PauseNavigation] Submit pressed on: {selected.name}");
-
         Button button = selected.GetComponent<Button>();
 
         if (button == null)
@@ -196,9 +184,7 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
             return;
         }
 
-        Debug.Log($"[PauseNavigation] Invoking button '{button.name}'");
         button.onClick.Invoke();
-        Debug.Log("[PauseNavigation] User is pressing Enter");
 
         BlockSubmit();
         UnblockSubmitAfterDelay(0.3f);
@@ -217,4 +203,3 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
     }
 }
-

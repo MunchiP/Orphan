@@ -13,14 +13,23 @@ public class PlayerState : MonoBehaviour
     private bool primerAscensor = true;
 
     private HUDUpdate hud;
+    private bool iniciado = false;
+
+    public static bool cargarDesdeCheckpoint = false;
 
     private void Start()
     {
-        // Referencia al HUD (asumiendo que está en escena)
+        if (iniciado) return;
+        iniciado = true;
+        Debug.Log("Start PlayerState");
+
         hud = FindAnyObjectByType<HUDUpdate>();
 
-        // Cargar datos si existen
-        if (PlayerPrefs.HasKey("vida") && PlayerPrefs.HasKey("pureza"))
+        // Consumo seguro de la bandera
+        bool usarCheckpoint = cargarDesdeCheckpoint;
+        cargarDesdeCheckpoint = false;
+
+        if (usarCheckpoint && PlayerPrefs.HasKey("vida") && PlayerPrefs.HasKey("pureza"))
         {
             vidaActual = PlayerPrefs.GetInt("vida");
             purezaActual = PlayerPrefs.GetInt("pureza");
@@ -28,17 +37,26 @@ public class PlayerState : MonoBehaviour
             float posY = PlayerPrefs.GetFloat("posY");
             transform.position = new Vector3(posX, posY, transform.position.z);
 
-            Debug.Log("Datos de jugador cargados desde PlayerPrefs");
+            Debug.Log("Cargando datos desde CHECKPOINT");
+        }
+        else if (PlayerPrefs.HasKey("vida_temp") && PlayerPrefs.HasKey("pureza_temp"))
+        {
+            vidaActual = PlayerPrefs.GetInt("vida_temp");
+            purezaActual = PlayerPrefs.GetInt("pureza_temp");
+            float posX = PlayerPrefs.GetFloat("posX_temp");
+            float posY = PlayerPrefs.GetFloat("posY_temp");
+            transform.position = new Vector3(posX, posY, transform.position.z);
 
-            ActualizarHUD();
+            Debug.Log("Cargando datos desde CAMBIO DE ESCENA");
         }
         else
         {
             vidaActual = vidaMaxima;
             purezaActual = 0;
             Debug.Log("No hay datos guardados, usando valores por defecto");
-            ActualizarHUD();
         }
+
+        ActualizarHUD();
     }
 
     public void AgregarVida(int cantidad)
@@ -59,14 +77,8 @@ public class PlayerState : MonoBehaviour
 
     public void AgregarPureza(int cantidad)
     {
-        if (primeraPureza)
-        {
-            primeraPureza = false;
-        }
-        if (primerAscensor && purezaActual >= 90)
-        {
-            primerAscensor = false;
-        }
+        if (primeraPureza) primeraPureza = false;
+        if (primerAscensor && purezaActual >= 90) primerAscensor = false;
 
         purezaActual += cantidad;
         Debug.Log("Pureza actual: " + purezaActual);
@@ -90,16 +102,25 @@ public class PlayerState : MonoBehaviour
     }
 
     public SaveData ObtenerDatosParaGuardar()
-{
-    SaveData data = new SaveData
     {
-        vida = this.vidaActual,
-        pureza = this.purezaActual,
-        posX = transform.position.x,
-        posY = transform.position.y,
-        sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
-    };
-    return data;
-}
+        SaveData data = new SaveData
+        {
+            vida = this.vidaActual,
+            pureza = this.purezaActual,
+            posX = transform.position.x,
+            posY = transform.position.y,
+            sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+        };
+        return data;
+    }
 
+    public void GuardarCheckpoint()
+    {
+        PlayerPrefs.SetInt("vida", vidaActual);
+        PlayerPrefs.SetInt("pureza", purezaActual);
+        PlayerPrefs.SetFloat("posX", transform.position.x);
+        PlayerPrefs.SetFloat("posY", transform.position.y);
+        PlayerPrefs.SetString("sceneName", UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        PlayerPrefs.Save();
+    }
 }
