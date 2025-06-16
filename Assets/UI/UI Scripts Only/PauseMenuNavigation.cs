@@ -14,11 +14,11 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
     public List<GameObject> buttonList = new List<GameObject>();
     public int buttonToMoveOnto;
     private GameObject currentButton;
-    private PauseMenuNavigation buttonIndexController;
+    private ButtonIndexController buttonIndexController;
     public int lastButtonIndex = -1;
-    private bool submitBlocked = false;
-    private float submitBlockTime = 0.1f; // 100ms, tweak as needed
-    private float lastSubmitTime = -1f;
+    private int mouseHoveringButtonIndex = -1;
+    private bool isMouseHoveringButton;
+    private bool isMouseControlling = false;
 
     void Awake()
     {
@@ -52,55 +52,81 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
     public void RestartSelection(int startIndex = 0)
     {
-        
-
         if (buttonList.Count == 0) return;
         buttonToMoveOnto = Mathf.Clamp(startIndex, 0, buttonList.Count - 1);
         buttonList[buttonToMoveOnto].GetComponent<Button>().Select();
         lastButtonIndex = buttonToMoveOnto;
-
-        
     }
 
-  
+    public void SetMouseHoverState(bool isMouseOnButton)
+    {
+        isMouseHoveringButton = isMouseOnButton;
+        isMouseControlling = isMouseOnButton;
+
+        if (!isMouseOnButton)
+        {
+            mouseHoveringButtonIndex = -1;
+        }
 
 
-    
+    }
 
-   
+    public void SetMouseHoverButtonIndex(int index)
+    {
+        mouseHoveringButtonIndex = index;
+        isMouseHoveringButton = index >= 0;
+    }
 
     void Update()
     {
-
-
-
-        if (buttonList == null || buttonList.Count == 0)
+        if (buttonList == null)
+            return;
+        if (buttonToMoveOnto < 0 || buttonToMoveOnto > buttonList.Count)
             return;
 
-        if (buttonToMoveOnto < 0 || buttonToMoveOnto >= buttonList.Count)
+        if (isMouseHoveringButton)
             return;
 
-        if (buttonToMoveOnto != lastButtonIndex)
+        if (!isMouseHoveringButton && buttonToMoveOnto != lastButtonIndex)
         {
+
+            if (lastButtonIndex >= 0)
+            {
+                var previousButton = buttonList[lastButtonIndex];
+
+            }
+
+
             currentButton = buttonList[buttonToMoveOnto];
-            currentButton.GetComponent<Button>().Select();
+            currentButton.GetComponent<UnityEngine.UI.Button>().Select();
+
+            Debug.Log("lastindex should be same as buttontomoveonto");
+
             lastButtonIndex = buttonToMoveOnto;
         }
+
+        else if (isMouseHoveringButton)
+        {
+
+            if (mouseHoveringButtonIndex != lastButtonIndex && mouseHoveringButtonIndex >= 0)
+            {
+                if (lastButtonIndex >= 0)
+                {
+                    var previousButton = buttonList[lastButtonIndex];
+
+                }
+
+                currentButton = buttonList[mouseHoveringButtonIndex];
+                currentButton.GetComponent<UnityEngine.UI.Button>().Select();
+
+
+                buttonToMoveOnto = mouseHoveringButtonIndex;
+                lastButtonIndex = mouseHoveringButtonIndex;
+            }
+        }
+
         //Debug.Log(buttonToMoveOnto);
     }
-
-    public void BlockSubmit()
-    {
-        submitBlocked = true;
-        lastSubmitTime = Time.unscaledTime;
-    }
-
-    public void UnblockSubmit()
-    {
-        submitBlocked = false;
-    }
-
-
 
     public void OnCancel(InputAction.CallbackContext context)
     {
@@ -116,24 +142,34 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
     public void OnNavigate(InputAction.CallbackContext context)
     {
-        if (buttonList == null || buttonList.Count == 0 || !context.performed)
+        if (buttonList == null || buttonList.Count == 0)
             return;
-
-        Vector2 direction = context.ReadValue<Vector2>();
-
-        if (direction.y > 0.5f)
+        if (isMouseControlling) return;
+        if (!isMouseHoveringButton && context.performed)
         {
-            if (buttonToMoveOnto < 0)
-                buttonToMoveOnto = 0;
-            else
+            Vector2 direction = context.ReadValue<Vector2>();
+
+
+            if (direction.y > 0.5f)
+            {
+                if (buttonToMoveOnto < 0)
+                {
+                    buttonToMoveOnto = 0;
+                    return;
+                }
                 buttonToMoveOnto = (buttonToMoveOnto - 1 + buttonList.Count) % buttonList.Count;
-        }
-        else if (direction.y < -0.5f)
-        {
-            if (buttonToMoveOnto < 0)
-                buttonToMoveOnto = 0;
-            else
+
+
+            }
+            else if (direction.y < -0.5f)
+            {
+                if (buttonToMoveOnto < 0)
+                {
+                    buttonToMoveOnto = 0;
+                    return;
+                }
                 buttonToMoveOnto = (buttonToMoveOnto + 1) % buttonList.Count;
+            }
         }
     }
 
@@ -153,12 +189,6 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
     {
         if (context.performed)
         {
-            if (submitBlocked && Time.unscaledTime - lastSubmitTime < submitBlockTime)
-            {
-                Debug.Log("[PauseMenuNavigation] Submit blocked due to cooldown.");
-                return;
-            }
-
             GameObject selected = EventSystem.current.currentSelectedGameObject;
 
             if (selected != null)
@@ -167,9 +197,15 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
                 if (button != null && button.interactable)
                 {
                     button.onClick.Invoke();
-                    lastSubmitTime = Time.unscaledTime;
-                    submitBlocked = true;
                 }
+                else
+                {
+                    Debug.LogWarning("Selected GameObject is not a Button or is not interactable.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("No UI element is currently selected.");
             }
         }
     }

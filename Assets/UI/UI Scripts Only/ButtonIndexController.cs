@@ -22,15 +22,13 @@ public class ButtonIndexController : MonoBehaviour, IPointerEnterHandler, IPoint
     {
         if (keyboardController == null)
             keyboardController = FindFirstObjectByType<VerticalOnlyNavigation>();
-        
-
         //Debug.Log($"[ButtonIndexController] OnPointerEnter: '{gameObject.name}', index {thisButtonIndex}");
 
         if (CompareTag("GoBackButtonUI"))
         {
             if (keyboardController.buttonList.Contains(gameObject))
             {
-                thisButtonIndex = keyboardController.buttonList.Count - 1;
+                
                 thisButtonIndex = keyboardController.buttonList.IndexOf(gameObject);
                 Debug.Log($"[ButtonIndexController] GoBackButton detected, overriding index to {thisButtonIndex}");
             }
@@ -49,19 +47,31 @@ public class ButtonIndexController : MonoBehaviour, IPointerEnterHandler, IPoint
     {
         if (CompareTag("GoBackButtonUI"))
         {
-            int idx = keyboardController.buttonList.Count - 1;
-            thisButtonIndex = idx;
 
-            keyboardController.buttonToMoveOnto = idx;
-            keyboardController.lastButtonIndex = idx;
+            int idx = keyboardController.buttonList.IndexOf(gameObject);
+            if (idx >= 0)
+            {
+                thisButtonIndex = idx;
 
-            EventSystem.current.SetSelectedGameObject(gameObject);
+
+                keyboardController.buttonToMoveOnto = idx;
+                keyboardController.lastButtonIndex = idx;
+
+                EventSystem.current.SetSelectedGameObject(gameObject);
+            }
+            else
+            {
+                Debug.LogWarning("GoBackButton not found in controller list!");
+            }
+
+
             keyboardController.SetMouseHoverButtonIndex(-1);
         }
         else
         {
             keyboardController?.SetMouseHoverButtonIndex(-1);
             EventSystem.current.SetSelectedGameObject(null);
+            //Debug.Log($"[ButtonIndexController] OnPointerExit: '{gameObject.name}', index {thisButtonIndex}");
         }
 
     }
