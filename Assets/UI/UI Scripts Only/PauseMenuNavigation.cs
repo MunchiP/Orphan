@@ -169,6 +169,7 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
         GameObject selected = EventSystem.current.currentSelectedGameObject;
 
+
         if (selected == null)
         {
             Debug.LogWarning("[PauseNavigation] Submit pressed, but no GameObject is selected.");

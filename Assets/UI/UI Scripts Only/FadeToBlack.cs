@@ -55,7 +55,7 @@ public class FadeToBlack : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
             imageToUse = fadeImageTitle;
-        else if (SceneManager.GetActiveScene().buildIndex == 1)
+        else if (SceneManager.GetActiveScene().buildIndex != 0)
             imageToUse = fadeImageInGame;
 
         if (imageToUse != null)

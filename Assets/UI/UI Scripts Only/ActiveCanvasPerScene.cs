@@ -30,7 +30,7 @@ public class ActiveCanvasPerScene : MonoBehaviour
         
         titleCanvas.SetActive(scene.buildIndex == 0);
         titleBackground.SetActive(scene.buildIndex == 0);
-        pauseCanvas.SetActive(scene.buildIndex == 1);
+        pauseCanvas.SetActive(scene.buildIndex != 0);
         
     }
     void Start()

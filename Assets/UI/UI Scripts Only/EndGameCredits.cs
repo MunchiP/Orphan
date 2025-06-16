@@ -8,12 +8,15 @@ public class EndGameCredits : MonoBehaviour
 {
     public ButtonListManager universalButtonList;
     public GameObject EndCredits;
+    public GameObject returnButton;
+    public GameObject exitButton;
+    public EscMenuBehaviour escScript;
     public RollingCreditsController RollingCreditsController;
     public GameObject thankYou;
     public bool hasPlayerWon = false;
 
     private Coroutine checkCoroutine;
-    private Coroutine sendBackToTitle;
+    private Coroutine showButtons;
 
     private void Awake()
     {
@@ -27,14 +30,21 @@ public class EndGameCredits : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+
         hasPlayerWon = false;
+        
 
         // Start coroutines again after scene load
         if (checkCoroutine != null) StopCoroutine(checkCoroutine);
-        if (sendBackToTitle != null) StopCoroutine(sendBackToTitle);
+        if (showButtons != null) StopCoroutine(showButtons);
+        
+        EndCredits.SetActive(false);
+        escScript.isCreditsActive = false;
+        returnButton.SetActive(false);
+        exitButton.SetActive(false);
 
         checkCoroutine = StartCoroutine(CheckPlayerHasFinished());
-        sendBackToTitle = StartCoroutine(SendBackToTitle());
+        showButtons = StartCoroutine(ShowTheButtons());
     }
 
     private IEnumerator CheckPlayerHasFinished()
@@ -45,10 +55,11 @@ public class EndGameCredits : MonoBehaviour
         }
 
         EndCredits.SetActive(true);
+        escScript.isCreditsActive = true;
         RollingCreditsController.PlayCredits();
     }
 
-    private IEnumerator SendBackToTitle()
+    private IEnumerator ShowTheButtons()
     {
         while (!EndCredits.activeInHierarchy)
         {
@@ -57,20 +68,12 @@ public class EndGameCredits : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(47);
 
-        universalButtonList.ChangeSceneToTitle();
-        yield return new WaitForSecondsRealtime(2);
-        EndCredits.SetActive(false);
+        returnButton.SetActive(true);
+        exitButton.SetActive(true);
+        universalButtonList.GoToEndCredits();
     }
 
-    public void TurnBoolBackToFalse()
-    {
-        hasPlayerWon = false;
-        StartCoroutine(TurnOffEndCredits());
-    }
+    
 
-    private IEnumerator TurnOffEndCredits()
-    {
-        yield return new WaitForSecondsRealtime(1);
-        EndCredits.SetActive(false);
-    }
+   
 }

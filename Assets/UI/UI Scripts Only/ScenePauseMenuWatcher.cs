@@ -17,18 +17,16 @@ public class ScenePauseMenuWatcher : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 1) // In-game scene
+        if (scene.buildIndex == 0)
         {
-            pauseMenuAccess.enabled = true;
-        }
-        else if (scene.buildIndex == 0)
-        {
+            pauseMenuAccess.enabled = false;
             Time.timeScale = 1f;
             Debug.Log("[SceneWatcher] Reset Time.timeScale on Title scene.");
         }
-        else
+        else // Any other scene
         {
-            pauseMenuAccess.enabled = false;
+            pauseMenuAccess.enabled = true;
+            Debug.Log("[SceneWatcher] Enabled PauseMenuAccess in scene " + scene.buildIndex);
         }
     }
 }

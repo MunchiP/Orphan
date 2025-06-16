@@ -46,10 +46,10 @@ public class PauseMenuAccess : MonoBehaviour
     {
         Debug.Log("Scene loaded: " + scene.buildIndex);
 
-        if (scene.buildIndex == 1) // In-Game scene
+        if (scene.buildIndex != 0) // In-Game scene
         {
             Debug.Log("Enabling PauseMenuAccess for In-Game scene");
-            this.enabled = true;
+            
 
             isGameOnPauseMenu = false;
 
@@ -66,7 +66,7 @@ public class PauseMenuAccess : MonoBehaviour
             // Reset pause UI visuals in case scene transition occurred mid-pause
             ResetPauseMenuVisuals();
 
-            this.enabled = false;
+            
         }
     }
 
@@ -144,6 +144,7 @@ public class PauseMenuAccess : MonoBehaviour
     {
         if (!isGameOnPauseMenu) return;
 
+        universalButtonListManager.navigation.buttonList.Clear();
         isGameOnPauseMenu = false;
         Time.timeScale = 1f;
 

@@ -15,6 +15,8 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
     public bool onTitleMainMenu = false;
     public bool onPauseMainMenu = false;
     private TextMeshProUGUI escapeTMP;
+    public bool isCreditsActive = false;
+    public bool isGameOverActive = false;
 
     void Awake()
     {
@@ -55,7 +57,7 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
             Time.timeScale = 1f; // Just in case we came from paused state
         }
         // In-Game Scene
-        else if (index == 1)
+        else if (index != 0)
         {
             Debug.Log("making ontitlemainmenu false and onpausemainmenu true");
             onTitleMainMenu = false;
@@ -99,7 +101,13 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
 
     public void OnCancel(InputAction.CallbackContext context)
     {
-        if(context.performed && !pauseScript.enabled)
+        if (!context.performed || isCreditsActive || isGameOverActive)
+        {
+            Debug.Log("im blocking Esc");
+            return;
+        }
+
+        if (context.performed && !pauseScript.enabled)
         {
             // We're on the title — only use GoBack()
             universalButtonListManager.GoBack();

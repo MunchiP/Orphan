@@ -50,6 +50,16 @@ public class ButtonListManager : MonoBehaviour
     public GameObject universalEscapeKey;
     private EscMenuBehaviour escapeKeyScript;
 
+    // GameOverButtons and Menus
+
+    public GameObject returnFromGameOver;
+    public GameObject exitFromGameOver;
+
+    // EndCreditsButtons and Menus
+
+    public GameObject returnFromCredits;
+    public GameObject exitFromCredits;
+
     //behaviour variables
     public bool isTitleScene;
 
@@ -115,7 +125,7 @@ public class ButtonListManager : MonoBehaviour
             {
                 return currentTitleMenu != 0;
             }
-            else if (SceneManager.GetActiveScene().buildIndex == 1)
+            else if (SceneManager.GetActiveScene().buildIndex != 0)
             {
                 return currentPauseMenu != 0;
             }
@@ -471,7 +481,7 @@ public class ButtonListManager : MonoBehaviour
         {
             fadeToSceneScript.FadeToScene(0, () =>
             {
-                // This runs right after fade finishes, but before scene changes
+                
                 pauseMainMenu.SetActive(false);
                 pauseSettingsMenu.SetActive(false);
                 universalSoundPanelPause.SetActive(false);
@@ -492,5 +502,46 @@ public class ButtonListManager : MonoBehaviour
             GoBackTitleMenus();
         else
             GoBackPauseMenus();
+    }
+
+    public void GameOver()
+    {
+        navigation.buttonList.Clear();
+        navigation.buttonList.Add(returnFromGameOver);
+        navigation.buttonList.Add(exitFromGameOver);
+        
+        navigation.RestartSelection(0);
+        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
+    }
+
+    public void GoToEndCredits()
+    {
+        navigation.buttonList.Clear();
+        navigation.buttonList.Add(returnFromCredits);
+        navigation.buttonList.Add(exitFromCredits);
+
+        navigation.RestartSelection(0);
+        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
+    }
+
+    public void ChangeSceneToBossFight()
+    {
+
+        Debug.Log("[MenuButtonListManager] Attempting to change scene to BossFight...");
+
+        fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
+        if (fadeToSceneScript != null)
+        {
+
+            Debug.Log("[MenuButtonListManager] Fading to scene 2.");
+            fadeToSceneScript.FadeToScene(2);
+
+
+        }
+        else
+        {
+            Debug.LogWarning("FadeImageObjectMainCanvas missing on reload.");
+        }
+
     }
 }
