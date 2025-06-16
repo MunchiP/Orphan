@@ -145,6 +145,17 @@ public class DialogueManager : MonoBehaviour
     // Código utilizado porque ahora utilizo ScriptableObject en los diálogos
     public void UpdateDialogue(CharacterData characterData, string monolithKey = "")
     {
+        if (characterData == null)
+        {
+            Debug.LogError("characterData está null");
+            return;
+        }
+        if (characterName == null)
+        {
+            Debug.LogError("characterName (Text) está null");
+            return;
+        }
+
         characterName.text = characterData.CharacterName;
         characterName.color = characterData.NameColor;
         Debug.Log($"Color del nombre: {characterData.NameColor} (alpha: {characterData.NameColor.a})");

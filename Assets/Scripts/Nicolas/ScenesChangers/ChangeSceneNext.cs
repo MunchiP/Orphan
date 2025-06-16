@@ -7,8 +7,14 @@ public class ChangeSceneNext : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            FadeManager fadeManager = FindAnyObjectByType<FadeManager>();
-            fadeManager.LoadNextScene();
+            // Guardar el estado real solo cuando pasa a la siguiente escena
+            if (ObstacleDestructionTracker.Instance != null)
+            {
+                ObstacleDestructionTracker.Instance.SaveDestroyedObstacles();
+            }
+
+            ButtonListManager fadeManager = FindAnyObjectByType<ButtonListManager>();
+            fadeManager.ChangeSceneToNextScene();
         }        
     }
 }

@@ -29,56 +29,55 @@ public class ObstaclesDestroyWeapon : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-{
-    Debug.Log("Colisión con: " + other.name);
-
-    ObstacleID obstacleIDComponent = other.GetComponent<ObstacleID>();
-    if (obstacleIDComponent == null)
     {
-        Debug.LogWarning("Objeto no tiene ObstacleID, no se procesa.");
-        return;
-    }
+        Debug.Log("Colisión con: " + other.name);
 
-    string id = obstacleIDComponent.obstacleID;
-
-    if (PlayerPrefs.GetInt($"obstacle_{id}", 0) == 1)
-    {
-        Debug.Log($"Obstáculo {id} ya fue destruido.");
-        return;
-    }
-
-    PlayerPrefs.SetInt($"obstacle_{id}", 1);
-    PlayerPrefs.Save();
-
-    if (obstacleParticlesMap.ContainsKey(other.tag))
-    {
-        ParticleSystem particlePrefab = obstacleParticlesMap[other.tag];
-        if (particlePrefab != null)
+        ObstacleID obstacleIDComponent = other.GetComponent<ObstacleID>();
+        if (obstacleIDComponent == null)
         {
-            ParticleSystem psInstance = Instantiate(particlePrefab, other.transform.position, other.transform.rotation);
-            psInstance.Play();
-            Destroy(psInstance.gameObject, psInstance.main.duration + psInstance.main.startLifetime.constantMax);
+            Debug.LogWarning("Objeto no tiene ObstacleID, no se procesa.");
+            return;
         }
-    }
 
-    ObstacleDrop drop = other.GetComponent<ObstacleDrop>();
-    if (drop != null && drop.prefabPurityObstacle != null)
-    {
-        Instantiate(drop.prefabPurityObstacle, other.transform.position, Quaternion.identity);
-    }
+        string id = obstacleIDComponent.obstacleID;
 
-    if (astar != null)
-    {
-        Bounds bounds = other.bounds;
-        GraphUpdateObject guo = new GraphUpdateObject(bounds)
+        if (ObstacleDestructionTracker.Instance.IsObstacleDestroyed(id))
         {
-            updatePhysics = true
-        };
-        AstarPath.active.UpdateGraphs(guo);
+            Debug.Log($"Obstáculo {id} ya marcado para destrucción.");
+            return;
+        }
+
+        // Solo marcar para destruir en memoria, no guardar PlayerPrefs aquí
+        ObstacleDestructionTracker.Instance.MarkObstacleDestroyed(id);
+
+        if (obstacleParticlesMap.ContainsKey(other.tag))
+        {
+            ParticleSystem particlePrefab = obstacleParticlesMap[other.tag];
+            if (particlePrefab != null)
+            {
+                ParticleSystem psInstance = Instantiate(particlePrefab, other.transform.position, other.transform.rotation);
+                psInstance.Play();
+                Destroy(psInstance.gameObject, psInstance.main.duration + psInstance.main.startLifetime.constantMax);
+            }
+        }
+
+        ObstacleDrop drop = other.GetComponent<ObstacleDrop>();
+        if (drop != null && drop.prefabPurityObstacle != null)
+        {
+            Instantiate(drop.prefabPurityObstacle, other.transform.position, Quaternion.identity);
+        }
+
+        if (astar != null)
+        {
+            Bounds bounds = other.bounds;
+            GraphUpdateObject guo = new GraphUpdateObject(bounds)
+            {
+                updatePhysics = true
+            };
+            AstarPath.active.UpdateGraphs(guo);
+        }
+
+        Destroy(other.gameObject);
+        Debug.Log($"Obstáculo {id} destruido (marcado en memoria).");
     }
-
-    Destroy(other.gameObject);
-    Debug.Log($"Obstáculo {id} destruido.");
-}
-
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
 {
     public GameObject GameManager;
-    
+
     private InputSystem_Actions controlsUI;
     private PauseMenuNavigation universalNavigationScript;
     private ButtonListManager universalButtonListManager;
@@ -30,68 +30,96 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
     public void OnEnable()
     {
         controlsUI.Enable();
-        
-
     }
     public void OnDisable()
     {
         controlsUI.Disable();
-        
-
     }
 
     public void OnPause(InputAction.CallbackContext context)
-{
-    // Puedes dejarlo vacío si no necesitas que haga nada
-}
+    {
+        // Puedes dejarlo vacío si no necesitas que haga nada
+    }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log($"[EscMenuBehaviour] OnSceneLoaded called for: {scene.name}");
         int index = scene.buildIndex;
 
-        // Title Scene
-        if (index == 0)
+        // Intentar asignar GameManager si está null
+        if (GameManager == null)
         {
-            Debug.Log("making ontitlemainmenu true and onpausemainmenu false");
+            GameManager = GameObject.FindWithTag("GameManager"); // O busca por nombre con Find("GameManager") o como prefieras
+            if (GameManager == null)
+            {
+                Debug.LogWarning("[EscMenuBehaviour] No GameManager found on scene load");
+                return;
+            }
+            else
+            {
+                Debug.Log("[EscMenuBehaviour] GameManager found dynamically on scene load");
+            }
+        }
+
+        if (index == 0) // Escena título
+        {
             onTitleMainMenu = true;
             onPauseMainMenu = false;
 
-            // Ensure pause-related systems are disabled in title
-            //GameManager.GetComponent<PauseMenuAccess>().enabled = false;
-            Time.timeScale = 1f; // Just in case we came from paused state
+            // Asegurar que la pausa esté desactivada en título
+            if (pauseScript != null)
+                pauseScript.enabled = false;
+
+            Time.timeScale = 1f; // Por si venimos de pausa
         }
-        // In-Game Scene
-        else if (index != 0)
+        else // Escena de juego
         {
-            Debug.Log("making ontitlemainmenu false and onpausemainmenu true");
             onTitleMainMenu = false;
             onPauseMainMenu = true;
 
-            // Enable pause logic for gameplay
-            GameManager.GetComponent<PauseMenuAccess>().enabled = true;
+            if (GameManager != null)
+            {
+                var pauseAccess = GameManager.GetComponent<PauseMenuAccess>();
+                if (pauseAccess != null)
+                {
+                    pauseAccess.enabled = true;
+                }
+                else
+                {
+                    Debug.LogWarning("[EscMenuBehaviour] PauseMenuAccess component not found on GameManager");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("[EscMenuBehaviour] GameManager is null on scene load");
+            }
         }
     }
 
     void Start()
     {
+        if (GameManager == null)
+        {
+            GameManager = GameObject.FindWithTag("GameManager");
+            if (GameManager == null)
+            {
+                Debug.LogWarning("[EscMenuBehaviour] GameManager is null in Start()");
+                return;
+            }
+        }
+
         universalNavigationScript = GameManager.GetComponent<PauseMenuNavigation>();
         universalButtonListManager = GameManager.GetComponent<ButtonListManager>();
         escapeTMP = gameObject.GetComponent<TextMeshProUGUI>();
     }
 
-
-
-
     void Update()
     {
-
-        
         if (onPauseMainMenu || onTitleMainMenu)
         {
             SetAlpha(0f);
         }
-        if (!onPauseMainMenu && !onTitleMainMenu)
+        else
         {
             SetAlpha(1f);
         }
@@ -99,6 +127,8 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
 
     void SetAlpha(float alpha)
     {
+        if (escapeTMP == null) return;
+
         Color color = escapeTMP.color;
         color.a = alpha;
         escapeTMP.color = color;
@@ -108,71 +138,46 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
     {
         if (!context.performed || isCreditsActive || isGameOverActive)
         {
-            Debug.Log("im blocking Esc");
+            Debug.Log("Blocking Esc key due to context or active credits/gameover.");
+            return;
+        }
+
+        if (pauseScript == null || universalButtonListManager == null)
+        {
+            Debug.LogWarning("[EscMenuBehaviour] pauseScript or universalButtonListManager is null on OnCancel");
             return;
         }
 
         if (context.performed && !pauseScript.enabled)
         {
-            // We're on the title � only use GoBack()
+            // Solo en título
             universalButtonListManager.GoBack();
         }
-        else if(context.performed && pauseScript.enabled)
+        else if (context.performed && pauseScript.enabled)
         {
             if (!pauseScript.isGameOnPauseMenu)
             {
                 pauseScript.PauseGame();
             }
-            else if(pauseScript.isGameOnPauseMenu && onPauseMainMenu)
+            else if (pauseScript.isGameOnPauseMenu && onPauseMainMenu)
             {
                 pauseScript.UnpauseGame();
             }
             else if (pauseScript.isGameOnPauseMenu && !onPauseMainMenu)
             {
                 universalButtonListManager.GoBack();
-                
             }
         }
-        
     }
 
-    public void OnClick(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnInventory(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnMiddleClick(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnNavigate(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnPoint(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnRightClick(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnScrollWheel(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnSubmit(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnTrackedDevicePosition(InputAction.CallbackContext context)
-    {
-    }
+    public void OnClick(InputAction.CallbackContext context) { }
+    public void OnInventory(InputAction.CallbackContext context) { }
+    public void OnMiddleClick(InputAction.CallbackContext context) { }
+    public void OnNavigate(InputAction.CallbackContext context) { }
+    public void OnPoint(InputAction.CallbackContext context) { }
+    public void OnRightClick(InputAction.CallbackContext context) { }
+    public void OnScrollWheel(InputAction.CallbackContext context) { }
+    public void OnSubmit(InputAction.CallbackContext context) { }
+    public void OnTrackedDeviceOrientation(InputAction.CallbackContext context) { }
+    public void OnTrackedDevicePosition(InputAction.CallbackContext context) { }
 }

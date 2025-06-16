@@ -22,7 +22,6 @@ public class ButtonListManager : MonoBehaviour
     public GameObject creditsMenu;
     public GameObject titleSettingsMenu;
     private int currentTitleMenu;
-    
 
     //InGame Buttons and Menus
     public GameObject pauseContinueButton;
@@ -51,12 +50,10 @@ public class ButtonListManager : MonoBehaviour
     private EscMenuBehaviour escapeKeyScript;
 
     // GameOverButtons and Menus
-
     public GameObject returnFromGameOver;
     public GameObject exitFromGameOver;
 
     // EndCreditsButtons and Menus
-
     public GameObject returnFromCredits;
     public GameObject exitFromCredits;
 
@@ -99,22 +96,17 @@ public class ButtonListManager : MonoBehaviour
 
     public void Start()
     {
-       
-
         fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
         escapeKeyScript = universalEscapeKey.GetComponent<EscMenuBehaviour>();
     }
 
     public void QuitApplication()
     {
-
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else
         Application.Quit(); // original code to quit Unity player
 #endif
-
-
     }
 
     public bool IsOnSubmenu
@@ -150,8 +142,6 @@ public class ButtonListManager : MonoBehaviour
         if (escapeKeyScript == null)
             escapeKeyScript = universalEscapeKey.GetComponent<EscMenuBehaviour>();
 
-        
-
         Debug.Log("[ButtonListManager] Reset pause UI state after scene load.");
     }
 
@@ -160,6 +150,7 @@ public class ButtonListManager : MonoBehaviour
         yield return null; // wait 1 frame
         GoToTitleMenu();
     }
+
     public void GoToTitleMenu()
     {
         Debug.Log(" Populating navigation list with main title buttons...");
@@ -173,13 +164,11 @@ public class ButtonListManager : MonoBehaviour
             escapeKeyScript = universalEscapeKey.GetComponent<EscMenuBehaviour>();
         escapeKeyScript.onTitleMainMenu = true;
         navigation.buttonList.Clear();
-        
 
         navigation.buttonList.Add(startButton);
         navigation.buttonList.Add(titleSettingsButton);
         navigation.buttonList.Add(titleCreditsButton);
         navigation.buttonList.Add(titleExitGameButton);
-
 
         titleMainMenu.SetActive(true);
         creditsMenu.SetActive(false);
@@ -187,17 +176,13 @@ public class ButtonListManager : MonoBehaviour
         rollingCreditsController.enabled = false;
         titleSettingsMenu.SetActive(false);
 
-
-
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
+        SelectFirstButtonSafe();
     }
 
     public void GoToSettingstTitleMenu()
     {
         escapeKeyScript.onTitleMainMenu = false;
-
-        //navigation.BlockSubmit();
 
         navigation.buttonList.Clear();
         navigation.buttonList.Add(titleControlsButton);
@@ -213,23 +198,16 @@ public class ButtonListManager : MonoBehaviour
         currentTitleMenu = 1;
 
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
-
-
+        SelectFirstButtonSafe();
     }
-
-
 
     public void GoToTitleSoundBoard()
     {
         escapeKeyScript.onTitleMainMenu = false;
 
-        //navigation.BlockSubmit();
-
         navigation.buttonList.Clear();
         navigation.buttonList.Add(universalMusicButton);
         navigation.buttonList.Add(universalSfxButton);
-
 
         titleSettingsMenu?.SetActive(false);
         universalSoundPanelPause.SetActive(true);
@@ -238,15 +216,13 @@ public class ButtonListManager : MonoBehaviour
         currentTitleMenu = 2;
 
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
-
+        SelectFirstButtonSafe();
     }
 
     public void GoToTitleControls()
     {
         escapeKeyScript.onTitleMainMenu = false;
 
-        //navigation.BlockSubmit();
         navigation.buttonList.Clear();
 
         titleSettingsMenu?.SetActive(false);
@@ -254,17 +230,17 @@ public class ButtonListManager : MonoBehaviour
         currentTitleMenu = 3;
 
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
+        SelectFirstButtonSafe();
     }
 
     public void GoToCredits()
     {
         escapeKeyScript.onTitleMainMenu = false;
-        //navigation.BlockSubmit();
+
         navigation.buttonList.Clear();
 
         titleMainMenu?.SetActive(false);
-        
+
         creditsMenu.SetActive(true);
         rollingCreditsController = creditsMenu.GetComponent<RollingCreditsController>();
         rollingCreditsController.StopAllCoroutines();
@@ -275,41 +251,29 @@ public class ButtonListManager : MonoBehaviour
         currentTitleMenu = 1;
 
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
+        SelectFirstButtonSafe();
     }
-
-
-
 
     public void GoBackTitleMenus()
     {
         switch (currentTitleMenu)
         {
             case 4:
-                {
-                    GoToTitleMenu();
-                    //StartCoroutine(SetTitleMainMenuTrueNextFrame());
-                    break;
-                }
+                GoToTitleMenu();
+                break;
             case 3:
-                {
-                    GoToSettingstTitleMenu();
-                    break;
-                }
+                GoToSettingstTitleMenu();
+                break;
             case 2:
-                {
-                    GoToSettingstTitleMenu();
-                    break;
-                }
+                GoToSettingstTitleMenu();
+                break;
             case 1:
-                {
-
-                    GoToTitleMenu();
-                    StartCoroutine(SetTitleMainMenuTrueNextFrame());
-                    break;
-                }
+                GoToTitleMenu();
+                StartCoroutine(SetTitleMainMenuTrueNextFrame());
+                break;
         }
     }
+
     private IEnumerator SetTitleMainMenuTrueNextFrame()
     {
         yield return null; // Wait 1 frame
@@ -319,23 +283,18 @@ public class ButtonListManager : MonoBehaviour
 
     public void ChangeSceneToInGame()
     {
-
         Debug.Log("[MenuButtonListManager] Attempting to change scene to In Game...");
         fadeToSceneScript = fadeImageObjectMainCanvas.GetComponent<FadeToBlack>();
         Debug.Log($"[MenuButtonListManager] fadeToSceneScript is {(fadeToSceneScript == null ? "NULL" : "VALID")}");
         if (fadeToSceneScript != null)
         {
-
             Debug.Log("[MenuButtonListManager] Fading to scene 1.");
             fadeToSceneScript.FadeToScene(1);
-
-
         }
         else
         {
             Debug.LogWarning("FadeImageObjectMainCanvas missing on reload.");
         }
-
     }
 
     public void ShowPauseMenu()
@@ -357,27 +316,21 @@ public class ButtonListManager : MonoBehaviour
         escapeKeyScript.onPauseMainMenu = true;
         navigation.buttonList.Clear();
 
-
         navigation.buttonList.Add(pauseContinueButton);
         navigation.buttonList.Add(pauseSettingsButton);
         navigation.buttonList.Add(pauseReturnTitleButton);
         navigation.buttonList.Add(pauseExitGameButton);
 
-
         pauseMainMenu.SetActive(true);
         pauseSettingsMenu.SetActive(false);
 
-
-
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
+        SelectFirstButtonSafe();
     }
 
     public void GoToPauseSettingsMenu()
     {
         escapeKeyScript.onPauseMainMenu = false;
-
-        //navigation.BlockSubmit();
 
         navigation.buttonList.Clear();
         navigation.buttonList.Add(pauseControlsButton);
@@ -394,23 +347,16 @@ public class ButtonListManager : MonoBehaviour
         currentPauseMenu = 1;
 
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
-
-
+        SelectFirstButtonSafe();
     }
-
-
 
     public void GoToPauseSoundBoard()
     {
         escapeKeyScript.onPauseMainMenu = false;
 
-        //navigation.BlockSubmit();
-
         navigation.buttonList.Clear();
         navigation.buttonList.Add(universalMusicButton);
         navigation.buttonList.Add(universalSfxButton);
-
 
         pauseSettingsMenu?.SetActive(false);
         universalSoundPanelPause.SetActive(true);
@@ -419,51 +365,37 @@ public class ButtonListManager : MonoBehaviour
         currentPauseMenu = 2;
 
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
-
+        SelectFirstButtonSafe();
     }
 
     public void GoToPauseControls()
     {
         navigation.buttonList.Clear();
 
-        //navigation.BlockSubmit();
-
-
         pauseSettingsMenu?.SetActive(false);
         universalControlLayoutTitle.SetActive(true);
         currentPauseMenu = 3;
 
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
+        SelectFirstButtonSafe();
     }
-
-
-
 
     public void GoBackPauseMenus()
     {
         switch (currentPauseMenu)
         {
             case 3:
-                {
-                    GoToPauseSettingsMenu();
-                    break;
-                }
+                GoToPauseSettingsMenu();
+                break;
             case 2:
-                {
-                    GoToPauseSettingsMenu();
-                    break;
-                }
+                GoToPauseSettingsMenu();
+                break;
             case 1:
-                {
-
-                    ShowPauseMenu();
-                    //StartCoroutine(SetPauseMainMenuTrueNextFrame());
-                    break;
-                }
+                ShowPauseMenu();
+                break;
         }
     }
+
     private IEnumerator SetPauseMainMenuTrueNextFrame()
     {
         yield return null; // Wait 1 frame
@@ -473,7 +405,6 @@ public class ButtonListManager : MonoBehaviour
 
     public void ChangeSceneToTitle()
     {
-
         Debug.Log("[MenuButtonListManager] Attempting to change scene to title...");
 
         fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
@@ -481,7 +412,6 @@ public class ButtonListManager : MonoBehaviour
         {
             fadeToSceneScript.FadeToScene(0, () =>
             {
-                
                 pauseMainMenu.SetActive(false);
                 pauseSettingsMenu.SetActive(false);
                 universalSoundPanelPause.SetActive(false);
@@ -493,7 +423,6 @@ public class ButtonListManager : MonoBehaviour
         {
             Debug.LogWarning("FadeToBlack missing on reload.");
         }
-
     }
 
     public void GoBack()
@@ -509,9 +438,9 @@ public class ButtonListManager : MonoBehaviour
         navigation.buttonList.Clear();
         navigation.buttonList.Add(returnFromGameOver);
         navigation.buttonList.Add(exitFromGameOver);
-        
+
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
+        SelectFirstButtonSafe();
     }
 
     public void GoToEndCredits()
@@ -521,27 +450,69 @@ public class ButtonListManager : MonoBehaviour
         navigation.buttonList.Add(exitFromCredits);
 
         navigation.RestartSelection(0);
-        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
+        SelectFirstButtonSafe();
     }
 
-    public void ChangeSceneToBossFight()
+    public void ChangeSceneToNextScene()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int totalScenes = SceneManager.sceneCountInBuildSettings;
 
         Debug.Log("[MenuButtonListManager] Attempting to change scene to BossFight...");
+
+        if (currentSceneIndex >= totalScenes - 1)
+        {
+            Debug.Log("[MenuButtonListManager] Ya estás en la última escena.");
+            return;
+        }
 
         fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
         if (fadeToSceneScript != null)
         {
-
-            Debug.Log("[MenuButtonListManager] Fading to scene 2.");
-            fadeToSceneScript.FadeToScene(2);
-
-
+            Debug.Log("[MenuButtonListManager] Fading to scene " + (currentSceneIndex + 1));
+            fadeToSceneScript.FadeToScene(currentSceneIndex + 1);
         }
         else
         {
             Debug.LogWarning("FadeImageObjectMainCanvas missing on reload.");
         }
+    }
 
+    public void ChangeSceneToPreviousScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        Debug.Log("[MenuButtonListManager] Attempting to change to previous scene...");
+
+        if (currentSceneIndex <= 1)
+        {
+            Debug.Log("[MenuButtonListManager] Ya estás en la primera escena jugable.");
+            return;
+        }
+
+        fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
+        if (fadeToSceneScript != null)
+        {
+            Debug.Log("[MenuButtonListManager] Fading to scene " + (currentSceneIndex - 1));
+            fadeToSceneScript.FadeToScene(currentSceneIndex - 1);
+        }
+        else
+        {
+            Debug.LogWarning("FadeImageObjectMainCanvas missing on reload.");
+        }
+    }
+
+    // Helper method para selección segura del primer botón en la lista
+    private void SelectFirstButtonSafe()
+    {
+        if (navigation.buttonList.Count == 0)
+        {
+            Debug.LogWarning("[ButtonListManager] buttonList está VACÍA, no se puede seleccionar ningún botón.");
+            EventSystem.current.SetSelectedGameObject(null);
+            return;
+        }
+
+        Debug.Log($"[ButtonListManager] Seleccionando el primer botón: {navigation.buttonList[0].name}");
+        EventSystem.current.SetSelectedGameObject(navigation.buttonList[0]);
     }
 }
