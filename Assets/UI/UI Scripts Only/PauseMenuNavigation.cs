@@ -36,11 +36,6 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
     }
 
-    public void OnPause(InputAction.CallbackContext context)
-{
-    // O dejarlo vacío si este componente no necesita actuar en pausa
-}
-
     void OnDisable()
     {
         controlsUI.Disable();

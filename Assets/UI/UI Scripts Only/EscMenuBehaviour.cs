@@ -109,7 +109,7 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
 
         if (context.performed && !pauseScript.enabled)
         {
-            // We're on the title ï¿½ only use GoBack()
+            // We're on the title — only use GoBack()
             universalButtonListManager.GoBack();
         }
         else if(context.performed && pauseScript.enabled)
@@ -130,36 +130,6 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
         }
         
     }
-
-    public void OnPause(InputAction.CallbackContext context)
-{
-    if (!context.performed || isCreditsActive || isGameOverActive)
-    {
-        Debug.Log("Pause blocked");
-        return;
-    }
-
-    if (!pauseScript.enabled)
-    {
-        universalButtonListManager.GoBack();
-    }
-    else
-    {
-        if (!pauseScript.isGameOnPauseMenu)
-        {
-            pauseScript.PauseGame();
-        }
-        else if (onPauseMainMenu)
-        {
-            pauseScript.UnpauseGame();
-        }
-        else
-        {
-            universalButtonListManager.GoBack();
-        }
-    }
-}
-
 
     public void OnClick(InputAction.CallbackContext context)
     {
