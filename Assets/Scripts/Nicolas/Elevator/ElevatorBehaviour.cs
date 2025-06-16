@@ -1,46 +1,62 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ElevatorBehaviour : MonoBehaviour
 {
     [Header("Configuración del Ascensor")]
     public float speed = 2f;
+
     public Transform topPoint;
     public float waitAtTopTime = 3f;
+
+    public bool isFirstTime = false;
 
     private Rigidbody2D rb;
     private Vector3 initialPosition;
     private bool elevatorActivated = false;
     private Coroutine elevatorRoutine;
 
-    public UnderElevator underElevator; // Asegúrate de que este script detecta correctamente si el jugador está debajo
+    public UnderElevator underElevator;
     private bool isUnder = false;
     private PlayerState playerState;
+
+    private bool hasUnlockedElevator = false; // 👈 Nuevo bool
 
     void Start()
     {
         playerState = FindAnyObjectByType<PlayerState>();
         rb = GetComponent<Rigidbody2D>();
-        // Aseguramos que el Rigidbody2D sea Kinematic para control directo de la posición
         rb.bodyType = RigidbodyType2D.Kinematic;
         initialPosition = transform.position;
     }
 
     void Update()
     {
-        // Obtenemos el estado actual del script UnderElevator
         isUnder = underElevator.isUnder;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Activamos el ascensor cuando el jugador lo toca en su posición inicial
-        if (playerState.purezaActual >=90 && collision.gameObject.CompareTag("Player") &&
+        if (collision.gameObject.CompareTag("Player") &&
             Vector3.Distance(transform.position, initialPosition) < 0.1f &&
             !elevatorActivated)
         {
+            // Solo pide pureza si estamos en escena 1 y no se ha desbloqueado aún
+            if (SceneManager.GetActiveScene().buildIndex == 1 && !hasUnlockedElevator)
+            {
+                if (playerState.purezaActual < 90)
+                {
+                    Debug.Log("No tienes suficiente pureza para activar el ascensor.");
+                    return;
+                }
+
+                // ✅ Si tenía la pureza suficiente, ya no se vuelve a pedir
+                hasUnlockedElevator = true;
+            }
+
             elevatorActivated = true;
-            // Detenemos cualquier rutina existente para evitar múltiples coroutines
+
             if (elevatorRoutine != null)
                 StopCoroutine(elevatorRoutine);
 
@@ -50,40 +66,35 @@ public class ElevatorBehaviour : MonoBehaviour
 
     IEnumerator MoveElevatorRoutine(bool startGoingUp)
     {
-        // --- Subir ---
         if (startGoingUp)
         {
-            // Mover el ascensor al punto superior
             while (Vector3.Distance(transform.position, topPoint.position) > 0.01f)
             {
                 rb.MovePosition(Vector2.MoveTowards(rb.position, topPoint.position, speed * Time.fixedDeltaTime));
-                yield return new WaitForFixedUpdate(); // Esperar la siguiente actualización de física
+                yield return new WaitForFixedUpdate();
             }
-            rb.MovePosition(topPoint.position); // Ajustar a la posición superior exacta
-            yield return new WaitForSeconds(waitAtTopTime); // Esperar en la parte superior
+            rb.MovePosition(topPoint.position);
+            yield return new WaitForSeconds(waitAtTopTime);
         }
 
-        // --- Bajar ---
         while (Vector3.Distance(transform.position, initialPosition) > 0.01f)
         {
-            // Si se detecta al jugador debajo del ascensor durante el descenso
             if (isUnder)
             {
                 Debug.Log("Jugador debajo detectado durante bajada. Volviendo a subir.");
-                yield return new WaitForSeconds(0.1f); // Pequeño retraso antes de reiniciar el ascenso
-                // Detener el descenso actual y reiniciar la rutina, forzando un ascenso
+                yield return new WaitForSeconds(0.1f);
+
                 if (elevatorRoutine != null)
                     StopCoroutine(elevatorRoutine);
                 elevatorRoutine = StartCoroutine(MoveElevatorRoutine(true));
-                yield break; // Salir de esta rutina actual
+                yield break;
             }
 
-            // Continuar bajando
             rb.MovePosition(Vector2.MoveTowards(rb.position, initialPosition, speed * Time.fixedDeltaTime));
             yield return new WaitForFixedUpdate();
         }
 
-        rb.MovePosition(initialPosition); // Ajustar a la posición inicial exacta
-        elevatorActivated = false; // Reiniciar el estado de activación
+        rb.MovePosition(initialPosition);
+        elevatorActivated = false;
     }
 }

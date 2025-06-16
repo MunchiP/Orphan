@@ -231,7 +231,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5837739430265487803, guid: c5f7d457bc8ff434b8cad673f284c22a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1973522128}
+    - targetCorrespondingSourceObject: {fileID: 5846467477680801736, guid: c5f7d457bc8ff434b8cad673f284c22a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2012871922}
   m_SourcePrefab: {fileID: 100100000, guid: c5f7d457bc8ff434b8cad673f284c22a, type: 3}
 --- !u!1001 &1731405409
 PrefabInstance:
@@ -293,6 +299,42 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2451860b50c20814598c04d15759e322, type: 3}
+--- !u!1 &1973522126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5837739430265487803, guid: c5f7d457bc8ff434b8cad673f284c22a, type: 3}
+  m_PrefabInstance: {fileID: 543124623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1973522128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973522126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5751d95ca23a974c990361b4d110963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleID: 04_Area02_MoundOfBones (1)_150_58
+--- !u!1 &2012871920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5846467477680801736, guid: c5f7d457bc8ff434b8cad673f284c22a, type: 3}
+  m_PrefabInstance: {fileID: 543124623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2012871922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012871920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5751d95ca23a974c990361b4d110963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleID: 04_Area02_MoundOfBones (2)_108_44
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
