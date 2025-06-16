@@ -4,17 +4,14 @@ using UnityEngine.Rendering.Universal;
 public class GrapplePointAvailable : MonoBehaviour
 {
     private Transform player;               // Referencia al jugador
-    public float distance;               
- 
-
-   
+    private float distance;               
     private Light2D luz;
 
     void Start()
     {
-        player = GameObject.Find("PlayerF3").transform;
+        player = GameObject.Find("PlayerF2").transform;
         // Obtener el SpriteRenderer del objeto
-        luz = GetComponent<Light2D>();
+        luz = GetComponentInChildren<Light2D>();
         luz.intensity = 0f;
     }
 
@@ -31,16 +28,13 @@ public class GrapplePointAvailable : MonoBehaviour
         distance = distanceVector.magnitude;
 
         // Cambiar el sprite dependiendo de la distancia
-        if (distance < 4f)
+        if (distance < 4.6f)
         {
-        
             luz.intensity = 1f;
         }
         else
         {
-     
             luz.intensity = 0f;
         }
-
     }
 }
