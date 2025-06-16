@@ -13,6 +13,7 @@ public class ButtonListManager : MonoBehaviour
 
     //Title Buttons and Menus
     public GameObject startButton;
+    public GameObject continueButton;
     public GameObject titleSettingsButton;
     public GameObject titleCreditsButton;
     public GameObject titleExitGameButton;
@@ -164,12 +165,23 @@ public class ButtonListManager : MonoBehaviour
             escapeKeyScript = universalEscapeKey.GetComponent<EscMenuBehaviour>();
         escapeKeyScript.onTitleMainMenu = true;
         navigation.buttonList.Clear();
-
-        navigation.buttonList.Add(startButton);
-        navigation.buttonList.Add(titleSettingsButton);
-        navigation.buttonList.Add(titleCreditsButton);
-        navigation.buttonList.Add(titleExitGameButton);
-
+        if (PlayerPrefs.GetInt("SavedGameExists") == 1)
+        {
+            continueButton.SetActive(true);
+            navigation.buttonList.Add(continueButton);
+            navigation.buttonList.Add(startButton);
+            navigation.buttonList.Add(titleSettingsButton);
+            navigation.buttonList.Add(titleCreditsButton);
+            navigation.buttonList.Add(titleExitGameButton);
+        }
+        else
+        {
+            continueButton.SetActive(false);
+            navigation.buttonList.Add(startButton);
+            navigation.buttonList.Add(titleSettingsButton);
+            navigation.buttonList.Add(titleCreditsButton);
+            navigation.buttonList.Add(titleExitGameButton);
+        }
         titleMainMenu.SetActive(true);
         creditsMenu.SetActive(false);
         rollingCreditsController = creditsMenu.GetComponent<RollingCreditsController>();
@@ -283,6 +295,7 @@ public class ButtonListManager : MonoBehaviour
 
     public void ChangeSceneToInGame()
     {
+        PlayerPrefs.DeleteAll();
         Debug.Log("[MenuButtonListManager] Attempting to change scene to In Game...");
         fadeToSceneScript = fadeImageObjectMainCanvas.GetComponent<FadeToBlack>();
         Debug.Log($"[MenuButtonListManager] fadeToSceneScript is {(fadeToSceneScript == null ? "NULL" : "VALID")}");

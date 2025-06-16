@@ -1,11 +1,9 @@
-using System;
-using UnityEngine;
-
-[Serializable]
-public class SaveData
+[System.Serializable]
+public struct SaveData
 {
-    public int pureza;
     public int vida;
+    public int pureza;
     public float posX;
     public float posY;
+    public string sceneName;
 }

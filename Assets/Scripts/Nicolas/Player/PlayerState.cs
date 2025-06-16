@@ -5,79 +5,101 @@ public class PlayerState : MonoBehaviour
     [Header("Vida")]
     public int vidaMaxima = 100;
     public int vidaActual;
-    public bool primeraPureza = true;
-    private bool primerAscensor = true;
 
     [Header("Pureza")]
     public int purezaActual;
-    private ManagerTutorial managerTutorial;
 
-    void Start()
-    {
-        managerTutorial = FindAnyObjectByType<ManagerTutorial>();
-        vidaActual = vidaMaxima;
-        purezaActual = 0;
-    }
+    private bool primeraPureza = true;
+    private bool primerAscensor = true;
 
-    // VIDA
-    public void QuitarVida(int cantidad)
+    private HUDUpdate hud;
+
+    private void Start()
     {
-        vidaActual -= cantidad;
-        vidaActual = Mathf.Max(vidaActual, 0); // No bajar de 0
-        Debug.Log("Vida actual: " + vidaActual);
+        // Referencia al HUD (asumiendo que está en escena)
+        hud = FindAnyObjectByType<HUDUpdate>();
+
+        // Cargar datos si existen
+        if (PlayerPrefs.HasKey("vida") && PlayerPrefs.HasKey("pureza"))
+        {
+            vidaActual = PlayerPrefs.GetInt("vida");
+            purezaActual = PlayerPrefs.GetInt("pureza");
+            float posX = PlayerPrefs.GetFloat("posX");
+            float posY = PlayerPrefs.GetFloat("posY");
+            transform.position = new Vector3(posX, posY, transform.position.z);
+
+            Debug.Log("Datos de jugador cargados desde PlayerPrefs");
+
+            ActualizarHUD();
+        }
+        else
+        {
+            vidaActual = vidaMaxima;
+            purezaActual = 0;
+            Debug.Log("No hay datos guardados, usando valores por defecto");
+            ActualizarHUD();
+        }
     }
 
     public void AgregarVida(int cantidad)
     {
         vidaActual += cantidad;
-        vidaActual = Mathf.Min(vidaActual, vidaMaxima); // No superar el máximo
+        vidaActual = Mathf.Min(vidaActual, vidaMaxima);
         Debug.Log("Vida actual: " + vidaActual);
+        ActualizarHUD();
     }
 
-    // PUREZA
-    public void QuitarPureza(int cantidad)
+    public void QuitarVida(int cantidad)
     {
-        purezaActual -= cantidad;
-        purezaActual = Mathf.Max(purezaActual, 0); // No bajar de 0
-        Debug.Log("Pureza actual: " + purezaActual);
+        vidaActual -= cantidad;
+        vidaActual = Mathf.Max(vidaActual, 0);
+        Debug.Log("Vida actual: " + vidaActual);
+        ActualizarHUD();
     }
 
     public void AgregarPureza(int cantidad)
     {
-        if (primeraPureza && managerTutorial != null)
+        if (primeraPureza)
         {
-            managerTutorial.PrimeraPureza();
             primeraPureza = false;
         }
-        else
+        if (primerAscensor && purezaActual >= 90)
         {
-            Debug.Log("no encontro manager tutorial script");
-        }
-        if (primerAscensor && managerTutorial != null && purezaActual>=90)
-        {
-            managerTutorial.ElevadorActivo();
             primerAscensor = false;
         }
-        purezaActual += cantidad; // ✅ Ya no hay límite superior
+
+        purezaActual += cantidad;
         Debug.Log("Pureza actual: " + purezaActual);
+        ActualizarHUD();
     }
 
-    public void CargarDatos(SaveData data)
+    public void QuitarPureza(int cantidad)
     {
-        purezaActual = data.pureza;
-        vidaActual = data.vida;
-        transform.position = new Vector3(data.posX, data.posY, transform.position.z);
-        Debug.Log("Datos cargados y aplicados al jugador");
+        purezaActual -= cantidad;
+        purezaActual = Mathf.Max(purezaActual, 0);
+        Debug.Log("Pureza actual: " + purezaActual);
+        ActualizarHUD();
+    }
+
+    public void ActualizarHUD()
+    {
+        if (hud != null)
+        {
+            hud.ActualizarHUD(vidaActual, purezaActual);
+        }
     }
 
     public SaveData ObtenerDatosParaGuardar()
+{
+    SaveData data = new SaveData
     {
-        return new SaveData
-        {
-            pureza = purezaActual,
-            vida = vidaActual,
-            posX = transform.position.x,
-            posY = transform.position.y
-        };
-    }
+        vida = this.vidaActual,
+        pureza = this.purezaActual,
+        posX = transform.position.x,
+        posY = transform.position.y,
+        sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+    };
+    return data;
+}
+
 }
