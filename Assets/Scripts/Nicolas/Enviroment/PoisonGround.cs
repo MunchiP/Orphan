@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoisonGround : MonoBehaviour
 {
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -14,3 +14,4 @@ public class PoisonGround : MonoBehaviour
         }
     }
 }
+
