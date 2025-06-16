@@ -5,32 +5,36 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/ScenesFinales/MainMenuFinal.unity
-    guid: 3271aa214636aff4a890e177790636da
-  - enabled: 0
+  - enabled: 1
+    path: Assets/ScenesFinales/TEst 1.unity
+    guid: 49b7dc49bfd4a36498b9f36793711001
+  - enabled: 1
     path: Assets/ScenesFinales/01Tutorial.unity
     guid: 7ee53de4a6f0ca749870ab78d04d918c
-  - enabled: 0
-    path: Assets/ScenesFinales/02Hub 1.unity
-    guid: 7f88682f93c7cb148961639f1ac12a48
-  - enabled: 0
-    path: Assets/Scenes/Pau/Mapa1.unity
-    guid: e5560b47905da0c4fbb9a791c0e0dc43
-  - enabled: 0
-    path: Assets/UI/TEst.unity
-    guid: fc0d3ec2f8254514781449d68532b90e
   - enabled: 1
-    path: Assets/Scenes/Pau/MapaPrueba/MainMenuFinal.unity
-    guid: 2ec92c798ef82864a8f0093ec91a6710
+    path: Assets/ScenesFinales/02Hub.unity
+    guid: 8cd21619e12e2334086a924bcbd837cb
   - enabled: 1
-    path: Assets/Scenes/Pau/MapaPrueba/01Tutorial.unity
-    guid: 57d5469abc597e346ba1e772e31b7ad1
+    path: Assets/ScenesFinales/03Area01.unity
+    guid: d7b2d778da6b507439ec293d9c83161d
   - enabled: 1
-    path: Assets/Scenes/Pau/MapaPrueba/02Hub 1.unity
-    guid: 42668fd958234da41befe00ce8e7f20a
+    path: Assets/ScenesFinales/04_Area02.unity
+    guid: 5c5363238c0a223489ae9f073548f515
+  - enabled: 1
+    path: Assets/ScenesFinales/05_Area03.unity
+    guid: 77ddc8c2697aa8f4bab06e55ebdb3971
+  - enabled: 1
+    path: Assets/ScenesFinales/06_Area04.unity
+    guid: 9090c10d2ecac9c4e8d892ab55253116
+  - enabled: 1
+    path: Assets/ScenesFinales/07Area05.unity
+    guid: 6cc3575a7378058429ae9d1222554dfd
+  - enabled: 1
+    path: Assets/ScenesFinales/08Area06.unity
+    guid: d8f0cc00d97e98c429eca89e43e7b597
+  - enabled: 1
+    path: Assets/ScenesFinales/AreaBossNico.unity
+    guid: bc764c5e3db4931419a44099d6ce6450
   m_configObjects:
-    com.unity.addressableassets: {fileID: 11400000, guid: daa3be360ca020943a060c3676bf231d, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-    com.unity.localization.settings: {fileID: 11400000, guid: 9141ebde84efc7f4d9e4a3676d84a95a, type: 2}
   m_UseUCBPForAssetBundles: 0
