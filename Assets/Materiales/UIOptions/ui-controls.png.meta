@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 003a2f0874d4e1a40a1faa09d7d24a26
+guid: ac90facdc1062a54d855961aad3bb1fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7205472966980041092
-    second: BrackNoGround2_0
+      213: 9369309683254763
+    second: ui-controls_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BrackNoGround2_0
+      name: ui-controls_0
       rect:
         serializedVersion: 2
-        x: 77
-        y: 143
-        width: 1436
-        height: 633
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7689744384010c90800000000000000
-      internalID: -7205472966980041092
+      spriteID: be506776659412000800000000000000
+      internalID: 9369309683254763
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BrackNoGround2_0: -7205472966980041092
+      ui-controls_0: 9369309683254763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

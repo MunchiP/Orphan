@@ -7,6 +7,9 @@ public class DialogueSO : MonoBehaviour, IInteractable
     [SerializeField] CharacterData characterData;
     [SerializeField] private GameObject exclamation;
     [TextArea] public string[] lines; // Almaceno las lineas de código que mostraré
+    // comentado para usar ahora el multilenguaje
+
+    // public string[] lineasKeys; // Para usar con multilenguaje
 
     [SerializeField] private bool stopPlayerMovement = false;
 
