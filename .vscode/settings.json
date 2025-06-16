@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "Orphan_.sln"
+    "dotnet.defaultSolution": "Orphan.sln"
 }

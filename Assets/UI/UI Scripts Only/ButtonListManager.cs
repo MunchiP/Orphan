@@ -453,24 +453,16 @@ public class ButtonListManager : MonoBehaviour
         SelectFirstButtonSafe();
     }
 
-    public void ChangeSceneToNextScene()
+    public void ChangeSceneByIndex(int scene)
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int totalScenes = SceneManager.sceneCountInBuildSettings;
 
-        Debug.Log("[MenuButtonListManager] Attempting to change scene to BossFight...");
-
-        if (currentSceneIndex >= totalScenes - 1)
-        {
-            Debug.Log("[MenuButtonListManager] Ya estás en la última escena.");
-            return;
-        }
-
         fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
         if (fadeToSceneScript != null)
         {
-            Debug.Log("[MenuButtonListManager] Fading to scene " + (currentSceneIndex + 1));
-            fadeToSceneScript.FadeToScene(currentSceneIndex + 1);
+            Debug.Log("[MenuButtonListManager] Fading to scene " + (scene));
+            fadeToSceneScript.FadeToScene(scene);
         }
         else
         {
@@ -478,29 +470,6 @@ public class ButtonListManager : MonoBehaviour
         }
     }
 
-    public void ChangeSceneToPreviousScene()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        Debug.Log("[MenuButtonListManager] Attempting to change to previous scene...");
-
-        if (currentSceneIndex <= 1)
-        {
-            Debug.Log("[MenuButtonListManager] Ya estás en la primera escena jugable.");
-            return;
-        }
-
-        fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
-        if (fadeToSceneScript != null)
-        {
-            Debug.Log("[MenuButtonListManager] Fading to scene " + (currentSceneIndex - 1));
-            fadeToSceneScript.FadeToScene(currentSceneIndex - 1);
-        }
-        else
-        {
-            Debug.LogWarning("FadeImageObjectMainCanvas missing on reload.");
-        }
-    }
 
     // Helper method para selección segura del primer botón en la lista
     private void SelectFirstButtonSafe()

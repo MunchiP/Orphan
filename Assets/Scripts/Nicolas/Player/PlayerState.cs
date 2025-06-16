@@ -6,6 +6,7 @@ public class PlayerState : MonoBehaviour
     public int vidaMaxima = 100;
     public int vidaActual;
     public bool primeraPureza = true;
+    private bool primerAscensor = true;
 
     [Header("Pureza")]
     public int purezaActual;
@@ -51,6 +52,11 @@ public class PlayerState : MonoBehaviour
         else
         {
             Debug.Log("no encontro manager tutorial script");
+        }
+        if (primerAscensor && managerTutorial != null && purezaActual>=90)
+        {
+            managerTutorial.ElevadorActivo();
+            primerAscensor = false;
         }
         purezaActual += cantidad; // ✅ Ya no hay límite superior
         Debug.Log("Pureza actual: " + purezaActual);

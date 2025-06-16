@@ -1,93 +1,96 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class FadeToBlack : MonoBehaviour
 {
-    
-    public Image fadeImageTitle;
-    public Image fadeImageInGame;
-    public float fadeDuration = 2f;
+    public Image fadeImage;              // Asignar desde el Inspector
+    public float fadeDuration = 2f;      // Duración del fade (igual para fade in y out)
+    public float fadeInDelay = 1f;       // Tiempo que espera antes de iniciar el fade in
 
-    public void Awake()
+    private void Awake()
     {
-        
+        DontDestroyOnLoad(gameObject); // Mantener este objeto entre escenas
     }
 
-    public void OnEnable()
+    private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (fadeImageTitle != null)
+        if (fadeImage != null)
         {
-            fadeImageTitle.color = new Color(0, 0, 0, 0);
-            fadeImageTitle.enabled = false;
+            fadeImage.color = new Color(0, 0, 0, 1f); // Comienza en negro
+            fadeImage.enabled = true;
+            StartCoroutine(FadeFromBlack());
         }
 
-        if (fadeImageInGame != null)
-        {
-            fadeImageInGame.color = new Color(0, 0, 0, 0);
-            fadeImageInGame.enabled = false;
-        }
-
-        Debug.Log("[FadeToBlack] Reset both fade images after scene load.");
+        Debug.Log("[FadeToBlack] Scene loaded: " + scene.name);
     }
 
-
-
-    public void Start()
-    {
-        
-            
-    }
     public void FadeToScene(int sceneIndex, System.Action beforeSceneLoad = null)
     {
-        Image imageToUse = null;
-
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-            imageToUse = fadeImageTitle;
-        else if (SceneManager.GetActiveScene().buildIndex != 0)
-            imageToUse = fadeImageInGame;
-
-        if (imageToUse != null)
+        if (fadeImage != null)
         {
-            StartCoroutine(FadeThenLoadScene(sceneIndex, imageToUse, beforeSceneLoad));
+            StartCoroutine(FadeThenLoadScene(sceneIndex, beforeSceneLoad));
         }
         else
         {
-            Debug.LogWarning("[FadeToBlack] No fade image assigned for current scene.");
+            Debug.LogWarning("[FadeToBlack] No fade image assigned.");
         }
     }
 
-    private IEnumerator FadeThenLoadScene(int sceneIndex, Image image, System.Action beforeSceneLoad)
+    private IEnumerator FadeThenLoadScene(int sceneIndex, System.Action beforeSceneLoad)
     {
-        image.enabled = true;
+        fadeImage.enabled = true;
         float time = 0f;
-        Color startColor = image.color;
-        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
+        Color startColor = fadeImage.color;
+        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 1f); // Fade a negro
 
         while (time < fadeDuration)
         {
             time += Time.unscaledDeltaTime;
             float t = Mathf.Clamp01(time / fadeDuration);
-            image.color = Color.Lerp(startColor, targetColor, t);
+            fadeImage.color = Color.Lerp(startColor, targetColor, t);
             yield return null;
         }
 
-        image.color = targetColor;
+        fadeImage.color = targetColor;
 
-        //  Run any custom logic BEFORE the scene loads
         beforeSceneLoad?.Invoke();
 
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadSceneAsync(sceneIndex);
+    }
+
+    private IEnumerator FadeFromBlack()
+    {
+        // Espera antes de empezar el fade in
+        if (fadeInDelay > 0f)
+        {
+            yield return new WaitForSecondsRealtime(fadeInDelay);
+        }
+
+        float time = 0f;
+        Color startColor = fadeImage.color;
+        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f); // Fade a transparente
+
+        while (time < fadeDuration)
+        {
+            time += Time.unscaledDeltaTime;
+            float t = Mathf.Clamp01(time / fadeDuration);
+            fadeImage.color = Color.Lerp(startColor, targetColor, t);
+            yield return null;
+        }
+
+        fadeImage.color = targetColor;
+        // No desactivamos la imagen, solo dejamos alpha 0
     }
 }
