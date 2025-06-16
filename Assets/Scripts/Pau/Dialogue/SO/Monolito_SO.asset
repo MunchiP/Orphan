@@ -15,5 +15,5 @@ MonoBehaviour:
   isMonolith: 1
   characterName: ~ Monolith ~
   portrait: {fileID: -4766046184718008398, guid: 7a8d23f9a32a64a4fa52b2939e45a43c, type: 3}
-  nameColor: {r: 0.0392157, g: 0.58431375, b: 0.39355066, a: 0}
+  nameColor: {r: 0.5, g: 0.30928618, b: 0.08726415, a: 1}
   textFont: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

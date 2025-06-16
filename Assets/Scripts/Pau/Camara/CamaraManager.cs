@@ -5,7 +5,7 @@ using UnityEngine;
 public class CamaraManager : MonoBehaviour
 {
 
-    public static CamaraManager instance;
+   /* public static CamaraManager instance;
 
     [SerializeField] private CinemachineVirtualCamera[] allVirtualCameras;
 
@@ -79,4 +79,5 @@ public class CamaraManager : MonoBehaviour
         }
         IsLerpingYDamping = false;
     }
+   */
 }
