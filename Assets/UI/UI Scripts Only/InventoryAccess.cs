@@ -6,10 +6,11 @@ public class InventoryAccess : MonoBehaviour, InputSystem_Actions.IUIActions
 {
     public GameObject tabScreen;
     
-    private bool isGameOnInventory;
+    public bool isGameOnInventory;
     private InputSystem_Actions controls;
     private InventoryPanelRotation menuRotationScript;
     private PauseMenuAccess pauseMenuAccessScript;
+
 
     void Awake()
     {

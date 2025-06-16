@@ -7,42 +7,37 @@ public class RollingCreditsController : MonoBehaviour
 {
     public List<GameObject> creditTextList = new List<GameObject>();
     private bool isPlaying;
-   
-    public void OnEnable()
+    private Coroutine runningCreditsCoroutine;
+    
+
+    public void PlayCredits()
     {
+        if (runningCreditsCoroutine != null)
+            StopCoroutine(runningCreditsCoroutine);
+
         isPlaying = true;
-        for (int i = 0; i < creditTextList.Count; i++)
+
+        foreach (GameObject creditText in creditTextList)
         {
-            creditTextList[i].SetActive(false);
+            creditText.SetActive(false);
         }
-        StartCoroutine(RollTheCredits());
+
+        runningCreditsCoroutine = StartCoroutine(RollTheCredits());
     }
 
-    void Start()
+    private IEnumerator RollTheCredits()
     {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
-
-    public IEnumerator RollTheCredits()
-    {
-        if (isPlaying)
+        foreach (GameObject creditText in creditTextList)
         {
-            foreach (GameObject creditText in creditTextList)
-            {
-                
-                creditText.SetActive(true);
-                yield return new WaitForSeconds(6.2f);
-                creditText.SetActive(false);
-                yield return new WaitForSeconds(2f);
-            }
-            isPlaying = false;
+            if (!isPlaying) yield break; // Exit early if stopped
+            creditText.SetActive(true);
+            yield return new WaitForSeconds(6.2f);
+            creditText.SetActive(false);
+            yield return new WaitForSeconds(2f);
         }
+
+        isPlaying = false;
+        runningCreditsCoroutine = null;
     }
 }
 
