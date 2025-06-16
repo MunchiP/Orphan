@@ -3,13 +3,11 @@ using UnityEngine;
 public class EnemyState : MonoBehaviour
 {
     public float vida = 100f;
-    public float vidaMaxima;
     private bool destruido = false;
     public EnemyDead enemyDead;
 
     void Start()
     {
-        vidaMaxima = vida;
         enemyDead = GetComponent<EnemyDead>();
     }
 

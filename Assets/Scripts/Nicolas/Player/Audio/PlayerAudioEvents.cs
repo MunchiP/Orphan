@@ -21,7 +21,6 @@ public class PlayerAudioEvents : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
-
     public void StopFX()
     {
         if (audioSource.isPlaying && audioSource.clip == fallClip)
@@ -29,38 +28,26 @@ public class PlayerAudioEvents : MonoBehaviour
             audioSource.Stop();
         }
     }
-
     public void Play(AudioClip clip, float pitch = 1f)
     {
-        if (clip == null) return;
-
+        if (clip == null || AudioManager.instance == null) return;
         if (audioSource.isPlaying && audioSource.clip == fallClip)
         {
             StopFX();
         }
-
-        float finalVolume = baseVolume;
-
-        if (AudioManager.Instance != null) // <--- FIXED: capital "I"
-        {
-            finalVolume *= AudioManager.Instance.sfxVolume;
-        }
-        else
-        {
-            Debug.LogWarning("AudioManager.Instance es null, usando solo baseVolume");
-        }
-
+        float finalVolume = baseVolume * AudioManager.instance.sfxSource.volume;
         audioSource.pitch = pitch;
         audioSource.PlayOneShot(clip, finalVolume);
         audioSource.pitch = 1f; // Restaurar pitch
     }
+
 
     // Métodos para eventos del Animator
     public void PlayWalk() => Play(walkClip);
     public void PlayWalk2() => Play(walkClip2);
     public void PlayAttack() => Play(attackClip);
     public void PlayJump() => Play(jumpClip);
-    public void PlayHurt() => Play(hurtClip, 1.5f);
+    public void PlayHurt() => Play(hurtClip, 1.5f); // Ej: más agudo
     public void PlayFall() => Play(fallClip, 3f);
     public void PlayDeath() => Play(deathClip);
 }
