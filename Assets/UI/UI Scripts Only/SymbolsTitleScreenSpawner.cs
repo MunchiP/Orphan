@@ -77,7 +77,7 @@ public class SymbolsTitleScreenSpawner : MonoBehaviour
 
     public void DeactivateSymbols()
     {
-        Debug.Log("Deactivating symbols");
+        Debug.Log("Kenneth es severa loca");
         StopAllCoroutines();
         for (int i = 0; i < clonedSymbolList.Count; i++)
         {
