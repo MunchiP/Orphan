@@ -109,7 +109,7 @@ public class EnemigoPatrulla : MonoBehaviour
             if (knockback != null)
             {
                 Vector2 contactPoint = collision.contacts[0].point;
-                knockback.ApplyKnockback(contactPoint);
+                knockback.ApplyKnockback(contactPoint, this.transform);
             }
         }
     }
