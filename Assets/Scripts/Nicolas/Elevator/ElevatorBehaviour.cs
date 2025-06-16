@@ -43,17 +43,17 @@ public class ElevatorBehaviour : MonoBehaviour
             !elevatorActivated)
         {
             // Solo pide pureza si estamos en escena 1 y no se ha desbloqueado aún
-             if (SceneManager.GetActiveScene().buildIndex == 1 && !hasUnlockedElevator)
-             {
-                if (playerState.purezaActual < 90)
-                {
-                     Debug.Log("No tienes suficiente pureza para activar el ascensor.");
-                     return;
-                }
+            // if (SceneManager.GetActiveScene().buildIndex == 1 && !hasUnlockedElevator)
+            // {
+            //     if (playerState.purezaActual < 90)
+            //     {
+            //         Debug.Log("No tienes suficiente pureza para activar el ascensor.");
+            //         return;
+            //     }
 
             //     // ✅ Si tenía la pureza suficiente, ya no se vuelve a pedir
-                 hasUnlockedElevator = true;
-             }
+            //     hasUnlockedElevator = true;
+            // }
 
             elevatorActivated = true;
 
