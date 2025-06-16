@@ -40,6 +40,11 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
 
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+{
+    // Puedes dejarlo vacÃ­o si no necesitas que haga nada
+}
+
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log($"[EscMenuBehaviour] OnSceneLoaded called for: {scene.name}");
@@ -109,7 +114,7 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
 
         if (context.performed && !pauseScript.enabled)
         {
-            // We're on the title — only use GoBack()
+            // We're on the title ï¿½ only use GoBack()
             universalButtonListManager.GoBack();
         }
         else if(context.performed && pauseScript.enabled)

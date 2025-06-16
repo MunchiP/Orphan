@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class InventoryAccess : MonoBehaviour, InputSystem_Actions.IUIActions
 {
     public GameObject tabScreen;
-    
+
     public bool isGameOnInventory;
     private InputSystem_Actions controls;
     private InventoryPanelRotation menuRotationScript;
@@ -28,8 +28,11 @@ public class InventoryAccess : MonoBehaviour, InputSystem_Actions.IUIActions
     void OnDisable()
     {
         controls.Disable();
-    }    
-
+    }
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        // Puedes dejarlo vacío si no necesitas que haga nada
+    }
     void Start()
     {
         menuRotationScript = GetComponent<InventoryPanelRotation>();
@@ -38,15 +41,15 @@ public class InventoryAccess : MonoBehaviour, InputSystem_Actions.IUIActions
         isGameOnInventory = false;
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
     public void OnCancel(InputAction.CallbackContext context)
     {
-        
+
     }
 
     public void OnClick(InputAction.CallbackContext context)

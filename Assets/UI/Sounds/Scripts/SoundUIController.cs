@@ -7,10 +7,16 @@ public class SoundUIController : MonoBehaviour
 
     public Slider musicSlider, sfxSlider;
 
-    public void Awake()
+    void Awake()
     {
-        
-            
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject); // Evita duplicados
+            return;
+        }
+
+        instance = this;
+        // Opcional: DontDestroyOnLoad(gameObject); si quieres que persista entre escenas
     }
 
     public void ToggleMusic()
@@ -35,12 +41,11 @@ public class SoundUIController : MonoBehaviour
 
     void Start()
     {
-        
+        // Opcional: puedes sincronizar sliders aquí si es necesario
     }
 
-    
     void Update()
     {
-        
+        // No usado por ahora
     }
 }

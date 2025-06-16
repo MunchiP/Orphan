@@ -15,7 +15,7 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
     public List<GameObject> buttonList = new List<GameObject>();
     public int buttonToMoveOnto;
     private GameObject currentButton;
-    
+
     public int lastButtonIndex = -1;
     private bool submitBlocked = false;
     private float submitBlockTime = 0.3f; // 100ms, tweak as needed
@@ -43,6 +43,10 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
         buttonToMoveOnto = -1;
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        // Puedes dejarlo vacío si no necesitas que haga nada
+    }
 
     void Start()
     {
@@ -53,22 +57,22 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
     public void RestartSelection(int startIndex = 0)
     {
-        
+
 
         if (buttonList.Count == 0) return;
         buttonToMoveOnto = Mathf.Clamp(startIndex, 0, buttonList.Count - 1);
         buttonList[buttonToMoveOnto].GetComponent<Button>().Select();
         lastButtonIndex = buttonToMoveOnto;
 
-        
+
     }
 
-  
 
 
-    
 
-   
+
+
+
 
     void Update()
     {

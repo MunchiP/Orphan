@@ -41,6 +41,11 @@ public class VerticalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIActi
 
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+{
+    // Puedes dejarlo vacío si no necesitas que haga nada
+}
+
     void OnDisable()
     {
         controlsUITitle.Disable();

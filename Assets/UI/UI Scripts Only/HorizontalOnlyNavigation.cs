@@ -129,6 +129,11 @@ public class HorizontalOnlyNavigation : MonoBehaviour, InputSystem_Actions.IUIAc
     {
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+{
+    // Puedes dejarlo vacío si no necesitas que haga nada
+}
+
     public void OnNavigate(InputAction.CallbackContext context)
     {
         if (isMouseControlling) return;

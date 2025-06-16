@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems; // Importante para ISelectHandler
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class SliderButtonController : MonoBehaviour, ISelectHandler // <--- Implementar ISelectHandler
+public class SliderButtonController : MonoBehaviour, ISelectHandler
 {
     public Slider slider;
     public Sprite spriteOn;
@@ -12,50 +12,35 @@ public class SliderButtonController : MonoBehaviour, ISelectHandler // <--- Impl
     public float step = 0.2f;
     public float repeatRate = 0.1f;
     public bool requiereSeleccion = true;
-    public bool esMusica = true; // ✅ Activa esta opción si este slider es de música
+    public bool esMusica = true; // Si este slider controla música
 
     private float holdTimer = 0f;
     private float lastNonZeroValue = 1f;
 
     void Start()
     {
-        // Verificar asignación de componentes esenciales
         if (slider == null)
         {
-            Debug.LogError("Slider no asignado en el Inspector para " + gameObject.name + ". Este script no funcionará correctamente.", this);
-            enabled = false; // Deshabilitar el script para evitar más errores
+            Debug.LogError("Slider no asignado en " + gameObject.name, this);
+            enabled = false;
             return;
         }
         if (imageSwitch == null)
-        {
-            Debug.LogError("Image Switch no asignado en el Inspector para " + gameObject.name + ". La imagen del interruptor no se actualizará.", this);
-            // No deshabilitamos el script, ya que el slider aún puede funcionar
-        }
-        if (spriteOn == null)
-        {
-            Debug.LogWarning("Sprite On no asignado para " + gameObject.name + ". El sprite no cambiará a 'ON'.", this);
-        }
-        if (spriteOff == null)
-        {
-            Debug.LogWarning("Sprite Off no asignado para " + gameObject.name + ". El sprite no cambiará a 'OFF'.", this);
-        }
+            Debug.LogWarning("Image Switch no asignado en " + gameObject.name, this);
 
-        // Verificar la existencia del AudioManager
-        if (AudioManager.Instance == null)
+        if (AudioManager.instance == null)
         {
-            Debug.LogError("No se encontró una instancia de AudioManager en la escena. Asegúrate de tener un GameObject con el script AudioManager.", this);
-            // El script podría seguir funcionando para el slider visual, pero no guardará/cargará volumen.
+            Debug.LogError("No se encontró AudioManager en la escena", this);
         }
         else
         {
-            // Cargar el valor inicial del AudioManager
-            float initialValue = esMusica ? AudioManager.Instance.GetMusicVolume() : AudioManager.Instance.GetSFXVolume();
+            float initialValue = esMusica ? AudioManager.instance.GetMusicVolume() : AudioManager.instance.GetSFXVolume();
             slider.value = initialValue;
             lastNonZeroValue = initialValue > 0 ? initialValue : 1f;
         }
 
         slider.onValueChanged.AddListener(OnSliderValueChanged);
-        OnSliderValueChanged(slider.value); // Para inicializar el sprite correctamente al inicio
+        OnSliderValueChanged(slider.value);
     }
 
     void Update()
@@ -64,16 +49,15 @@ public class SliderButtonController : MonoBehaviour, ISelectHandler // <--- Impl
 
         if (requiereSeleccion && EventSystem.current != null)
         {
-            // Solo procesa la entrada si este GameObject está seleccionado
             if (EventSystem.current.currentSelectedGameObject != gameObject)
             {
-                holdTimer = repeatRate; // Resetea el temporizador cuando no está seleccionado
+                holdTimer = repeatRate;
                 return;
             }
         }
         else if (requiereSeleccion && EventSystem.current == null)
         {
-            Debug.LogWarning("No se encontró un EventSystem en la escena. Si 'requiereSeleccion' es verdadero, la entrada del teclado puede no funcionar como se espera.", this);
+            Debug.LogWarning("No se encontró EventSystem en la escena", this);
         }
 
         float input = 0f;
@@ -85,10 +69,6 @@ public class SliderButtonController : MonoBehaviour, ISelectHandler // <--- Impl
             else if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed)
                 input = 1f;
         }
-        else
-        {
-            Debug.LogWarning("No se detectó un teclado. La entrada por teclado no funcionará para " + gameObject.name, this);
-        }
 
         if (Mathf.Abs(input) > 0.1f)
         {
@@ -97,7 +77,7 @@ public class SliderButtonController : MonoBehaviour, ISelectHandler // <--- Impl
             if (holdTimer >= repeatRate)
             {
                 float newValue = Mathf.Clamp(slider.value + step * input, slider.minValue, slider.maxValue);
-                slider.value = newValue; // Esto triggea OnSliderValueChanged
+                slider.value = newValue;
                 holdTimer = 0f;
             }
         }
@@ -107,28 +87,15 @@ public class SliderButtonController : MonoBehaviour, ISelectHandler // <--- Impl
         }
     }
 
-    // --- NUEVO MÉTODO PARA CUANDO EL BOTÓN ES SELECCIONADO ---
     public void OnSelect(BaseEventData eventData)
     {
-        // Asegúrate de que el AudioManager exista antes de intentar obtener su valor
-        if (AudioManager.Instance != null && slider != null)
+        if (AudioManager.instance != null && slider != null)
         {
-            float currentValue = esMusica ? AudioManager.Instance.GetMusicVolume() : AudioManager.Instance.GetSFXVolume();
+            float currentValue = esMusica ? AudioManager.instance.GetMusicVolume() : AudioManager.instance.GetSFXVolume();
             slider.value = currentValue;
-            // También podemos llamar a OnSliderValueChanged para actualizar la imagen del switch si es necesario
             OnSliderValueChanged(currentValue);
-            Debug.Log($"Slider {gameObject.name} actualizado al ser seleccionado. Valor: {currentValue}");
-        }
-        else
-        {
-            // Mensajes de depuración si faltan referencias
-            if (AudioManager.Instance == null)
-                Debug.LogError("AudioManager.Instance es nulo al seleccionar el slider. No se puede actualizar el valor.", this);
-            if (slider == null)
-                Debug.LogError("El slider es nulo al seleccionar el GameObject. No se puede actualizar el valor.", this);
         }
     }
-    // --------------------------------------------------------
 
     public void ToggleSwitch()
     {
@@ -149,22 +116,15 @@ public class SliderButtonController : MonoBehaviour, ISelectHandler // <--- Impl
     {
         if (imageSwitch != null)
         {
-            if (value > 0)
-            {
-                imageSwitch.sprite = spriteOn;
-            }
-            else
-            {
-                imageSwitch.sprite = spriteOff;
-            }
+            imageSwitch.sprite = value > 0 ? spriteOn : spriteOff;
         }
-        
-        if (AudioManager.Instance != null)
+
+        if (AudioManager.instance != null)
         {
             if (esMusica)
-                AudioManager.Instance.SetMusicVolume(value);
+                AudioManager.instance.SetMusicVolume(value);
             else
-                AudioManager.Instance.SetSFXVolume(value);
+                AudioManager.instance.SetSFXVolume(value);
         }
     }
 }
