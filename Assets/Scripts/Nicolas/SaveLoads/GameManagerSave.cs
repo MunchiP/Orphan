@@ -45,6 +45,11 @@ public class GameManagerSave : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("scene"))
         {
+            if (Time.timeScale < 1)
+            {
+                Time.timeScale = 1f;
+            }
+
             string escena = PlayerPrefs.GetString("scene");
 
             // Poner la bandera para que PlayerState cargue datos desde checkpoint al iniciar la escena

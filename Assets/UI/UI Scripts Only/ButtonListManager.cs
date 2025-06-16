@@ -407,7 +407,10 @@ public class ButtonListManager : MonoBehaviour
 
     public void ChangeSceneToTitle()
     {
-
+        if (Time.timeScale < 1)
+        {
+            Time.timeScale = 1f;
+        }
         fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
         if (fadeToSceneScript != null)
         {

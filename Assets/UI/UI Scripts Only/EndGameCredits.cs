@@ -53,7 +53,6 @@ public class EndGameCredits : MonoBehaviour
         {
             yield return null;
         }
-
         EndCredits.SetActive(true);
         escScript.isCreditsActive = true;
         RollingCreditsController.PlayCredits();
