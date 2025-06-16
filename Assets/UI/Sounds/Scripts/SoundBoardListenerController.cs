@@ -10,7 +10,7 @@ public class SoundBoardListenerController : MonoBehaviour
     private Button sfxToggle;
     public GameObject AudioManager;
     private AudioManager soundManagerScript;
-      
+
 
     void OnEnable()
     {
@@ -24,10 +24,11 @@ public class SoundBoardListenerController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        soundManagerScript = AudioManager.GetComponent<AudioManager>(); // <- esta línea es necesaria
 
         musicToggle = music.GetComponent<Button>();
+        sfxToggle = sfx.GetComponent<Button>();
 
-        
         musicToggle.onClick.RemoveAllListeners();
         musicToggle.onClick.AddListener(() => soundManagerScript.ToggleMusic());
 

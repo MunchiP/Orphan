@@ -2,16 +2,21 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
 
 public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
 {
     public GameObject escapeScreen;
+    public GameObject escapeScreenBackground;
+    public GameObject escapeKey;
 
     private bool isGameOnPauseMenu;
     private InputSystem_Actions controls;
     private InventoryAccess inventoryAccessScript;
     private MenuButtonListManager menuButtonListManager;
     private PauseMenuNavigation pauseMenuNavigationScript;
+    private EscMenuBehaviour escapeKeyScript;
 
     void Awake()
     {
@@ -20,14 +25,15 @@ public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
         inventoryAccessScript = gameObject.GetComponent<InventoryAccess>();
         menuButtonListManager = gameObject.GetComponent<MenuButtonListManager>();
         pauseMenuNavigationScript = gameObject.GetComponent<PauseMenuNavigation>();
-        
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
+
     }
 
     void OnEnable()
     {
         controls.Enable();
         isGameOnPauseMenu = false;
-        
+
     }
 
     void OnDisable()
@@ -37,6 +43,7 @@ public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
 
     void Start()
     {
+        // Initialize button layout once at startup, then hide pause UI
         escapeScreen.SetActive(false);
         isGameOnPauseMenu = false;
 
@@ -45,16 +52,55 @@ public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
         menuButtonListManager.ShowPauseMenu();
         pauseMenuNavigationScript.RestartSelection(0);
 
-        
+
 
         escapeScreen.SetActive(false);
         Time.timeScale = 1f;
-        
 
-       
 
     }
 
+    private void PauseGame()
+    {
+        isGameOnPauseMenu = true;
+        inventoryAccessScript.enabled = false;
+        menuButtonListManager.ShowPauseMenu();
+
+        if (escapeScreen != null)
+        {
+            escapeScreenBackground.SetActive(true);
+            escapeScreen.SetActive(true);
+            Time.timeScale = 0f;
+
+            StartCoroutine(UnblockSubmitNextFrame());
+        }
+        else
+        {
+            Debug.LogWarning("Pause UI layers are missing in the scene.");
+        }
+    }
+
+    private void UnpauseGame()
+    {
+        isGameOnPauseMenu = false;
+        inventoryAccessScript.enabled = true;
+        escapeScreenBackground.SetActive(false);
+        escapeScreen.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    private IEnumerator UnblockSubmitNextFrame()
+    {
+        yield return null; // wait 1 frame
+        pauseMenuNavigationScript.UnblockSubmit();
+    }
+
+    public void PressingContinue()
+    {
+       
+            UnpauseGame();
+       
+    }
 
     void Update()
     {
@@ -67,41 +113,14 @@ public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
         {
             if (!isGameOnPauseMenu)
             {
-                isGameOnPauseMenu = true;
-                inventoryAccessScript.enabled = false;
-                menuButtonListManager.ShowPauseMenu();
-                if (escapeScreen != null)
-                {
-                    inventoryAccessScript.enabled = false;
-                    escapeScreen.SetActive(true);
-
-                    Time.timeScale = 0f;
-                }
-                else if (escapeScreen == null)
-                {
-                    Debug.Log("Either one or both Pause Main Layers are missing on the scene");
-                }
+                PauseGame();
             }
-            else if (isGameOnPauseMenu)
+            else if (isGameOnPauseMenu && escapeKeyScript.onPauseMainMenu)
             {
-                isGameOnPauseMenu = false;
-                if (escapeScreen != null)
-                {
-                    inventoryAccessScript.enabled = true;
-                    pauseMenuNavigationScript.RestartSelection();
-                    escapeScreen.SetActive(false);
-
-                    Time.timeScale = 1f;
-                }
-                else if (escapeScreen == null)
-                {
-                    Debug.Log("Either one or both Pause Main Layers are missing on the scene");
-                }
+                UnpauseGame();
             }
-
         }
     }
-
     public void OnClick(InputAction.CallbackContext context)
     {
     }
