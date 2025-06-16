@@ -5,164 +5,160 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
 
-public class PauseMenuAccess : MonoBehaviour
+public class PauseMenuAccess : MonoBehaviour, InputSystem_Actions.IUIActions
 {
     public GameObject escapeScreen;
     public GameObject escapeScreenBackground;
     public GameObject escapeKey;
 
-    public bool isGameOnPauseMenu;
-    
+    private bool isGameOnPauseMenu;
+    private InputSystem_Actions controls;
     private InventoryAccess inventoryAccessScript;
-    private ButtonListManager universalButtonListManager;
+    private MenuButtonListManager menuButtonListManager;
     private PauseMenuNavigation pauseMenuNavigationScript;
     private EscMenuBehaviour escapeKeyScript;
 
-
     void Awake()
     {
-        
+        controls = new InputSystem_Actions();
+        controls.UI.SetCallbacks(this);
+        inventoryAccessScript = gameObject.GetComponent<InventoryAccess>();
+        menuButtonListManager = gameObject.GetComponent<MenuButtonListManager>();
+        pauseMenuNavigationScript = gameObject.GetComponent<PauseMenuNavigation>();
+        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
 
-        inventoryAccessScript = GetComponent<InventoryAccess>();
-        universalButtonListManager = GetComponent<ButtonListManager>();
-        pauseMenuNavigationScript = GetComponent<PauseMenuNavigation>();
     }
 
     void OnEnable()
     {
-        
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        controls.Enable();
+        isGameOnPauseMenu = false;
+
     }
 
     void OnDisable()
     {
-        
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        controls.Disable();
     }
 
-    
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    void Start()
     {
-        Debug.Log("Scene loaded: " + scene.buildIndex);
-
-        if (scene.buildIndex != 0) // In-Game scene
-        {
-            Debug.Log("Enabling PauseMenuAccess for In-Game scene");
-            
-
-            isGameOnPauseMenu = false;
-
-            // Ensure no paused state lingers
-            ResetPauseMenuVisuals();
-
-            universalButtonListManager.isFirstTimeOpeningPause = true;
-            InitializePauseMenu();
-        }
-        else
-        {
-            Debug.Log("Disabling PauseMenuAccess for Title scene");
-
-            // Reset pause UI visuals in case scene transition occurred mid-pause
-            ResetPauseMenuVisuals();
-
-            
-        }
-    }
-
-    public void TogglePause()
-    {
-        if (!isGameOnPauseMenu)
-            PauseGame();
-        else
-            UnpauseGame();
-    }
-    private void ResetPauseMenuVisuals()
-    {
-        if (escapeScreen != null)
-            escapeScreen.SetActive(false);
-
-        if (escapeScreenBackground != null)
-            escapeScreenBackground.SetActive(false);
-
-        isGameOnPauseMenu = false;
-        Time.timeScale = 1f;
-
-        Debug.Log("[PauseMenuAccess] Reset pause menu visuals.");
-    }
-    private void InitializePauseMenu()
-    {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            this.enabled = false; // Disable self on Title
-            return;
-        }
-
-        // Initialize required references (if not already assigned)
-        inventoryAccessScript = GetComponent<InventoryAccess>();
-        universalButtonListManager = GetComponent<ButtonListManager>();
-        pauseMenuNavigationScript = GetComponent<PauseMenuNavigation>();
-        escapeKeyScript = escapeKey.GetComponent<EscMenuBehaviour>();
-
-        // Reset pause menu state
+        // Initialize button layout once at startup, then hide pause UI
         escapeScreen.SetActive(false);
-        escapeScreenBackground.SetActive(false);
         isGameOnPauseMenu = false;
 
-        // Prepare layout (temporary activation for layout to be ready)
         escapeScreen.SetActive(true);
-        universalButtonListManager.ShowPauseMenu();
+
+        menuButtonListManager.ShowPauseMenu();
         pauseMenuNavigationScript.RestartSelection(0);
+
+
+
         escapeScreen.SetActive(false);
-
-        // Ensure game is running
         Time.timeScale = 1f;
+
+
     }
 
-    public bool IsGamePaused()
+    private void PauseGame()
     {
-        return isGameOnPauseMenu;
-    }
-
-    public void PauseGame()
-    {
-        if (isGameOnPauseMenu) return;
-
         isGameOnPauseMenu = true;
-        Time.timeScale = 0f;
-
         inventoryAccessScript.enabled = false;
-        escapeScreen.SetActive(true);
-        escapeScreenBackground.SetActive(true);
+        menuButtonListManager.ShowPauseMenu();
 
-        universalButtonListManager.ShowPauseMenu();
-        pauseMenuNavigationScript.RestartSelection(0);
-        StartCoroutine(UnblockSubmitNextFrame());
+        if (escapeScreen != null)
+        {
+            escapeScreenBackground.SetActive(true);
+            escapeScreen.SetActive(true);
+            Time.timeScale = 0f;
+
+            StartCoroutine(UnblockSubmitNextFrame());
+        }
+        else
+        {
+            Debug.LogWarning("Pause UI layers are missing in the scene.");
+        }
     }
 
-    public void UnpauseGame()
+    private void UnpauseGame()
     {
-        if (!isGameOnPauseMenu) return;
-
-        universalButtonListManager.navigation.buttonList.Clear();
         isGameOnPauseMenu = false;
-        Time.timeScale = 1f;
-
         inventoryAccessScript.enabled = true;
-        escapeScreen.SetActive(false);
         escapeScreenBackground.SetActive(false);
+        escapeScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     private IEnumerator UnblockSubmitNextFrame()
     {
-        yield return null;
+        yield return null; // wait 1 frame
         pauseMenuNavigationScript.UnblockSubmit();
     }
 
     public void PressingContinue()
     {
-        UnpauseGame();
+       
+            UnpauseGame();
+       
     }
 
-      
+    void Update()
+    {
+
+    }
+
+    public void OnCancel(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (!isGameOnPauseMenu)
+            {
+                PauseGame();
+            }
+            else if (isGameOnPauseMenu && escapeKeyScript.onPauseMainMenu)
+            {
+                UnpauseGame();
+            }
+        }
+    }
+    public void OnClick(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnMiddleClick(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnNavigate(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnPoint(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnRightClick(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnScrollWheel(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnSubmit(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnTrackedDevicePosition(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+       
+    }
 }

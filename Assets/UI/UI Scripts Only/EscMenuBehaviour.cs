@@ -7,71 +7,52 @@ using UnityEngine.UI;
 public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
 {
     public GameObject GameManager;
-    
+    public GameObject inGamePauseCanvas;
     private InputSystem_Actions controlsUI;
-    private PauseMenuNavigation universalNavigationScript;
-    private ButtonListManager universalButtonListManager;
-    public PauseMenuAccess pauseScript;
+    private TitleSceneAndButtonFunction titlenavigationscript;
+    private MenuButtonListManager menuButtonListManager;
     public bool onTitleMainMenu = false;
     public bool onPauseMainMenu = false;
     private TextMeshProUGUI escapeTMP;
-    public bool isCreditsActive = false;
-    public bool isGameOverActive = false;
 
     void Awake()
     {
-        Debug.Log("[EscMenuBehaviour] Awake - Subscribing to sceneLoaded");
         controlsUI = new InputSystem_Actions();
         controlsUI.UI.SetCallbacks(this);
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void OnEnable()
     {
         controlsUI.Enable();
-        
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
     }
     public void OnDisable()
     {
         controlsUI.Disable();
-        
+        SceneManager.sceneLoaded -= OnSceneLoaded;
 
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[EscMenuBehaviour] OnSceneLoaded called for: {scene.name}");
-        int index = scene.buildIndex;
-
-        // Title Scene
-        if (index == 0)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            Debug.Log("making ontitlemainmenu true and onpausemainmenu false");
-            onTitleMainMenu = true;
-            onPauseMainMenu = false;
-
-            // Ensure pause-related systems are disabled in title
-            //GameManager.GetComponent<PauseMenuAccess>().enabled = false;
-            Time.timeScale = 1f; // Just in case we came from paused state
-        }
-        // In-Game Scene
-        else if (index != 0)
-        {
-            Debug.Log("making ontitlemainmenu false and onpausemainmenu true");
             onTitleMainMenu = false;
             onPauseMainMenu = true;
-
-            // Enable pause logic for gameplay
-            GameManager.GetComponent<PauseMenuAccess>().enabled = true;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            Debug.Log("im on title scene");
+            onTitleMainMenu = true;
+            onPauseMainMenu = false;
         }
     }
 
     void Start()
     {
-        universalNavigationScript = GameManager.GetComponent<PauseMenuNavigation>();
-        universalButtonListManager = GameManager.GetComponent<ButtonListManager>();
+        titlenavigationscript = GameManager.GetComponent<TitleSceneAndButtonFunction>();
+        menuButtonListManager = inGamePauseCanvas.GetComponent<MenuButtonListManager>();
         escapeTMP = gameObject.GetComponent<TextMeshProUGUI>();
     }
 
@@ -101,34 +82,13 @@ public class EscMenuBehaviour : MonoBehaviour, InputSystem_Actions.IUIActions
 
     public void OnCancel(InputAction.CallbackContext context)
     {
-        if (!context.performed || isCreditsActive || isGameOverActive)
+        if(context.performed)
         {
-            Debug.Log("im blocking Esc");
-            return;
-        }
-
-        if (context.performed && !pauseScript.enabled)
-        {
-            // We're on the title — only use GoBack()
-            universalButtonListManager.GoBack();
-        }
-        else if(context.performed && pauseScript.enabled)
-        {
-            if (!pauseScript.isGameOnPauseMenu)
+            if(!onPauseMainMenu)
             {
-                pauseScript.PauseGame();
-            }
-            else if(pauseScript.isGameOnPauseMenu && onPauseMainMenu)
-            {
-                pauseScript.UnpauseGame();
-            }
-            else if (pauseScript.isGameOnPauseMenu && !onPauseMainMenu)
-            {
-                universalButtonListManager.GoBack();
-                
+                menuButtonListManager.GoBack();
             }
         }
-        
     }
 
     public void OnClick(InputAction.CallbackContext context)

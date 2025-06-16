@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ken/MainGameKen 1.unity
     guid: a3bd633a64df37f48a1169422800e006
-  - enabled: 1
-    path: Assets/UI/ThirdScene.unity
-    guid: f1a68ca12e28ca748a5fe67b2fdb8143
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
