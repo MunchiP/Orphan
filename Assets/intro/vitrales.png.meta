@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      vitrales_0: -7567492643878326629
+      vitrales_1: -5030750851902056777
+      vitrales_2: -6487999750620171206
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
