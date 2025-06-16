@@ -17,6 +17,8 @@ public class MapManagerUI : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(mapaCanvas);
+            DontDestroyOnLoad(zonaContainer.gameObject);
         }
         else
         {
