@@ -34,13 +34,13 @@ public class MapManagerUI : MonoBehaviour
             Debug.Log("Zona registrada: " + zona.zoneID + " (" + zona.gameObject.name + ")");
         }
     }
-    
+
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-             Debug.Log("Tab presionado");
+            Debug.Log("Tab presionado");
             mapaCanvas.SetActive(!mapaCanvas.activeSelf);
         }
     }
@@ -48,15 +48,15 @@ public class MapManagerUI : MonoBehaviour
     public void RevelarZona(string id)
     {
         if (!zonasReveladas.Contains(id) && zonas.ContainsKey(id))
-            {
-                zonas[id].Reveal();
-                zonasReveladas.Add(id);
-                Debug.Log($"Revelando zona con ID: {id}");
-            }
-            else if (!zonas.ContainsKey(id))
-            {
-                Debug.LogWarning($"Zona con ID '{id}' no encontrada.");
-            }
+        {
+            zonas[id].Reveal();
+            zonasReveladas.Add(id);
+            Debug.Log($"Revelando zona con ID: {id}");
+        }
+        else if (!zonas.ContainsKey(id))
+        {
+            Debug.LogWarning($"Zona con ID '{id}' no encontrada.");
+        }
     }
 
 }
