@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -17,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     // [SerializeField] private TextMeshProUGUI characterNameColor;
     [SerializeField] private Image characterImage;
 
-    private Queue<string> dialogueLines;
+    private Queue<string> dialogueKeys;
     private Coroutine typingCoroutine;
 
     private string currentLine; // <-- Guarda la línea actual que se está tipeando
@@ -41,7 +42,7 @@ public class DialogueManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        dialogueLines = new Queue<string>();
+        dialogueKeys = new Queue<string>();
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -51,7 +52,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     // public void StartDialogue(string[] lines) // modifico el parametro para agregar la validacion de quien detiene al jugador y quien no
-    public void StartDialogue(string[] lines, bool stopPlayer = false) // parametro que se complementa en DialogueSO
+    public void StartDialogue(string[] keys, bool stopPlayer = false) // parametro que se complementa en DialogueSO
     {
         if (!dialogueBox.activeInHierarchy)
         {
@@ -65,11 +66,11 @@ public class DialogueManager : MonoBehaviour
                 }
             }
             dialogueBox.SetActive(true);
-            dialogueLines.Clear();
+            dialogueKeys.Clear();
 
-            foreach (string line in lines)
+            foreach (string key in keys)
             {
-                dialogueLines.Enqueue(line);
+                dialogueKeys.Enqueue(key);
             }
             DisplayNextLine();
         }
@@ -81,7 +82,7 @@ public class DialogueManager : MonoBehaviour
                 typingCoroutine = null;
             }
 
-            dialogueLines.Clear();
+            dialogueKeys.Clear();
             dialogueBox.SetActive(false);
 
             if (playerControllerScript != null) // refuerzo de reactivar el movimiento jugador
@@ -93,20 +94,20 @@ public class DialogueManager : MonoBehaviour
 
     void DisplayNextLine()
     {
-        if (dialogueLines.Count == 0)
+        if (dialogueKeys.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        currentLine = dialogueLines.Dequeue(); // GUARDO la línea actual aquí
+        string nextKey = dialogueKeys.Dequeue(); // GUARDO la línea actual aquí
 
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
         }
 
-        typingCoroutine = StartCoroutine(TypeLine(currentLine));
+        typingCoroutine = StartCoroutine(TypeLine(nextKey));
     }
 
     private IEnumerator TypeLine(string line)
@@ -129,7 +130,7 @@ public class DialogueManager : MonoBehaviour
             typingCoroutine = null;
         }
 
-        dialogueLines.Clear(); // Asegura que siempre se limpie
+        dialogueKeys.Clear(); // Asegura que siempre se limpie
         dialogueBox.SetActive(false);
 
         if (shouldStopPlayer)
@@ -177,4 +178,203 @@ public class DialogueManager : MonoBehaviour
 
         DisplayNextLine();
     }
+
+
+
+    // metodo del multilenguaje
+
+    private IEnumerator TranslateAndTypeLine(string key)
+        {
+            var tableName = "Dialogues"; // Usa el nombre exacto de tu tabla de localización
+            var op = LocalizationSettings.StringDatabase.GetLocalizedStringAsync(tableName, key);
+
+            yield return op;
+
+            currentLine = op.Result;
+            dialogueText.text = "";
+
+            foreach (char c in currentLine)
+            {
+                dialogueText.text += c;
+                yield return new WaitForSeconds(0.04f);
+            }
+
+            typingCoroutine = null;
+        }
 }
+
+
+
+// antes de la implementacion del multilenguaje
+
+    // // // // public static DialogueManager Instance;
+
+    // // // // // Relaciono los mismos elementos que deben estar en el CharacterData que son los del ScriptableObject
+    // // // // [SerializeField] private GameObject dialogueBox;
+    // // // // [SerializeField] private GameObject dialogueBox2;
+    // // // // // [SerializeField] private Image dialogueBoxImg;
+    // // // // [SerializeField] private TextMeshProUGUI dialogueText;
+    // // // // [SerializeField] private TextMeshProUGUI characterName;
+    // // // // // [SerializeField] private TextMeshProUGUI characterNameColor;
+    // // // // [SerializeField] private Image characterImage;
+
+    // // // // private Queue<string> dialogueLines;
+    // // // // private Coroutine typingCoroutine;
+
+    // // // // private string currentLine; // <-- Guarda la línea actual que se está tipeando
+
+    // // // // // diccionario de imagenes de los monolithssss
+    // // // // public HelperMonolithData helperMonolithData;
+
+    // // // // // Para no tocar el script del jugador lo referencio aca para bloquearlo mientras habla con el pangolin
+    // // // // public MonoBehaviour playerControllerScript;
+
+    // // // // private bool shouldStopPlayer; // detener al jugador
+
+    // // // // private void Awake()
+    // // // // {
+    // // // //     if (Instance == null)
+    // // // //     {
+    // // // //         Instance = this;
+    // // // //         DontDestroyOnLoad(gameObject);
+    // // // //     }
+    // // // //     else
+    // // // //     {
+    // // // //         Destroy(gameObject);
+    // // // //     }
+    // // // //     dialogueLines = new Queue<string>();
+
+    // // // //     GameObject player = GameObject.FindGameObjectWithTag("Player");
+    // // // //     if (player != null)
+    // // // //     {
+    // // // //         playerControllerScript = player.GetComponent<MonoBehaviour>(); // hago referencia al script del jugador
+    // // // //     }
+    // // // // }
+
+    // // // // // public void StartDialogue(string[] lines) // modifico el parametro para agregar la validacion de quien detiene al jugador y quien no
+    // // // // public void StartDialogue(string[] lines, bool stopPlayer = false) // parametro que se complementa en DialogueSO
+    // // // // {
+    // // // //     if (!dialogueBox.activeInHierarchy)
+    // // // //     {
+    // // // //         if (shouldStopPlayer)
+    // // // //         {
+    // // // //             PlayerController player = FindAnyObjectByType<PlayerController>();
+
+    // // // //             if (player != null)
+    // // // //             {
+    // // // //                 player.enabled = false; // detener al jugador incluso aunque siga caminando
+    // // // //             }
+    // // // //         }
+    // // // //         dialogueBox.SetActive(true);
+    // // // //         dialogueLines.Clear();
+
+    // // // //         foreach (string line in lines)
+    // // // //         {
+    // // // //             dialogueLines.Enqueue(line);
+    // // // //         }
+    // // // //         DisplayNextLine();
+    // // // //     }
+    // // // //     else
+    // // // //     {
+    // // // //         if (typingCoroutine != null)// Detener el tipeo si está activo
+    // // // //         {
+    // // // //             StopCoroutine(typingCoroutine);
+    // // // //             typingCoroutine = null;
+    // // // //         }
+
+    // // // //         dialogueLines.Clear();
+    // // // //         dialogueBox.SetActive(false);
+
+    // // // //         if (playerControllerScript != null) // refuerzo de reactivar el movimiento jugador
+    // // // //         {
+    // // // //             playerControllerScript.enabled = true;
+    // // // //         }
+    // // // //     }
+    // // // // }
+
+    // // // // void DisplayNextLine()
+    // // // // {
+    // // // //     if (dialogueLines.Count == 0)
+    // // // //     {
+    // // // //         EndDialogue();
+    // // // //         return;
+    // // // //     }
+
+    // // // //     currentLine = dialogueLines.Dequeue(); // GUARDO la línea actual aquí
+
+    // // // //     if (typingCoroutine != null)
+    // // // //     {
+    // // // //         StopCoroutine(typingCoroutine);
+    // // // //     }
+
+    // // // //     typingCoroutine = StartCoroutine(TypeLine(currentLine));
+    // // // // }
+
+    // // // // private IEnumerator TypeLine(string line)
+    // // // // {
+    // // // //     dialogueText.text = "";
+    // // // //     foreach (char item in line.ToCharArray())
+    // // // //     {
+    // // // //         dialogueText.text += item;
+    // // // //         yield return new WaitForSeconds(0.04f);
+    // // // //     }
+
+    // // // //     typingCoroutine = null;
+    // // // // }
+
+    // // // // public void EndDialogue()
+    // // // // {
+    // // // //     if (typingCoroutine != null)
+    // // // //     {
+    // // // //         StopCoroutine(typingCoroutine);
+    // // // //         typingCoroutine = null;
+    // // // //     }
+
+    // // // //     dialogueLines.Clear(); // Asegura que siempre se limpie
+    // // // //     dialogueBox.SetActive(false);
+
+    // // // //     if (shouldStopPlayer)
+    // // // //     {
+    // // // //         PlayerController player = FindAnyObjectByType<PlayerController>();
+    // // // //         if (player != null)
+    // // // //         {
+    // // // //             player.enabled = true;
+    // // // //         }
+    // // // //     }
+    // // // // }
+
+    // // // // // Código utilizado porque ahora utilizo ScriptableObject en los diálogos
+    // // // // public void UpdateDialogue(CharacterData characterData, string monolithKey = "")
+    // // // // {
+    // // // //     characterName.text = characterData.CharacterName;
+    // // // //     characterName.color = characterData.NameColor;
+    // // // //     Debug.Log($"Color del nombre: {characterData.NameColor} (alpha: {characterData.NameColor.a})");
+
+    // // // //     if (characterData.IsMonolith && !string.IsNullOrEmpty(monolithKey))
+    // // // //     {
+    // // // //         Sprite monolithSpecificImage = helperMonolithData.GetImageForMonolith(monolithKey);
+    // // // //         characterImage.sprite = monolithSpecificImage != null ? monolithSpecificImage : characterData.Portrait;
+    // // // //     }
+    // // // //     else
+    // // // //     {
+    // // // //         characterImage.sprite = characterData.Portrait;
+    // // // //     }
+    // // // //     Debug.Log($"Nombre: {characterData.CharacterName}, ¿Monolith?: {characterData.IsMonolith}, Imagen: {(characterData.Portrait != null ? characterData.Portrait.name : "NULL")}");
+    // // // // }
+
+    // // // // public bool IsDialogueActive => dialogueBox.activeInHierarchy;
+
+    // // // // public void AdvanceDialogue()
+    // // // // {
+    // // // //     if (!IsDialogueActive) return;
+
+    // // // //     if (typingCoroutine != null)
+    // // // //     {
+    // // // //         StopCoroutine(typingCoroutine);
+    // // // //         typingCoroutine = null;
+    // // // //         dialogueText.text = currentLine;  // <-- Mostrar línea completa al cancelar tipeo
+    // // // //         return;
+    // // // //     }
+
+    // // // //     DisplayNextLine();
+    // // // // }
