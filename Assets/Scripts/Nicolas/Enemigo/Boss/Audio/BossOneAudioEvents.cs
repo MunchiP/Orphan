@@ -47,23 +47,21 @@ public class BossOneAudioEvents : MonoBehaviour
 
         float finalVolume = baseVolume;
 
-        if (AudioManager.Instance != null) // 🔧 Corrección: Instance con mayúscula
+        if (AudioManager.instance != null) // Cambiado a minúscula
         {
-            finalVolume *= AudioManager.Instance.sfxVolume; // 🔧 sfxVolume en lugar de sfxSource.volume
+            finalVolume *= AudioManager.instance.sfxVolume; // Se mantiene como sfxVolume
         }
         else
         {
-            Debug.LogWarning("AudioManager.Instance es null, usando solo baseVolume");
+            Debug.LogWarning("AudioManager.instance es null, usando solo baseVolume");
         }
 
         if (pitch == 1f)
         {
-            // Pitch normal
             audioSource.PlayOneShot(clip, finalVolume);
         }
         else
         {
-            // Crear AudioSource temporal para pitch personalizado
             GameObject tempGO = new GameObject("TempAudio_" + clip.name);
             tempGO.transform.position = transform.position;
 

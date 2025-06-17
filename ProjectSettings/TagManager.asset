@@ -20,6 +20,7 @@ TagManager:
   - DetectorParticulas
   - Estalagmita
   - ObstacleWood
+  - GameManager
   layers:
   - Default
   - TransparentFX

@@ -4911,6 +4911,10 @@ PrefabInstance:
       propertyPath: 'lineasKeys.Array.data[0]'
       value: Monolith1
       objectReference: {fileID: 0}
+    - target: {fileID: 2295312491702559508, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8202346345169403714, guid: bed82cb81d6eafe4096fd8eecfdcf8e2, type: 3}
       propertyPath: m_Name
       value: Monolith_0
@@ -5116,7 +5120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMaxima: 100
   vidaActual: 0
-  primeraPureza: 1
   purezaActual: 0
 --- !u!114 &2075971151
 MonoBehaviour:

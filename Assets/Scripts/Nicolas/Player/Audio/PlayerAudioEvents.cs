@@ -41,13 +41,13 @@ public class PlayerAudioEvents : MonoBehaviour
 
         float finalVolume = baseVolume;
 
-        if (AudioManager.Instance != null) // <--- FIXED: capital "I"
+        if (AudioManager.instance != null) // Cambiado a minúscula
         {
-            finalVolume *= AudioManager.Instance.sfxVolume;
+            finalVolume *= AudioManager.instance.sfxVolume;
         }
         else
         {
-            Debug.LogWarning("AudioManager.Instance es null, usando solo baseVolume");
+            Debug.LogWarning("AudioManager.instance es null, usando solo baseVolume");
         }
 
         audioSource.pitch = pitch;

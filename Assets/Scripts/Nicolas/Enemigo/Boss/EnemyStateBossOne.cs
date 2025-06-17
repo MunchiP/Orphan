@@ -41,8 +41,9 @@ public class EnemyStateBossOne : MonoBehaviour
 
     private void OnDestruido()
     {
-        enemyDead.GenerarLoot();
         Destroy(this.gameObject);
         Debug.Log("Destruido");
+        EndGameCredits endGameCredits = FindAnyObjectByType<EndGameCredits>();
+        endGameCredits.hasPlayerWon = true;
     }
 }

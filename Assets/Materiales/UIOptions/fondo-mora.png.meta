@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fondo-mora_0: 7663230809402239587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
