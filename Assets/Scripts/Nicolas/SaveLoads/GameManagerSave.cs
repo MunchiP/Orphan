@@ -63,7 +63,17 @@ public class GameManagerSave : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No hay partida guardada");
+            Debug.LogWarning("No hay partida guardada. Cargando escena 0...");
+
+            if (Time.timeScale < 1)
+            {
+                Time.timeScale = 1f;
+            }
+
+            PlayerState.cargarDesdeCheckpoint = false; // No hay checkpoint que cargar
+
+            // Cambiar a escena 0 directamente
+            fadeToBlack.ChangeSceneByIndex(1);
         }
     }
 

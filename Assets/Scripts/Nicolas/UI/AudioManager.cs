@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -27,18 +28,46 @@ public class AudioManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // Cargar volúmenes guardados
             musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
             sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
 
-            // Aplicar volumen inicial al musicSource si existe
             if (musicSource != null)
                 musicSource.volume = musicVolume;
         }
         else
         {
-            Debug.LogWarning("Ya existe una instancia de AudioManager. Destruyendo duplicado.");
             Destroy(gameObject);
+        }
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        int activeIndex = scene.buildIndex;
+        int lastIndex = SceneManager.sceneCountInBuildSettings - 1;
+
+        if (activeIndex != lastIndex)
+        {
+            if (musicSource.clip == null || musicSource.clip.name != "MainTheme")
+            {
+                PlayMusic("MainTheme");
+            }
+        }
+        else
+        {
+            if (musicSource.clip == null || musicSource.clip.name != "BossFight")
+            {
+                PlayMusic("BossFight");
+            }
         }
     }
 
@@ -57,7 +86,6 @@ public class AudioManager : MonoBehaviour
         sfxVolume = value;
         PlayerPrefs.SetFloat("SFXVolume", value);
         PlayerPrefs.Save();
-        // Aquí podrías aplicar volumen a efectos de sonido si tienes control sobre ellos.
     }
 
     public float GetMusicVolume() => musicVolume;
@@ -83,8 +111,6 @@ public class AudioManager : MonoBehaviour
         SetSFXVolume(value);
     }
 
-    // ---------------------------------------------------------
-    // Método para reproducir música por nombre
     public void PlayMusic(string trackName)
     {
         if (musicSource == null)
@@ -103,13 +129,12 @@ public class AudioManager : MonoBehaviour
 
         if (musicSource.clip == track.clip && musicSource.isPlaying)
         {
-            // Ya está sonando esta música, no hacemos nada
-            return;
+            return; // Ya está sonando
         }
 
         musicSource.clip = track.clip;
         musicSource.volume = musicVolume;
-        musicSource.loop = true; // Música suele ir en loop
+        musicSource.loop = true;
         musicSource.Play();
     }
 }

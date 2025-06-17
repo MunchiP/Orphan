@@ -20235,7 +20235,11 @@ MonoBehaviour:
   musicVolume: 1
   sfxVolume: 1
   musicSource: {fileID: 1623608823}
-  musicTracks: []
+  musicTracks:
+  - trackName: MainTheme
+    clip: {fileID: 8300000, guid: f68f8a58e52f9c749b2fbdee378c1727, type: 3}
+  - trackName: BossFight
+    clip: {fileID: 8300000, guid: 1ec17bf89a26b92418ebe3ad6d24693b, type: 3}
 --- !u!1 &1497940542
 GameObject:
   m_ObjectHideFlags: 0
