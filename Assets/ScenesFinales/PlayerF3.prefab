@@ -723,7 +723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2414512726135392217}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.663, y: -0.32688016, z: -0.06102186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1919,9 +1919,9 @@ MonoBehaviour:
   clothesChanges: {fileID: -3973297061930941072, guid: ad813fff1c5def141bad066972c5652d, type: 3}
   clothesChanges2: {fileID: -3973297061930941072, guid: ad813fff1c5def141bad066972c5652d, type: 3}
   clothesChanges3: {fileID: -4040389351971304520, guid: ad813fff1c5def141bad066972c5652d, type: 3}
-  balanceoChanges1: {fileID: 0}
-  balanceoChanges2: {fileID: 0}
-  balanceoChanges3: {fileID: 0}
+  balanceoChanges1: {fileID: -7034310089478286386, guid: 562523aacd9448446b4edcefce96ff38, type: 3}
+  balanceoChanges2: {fileID: -7034310089478286386, guid: 562523aacd9448446b4edcefce96ff38, type: 3}
+  balanceoChanges3: {fileID: -459214473681111954, guid: 562523aacd9448446b4edcefce96ff38, type: 3}
 --- !u!1 &8196257711847897578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,6 +2114,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8152366553885082868}
     m_Modifications:
     - target: {fileID: 44019438014134509, guid: 0f6f474873b46df4dbcd6f4d32354aff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7034310089478286386, guid: 562523aacd9448446b4edcefce96ff38, type: 3}
+    - target: {fileID: 44019438014134509, guid: 0f6f474873b46df4dbcd6f4d32354aff, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -2138,6 +2142,10 @@ PrefabInstance:
       value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4652876875469474440, guid: 0f6f474873b46df4dbcd6f4d32354aff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7034310089478286386, guid: 562523aacd9448446b4edcefce96ff38, type: 3}
+    - target: {fileID: 4652876875469474440, guid: 0f6f474873b46df4dbcd6f4d32354aff, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -2145,6 +2153,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 5297212430270654209, guid: 0f6f474873b46df4dbcd6f4d32354aff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -459214473681111954, guid: 562523aacd9448446b4edcefce96ff38, type: 3}
     - target: {fileID: 5297212430270654209, guid: 0f6f474873b46df4dbcd6f4d32354aff, type: 3}
       propertyPath: m_SortingOrder
       value: 0

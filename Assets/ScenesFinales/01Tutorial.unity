@@ -193574,6 +193574,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3467149614568992760, guid: 6a17f078337a1334d84966be8a3ec4cb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -404391165929930811, guid: 267e0aa9bd9a7c94ba10ee004ea44c1b, type: 3}
     - target: {fileID: 4933039401611071494, guid: 6a17f078337a1334d84966be8a3ec4cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.27
@@ -193614,10 +193618,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8076079600950828445, guid: 6a17f078337a1334d84966be8a3ec4cb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -404391165929930811, guid: 267e0aa9bd9a7c94ba10ee004ea44c1b, type: 3}
     - target: {fileID: 8172841830123442422, guid: 6a17f078337a1334d84966be8a3ec4cb, type: 3}
       propertyPath: m_Name
       value: PlayerF3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8719764812392820756, guid: 6a17f078337a1334d84966be8a3ec4cb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2330827099695398629, guid: 267e0aa9bd9a7c94ba10ee004ea44c1b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
