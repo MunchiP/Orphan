@@ -184,7 +184,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""625f2e52-3f23-470e-a586-24587b188360"",
+                    ""id"": ""a72cfeb8-7a3a-4b7c-a55b-98beb685b33f"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -546,7 +546,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c7281130-cc0e-4bc6-b63c-af730b349e2d"",
+                    ""id"": ""b4b034b0-386c-4be9-bd79-f0e9f31794bf"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -557,7 +557,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""65236728-1333-4adb-bdef-79214f7db026"",
+                    ""id"": ""1a8bcfeb-7fa1-417a-83cc-85c5230b9631"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -585,7 +585,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""7607c7b6-cd76-4816-beef-bd0341cfe950"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -594,7 +594,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""15cef263-9014-4fd5-94d9-4e4a6234a6ef"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -665,7 +665,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""527676b4-9ec8-441c-844e-5f7e29e27794"",
+                    ""id"": ""d9402803-df65-401a-8a19-0110a2fd0dbe"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -674,7 +674,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Inventory"",
                     ""type"": ""Button"",
-                    ""id"": ""6a063bb7-f495-481e-aafa-e432141be57d"",
+                    ""id"": ""582f52f9-b3aa-42ff-add1-77c9a0ba8a91"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1102,7 +1102,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b1291af1-23b5-41be-a57e-fb1ec5332a74"",
+                    ""id"": ""c0f98458-8e3b-46b9-92b3-94b3260363dc"",
                     ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1113,7 +1113,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""608eba5c-ee1a-46cf-a775-74be141d402d"",
+                    ""id"": ""460d1929-1ff5-4cb7-85a8-7b9a81afa3a1"",
                     ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",

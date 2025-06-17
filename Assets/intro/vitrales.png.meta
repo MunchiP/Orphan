@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 8173dcdb305b4df4ea8021b4c7287a3f
+guid: aef423e0a2cc22843b4ac3944c550299
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -645692447420315348
-    second: Nico_0
+      213: -7567492643878326629
+    second: vitrales_0
+  - first:
+      213: -5030750851902056777
+    second: vitrales_1
+  - first:
+      213: -6487999750620171206
+    second: vitrales_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,43 +115,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nico_0
+      name: vitrales_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 203
-        height: 137
+        x: 54
+        y: 393
+        width: 294
+        height: 560
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c290c5dd32a0a07f0800000000000000
-      internalID: -645692447420315348
+      spriteID: b9e2041e88ddaf690800000000000000
+      internalID: -7567492643878326629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitrales_1
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 412
+        width: 304
+        height: 521
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b652e611ce2f2ab0800000000000000
+      internalID: -5030750851902056777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitrales_2
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 42
+        width: 349
+        height: 911
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3436790a9ef5f5a0800000000000000
+      internalID: -6487999750620171206
       vertices: []
       indices: 
       edges: []
@@ -174,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Nico_0: -645692447420315348
+      vitrales_0: -7567492643878326629
+      vitrales_1: -5030750851902056777
+      vitrales_2: -6487999750620171206
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

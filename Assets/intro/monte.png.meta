@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 8173dcdb305b4df4ea8021b4c7287a3f
+guid: ead602673fab27d43b8b93efc673cdeb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -645692447420315348
-    second: Nico_0
+      213: 2149540557689480262
+    second: monte_0
+  - first:
+      213: 2861785866153853441
+    second: monte_1
+  - first:
+      213: 3140984031375437800
+    second: monte_2
+  - first:
+      213: -5008685979096719511
+    second: monte_3
+  - first:
+      213: -3425019915197409761
+    second: monte_4
+  - first:
+      213: 7105509174690410646
+    second: monte_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,43 +124,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nico_0
+      name: monte_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 203
-        height: 137
+        width: 1920
+        height: 455
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +143,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c290c5dd32a0a07f0800000000000000
-      internalID: -645692447420315348
+      spriteID: 644606b9fb3b4dd10800000000000000
+      internalID: 2149540557689480262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monte_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 449
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1028557351b17b720800000000000000
+      internalID: 2861785866153853441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monte_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 437
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8efae4bb554079b20800000000000000
+      internalID: 3140984031375437800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monte_3
+      rect:
+        serializedVersion: 2
+        x: 1907
+        y: 433
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96fd570a3a29d7ab0800000000000000
+      internalID: -5008685979096719511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monte_4
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 448
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f16150e9882e770d0800000000000000
+      internalID: -3425019915197409761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monte_5
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 439
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69073b1a2f6db9260800000000000000
+      internalID: 7105509174690410646
       vertices: []
       indices: 
       edges: []
@@ -174,7 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Nico_0: -645692447420315348
+      monte_0: 2149540557689480262
+      monte_1: 2861785866153853441
+      monte_2: 3140984031375437800
+      monte_3: -5008685979096719511
+      monte_4: -3425019915197409761
+      monte_5: 7105509174690410646
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

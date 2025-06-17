@@ -6,35 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Cindy/Intro.unity
+    guid: ba5d4d08a388b434c864eaf832074b55
+  - enabled: 1
     path: Assets/ScenesFinales/TEst 1.unity
     guid: 49b7dc49bfd4a36498b9f36793711001
-  - enabled: 1
-    path: Assets/ScenesFinales/01Tutorial.unity
-    guid: bfc063ad6006e1e4094635af1e10d0c9
-  - enabled: 1
-    path: Assets/ScenesFinales/02Hub.unity
-    guid: 5f6c4c0c1e9ccbf42bc03063edecd1cf
-  - enabled: 1
-    path: Assets/ScenesFinales/03Area01.unity
-    guid: f6bd76fa8c7c9b4428155d0f6099d231
-  - enabled: 1
-    path: Assets/ScenesFinales/04_Area02.unity
-    guid: 04197ebb6e9ccce4ca2d6302e76d5e36
-  - enabled: 1
-    path: Assets/ScenesFinales/05_Area03.unity
-    guid: e47c434bac30cbd45b76124e04744f1e
-  - enabled: 1
-    path: Assets/ScenesFinales/06_Area04.unity
-    guid: d608b86204a09a041bc5ccb22d5389e1
-  - enabled: 1
-    path: Assets/ScenesFinales/07Area05.unity
-    guid: 1bc771bcabfd9354f84ad31c6e43bcb7
-  - enabled: 1
-    path: Assets/ScenesFinales/08Area06.unity
-    guid: 349b7294583d3924abbf19b27384a07c
-  - enabled: 1
-    path: Assets/ScenesFinales/AreaBossNico.unity
-    guid: bc764c5e3db4931419a44099d6ce6450
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
