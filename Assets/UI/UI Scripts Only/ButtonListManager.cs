@@ -5,13 +5,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
-using System;
 
 public class ButtonListManager : MonoBehaviour
 {
     public PauseMenuNavigation navigation;
 
-    //Title Buttons and Menus
+    // Title Buttons and Menus
     public GameObject startButton;
     public GameObject continueButton;
     public GameObject titleSettingsButton;
@@ -24,7 +23,7 @@ public class ButtonListManager : MonoBehaviour
     public GameObject titleSettingsMenu;
     private int currentTitleMenu;
 
-    //InGame Buttons and Menus
+    // InGame Buttons and Menus
     public GameObject pauseContinueButton;
     public GameObject pauseSettingsButton;
     public GameObject pauseReturnTitleButton;
@@ -37,12 +36,12 @@ public class ButtonListManager : MonoBehaviour
     private int currentPauseMenu;
     public bool isFirstTimeOpeningPause = true;
 
-    //scene changes with fades
+    // Scene changes with fades
     public GameObject fadeImageObjectMainCanvas;
     public GameObject fadeImageObjectInGameCanvas;
     private FadeToBlack fadeToSceneScript;
 
-    //Shared Buttons and Menus
+    // Shared Buttons and Menus
     public GameObject universalControlLayoutTitle;
     public GameObject universalSoundPanelPause;
     public GameObject universalMusicButton;
@@ -50,52 +49,48 @@ public class ButtonListManager : MonoBehaviour
     public GameObject universalEscapeKey;
     private EscMenuBehaviour escapeKeyScript;
 
-    // GameOverButtons and Menus
+    // GameOver Buttons
     public GameObject returnFromGameOver;
     public GameObject exitFromGameOver;
 
-    // EndCreditsButtons and Menus
+    // EndCredits Buttons
     public GameObject returnFromCredits;
     public GameObject exitFromCredits;
 
-    //behaviour variables
     public bool isTitleScene;
 
-    public void Awake()
-    {
-        //
-    }
+    void Awake() { }
 
-    public void OnEnable()
+    void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void OnDisable()
+    void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    void Start()
     {
+        fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
+        escapeKeyScript = universalEscapeKey.GetComponent<EscMenuBehaviour>();
+    }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        EventSystem.current.SetSelectedGameObject(null); // 👈 Fix selección fantasma
         isTitleScene = scene.buildIndex == 0;
 
         if (isTitleScene)
         {
             StartCoroutine(DelayedGoToTitleMenu());
-            ResetPauseUI(); // just in case we came from the game scene
+            ResetPauseUI();
         }
         else
         {
-            ResetPauseUI(); // ensures pause UI is hidden when re-entering gameplay
+            ResetPauseUI();
         }
-    }
-
-    public void Start()
-    {
-        fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
-        escapeKeyScript = universalEscapeKey.GetComponent<EscMenuBehaviour>();
     }
 
     public void QuitApplication()
@@ -103,28 +98,17 @@ public class ButtonListManager : MonoBehaviour
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else
-        Application.Quit(); // original code to quit Unity player
+        Application.Quit();
 #endif
     }
 
-    public bool IsOnSubmenu
-    {
-        get
-        {
-            if (SceneManager.GetActiveScene().buildIndex == 0)
-            {
-                return currentTitleMenu != 0;
-            }
-            else if (SceneManager.GetActiveScene().buildIndex != 0)
-            {
-                return currentPauseMenu != 0;
-            }
-            return false;
-        }
-    }
+    public bool IsOnSubmenu =>
+        SceneManager.GetActiveScene().buildIndex == 0 ? currentTitleMenu != 0 : currentPauseMenu != 0;
 
     public void ResetPauseUI()
     {
+        EventSystem.current.SetSelectedGameObject(null); // 👈
+
         pauseMainMenu?.SetActive(false);
         pauseSettingsMenu?.SetActive(false);
         universalSoundPanelPause?.SetActive(false);
@@ -143,39 +127,34 @@ public class ButtonListManager : MonoBehaviour
 
     IEnumerator DelayedGoToTitleMenu()
     {
-        yield return null; // wait 1 frame
+        yield return null;
         GoToTitleMenu();
     }
 
     public void GoToTitleMenu()
     {
-        if (!isTitleScene)
-        {
-            Debug.LogWarning("GoToTitleMenu called while in Game Scene. Ignoring.");
-            return;
-        }
+        EventSystem.current.SetSelectedGameObject(null); // 👈
+        if (!isTitleScene) return;
+
         currentTitleMenu = 0;
-        if (escapeKeyScript == null)
-            escapeKeyScript = universalEscapeKey.GetComponent<EscMenuBehaviour>();
         escapeKeyScript.onTitleMainMenu = true;
         navigation.buttonList.Clear();
+
         if (PlayerPrefs.GetInt("SavedGameExists") == 1)
         {
             continueButton.SetActive(true);
             navigation.buttonList.Add(continueButton);
-            navigation.buttonList.Add(startButton);
-            navigation.buttonList.Add(titleSettingsButton);
-            navigation.buttonList.Add(titleCreditsButton);
-            navigation.buttonList.Add(titleExitGameButton);
         }
         else
         {
             continueButton.SetActive(false);
-            navigation.buttonList.Add(startButton);
-            navigation.buttonList.Add(titleSettingsButton);
-            navigation.buttonList.Add(titleCreditsButton);
-            navigation.buttonList.Add(titleExitGameButton);
         }
+
+        navigation.buttonList.Add(startButton);
+        navigation.buttonList.Add(titleSettingsButton);
+        navigation.buttonList.Add(titleCreditsButton);
+        navigation.buttonList.Add(titleExitGameButton);
+
         titleMainMenu.SetActive(true);
         creditsMenu.SetActive(false);
         rollingCreditsController = creditsMenu.GetComponent<RollingCreditsController>();
@@ -188,8 +167,10 @@ public class ButtonListManager : MonoBehaviour
 
     public void GoToSettingstTitleMenu()
     {
-        escapeKeyScript.onTitleMainMenu = false;
+        EventSystem.current.SetSelectedGameObject(null); // 👈
 
+        escapeKeyScript.onTitleMainMenu = false;
+        currentTitleMenu = 1;
         navigation.buttonList.Clear();
         navigation.buttonList.Add(titleControlsButton);
         navigation.buttonList.Add(titleSoundButton);
@@ -201,16 +182,16 @@ public class ButtonListManager : MonoBehaviour
         universalSfxButton.SetActive(false);
         universalControlLayoutTitle.SetActive(false);
 
-        currentTitleMenu = 1;
-
         navigation.RestartSelection(0);
         SelectFirstButtonSafe();
     }
 
     public void GoToTitleSoundBoard()
     {
-        escapeKeyScript.onTitleMainMenu = false;
+        EventSystem.current.SetSelectedGameObject(null); // 👈
 
+        escapeKeyScript.onTitleMainMenu = false;
+        currentTitleMenu = 2;
         navigation.buttonList.Clear();
         navigation.buttonList.Add(universalMusicButton);
         navigation.buttonList.Add(universalSfxButton);
@@ -219,7 +200,6 @@ public class ButtonListManager : MonoBehaviour
         universalSoundPanelPause.SetActive(true);
         titleSoundButton.SetActive(true);
         universalSfxButton.SetActive(true);
-        currentTitleMenu = 2;
 
         navigation.RestartSelection(0);
         SelectFirstButtonSafe();
@@ -227,13 +207,14 @@ public class ButtonListManager : MonoBehaviour
 
     public void GoToTitleControls()
     {
-        escapeKeyScript.onTitleMainMenu = false;
+        EventSystem.current.SetSelectedGameObject(null); // 👈
 
+        escapeKeyScript.onTitleMainMenu = false;
+        currentTitleMenu = 3;
         navigation.buttonList.Clear();
 
         titleSettingsMenu?.SetActive(false);
         universalControlLayoutTitle.SetActive(true);
-        currentTitleMenu = 3;
 
         navigation.RestartSelection(0);
         SelectFirstButtonSafe();
@@ -241,20 +222,18 @@ public class ButtonListManager : MonoBehaviour
 
     public void GoToCredits()
     {
-        escapeKeyScript.onTitleMainMenu = false;
+        EventSystem.current.SetSelectedGameObject(null); // 👈
 
+        escapeKeyScript.onTitleMainMenu = false;
+        currentTitleMenu = 1;
         navigation.buttonList.Clear();
 
         titleMainMenu?.SetActive(false);
-
         creditsMenu.SetActive(true);
         rollingCreditsController = creditsMenu.GetComponent<RollingCreditsController>();
         rollingCreditsController.StopAllCoroutines();
         rollingCreditsController.enabled = true;
         rollingCreditsController.PlayCredits();
-        creditsMenu.GetComponent<RollingCreditsController>().PlayCredits();
-
-        currentTitleMenu = 1;
 
         navigation.RestartSelection(0);
         SelectFirstButtonSafe();
@@ -262,27 +241,25 @@ public class ButtonListManager : MonoBehaviour
 
     public void GoBackTitleMenus()
     {
+        EventSystem.current.SetSelectedGameObject(null); // 👈
+
         switch (currentTitleMenu)
         {
             case 4:
-                GoToTitleMenu();
-                break;
-            case 3:
-                GoToSettingstTitleMenu();
-                break;
-            case 2:
-                GoToSettingstTitleMenu();
-                break;
             case 1:
                 GoToTitleMenu();
                 StartCoroutine(SetTitleMainMenuTrueNextFrame());
                 break;
+            case 3:
+            case 2:
+                GoToSettingstTitleMenu();
+                break;
         }
     }
 
-    private IEnumerator SetTitleMainMenuTrueNextFrame()
+    IEnumerator SetTitleMainMenuTrueNextFrame()
     {
-        yield return null; // Wait 1 frame
+        yield return null;
         escapeKeyScript.onTitleMainMenu = true;
     }
 
@@ -290,8 +267,10 @@ public class ButtonListManager : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         fadeToSceneScript = fadeImageObjectMainCanvas.GetComponent<FadeToBlack>();
+
         if (fadeToSceneScript != null)
         {
+            EventSystem.current.SetSelectedGameObject(null); // 👈
             fadeToSceneScript.FadeToScene(1);
         }
         else
@@ -302,23 +281,20 @@ public class ButtonListManager : MonoBehaviour
 
     public void ShowPauseMenu()
     {
-        if (isTitleScene)
-        {
-            Debug.LogWarning("ShowPauseMenu called while in Title Scene. Ignoring.");
-            return;
-        }
+        EventSystem.current.SetSelectedGameObject(null); // 👈
+
+        if (isTitleScene) return;
+
         currentPauseMenu = 0;
-        if (escapeKeyScript == null)
-            escapeKeyScript = universalEscapeKey.GetComponent<EscMenuBehaviour>();
 
         if (isFirstTimeOpeningPause)
         {
             escapeKeyScript.onPauseMainMenu = true;
             isFirstTimeOpeningPause = false;
         }
+
         escapeKeyScript.onPauseMainMenu = true;
         navigation.buttonList.Clear();
-
         navigation.buttonList.Add(pauseContinueButton);
         navigation.buttonList.Add(pauseSettingsButton);
         navigation.buttonList.Add(pauseReturnTitleButton);
@@ -333,8 +309,10 @@ public class ButtonListManager : MonoBehaviour
 
     public void GoToPauseSettingsMenu()
     {
-        escapeKeyScript.onPauseMainMenu = false;
+        EventSystem.current.SetSelectedGameObject(null); // 👈
 
+        escapeKeyScript.onPauseMainMenu = false;
+        currentPauseMenu = 1;
         navigation.buttonList.Clear();
         navigation.buttonList.Add(pauseControlsButton);
         navigation.buttonList.Add(pauseSoundButton);
@@ -347,16 +325,16 @@ public class ButtonListManager : MonoBehaviour
         universalSfxButton.SetActive(false);
         universalControlLayoutTitle.SetActive(false);
 
-        currentPauseMenu = 1;
-
         navigation.RestartSelection(0);
         SelectFirstButtonSafe();
     }
 
     public void GoToPauseSoundBoard()
     {
-        escapeKeyScript.onPauseMainMenu = false;
+        EventSystem.current.SetSelectedGameObject(null); // 👈
 
+        escapeKeyScript.onPauseMainMenu = false;
+        currentPauseMenu = 2;
         navigation.buttonList.Clear();
         navigation.buttonList.Add(universalMusicButton);
         navigation.buttonList.Add(universalSfxButton);
@@ -365,7 +343,6 @@ public class ButtonListManager : MonoBehaviour
         universalSoundPanelPause.SetActive(true);
         pauseSoundButton.SetActive(true);
         universalSfxButton.SetActive(true);
-        currentPauseMenu = 2;
 
         navigation.RestartSelection(0);
         SelectFirstButtonSafe();
@@ -373,11 +350,13 @@ public class ButtonListManager : MonoBehaviour
 
     public void GoToPauseControls()
     {
+        EventSystem.current.SetSelectedGameObject(null); // 👈
+
+        currentPauseMenu = 3;
         navigation.buttonList.Clear();
 
         pauseSettingsMenu?.SetActive(false);
         universalControlLayoutTitle.SetActive(true);
-        currentPauseMenu = 3;
 
         navigation.RestartSelection(0);
         SelectFirstButtonSafe();
@@ -385,11 +364,11 @@ public class ButtonListManager : MonoBehaviour
 
     public void GoBackPauseMenus()
     {
+        EventSystem.current.SetSelectedGameObject(null); // 👈
+
         switch (currentPauseMenu)
         {
             case 3:
-                GoToPauseSettingsMenu();
-                break;
             case 2:
                 GoToPauseSettingsMenu();
                 break;
@@ -399,27 +378,18 @@ public class ButtonListManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SetPauseMainMenuTrueNextFrame()
-    {
-        yield return null; // Wait 1 frame
-        escapeKeyScript.onPauseMainMenu = true;
-    }
-
     public void ChangeSceneToTitle()
     {
         if (Time.timeScale < 1)
-        {
             Time.timeScale = 1f;
-        }
+
         fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
         if (fadeToSceneScript != null)
         {
+            EventSystem.current.SetSelectedGameObject(null); // 👈
             fadeToSceneScript.FadeToScene(0, () =>
             {
-                pauseMainMenu.SetActive(false);
-                pauseSettingsMenu.SetActive(false);
-                universalSoundPanelPause.SetActive(false);
-                universalControlLayoutTitle.SetActive(false);
+                ResetPauseUI();
             });
         }
         else
@@ -438,6 +408,8 @@ public class ButtonListManager : MonoBehaviour
 
     public void GameOver()
     {
+        EventSystem.current.SetSelectedGameObject(null); // 👈
+
         navigation.buttonList.Clear();
         navigation.buttonList.Add(returnFromGameOver);
         navigation.buttonList.Add(exitFromGameOver);
@@ -448,6 +420,8 @@ public class ButtonListManager : MonoBehaviour
 
     public void GoToEndCredits()
     {
+        EventSystem.current.SetSelectedGameObject(null); // 👈
+
         navigation.buttonList.Clear();
         navigation.buttonList.Add(returnFromCredits);
         navigation.buttonList.Add(exitFromCredits);
@@ -458,12 +432,10 @@ public class ButtonListManager : MonoBehaviour
 
     public void ChangeSceneByIndex(int scene)
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int totalScenes = SceneManager.sceneCountInBuildSettings;
-
         fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
         if (fadeToSceneScript != null)
         {
+            EventSystem.current.SetSelectedGameObject(null); // 👈
             fadeToSceneScript.FadeToScene(scene);
         }
         else
@@ -474,12 +446,10 @@ public class ButtonListManager : MonoBehaviour
 
     public void ChangeSceneById(string scene)
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int totalScenes = SceneManager.sceneCountInBuildSettings;
-
         fadeToSceneScript = fadeImageObjectInGameCanvas.GetComponent<FadeToBlack>();
         if (fadeToSceneScript != null)
         {
+            EventSystem.current.SetSelectedGameObject(null); // 👈
             fadeToSceneScript.FadeToScene(scene);
         }
         else
@@ -488,14 +458,12 @@ public class ButtonListManager : MonoBehaviour
         }
     }
 
-
-    // Helper method para selección segura del primer botón en la lista
     private void SelectFirstButtonSafe()
     {
         if (navigation.buttonList.Count == 0)
         {
-            Debug.LogWarning("[ButtonListManager] buttonList está VACÍA, no se puede seleccionar ningún botón.");
             EventSystem.current.SetSelectedGameObject(null);
+            Debug.LogWarning("[ButtonListManager] buttonList está VACÍA.");
             return;
         }
 
