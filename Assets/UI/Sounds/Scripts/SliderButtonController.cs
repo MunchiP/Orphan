@@ -12,7 +12,7 @@ public class SliderButtonController : MonoBehaviour, ISelectHandler
     public float step = 0.2f;
     public float repeatRate = 0.1f;
     public bool requiereSeleccion = true;
-    public bool esMusica = true;
+    public bool esMusica = true; // Si este slider controla música
 
     private float holdTimer = 0f;
     private float lastNonZeroValue = 1f;
@@ -25,7 +25,6 @@ public class SliderButtonController : MonoBehaviour, ISelectHandler
             enabled = false;
             return;
         }
-
         if (imageSwitch == null)
             Debug.LogWarning("Image Switch no asignado en " + gameObject.name, this);
 
@@ -56,24 +55,18 @@ public class SliderButtonController : MonoBehaviour, ISelectHandler
                 return;
             }
         }
+        else if (requiereSeleccion && EventSystem.current == null)
+        {
+            Debug.LogWarning("No se encontró EventSystem en la escena", this);
+        }
 
         float input = 0f;
 
-        // Teclado
         if (Keyboard.current != null)
         {
             if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
                 input = -1f;
             else if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed)
-                input = 1f;
-        }
-
-        // Gamepad (D-Pad y Stick izquierdo)
-        if (Gamepad.current != null)
-        {
-            if (Gamepad.current.dpad.left.isPressed || Gamepad.current.leftStick.left.isPressed)
-                input = -1f;
-            else if (Gamepad.current.dpad.right.isPressed || Gamepad.current.leftStick.right.isPressed)
                 input = 1f;
         }
 

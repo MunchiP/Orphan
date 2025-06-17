@@ -7,7 +7,7 @@ public class HabilitiesActivatorSwitch : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        wallJumpController = FindAnyObjectByType<WallJumpController>();
+        wallJumpController =GetComponent<WallJumpController>();
         if (PlayerPrefs.GetInt("hability1", 0) == 1)
         {
             wallJumpController.enabled = true;
@@ -21,7 +21,7 @@ public class HabilitiesActivatorSwitch : MonoBehaviour
 
     void OnEnable()
     {
-        wallJumpController = FindAnyObjectByType<WallJumpController>();
+        wallJumpController.GetComponent<WallJumpController>();
         if (PlayerPrefs.GetInt("hability1", 0) == 1)
         {
             wallJumpController.enabled = true;
