@@ -11,6 +11,8 @@ using System.Collections;
 public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 {
 
+    private float lastNavigateTime = 0f;
+    public float navigateCooldown = 0.25f;
     private InputSystem_Actions controlsUI;
     public List<GameObject> buttonList = new List<GameObject>();
     public int buttonToMoveOnto;
@@ -129,19 +131,19 @@ public class PauseMenuNavigation : MonoBehaviour, InputSystem_Actions.IUIActions
 
         Vector2 direction = context.ReadValue<Vector2>();
 
+        if (Time.unscaledTime - lastNavigateTime < navigateCooldown)
+            return;
+
+        // Sólo mover si el valor vertical es suficientemente alto
         if (direction.y > 0.5f)
         {
-            if (buttonToMoveOnto < 0)
-                buttonToMoveOnto = 0;
-            else
-                buttonToMoveOnto = (buttonToMoveOnto - 1 + buttonList.Count) % buttonList.Count;
+            buttonToMoveOnto = buttonToMoveOnto <= 0 ? buttonList.Count - 1 : buttonToMoveOnto - 1;
+            lastNavigateTime = Time.unscaledTime;
         }
         else if (direction.y < -0.5f)
         {
-            if (buttonToMoveOnto < 0)
-                buttonToMoveOnto = 0;
-            else
-                buttonToMoveOnto = (buttonToMoveOnto + 1) % buttonList.Count;
+            buttonToMoveOnto = (buttonToMoveOnto + 1) % buttonList.Count;
+            lastNavigateTime = Time.unscaledTime;
         }
     }
 
