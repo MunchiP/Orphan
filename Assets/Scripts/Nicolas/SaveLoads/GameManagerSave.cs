@@ -31,6 +31,7 @@ public class GameManagerSave : MonoBehaviour
         PlayerPrefs.SetFloat("posX", data.posX);
         PlayerPrefs.SetFloat("posY", data.posY);
         PlayerPrefs.SetString("scene", data.sceneName);
+        PlayerPrefs.SetInt("clothes", data.clothes);
 
         // Flag para indicar que hay partida guardada
         PlayerPrefs.SetInt("SavedGameExists", 1);

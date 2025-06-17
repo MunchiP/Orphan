@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      camping_0: 878265756990667196
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

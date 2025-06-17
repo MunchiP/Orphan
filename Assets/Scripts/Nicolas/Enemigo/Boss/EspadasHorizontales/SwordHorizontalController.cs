@@ -67,7 +67,7 @@ public class SwordHorizontalController : MonoBehaviour
 
         // Establecer rotación Z fija en 9 grados
         Vector3 finalEuler = transform.eulerAngles;
-        finalEuler.z = 9f;
+        finalEuler.z = 0f;
         transform.eulerAngles = finalEuler;
         bossOneAudioEvents.PlaySwordMove();
 

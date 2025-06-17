@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fondo-cielo_0: 8407850146116031849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5789696509932345925}
   - component: {fileID: 5297212430270654209}
   m_Layer: 0
-  m_Name: cuerpo
+  m_Name: Balanceo3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 8563292925890867116}
   - component: {fileID: 4652876875469474440}
   m_Layer: 0
-  m_Name: brazo2
+  m_Name: Balanceo2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 8059420571810894956}
   - component: {fileID: 44019438014134509}
   m_Layer: 0
-  m_Name: brazo
+  m_Name: Balanceo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

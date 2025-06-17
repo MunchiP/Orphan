@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerState : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class PlayerState : MonoBehaviour
             purezaActual = PlayerPrefs.GetInt("pureza");
             float posX = PlayerPrefs.GetFloat("posX");
             float posY = PlayerPrefs.GetFloat("posY");
+            int clothes = PlayerPrefs.GetInt("clothes");
             transform.position = new Vector3(posX, posY, transform.position.z);
 
             Debug.Log("Cargando datos desde CHECKPOINT");
@@ -50,8 +52,7 @@ public class PlayerState : MonoBehaviour
             purezaActual = PlayerPrefs.GetInt("pureza_temp");
             float posX = PlayerPrefs.GetFloat("posX_temp");
             float posY = PlayerPrefs.GetFloat("posY_temp");
-            transform.position = new Vector3(posX, posY, transform.position.z);
-
+            int clothes = PlayerPrefs.GetInt("clothes");
             Debug.Log("Cargando datos desde CAMBIO DE ESCENA");
         }
         else
@@ -123,14 +124,31 @@ public class PlayerState : MonoBehaviour
     }
 
     public void AgregarPureza(int cantidad)
-    {
-        if (primeraPureza) primeraPureza = false;
-        if (primerAscensor && purezaActual >= 90) primerAscensor = false;
+{
+    purezaActual += cantidad;
+    Debug.Log("Pureza actual: " + purezaActual);
+    ActualizarHUD();
 
-        purezaActual += cantidad;
-        Debug.Log("Pureza actual: " + purezaActual);
-        ActualizarHUD();
+    // Solo ejecutar en la escena 1
+    if (SceneManager.GetActiveScene().buildIndex != 1) return;
+
+    ManagerTutorial tutorialManager = FindAnyObjectByType<ManagerTutorial>();
+
+    if (PlayerPrefs.GetInt("AccionTutorialPureza1", 1) == 1 && purezaActual > 0)
+    {
+        PlayerPrefs.SetInt("AccionTutorialPureza1", 0);
+        if (tutorialManager != null) tutorialManager.PrimeraPureza();
     }
+
+    if (PlayerPrefs.GetInt("AccionTutorialPureza2", 1) == 1 && purezaActual >= 90)
+    {
+        PlayerPrefs.SetInt("AccionTutorialPureza2", 0);
+        if (tutorialManager != null) tutorialManager.ElevadorActivo();
+    }
+
+    PlayerPrefs.Save();
+}
+
 
     public void QuitarPureza(int cantidad)
     {
@@ -156,7 +174,8 @@ public class PlayerState : MonoBehaviour
             pureza = this.purezaActual,
             posX = transform.position.x,
             posY = transform.position.y,
-            sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+            sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            clothes = PlayerPrefs.GetInt("clothes", 0)
         };
         return data;
     }

@@ -48,6 +48,7 @@ public class ElevatorBehaviour : MonoBehaviour
                 if (playerState.purezaActual < 90)
                 {
                      Debug.Log("No tienes suficiente pureza para activar el ascensor.");
+                    Debug.Log("pureza actual: " + playerState.purezaActual);
                      return;
                 }
 

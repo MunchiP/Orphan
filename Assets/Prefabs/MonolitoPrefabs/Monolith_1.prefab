@@ -225,6 +225,7 @@ MonoBehaviour:
   exclamation: {fileID: 4500721988910815755}
   lines:
   - Este es un buen lugar para obtener pureza.
+  stopPlayerMovement: 0
 --- !u!61 &6974158978188905645
 BoxCollider2D:
   m_ObjectHideFlags: 0
