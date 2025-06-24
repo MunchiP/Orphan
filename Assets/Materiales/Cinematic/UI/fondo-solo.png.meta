@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fe36e4709e776904ca70ac5ba59748eb
+guid: c686eec7712924044aa180ffe68993e5
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      fondo-solo_0: 5753669899650539563
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

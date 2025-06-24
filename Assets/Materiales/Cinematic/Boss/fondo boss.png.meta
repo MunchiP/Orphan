@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fe36e4709e776904ca70ac5ba59748eb
+guid: d847816dd6029624c8840fee74920ee9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5753669899650539563
-    second: fondo-solo_0
+      213: 4558125017864244344
+    second: fondo boss_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fondo-solo_0
+      name: fondo boss_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b20278b1a4429df40800000000000000
-      internalID: 5753669899650539563
+      spriteID: 87c8e93cd86b14f30800000000000000
+      internalID: 4558125017864244344
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      fondo-solo_0: 5753669899650539563
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

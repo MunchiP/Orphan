@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: fe36e4709e776904ca70ac5ba59748eb
+guid: f83b25d622f161a4d9673e85835cf65f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5753669899650539563
-    second: fondo-solo_0
+      213: -7451625280726226651
+    second: margin_0
+  - first:
+      213: -7053455467125578972
+    second: margin_1
+  - first:
+      213: -8204167820721241856
+    second: margin_2
+  - first:
+      213: -6493315488580528959
+    second: margin_3
+  - first:
+      213: -4957289074502267171
+    second: margin_4
+  - first:
+      213: -3999995707599575007
+    second: margin_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +154,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fondo-solo_0
+      name: margin_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        y: 108
+        width: 11
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +169,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b20278b1a4429df40800000000000000
-      internalID: 5753669899650539563
+      spriteID: 5292efe9942869890800000000000000
+      internalID: -7451625280726226651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: margin_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 96
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42361fa9f971d1e90800000000000000
+      internalID: -7053455467125578972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: margin_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 361
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0014838a5d0f42e80800000000000000
+      internalID: -8204167820721241856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: margin_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 361
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c49d9857fb13e5a0800000000000000
+      internalID: -6493315488580528959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: margin_4
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 96
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde0e510adb243bb0800000000000000
+      internalID: -4957289074502267171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: margin_5
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 107
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 128a079c8192d78c0800000000000000
+      internalID: -3999995707599575007
       vertices: []
       indices: 
       edges: []
@@ -173,8 +298,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      fondo-solo_0: 5753669899650539563
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
