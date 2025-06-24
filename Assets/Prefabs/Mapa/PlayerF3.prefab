@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4740109996615761835}
   - component: {fileID: 5660274088078441209}
   m_Layer: 0
-  m_Name: brazo1 (1)
+  m_Name: brazo2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,7 +602,7 @@ GameObject:
   - component: {fileID: 8288303848219852868}
   - component: {fileID: 1710287435597708130}
   m_Layer: 0
-  m_Name: cuerpo
+  m_Name: cuerpo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,7 +667,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 14
-  m_Sprite: {fileID: -3174032288903449840, guid: d2c8f96627ba70b409d902eb56b93f36, type: 3}
+  m_Sprite: {fileID: -4040389351971304520, guid: ad813fff1c5def141bad066972c5652d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1208,6 +1208,7 @@ GameObject:
   - component: {fileID: 9018373169232155799}
   - component: {fileID: 2876406330196306952}
   - component: {fileID: 430882588021373674}
+  - component: {fileID: 5666856580097760474}
   m_Layer: 9
   m_Name: PlayerF3
   m_TagString: Player
@@ -1615,6 +1616,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4266c1daeb3507a4ba8d0d45fcf5ecc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5666856580097760474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814141265518632730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b11a1b1cc15e8a4ab1e30d70389ff12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothesChanges: {fileID: -3973297061930941072, guid: bd361d0784f589744aeb24ae7b38cb69, type: 3}
+  clothesChanges2: {fileID: -3973297061930941072, guid: ad813fff1c5def141bad066972c5652d, type: 3}
+  clothesChanges3: {fileID: -4040389351971304520, guid: ad813fff1c5def141bad066972c5652d, type: 3}
+  balanceoChanges1: {fileID: 0}
+  balanceoChanges2: {fileID: 0}
+  balanceoChanges3: {fileID: 0}
 --- !u!1 &6010884552952336648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +1803,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: -157091195553370736, guid: d2c8f96627ba70b409d902eb56b93f36, type: 3}
+  m_Sprite: {fileID: -3973297061930941072, guid: bd361d0784f589744aeb24ae7b38cb69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2105,6 +2124,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 4652876875469474440, guid: 0f6f474873b46df4dbcd6f4d32354aff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3973297061930941072, guid: ad813fff1c5def141bad066972c5652d, type: 3}
     - target: {fileID: 4652876875469474440, guid: 0f6f474873b46df4dbcd6f4d32354aff, type: 3}
       propertyPath: m_SortingOrder
       value: 1

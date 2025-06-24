@@ -31,6 +31,7 @@ public class GameManagerSave : MonoBehaviour
         PlayerPrefs.SetFloat("posX", data.posX);
         PlayerPrefs.SetFloat("posY", data.posY);
         PlayerPrefs.SetString("scene", data.sceneName);
+        PlayerPrefs.SetInt("clothes", data.clothes);
 
         // Flag para indicar que hay partida guardada
         PlayerPrefs.SetInt("SavedGameExists", 1);
@@ -62,7 +63,17 @@ public class GameManagerSave : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No hay partida guardada");
+            Debug.LogWarning("No hay partida guardada. Cargando escena 0...");
+
+            if (Time.timeScale < 1)
+            {
+                Time.timeScale = 1f;
+            }
+
+            PlayerState.cargarDesdeCheckpoint = false; // No hay checkpoint que cargar
+
+            // Cambiar a escena 0 directamente
+            fadeToBlack.ChangeSceneByIndex(1);
         }
     }
 

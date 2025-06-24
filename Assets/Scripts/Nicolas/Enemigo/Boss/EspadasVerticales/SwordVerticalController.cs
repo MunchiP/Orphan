@@ -60,7 +60,7 @@ public class SwordVerticalController : MonoBehaviour
         transform.localScale = originalScale;
 
         Vector3 finalEuler = transform.eulerAngles;
-        finalEuler.z = 99f;
+        finalEuler.z = 90f;
         transform.eulerAngles = finalEuler;
         bossOneAudioEvents.PlaySwordMove();
 

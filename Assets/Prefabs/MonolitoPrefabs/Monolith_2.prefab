@@ -50,6 +50,7 @@ MonoBehaviour:
   exclamation: {fileID: 1546237965282338731}
   lines:
   - Usa tu habilidad de balanceo.
+  stopPlayerMovement: 0
 --- !u!61 &9171845184815365375
 BoxCollider2D:
   m_ObjectHideFlags: 0
